@@ -273,20 +273,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div id="footer-aside">
               <div id="referafriend" class="background-darkgray" onclick="ga('send', 'event', 'Refer', 'Footer', 'Click');"><h3 class="text-green">refer a friend</h3></div>
-                <form action="https://manage.kmail-lists.com/subscriptions/subscribe?g=Buguta" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
-                  <input type="email" value="" name="EMAIL" class="required email email_update border-white" id="mce-EMAIL" placeholder="sign up for exclusive deals">
-                  <input type="submit" value="go" name="subscribe" id="mc-embedded-subscribe">
-                  <div id="mce-responses" class="clear">
-                    <div class="response" id="mce-error-response"></div>
-                    <div class="response" id="mce-success-response"></div>
-                  </div>
-              </form>
+
+              <div id="getadiscount" class="background-darkgray"><h3 class="text-white">get a discount</h3></div>
+
+
+
+
+
+
+
             </div>
           </div>
         <h3 class="copywrite tac text-white background-darkgray nmb">© {{ shop.name }} {{ 'now' | date: '%Y' }}
         <p class="subscript nm tac">US Patent 9,839,259B2</p></h3>
     </footer>
-    
+    <!-- footer klaviyo newsletter -->
+    <script>
+      $('#getadiscount').click(function() {
+        $('.modal-newsletter').show(); 
+        $('.index-sections, main, header, footer, #banner-cta, .mobile-nav1').addClass('darken')
+        createCookie("newsletterModal", "Displayed", 5)
+          KlaviyoSubscribe.attachToModalForm('.modal-newsletter', {
+            delay_seconds: 0,
+            ignore_cookie: true,
+            success_message: "<div class='success_feedback accent-padding'><div class='accent-padding'><h2 class='nm'>Thank you!</h2><h3>You've unlocked 15% off <br> on orders $40+</h3><p class='tac'>Use code 'Welcome15'</p></div></div>",
+            success: function ($form) {
+              createCookie("emailSignUp", "popup", 14)
+              $('#container-news').css("background-image", "none"); 
+              $('#success-close').show();
+              ga('send', 'event', 'Acquisition', 'Pop Up', 'Website');
+              $form.find('.hide_on_submit').hide();
+            },
+         });  
+      })
+</script>
     <!-- Google Code for Remarketing Tag -->
     <script type="text/javascript">
       /* <![CDATA[ */
@@ -295,6 +315,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var google_remarketing_only = true;
       /* ]]> */
     </script>
+
     <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
     </script>
     <noscript>
