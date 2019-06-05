@@ -1,0 +1,64 @@
+<main id="page" class="cart-page">          
+      <section class="index-padding">
+       <div class="title-border"></div>
+        <h2>Shopping Cart</h2>
+        {% if cart.item_count == 0 %}
+        <h3>Your cart is empty.</h3>
+        <p>Continue shopping by <a href="/collections/women/products/womens-closet-pack">clicking here</a></p>
+        {% endif %}
+      {% if cart.item_count > 0 %}
+      <form action="/cart" method="post">
+        <div class="side-bar-form">
+          {% for item in cart.items %}
+        <div class="flex-container-no border-lightgray">
+            <div class="quarter accent-padding">
+              <a href="{{ item.url}}">
+                <img src="{{ item.product.featured_image | product_img_url: 'large' }}"  alt="{{ item.product.title }}" class="fw">
+              </a>
+            </div>
+            <div class="line-item-details">
+              <h3 class="nmb">{{item.product.title}}</h3>
+              <p>
+                <span>Style:</span> {{ item.variant.title | capitalize }}<br>
+                <span>Qty:</span> <input type="text" size="4" id="updates_{{ item.id }}" name="updates[{{ item.id }}]" value="{{ item.quantity }}"> @ {{ item.line_price | divided_by: item.quantity | money }}</p>
+              </p>
+            </div>
+              <div class="accent-padding price-details">
+                <h3 class="tar">{{ item.line_price | money}} </h3>
+                <a href="/cart/change?id={{ item.id }}&quantity=0" class="cart-update">remove</a></p>
+                <input type="submit" name="update" value="update" class="cart-update">
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="quarter background-lightgray accent-padding">
+          <h3 class="text-green tac">order summary</h3>
+          <div class="index-padding">
+            <p><span>items</span><span class="fr">{{cart.item_count}}</span></p>
+            <p><span>subtotal</span><span class="fr">{{ cart.total_price | money }}</span></p>
+          </div>
+          <input type="submit" id="checkout" name="checkout" value="checkout">
+          <p class="subscript tac text-green">other payment options</p>
+          {% if additional_checkout_buttons %}
+            {{ content_for_additional_checkout_buttons }}
+          {% endif %}
+        </div>
+        </form>
+
+            {% if settings.allow_note == 'yes' %}
+            <div class="note index-padding-to tac">
+              <p><a class="show-note" href="#">{{ settings.note_label }}</a></p>
+              <div class="note-for-seller hidden">
+                <textarea id="note" name="note" placeholder="Write your note">{{ cart.note }}</textarea>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </form> 
+
+</div>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+</main>

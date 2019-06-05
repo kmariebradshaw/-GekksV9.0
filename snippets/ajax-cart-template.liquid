@@ -1,0 +1,53 @@
+ 
+
+ <script id="CartTemplate" type="text/template">
+{% raw %}
+<section class="accent-padding">
+  <a href="/cart"><h3 class="ib">Your Cart</h3></a>
+  <h3 id="close-cart" onclick="cartClose();">✕</h3>
+  <form action="/cart" method="post" novalidate class="border-lightgray ajaxcart  accent-padding">
+    <div id="product-wrap">
+      {{#items}}
+      <div class="flex-container-no">
+        <div class="accent-padding">
+          <a href="{{url}}" class="ajaxcart__product-image">
+            <img src="{{img}}" alt="">
+          </a>
+        </div>
+        <div class="accent-padding">
+          <p class="nmb"><a href="{{url}}"class="ajaxcart__product-name" style="text-transform: none;">{{name}}</a></p>
+          {{#if variation}}
+          <p class="nm"><span>{{{linePrice}}}</span></p>
+          <p class="ajaxcart__product-meta nm subscript nm" style="text-transform: lowercase">{{variation}}</p>
+          <p class="nmt subscript">Quantity: {{itemQty}}</p>
+        </div>
+      </div>
+            {{/if}}
+            {{#properties}}
+              {{#each this}}
+                {{#if this}}
+                  <span class="ajaxcart__product-meta">{{@key}}: {{this}}</span>
+                {{/if}}
+              {{/each}}
+            {{/properties}}
+
+            {{/items}}
+        </div>
+   
+      <div class="ajaxcart__footer index-padding-to">
+        <p class="tac"><span>Subtotal: {{{totalPrice}}}</span></p>
+        <p id="cart-add-ons" class="subscript tac">
+         </p>
+
+        {%endraw%}
+        {% if additional_checkout_buttons %}
+          <div class="additional_checkout_buttons">{{ content_for_additional_checkout_buttons }}</div>
+        {% endif %}{% raw %}
+        <button type="submit" class="btn btn--secondary btn--full cart__checkout btn clickable" name="checkout" style="margin-top: 0.5em;">
+          {% endraw %}Checkout{% raw %}
+        </button>
+      </div>
+    </form>
+  </section>
+  {% endraw %}
+  </script>

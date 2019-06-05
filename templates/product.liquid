@@ -1,0 +1,163 @@
+<main id="product" itemscope itemtype="http://schema.org/Product">
+  <meta itemprop="name" content="{{ product.title }}">
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_image.src | product_img_url: 'grande' }}">
+    {% unless product.title == "Gift Cards" or product.title == "Select" %}
+  <section class="flex-container-no background-green mo-plus accent-padding fw tac">
+            {% capture product_collection_url %}{{ product.url | within: collection }}{% endcapture %}
+            {% for collection in product.collections %}
+              {% if collection.title == "Women"%}
+                {% for link in linklists.product-sub-nav1.links %}
+                  {% unless link.url == product_collection_url %}
+                    <a href="{{ link.url }}" class="accent-padding subscript" id="sub-nav" onclick="ga('send', 'event', 'Product', 'Click', 'Green Sub Nav');">{{ link.title | escape }}</a>
+                  {% endunless %}
+                {% endfor %}
+              {% elsif collection.title == "Men" %}
+                {% for link in linklists.product-sub-nav1-men.links %}
+                  {% unless link.url == product_collection_url%}
+                    <a href="{{ link.url }}" class="accent-padding subscript" id="sub-nav" onclick="ga('send', 'event', 'Product', 'Click', 'Green Sub Nav');">{{ link.title | escape }}</a>
+                  {% endunless %}
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+    {% endunless %}
+  </section>
+  <section id="product-images">
+     {% unless product.title == "Gift Cards" %}
+        <div id="thumbnails" class="ndo-plus">
+          <ul>
+            {% for image in product.images limit: 1 %}
+            <li><img data-src="{{ image | product_img_url: 'compact' }}" class="border-lightgray" class="product-image lazyload"/></li>
+            {% endfor %}
+            {% for image in product.images limit: 5 offset: 2 %}
+            <li><img data-src="{{ image | product_img_url: 'compact' }}" class="product-image lazyload"/></li>
+            {% endfor %} 
+          </ul>
+        </div>
+      {% endunless %} 
+      {% if product.type == "Closet Pack"%}
+      <div class="mo-plus fw" id="moprice"><h3 class="tac nmb">{{ product.price | money }} <span style="text-decoration: line-through; color: gray;">{% if productq.price < product.compare_at_price_max and product.type == "Closet Pack" %}{{ product.compare_at_price | money }}{% endif %}</span></h3>
+        {% if product.title == "Women's Closet Pack" %}
+          <p class="subscript tac nmt">Save $5 when you buy a closet pack!</p>
+        {% elsif product.title == "Men's Closet Pack" %}
+          <p class="subscript tac nmt">Save $4 when you buy a closet pack!</p>
+        {% endif %}
+      </div>
+      {% endif %}
+      <div class="mo-plus fw">
+        <div class="priceu" style="display: none;">
+        {% if product.title == "Women's Closet Pack" %}
+          <h3 class="tac nmb">$36.00 <span style="text-decoration: line-through; color: gray;">{% if product.price < product.compare_at_price_max %}$49.00{% endif %}</span></h3>
+        {% else %}
+          <div class="flex-container-no">
+          <h3 class="tar" style="width: 56%; margin-right: 10px">$18.00 <span class="subscript" style="font-weight: 300; margin: 0 5px;">or</span> $12.00 </h3><span class="subscript" style="font-weight: 300;">when you buy 3 <br>or more pairs</span>
+        </div>
+          {% endif %}
+        </div>
+      </div>
+      <img data-src="{{ product.featured_image.src | product_img_url: '2000x2000' }}" alt="{{ product.title }}" id="featured-image" class="lazyload"/>
+      {% unless product.title == "Gift Cards" %}
+        <div id="thumbnails" class="mo-plus" style="display: none;">
+          <ul>
+            {% for image in product.images limit: 1 %}
+            <li><img data-src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image lazyload"/></li>
+            {% endfor %}
+            {% for image in product.images limit: 5 offset: 2 %}
+            <li><img data-src="{{ image | product_img_url: 'compact' }}" class="product-image lazyload"/></li>
+            {% endfor %} 
+          </ul>
+        </div>
+        {% endunless %}
+  </section>
+  
+  {% include 'product-add-to-cart' %}
+  
+  <section class="fw endorsements-features" id="featured">
+    
+    <ul class="background-beige">
+      <li><p>endorsed by</p></li>
+      {% if product.collections.first.title == "Men" %}
+      {% include 'endorsed_by_m' %}
+      {% else %}
+      {% include 'endorsed_by_w' %} 
+      {% endif %} 
+    </ul>
+  </section>
+  <section id="key-features" class="index-padding">
+    <div class="title-border"></div>
+    <h2>Give Gekks a Go</h2>
+    <ul class="icon-display">
+      <li data-aos="slide-up"><img data-src="{{'sweat.svg' | asset_url}}" alt="Sweat Reducing" class="lazyload"/><br><span class="text-green">stench control</span><br><p class="subscript">antimicrobial yarn eliminates the sockless stench</p></li> 
+      <li class="do" data-aos="slide-up"><img data-src="{{'comfortable.svg' | asset_url}}" alt="Comfortable" class="lazyload" /><br><span class="text-green">comfortable</span><br><p class="subscript">55% polyester, 39% nylon, 6% silver coated nylon</p></li> 
+      <li data-aos="slide-up"><img data-src="{{'longlasting.svg' | asset_url}}" alt="Long Lasting" class="lazyload"/><br><span class="text-green">long lasting</span><p class="subscript">adhesive pads come with two layers to make your Gekks and your soles last longer</p></li> 
+    </ul>
+    <ul class="icon-display">
+      <li data-aos="slide-up"><img data-src="{{'convenient.svg' | asset_url}}" alt="Convenient" class="lazyload"/><br><span class="text-green">convenient</span><p class="subscript">slip in and out barefoot using our patented fastening system</p></li> 
+      <li class="do" data-aos="slide-up"><img data-src="{{'ecofriendly.svg' | asset_url}}" alt="Eco-Friendly" class="lazyload"/><br><span class="text-green">eco-friendly</span><p class="subscript">REPREVE yarn to help you reduce your carbon footprint</p></li> 
+      <li data-aos="slide-up"><img data-src="{{'fashionforward.svg' | asset_url}}" alt="Fashion Forward" class="lazyload"/><br><span class="text-green">fashion forward</span><p class="subscript">rock that sockless style with all your shoe choices</p></li> 
+    </ul>
+    <ul class="icon-display mo">
+      <li data-aos="slide-up"><img data-src="{{'ecofriendly.svg' | asset_url}}" alt="Eco-Friendly" class="lazyload"/><br><span class="text-green">eco-friendly</span><p class="subscript">REPREVE yarn, made from recycled bottles, to help you reduce your carbon footprint</p></li> 
+      <li data-aos="slide-up"><img data-src="{{'comfortable.svg' | asset_url}}" alt="Comfortable"  class="lazyload"/><br><span class="text-green">comfortable</span><br><p class="subscript">55% polyester, 39% nylon, 6% silver coated nylon</p></li> 
+    </ul>
+  </section>
+  <section class="index-padding-bo tac" id="product-masonry">
+	{% capture photo_source %}grid-{{product.id}}.png{% endcapture %}
+    <img class="fw lazyload" data-src="{{ photo_source | asset_url }}"/>
+  </section>
+</main>
+<script>
+  $('.color').change(function() {
+    if ("{{product.title}}" == "Heels & Wedges") {
+      if ($(this).hasClass('nude')) {
+        var src = "//cdn.shopify.com/s/files/1/0424/0893/products/Nude_Heel_3_2000x2000.jpg?v=1529528675"
+        $('#featured-image').attr("src", src)
+        }
+      else if ($(this).hasClass('black')) {
+        $('#featured-image').attr("src","//cdn.shopify.com/s/files/1/0424/0893/products/Womens_BlackHeel_2000x2000.jpg?v=1529528675")
+      }
+    }
+    else if ("{{product.title}}" == "Ballet Flats") {
+      if ($(this).hasClass('nude')) {
+        $('#featured-image').attr("src","//cdn.shopify.com/s/files/1/0424/0893/products/Nude_Flat_Bare_2000x2000.jpg?v=1529418978")
+      }
+      else if ($(this).hasClass('black')) {
+        $('#featured-image').attr("src","//cdn.shopify.com/s/files/1/0424/0893/products/Black_Flat2_2000x2000.jpg?v=1529418978")
+      }
+    }
+    $('.product-image').each(function() {
+      if ($(this).attr("src").replace("compact", "2000x2000") == $('#featured-image').attr("src")) {
+  $(this).addClass('border-lightgray').parent().siblings().children().removeClass('border-lightgray'); 
+      }
+    }); 
+  })
+    
+</script>
+<script text="text/javascript">
+  var _learnq = _learnq || [];
+
+  var item = {
+    Name: {{ product.title|json }},
+    ProductID: {{ product.id|json }},
+    Categories: {{ product.collections|map:'title'|json }},
+    ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+    URL: "{{ shop.secure_url }}{{ product.url }}",
+    Brand: {{ product.vendor|json }},
+    Price: {{ product.price|money|json }},
+    CompareAtPrice: {{ product.compare_at_price_max|money|json }}
+  };
+
+  _learnq.push(['track', 'Viewed Product', item]);
+  _learnq.push(['trackViewedItem', {
+    Title: item.Name,
+    ItemId: item.ProductID,
+    Categories: item.Categories,
+    ImageUrl: item.ImageURL,
+    Url: item.URL,
+    Metadata: {
+      Brand: item.Brand,
+      Price: item.Price,
+      CompareAtPrice: item.CompareAtPrice
+    }
+  }]);
+</script>
