@@ -199,7 +199,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     {% if shop.metafields.locksmith.active %}{% include 'locksmith' %}{% else %}{{ content_for_layout }}{% endif %}
     
-    <footer class="background-green">
+        <footer class="background-green">
         <div class="social-icons">
           <a href="https://www.instagram.com/gekks_go_sockless/?hl=en" target="_blank""><img data-src="{{'ig.png' | asset_url}}" class="lazyload" alt="Instagram" /></a>
           <a href="https://www.facebook.com/GekksLowCutLiners/" target="_blank"><img data-src="{{'fb.png' | asset_url}}" alt="Facebook" class="lazyload" /></a>
@@ -222,19 +222,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div id="footer-aside">
               <div id="referafriend" class="background-darkgray" onclick="ga('send', 'event', 'Refer', 'Footer', 'Click');"><h3 class="text-green">refer a friend</h3></div>
-                <form action="https://manage.kmail-lists.com/subscriptions/subscribe?g=Buguta" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
-                  <input type="email" value="" name="EMAIL" class="required email email_update border-white" id="mce-EMAIL" placeholder="sign up for exclusive deals">
-                  <input type="submit" value="go" name="subscribe" id="mc-embedded-subscribe">
-                  <div id="mce-responses" class="clear">
-                    <div class="response" id="mce-error-response"></div>
-                    <div class="response" id="mce-success-response"></div>
-                  </div>
-              </form>
-            </div>
+
+
+
+
+
           </div>
-        <h3 class="copywrite tac text-white background-darkgray">© {{ shop.name }} {{ 'now' | date: '%Y' }}</h3>
+        <h3 class="copywrite tac text-white background-darkgray nmb">© {{ shop.name }} {{ 'now' | date: '%Y' }}
+        <p class="subscript nm tac">US Patent 9,839,259B2</p></h3>
     </footer>
-    
+
     
     <!-- Google Code for Remarketing Tag -->
     <script type="text/javascript">

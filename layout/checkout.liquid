@@ -22,6 +22,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PWJVTQQ');
 
 </script>
+    <script src="{{ 'custom.jquery.js' | asset_url }}" defer></script>
 
 
     <!-- Global site tag (gtag.js) - Google AdWords: 973442114 -->
@@ -34,10 +35,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'AW-973442114');
 </script>
 <!-- End Google Tag Manager -->
-   	{{'custom.jquery.js' | asset_url | script_tag }}
     {{ 'customcheckout.js' | asset_url | script_tag }}
 
-     {% include 'postpurchase-survey' %}
+    {% include 'postpurchase-survey' %}
     {% include 'auto-twelve' %}
 
   </head>

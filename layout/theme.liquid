@@ -77,6 +77,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    <script src="https://scripts.sirv.com/sirv.js" defer></script>
 
     {% include 'ajax-cart-template' %}
+        {% include 'auto-twelve' %}
+
     <script async>
       jQuery(function($) {
         ajaxCart.init({
@@ -282,7 +284,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-            </div>
           </div>
         <h3 class="copywrite tac text-white background-darkgray nmb">© {{ shop.name }} {{ 'now' | date: '%Y' }}
         <p class="subscript nm tac">US Patent 9,839,259B2</p></h3>
@@ -296,7 +297,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           KlaviyoSubscribe.attachToModalForm('.modal-newsletter', {
             delay_seconds: 0,
             ignore_cookie: true,
-            success_message: "<div class='success_feedback accent-padding'><div class='accent-padding'><h2 class='nm'>Thank you!</h2><h3>You've unlocked 15% off <br> on orders $40+</h3><p class='tac'>Use code 'Welcome15'</p></div></div>",
+            success_message: "<div class='success_feedback accent-padding'><div class='accent-padding'><h2 class='nm'>Thank you!</h2><h3>You've unlocked $12 Gekks when you purchase 3 or more pairs.</h3><p class='tac'>Discount will be automatically applied in checkout</p></div></div>",
             success: function ($form) {
               createCookie("emailSignUp", "popup", 14)
               $('#container-news').css("background-image", "none"); 
