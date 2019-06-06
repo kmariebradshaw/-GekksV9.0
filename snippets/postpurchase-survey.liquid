@@ -2,7 +2,7 @@
 <div class="postpurchase" style="display: none;">
   <div class="close" style="cursor:pointer;" onclick=" ga('send', 'event', 'Referral Source', 'Closed', clickCount)">✕</div>
   <h2>How Did You <br> Hear About Us?</h2>
-  <ul>
+  <ul id="post-purchase-list">
     <li id="Podcast"onclick="ga('send', 'event', 'Referral Source', 'Podcast', clickCount);"><p>Podcast</p></li>
     <li id="Facebook" onclick="ga('send', 'event', 'Referral Source', 'Facebook', clickCount);
 "><p>Facebook</p></li>
@@ -22,4 +22,10 @@
   $('.close').click(function(){
     $('.postpurchase').hide(); 
   }); 
+</script>
+<script>
+var ul = document.querySelector('#post-purchase-list');
+for (var i = ul.children.length; i >= 0; i--) {
+    ul.appendChild(ul.children[Math.random() * i | 0]);
+}
 </script>
