@@ -10,9 +10,18 @@
       <p class="nmt"></p>
       <input type="email" id="newsletter_popup_$email" class="newsletter_email hide_on_submit" name="email">
       <div class="klaviyo_form_actions hide_on_submit">
-        <button type="submit" class="klaviyo_submit_button border-white"><span>let's go!</span></button> 
+        
+       <div class="do">
+          <button type="submit" class="klaviyo_submit_button border-white"><span>let's go!</span></button> 
+       </div>
+        <div class="mo">
+          <button type="submit" class="klaviyo_submit_button border-white"><span>sign up with email</span></button> 
+          <div class="voxie-text-us">
+            <a href="https://inboundtxt.com/t/RxwJEWO"><div class="voxie-text-button border-white"><span>Or Sign Up with Phone</span></div></a>
+          </div>       
+        </div>
       </div>
-      <p class="text-white hide_on_submit">Stay in the know with <b>exclusive deals</b></p>
+      <p class="text-white hide_on_submit do">Stay in the know with <b>exclusive deals</b></p>
       <div class="error_message subscript" style="display: none;"></div> 
     </form>
     <div class="success_message"></div>
@@ -55,16 +64,28 @@ $(document).ready(function(){
   <div class="background-lightgray accent-padding tac exitpop">
   <p class="tar nmt klaviyo_header_close clickable">✕</p>
    <form action="//manage.kmail-lists.com/subscriptions/subscribe" method="POST" novalidate="novalidate" class="klaviyo_subscription_form">
-    <input type="hidden" name="g" value="PUyKK8"> 
+    <input type="hidden" name="g" value="zEZHLa"> 
     <div class="hide_on_submit">
       <h1 class="accent-padding border-white nm">Wait!</h1> 
-      <p class="text-green">Get 10% off your first $30 order.<br> You'll also receive <b>exclusive discounts</b> directly to your email!</p>
+      <p class="text-green">Get 10% off your first $30 order.<br> You'll also receive <b>exclusive discounts</b></p>
       <div class="klaviyo_fieldset hide_on_submit">
       <div class="klaviyo_field_group">
         <input type="email" id="newsletter_popup_$email" name="email"></div>
       </div> 
+     <div class="do">
       <div class="klaviyo_form_actions hide_on_submit">
-        <button type="submit" class="klaviyo_submit_button"><span>Get my discount!</span></button>
+        <div class="do">
+          <button type="submit" class="klaviyo_submit_button"><span>Get My Discount!</span></button>
+        </div>
+      </div>
+      </div>
+      <div class="mo">
+        <div class="klaviyo_form_actions hide_on_submit">
+          <button type="submit" class="klaviyo_submit_button"><span>Sign Up with Email</span></button>
+        </div>
+        <div class="voxie-text-us">
+          <a href="https://inboundtxt.com/t/ax6q3W3"><div class="voxie-text-button"><span>Or Sign Up with Phone</span></div></a>
+        </div>
       </div>
     </div>
    <p class="error_message subscript tac" style="display: none;"></p>
@@ -73,6 +94,12 @@ $(document).ready(function(){
   </div>
 </div>
 
+
+<script>
+  $('.voxie-text-button').click(function() {
+    $(this).closest('.modal').hide(); 
+  })
+</script>
 <script>
 $(document).ready(function(){
   var executed = false 

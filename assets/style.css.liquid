@@ -2026,6 +2026,30 @@ vertical-align: middle;
 .errors ul li { text-align: center; }
 
 /* popups */
+
+/*voxie */
+#exit_offer .voxie-text-button {
+  display: inline-block;
+  font-size: 16pt;
+  line-height: 2;
+  background: #6DCDB8;
+  color: white;
+  text-transform: lowercase;
+  width: 100%;
+  margin-top: 20px;
+}
+#newsletter_popup3 .voxie-text-button {
+  display: inline-block;
+  font-size: 16pt;
+  line-height: 1;
+  color: white;
+  text-transform: lowercase;
+  width: 100%;
+  padding: 7px;
+  background: transparent;
+  border: 2px solid white;
+  margin-top: 20px;
+}
 #submit-span { background-color: transparent !important; }
 .modal {    
   left: 50%;
@@ -2088,8 +2112,8 @@ vertical-align: middle;
   #newsletter_popup3 #container-news {
     border-radius: 100%;
     overflow: hidden;
-    height: 350px;
-    width: 350px;
+    height: 320px;
+    width: 320px;
     max-width: 100%;
     margin: 0 auto;
         background-image: url({{'ab-pop.jpg' | asset_url}}); 
@@ -2098,8 +2122,40 @@ vertical-align: middle;
     background-size: cover;
   }
   #newsletter_popup3 .accent-padding { padding: 20px; }
-  #newsletter_popup3 #container-news h1 { font-size: 23pt; }
-#newsletter_popup3 #container-news p { font-size: 10pt; }
+  #newsletter_popup3 #container-news h1 { font-size: 20pt; }
+  #newsletter_popup3 #container-news p { font-size: 8pt; }
+  #newsletter_popup3 input[type=email] {
+    width: 100%;
+    font-size: 12pt;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    box-sizing: border
+    -box;
+  }
+  #newsletter_popup3 #container-news form .klaviyo_submit_button {
+    display: inline-block;
+    font-size: 12pt;
+    line-height: 1;
+    color: white;
+    text-transform: lowercase;
+    width: 100%;
+    padding: 7px;
+    background: transparent;
+    border: 2px solid white;
+  }
+  #newsletter_popup3 .voxie-text-button {
+    display: inline-block;
+    font-size: 12pt;
+    line-height: 1;
+    color: white;
+    text-transform: lowercase;
+    width: 100%;
+    padding: 7px;
+    background: transparent;
+    border: 2px solid white;
+    margin-top: 10px;
+  }
+}
 /* Blog */
 
 .blog-btn { 
