@@ -58,13 +58,23 @@ $(document).ready(function(){
     <input type="hidden" name="g" value="zEZHLa"> 
     <div class="hide_on_submit">
       <h1 class="accent-padding border-white nm">Wait!</h1> 
-      <p class="text-green">Get 10% off your first $30 order.<br> You'll also receive <b>exclusive discounts</b> directly to your email!</p>
+      <p class="text-green">Get 10% off your first $30 order.<br> You'll also receive <b>exclusive discounts</b></p>
       <div class="klaviyo_fieldset hide_on_submit">
       <div class="klaviyo_field_group">
         <input type="email" id="newsletter_popup_$email" name="email"></div>
       </div> 
+     <div class="do">
       <div class="klaviyo_form_actions hide_on_submit">
-        <button type="submit" class="klaviyo_submit_button"><span>Get my discount!</span></button>
+        <button type="submit" class="klaviyo_submit_button"><span>Get My Discount!</span></button>
+      </div>
+      </div>
+      <div class="mo">
+        <div class="klaviyo_form_actions hide_on_submit">
+          <button type="submit" class="klaviyo_submit_button"><span>Sign Up with Email</span></button>
+        </div>
+        <div class="voxie-text-us">
+          <a href="https://inboundtxt.com/t/ax6q3W3"><div class="voxie-text-button"><span>Or Sign Up with Phone</span></div></a>
+        </div>
       </div>
     </div>
    <p class="error_message subscript tac" style="display: none;"></p>
@@ -72,7 +82,23 @@ $(document).ready(function(){
    <div class="success_message" ></div>
   </div>
 </div>
-
+<style>
+  .voxie-text-button {
+    display: inline-block;
+    font-size: 16pt;
+    line-height: 2;
+    background: #6DCDB8;
+    color: white;
+    text-transform: lowercase;
+    width: 100%;
+    margin-top: 20px;
+  }
+</style>
+<script>
+  $('.voxie-text-button').click(function() {
+    $(this).closest('.modal').hide(); 
+  })
+</script>
 <script>
 $(document).ready(function(){
   var executed = false 
