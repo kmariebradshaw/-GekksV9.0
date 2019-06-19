@@ -322,7 +322,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <noscript>
       <div style="display:inline;">
         <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/973442114/?value=0&amp;guid=ON&amp;script=0"/>
-      </div>
+      </div> 
     </noscript>    
     <!-- END Google Code for Remarketing Tag --> 
     
@@ -332,7 +332,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
     {% include 'remove-sold-out' %}
     {% include 'linked-options' %}
-        
+      <script>
+        $('document').ready(function() {
+          if ((window.location.href.indexOf("welcomeflow") > -1)) {
+            createCookie("emailSignUp", "voxie", 14);
+          }
+        })
+      </script>
     <script>$("#referafriend").click(function(){/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)?document.getElementById("k_id_modal").style.display="inline-block":document.getElementById("desktop_refer_k").style.display="inline-block"});</script>
 
 
