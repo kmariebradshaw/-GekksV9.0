@@ -83,6 +83,45 @@
       {% endif %} 
     </ul>
   </section>
+
+  <!-- brand promise ab -->
+  <section class="brand-promises background-lightgray">
+    <ul class="background-lightgray flex-container-do">
+      {% include 'brand-promise' %}
+    </ul>
+  </section>
+  <style>
+    .brand-promises ul div { width: 25%; }
+    .brand-promises ul { margin: 0 ; padding: 10px; }
+    @media only screen and (min-width: 800px) {
+/*      .flex-container-do {
+        display: flex;
+        align-items: center;
+      }*/
+      .brand-promises ul img { max-width: 100px; }
+      .brand-promises ul div { width: 25%; }
+    }
+    @media only screen and (max-width: 799px) {
+      .brand-promises ul div { 
+        width: 48%; 
+        margin-right: 1%;
+        display: inline-block; 
+      }
+      .brand-promises ul div li span { font-size: 10pt; }
+      .brand-promises ul div img { width: 50px; }
+      .brand-promises ul { width: fit-content; margin: 0 auto; }
+    }
+    @media only screen and (min-width: 589px) {
+      .flex-container-do {
+        display: flex;
+        align-items: center;
+      }
+    }
+  </style>
+  <!-- end  -->
+
+
+
   <section id="key-features" class="index-padding">
     <div class="title-border"></div>
     <h2>Give Gekks a Go</h2>
