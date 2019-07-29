@@ -199,4 +199,9 @@
       CompareAtPrice: item.CompareAtPrice
     }
   }]);
+
+  var _learnq = _learnq || [];
+  document.getElementById("add-cart").addEventListener('click',function (){
+    _learnq.push(['track', 'Added to Cart', item]);
+  });
 </script>
