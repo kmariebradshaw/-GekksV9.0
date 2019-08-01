@@ -497,7 +497,7 @@ body #intro-bubbles li {
                 <div> <img class="sgblogo lazyload" data-src="{{'jlogo.png' | asset_url}}" alt="Gekks" />
                     <h1 style="margin: 0 2%;">tap your sockless <br class="s_w_b" style="display: none;">style problems</h1>
                     <h3 style="margin: 0 9%;">select as many as you'd like</h3>
-                    <ul>
+                    <ul id="select-your-problems">
                       <div class="flip-container">
                         <div class="flipper">
                           <div class="front">
@@ -793,5 +793,11 @@ $('.back').click(function() {
   $(this).parent().parent().hide().prev().fadeIn();
 })
 
+</script>
+ <script>
+var ul = document.querySelector('#select-your-problems');
+for (var i = ul.children.length; i >= 0; i--) {
+    ul.appendChild(ul.children[Math.random() * i | 0]);
+}
 </script>
 
