@@ -285,8 +285,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
           </div>
-        <h3 class="copywrite tac text-white background-darkgray nmb">© {{ shop.name }} {{ 'now' | date: '%Y' }}
-        <p class="subscript nm tac">US Patent 9,839,259B2</p></h3>
+          <div class="background-darkgray">
+            <div class="fw flex-container-no" id="payment-options">
+              <img src="{{'amazon-pay.png' | asset_url}}" class="payment-icon" />
+              <img src="{{'amex.png' | asset_url}}" class="payment-icon" />
+              <img src="{{'apple-pay.png' | asset_url}}" class="payment-icon" />
+              <img src="{{'discover.png' | asset_url}}" class="payment-icon" />
+              <img src="{{'google-pay.png' | asset_url}}" class="payment-icon" />
+              <img src="{{'mastercard.png' | asset_url}}" class="payment-icon" />
+              <img src="{{'paypal.png' | asset_url}}" class="payment-icon" />
+              <img src="{{'visa.png' | asset_url}}" class="payment-icon" />
+            </div>
+            <h3 class="copywrite tac text-white nmb">© {{ shop.name }} {{ 'now' | date: '%Y' }}
+            <p class="subscript nm tac">US Patent 9,839,259B2</p></h3>
+          </div>
     </footer>
     <!-- footer klaviyo newsletter -->
     <script>
