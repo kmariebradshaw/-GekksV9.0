@@ -49,6 +49,7 @@ form input[type=submit], .modal .klaviyo_submit_button, form button { border: no
 .jcs { justify-content: flex-start; }
 .jcc { justify-content: center; }
 .jce { justify-content: flex-end; }
+.jcse { justify-content: space-evenly; }
 .fdc { flex-direction: column; }
 .ais { align-items: flex-start !important; }
 .clickable { cursor: pointer; }
@@ -754,6 +755,22 @@ nav ul li {
       background-color: #6DCDB8; 
 }
 /* footer */
+#payment-options {
+    padding-top: 15px;
+    margin-bottom: -20px;
+}
+@media only screen and (max-width: 589px) {
+  #payment-options img { max-width: 100%; }
+  #payment-options { justify-content: space-evenly; }
+}
+@media only screen and (max-width: 588px) {
+  #payment-options img { width: 30px; }
+  #payment-options { justify-content: space-evenly; }
+}
+@media only screen and (min-width: 589px) {
+  #payment-options img { margin: 0 15px; }
+  #payment-options { justify-content: center; }
+}
 footer ul { 
   display: inline-block; 
   margin: 10px;
