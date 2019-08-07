@@ -1,19 +1,34 @@
 
 <div class="postpurchase" style="display: none;">
   <div class="close" style="cursor:pointer;" onclick=" ga('send', 'event', 'Referral Source', 'Closed', clickCount)">✕</div>
-  <h2>How Did You <br> Hear About Us?</h2>
-  <ul id="post-purchase-list">
-    <li id="Podcast"onclick="ga('send', 'event', 'Referral Source', 'Podcast', clickCount);"><p>Podcast</p></li>
-    <li id="Facebook" onclick="ga('send', 'event', 'Referral Source', 'Facebook', clickCount);
-"><p>Facebook</p></li>
-    <li id="Instagram" onclick="ga('send', 'event', 'Referral Source', 'Instagram', clickCount);
-"><p>Instagram</p></li>
-    <li id="Friend"onclick="ga('send', 'event', 'Referral Source', 'Friend', clickCount);"><p>Friend</p></li>
-     <li id="LiveIntent" onclick="ga('send', 'event', 'Referral Source', 'LiveIntent', clickCount);
-"><p>In Email Advertisement</p></li>
-    <li id="Other" onclick="ga('send', 'event', 'Referral Source', 'Other', clickCount);
-"><p>Other</p></li>
-  </ul>
+  <div class="flex-container-no">
+    <div class="half-no">
+      <h2>How Did You <br> Hear About Us?</h2>
+      <ul id="post-purchase-list">
+        <li id="Podcast"onclick="ga('send', 'event', 'Referral Source', 'Podcast', clickCount);"><p>Podcast</p></li>
+        <li id="Facebook" onclick="ga('send', 'event', 'Referral Source', 'Facebook', clickCount);
+    "><p>Facebook</p></li>
+        <li id="Instagram" onclick="ga('send', 'event', 'Referral Source', 'Instagram', clickCount);
+    "><p>Instagram</p></li>
+        <li id="Friend"onclick="ga('send', 'event', 'Referral Source', 'Friend', clickCount);"><p>Friend</p></li>
+         <li id="LiveIntent" onclick="ga('send', 'event', 'Referral Source', 'LiveIntent', clickCount);
+    "><p>In Email Advertisement</p></li>
+        <li id="Other" onclick="ga('send', 'event', 'Referral Source', 'Other', clickCount);
+    "><p>Other</p></li>
+      </ul>
+    </div>
+    <div class="half-no">
+      <h2>When Did You <br> Hear About Us?</h2>
+      <ul id="post-purchase-time-list">
+        <li id="day"onclick="ga('send', 'event', 'Referral Time', 'Today');"><p>Today</p></li>
+        <li id="week" onclick="ga('send', 'event', 'Referral Time', 'This Week');
+    "><p>This Week</p></li>
+        <li id="month" onclick="ga('send', 'event', 'Referral Time', 'This Month');
+    "><p>This Month</p></li>
+        <li id="more-month"onclick="ga('send', 'event', 'Referral Time', 'More than a Month');"><p>More than a Month Ago</p></li>
+      </ul>
+    </div>
+  </div>
 </div>
  <script>
    var clickCount = 0 
@@ -24,6 +39,9 @@
   $('.close').click(function(){
     $('.postpurchase').hide(); 
   }); 
+  $('#post-purchase-time-list li').click(function() {
+    $(this).siblings().css("pointer-events", "none")
+  })
 </script>
 <script>
 var ul = document.querySelector('#post-purchase-list');
@@ -31,3 +49,11 @@ for (var i = ul.children.length; i >= 0; i--) {
     ul.appendChild(ul.children[Math.random() * i | 0]);
 }
 </script>
+<style>
+  .flex-container-no { 
+    display: flex;
+    align-items: flex-start;
+   }
+
+   .half-no { width: 50%; }
+</style>
