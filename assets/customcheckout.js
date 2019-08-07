@@ -1,8 +1,11 @@
 $(document).ready(function() {
-  var surveyShown = readCookie('postpurchase');
-  if ($(".thank-you__additional-content").length && !surveyShown) {
+  // var surveyShown = readCookie('postpurchase');
+  // if ($(".thank-you__additional-content").length && !surveyShown) {
+  //   $('.postpurchase').show().insertAfter('.thank-you__additional-content'); 
+  //   createCookie('postpurchase', 'true'); 
+  // }
+  if ($(".thank-you__additional-content").length) {
     $('.postpurchase').show().insertAfter('.thank-you__additional-content'); 
-    createCookie('postpurchase', 'true'); 
   }
   if ($(".section--shipping-method").length) {
     $('.gift-option').insertBefore(".section--shipping-method").show(); 
