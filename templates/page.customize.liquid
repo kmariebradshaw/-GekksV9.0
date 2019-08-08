@@ -789,6 +789,9 @@ $(document).on("ready", function() {
     })
 }); 
 
+$('.back-card').click(function() {
+   $(this).prev().find('li').removeClass('highlight')
+})
 $('.flip-container').click(function () {
       $(this).children('.flipper').toggleClass('flipped'); 
 })
