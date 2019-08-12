@@ -26,6 +26,14 @@ var feedback='<p class="ajaxified-cart-feedback '+success+'">'+html+'</p>';$('.i
 $('header, main, footer, #banner-cta').addClass('darken');
 $('#CartContainer').show().removeClass('slide-out').addClass('slide-in'); 
 
+  gtag('event', 'conversion', {
+      'send_to': 'AW-973442114/pvZoCM_NzKcBEMKYltAD',
+      'value': 1.0,
+      'currency': 'USD',
+      'aw_remarketing_only': true
+  });
+
+
 _showFeedback('success',' added to cart! <a href="/cart" class="text-green">View Cart.</a>',$formContainer);if(window.Shopify&&Shopify.StorefrontExpressButtons){Shopify.StorefrontExpressButtons.initialize();}};adjustCart=function(){$body.on('click','.ajaxcart__qty-adjust',function(){if(isUpdating){return;}
 var $el=$(this),line=$el.data('line'),$qtySelector=$el.siblings('.ajaxcart__qty-num'),qty=parseInt($qtySelector.val().replace(/\D/g,''));var qty=validateQty(qty);if($el.hasClass('ajaxcart__qty--plus')){qty+=1;}else{qty-=1;if(qty<=0)qty=0;}
 if(line){updateQuantity(line,qty);}else{$qtySelector.val(qty);}});$body.on('change','.ajaxcart__qty-num',function(){if(isUpdating){return;}
