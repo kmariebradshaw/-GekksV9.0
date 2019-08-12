@@ -32,13 +32,24 @@
 
       <iframe src="https://gekksworks.herokuapp.com/welcome/show" id="iFrame1"/> </iframe>
 <style>
-iframe {
-    width: 100%;
+#iFrame1 {
+    width: 1px;
+    min-width: 100%;
     border: none;
-    height: 600px;
-    overflow-y: scroll;
   }
 </style> 
+<script>
+
+ $("#iFrame1").on("load", function () {
+  console.log('1')
+  $('#iFrame1').iFrameResize( [{
+    checkOrigin:false,
+    log:true,
+    minHeight:15000,
+    heightCalculationMethod:'lowestElement'
+  }] );
+});
+</script>
 <section id="take-the-quiz" class="tac"><h1 class="text-green tac">Find Your Perfect Match.</h1> <a href="/pages/customize"><div class="button border-green text-green" onclick="ga('send', 'event', 'Index Page', 'Click', 'Customize Flow');">Start</div></a> </section></div></div></div> <script>on_index=true;</script>
 
 <script>
