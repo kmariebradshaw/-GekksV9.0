@@ -54,7 +54,7 @@ form input[type=submit], .modal .klaviyo_submit_button, form button { border: no
 .ais { align-items: flex-start !important; }
 .clickable { cursor: pointer; }
 p, textarea, td, ul, li, .error_message, .success_message { font-family: 'Gilroy', sans-serif; font-weight: 300; } 
-body { margin: -15px 0 0 0; color: #545359;overflow-x: hidden;}
+body { margin: 0; color: #545359;overflow-x: hidden;}
 .text-green { color: #6DCDB8; } 
 .text-white { color: #fff; }
 .text-beige { color: #F9F2ED; }
@@ -1044,10 +1044,9 @@ footer input::placeholder { color: #fff; }
 .swatch input { 
   display:none;
 }
-.swatch:hover {
-  cursor: pointer;
-}
+
   .tooltip { display: none; } 
+}
 .crossed-out { position:absolute; width:100%; height:100%; left:0; top:0; }
 .swatch .swatch-element .crossed-out { display:none; }
 .swatch .swatch-element.soldout .crossed-out { display:block; }
@@ -1062,6 +1061,7 @@ footer input::placeholder { color: #fff; }
   width: 30px;
   border-radius: 100%; 
   display: inline-block; 
+  cursor: pointer;
 }
 .color {
     vertical-align: middle;
@@ -1098,7 +1098,10 @@ footer input::placeholder { color: #fff; }
 } 
 .selector-wrapper .single-option-selector {width: 100%;} 
 #quantity { width: 32%; } 
-select { height: 40px; } 
+select { 
+  height: 40px; 
+  cursor: pointer;
+} 
 /*  contact us page  */
 .contact-us .flex-container { 
   background-image: url("{{'Pairs-01.svg' | asset_url }}"); 
