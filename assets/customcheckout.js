@@ -5,6 +5,10 @@ $(document).ready(function() {
     createCookie('postpurchase', 'true'); 
   }
 
+  // if ($(".thank-you__additional-content").length) {
+  //   $('.postpurchase').show().insertAfter('.thank-you__additional-content'); 
+  //   createCookie('postpurchase', 'true'); 
+  // }
 
 
   $('#gift').change(function() {

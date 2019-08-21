@@ -1,11 +1,19 @@
 
 <div class="postpurchase" style="display: none;">
   <div class="close" style="cursor:pointer;" onclick=" ga('send', 'event', 'Referral Source', 'Closed', clickCount)">✕</div>
-  <div class="flex-container-no">
+  <div class="flex-container-no tac">
     <div class="half-no">
       <h2>How Did You <br> Hear About Us?</h2>
       <ul id="post-purchase-list">
-        <li id="Podcast"onclick="ga('send', 'event', 'Referral Source', 'Podcast', clickCount);"><p>Podcast</p></li>
+        <li id="Podcast" class="with-sub"><p onclick="ga('send', 'event', 'Referral Source', 'Podcast', clickCount);">Podcast</p>
+          <ul class="sub-referral">
+            <li id="OJ" onclick="ga('send', 'event', 'Referral Source', 'Podcast - Shows', 'Confronting OJ' );"><p>Confronting OJ</p></li>
+            <li id="Window" onclick="ga('send', 'event', 'Referral Source', 'SiriusXM - Shows', 'Man In The Window');"><p>Man In The Window</p></li>
+            <li id="Long" onclick="ga('send', 'event', 'Referral Source', 'Podcast - Shows', 'Justin Long' );"><p>Justin Long</p></li>
+            <li id="Anna" onclick="ga('send', 'event', 'Referral Source', 'Podcast - Shows', 'Anna');"><p>Anna Faris</p></li>
+            <li id="Dax" onclick="ga('send', 'event', 'Referral Source', 'Podcast - Shows', 'Dax');"><p>Dax Shepard</p></li>
+         </ul>
+        </li>
         <li id="Facebook" onclick="ga('send', 'event', 'Referral Source', 'Facebook', clickCount);
     "><p>Facebook</p></li>
         <li id="Instagram" onclick="ga('send', 'event', 'Referral Source', 'Instagram', clickCount);
@@ -13,8 +21,16 @@
         <li id="Friend"onclick="ga('send', 'event', 'Referral Source', 'Friend', clickCount);"><p>Friend</p></li>
          <li id="LiveIntent" onclick="ga('send', 'event', 'Referral Source', 'LiveIntent', clickCount);
     "><p>In Email Advertisement</p></li>
-      <li id="SiriusXM" onclick="ga('send', 'event', 'Referral Source', 'SiriusXM', clickCount);
-    "><p>SiriusXM</p></li>
+      <li id="SiriusXM" class="with-sub"><p onclick="ga('send', 'event', 'Referral Source', 'SiriusXM', clickCount);">SiriusXM</p>
+        <ul class="sub-referral">
+          <li id="Stars" onclick="ga('send', 'event', 'Referral Source', 'SiriusXM - Shows', 'Stars Female Talk' );"><p>Stars</p></li>
+          <li id="Today" onclick="ga('send', 'event', 'Referral Source', 'SiriusXM - Shows', 'Today Morning Show');"><p>Today Show</p></li>
+          <li id="Andy" onclick="ga('send', 'event', 'Referral Source', 'SiriusXM - Shows', 'Radio Andy' );"><p>Andy Cohen</p></li>
+          <li id="MSNBC" onclick="ga('send', 'event', 'Referral Source', 'SiriusXM - Shows', 'MSNBC');"><p>MSNBC</p></li>
+          <li id="Joel Osteen" onclick="ga('send', 'event', 'Referral Source', 'SiriusXM - Shows', 'Joel Osteen');"><p>Joel Osteen</p></li>
+          <li id="Barstool" onclick="ga('send', 'event', 'Referral Source', 'SiriusXM - Shows', 'Barstool');"><p>Barstool</p></li>
+         </ul>
+      </li>
         <li id="Other" onclick="ga('send', 'event', 'Referral Source', 'Other', clickCount);
     "><p>Other</p></li>
       </ul>
@@ -27,16 +43,28 @@
     "><p>This Week</p></li>
         <li id="month" onclick="ga('send', 'event', 'Referral Time', 'This Month');
     "><p>This Month</p></li>
-        <li id="more-month"onclick="ga('send', 'event', 'Referral Time', 'More than a Month');"><p>More than a Month Ago</p></li>
+        <li id="more-month"onclick="ga('send', 'event', 'Referral Time', '1 to 3');"><p>1 to 3 Months Ago</p></li>
+        <li id="more-month"onclick="ga('send', 'event', 'Referral Time', '3 to 6');"><p>3 to 6 Months Ago</p></li>
+        <li id="more-month"onclick="ga('send', 'event', 'Referral Time', '6+');"><p>6+ Months Ago</p></li>
       </ul>
     </div>
   </div>
 </div>
+<style>
+  .sub-selected { border: 5px solid gray !important; }
+  .sub-referral { display: none; }
+</style>
  <script>
    var clickCount = 0 
   $('.postpurchase li').click(function() {
     clickCount += 1 
-	$(this).addClass('referral-selected'); 
+    if ($(this).hasClass('with-sub')) {
+      $(this).addClass('sub-selected')
+      $(this).children('.sub-referral').slideDown();
+    }
+    else {
+	   $(this).addClass('referral-selected');
+    }  
   }); 
   $('.close').click(function(){
     $('.postpurchase').hide(); 
