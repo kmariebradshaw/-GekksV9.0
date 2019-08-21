@@ -1,14 +1,14 @@
 $(document).ready(function() {
-  // var surveyShown = readCookie('postpurchase');
-  // if ($(".thank-you__additional-content").length && !surveyShown) {
-  //   $('.postpurchase').show().insertAfter('.thank-you__additional-content'); 
-  //   createCookie('postpurchase', 'true'); 
-  // }
-
-  if ($(".thank-you__additional-content").length) {
+  var surveyShown = readCookie('postpurchase');
+  if ($(".thank-you__additional-content").length && !surveyShown) {
     $('.postpurchase').show().insertAfter('.thank-you__additional-content'); 
     createCookie('postpurchase', 'true'); 
   }
+
+  // if ($(".thank-you__additional-content").length) {
+  //   $('.postpurchase').show().insertAfter('.thank-you__additional-content'); 
+  //   createCookie('postpurchase', 'true'); 
+  // }
 
 
   $('#gift').change(function() {
