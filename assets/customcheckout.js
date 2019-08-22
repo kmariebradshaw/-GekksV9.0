@@ -4,13 +4,6 @@ $(document).ready(function() {
     $('.postpurchase').show().insertAfter('.thank-you__additional-content'); 
     createCookie('postpurchase', 'true'); 
   }
-
-  // if ($(".thank-you__additional-content").length) {
-  //   $('.postpurchase').show().insertAfter('.thank-you__additional-content'); 
-  //   createCookie('postpurchase', 'true'); 
-  // }
-
-
   $('#gift').change(function() {
     if ($(this).prop("checked") == true) {
       jQuery.post('/cart/update.js', {note: "gift"});
@@ -19,4 +12,4 @@ $(document).ready(function() {
 })
 
 
- 
+  
