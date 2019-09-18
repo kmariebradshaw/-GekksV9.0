@@ -11,9 +11,15 @@
       <input type="email" id="newsletter_popup_$email" class="newsletter_email hide_on_submit" name="email">
       <div class="klaviyo_form_actions hide_on_submit">
         
-       <div class="">
+       <div class="do">
           <button type="submit" class="klaviyo_submit_button border-white"><span>let's go!</span></button> 
        </div> 
+         <div class="mo">
+          <button type="submit" class="klaviyo_submit_button border-white"><span>sign up with email</span></button> 
+          <div class="voxie-text-us">
+            <a href="https://inboundtxt.com/t/RxwJEWO"><div class="voxie-text-button border-white"><span>Or Sign Up with Phone</span></div></a>
+          </div>       
+        </div>
       </div>
       <p class="text-white hide_on_submit do">Stay in the know with <br><b>exclusive deals</b></p>
       <div class="error_message subscript" style="display: none;"></div> 
@@ -70,7 +76,16 @@ $(document).ready(function(){
         <div class="do">
           <button type="submit" class="klaviyo_submit_button"><span>Get My Discount!</span></button>
         </div>
+
       </div>
+      </div>
+        <div class="mo">
+        <div class="klaviyo_form_actions hide_on_submit">
+          <button type="submit" class="klaviyo_submit_button"><span>Sign Up with Email</span></button>
+        </div>
+        <div class="voxie-text-us">
+          <a href="https://inboundtxt.com/t/ax6q3W3"><div class="voxie-text-button"><span>Or Sign Up with Phone</span></div></a>
+        </div>
       </div>
     </div>
    <p class="error_message subscript tac" style="display: none;"></p>
@@ -78,7 +93,12 @@ $(document).ready(function(){
    <div class="success_message" ></div>
   </div>
 </div>
-
+<script>
+  $('.voxie-text-button').click(function() {
+    $(this).closest('.modal').hide(); 
+    ga('send', 'event', 'Acquisition', 'Voxie', 'Website');
+  })
+</script>
 <script>
 $(document).ready(function(){
   var executed = false 
