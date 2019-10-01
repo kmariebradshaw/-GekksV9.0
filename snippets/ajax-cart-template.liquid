@@ -5,7 +5,7 @@
 <section class="accent-padding">
   <a href="/cart"><h3 class="ib">Your Cart</h3></a>
   <h3 id="close-cart" onclick="cartClose();">✕</h3>
-  <form action="/cart" method="post" novalidate class="border-lightgray ajaxcart  accent-padding">
+  <form action="/cart" method="post" novalidate class="border-lightgray ajaxcart  accent-padding" id="ajax-cart-form">
     <div id="product-wrap">
       {{#items}}
       <div class="flex-container-no">
@@ -45,9 +45,10 @@
           {% endraw %}Checkout{% raw %}
         </button>
         {% endraw %}
-        {% if additional_checkout_buttons %}
-          <div class="additional_checkout_buttons">{{ content_for_additional_checkout_buttons }}</div>
-        {% endif %}
+          {% if additional_checkout_buttons %}
+           <p class="subscript tac text-green">other payment options</p>
+            {{ content_for_additional_checkout_buttons }}
+          {% endif %}
         {% raw %}
       </div>
     </form>

@@ -204,7 +204,7 @@ body .mobile-nav1 li:last-of-type, body .mobile-nav1 li:nth-of-type(4) {
       #atf1 {height: 100vw;} 
 
 
-    #CartContainer form  {   height: calc(100vh - 130px);}
+   #ajax-cart-form  {   height: calc(100vh - 130px);}
   #washing h3 { padding: 10px; }
   #washing-instructions h3 { text-align: center; }
   .mobile-nav1 .childlink li a { 
@@ -1547,7 +1547,7 @@ body .up-label-vis:after {
 .ndo-plus .priceu .tac { text-align: left; }
   .swatch { text-align: left; } 
   .about-us  div .connecter {margin: -20px;}
-      #CartContainer form  {   height: calc(100vh - 153px);}
+       #ajax-cart-form  {   height: calc(100vh - 153px);}
 
   #washing-instructions img { 
   height: 250px; 
@@ -1943,13 +1943,19 @@ body .additional-checkout-button {
   background-position: -65px bottom;
   background-size: contain;
   background-repeat: no-repeat;
-      width: 45%;
     min-width: 320px;
     max-width: 450px;
     right: 0;
         transform: translateX(100%);
     -webkit-transform: translateX(100%);
 }
+}
+@media only screen and (min-width: 750px) {
+  #CartContainer { width: 450px; }
+  .shopify-cleanslate ._3mgStMpRn3ZERlUsxma1Bc{ width: 339px; }
+}
+@media only screen and (max-width: 749px) {
+  #CartContainer { width: 45%; }
 }
 #CartContainer form .flex-container-no .accent-padding { width: 50%; }
 #CartContainer form { min-height: fit-content; }
