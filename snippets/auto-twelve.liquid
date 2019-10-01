@@ -8,7 +8,7 @@ $(document).ready(function(){
         $('.priceu').show();
       {% endif %}
     {% endif %}
-      if ($(".section--contact-information").length || $('.section--shipping-method').length) {
+    if ((window.location.href.indexOf("checkouts") > -1)) {
       var total = '{{checkout.item_count}}';
       var womenscpak = 0;  
       {% for item in checkout.line_items %}
