@@ -31,6 +31,29 @@ $(document).ready(function(){
         }
       } 
       }
+      else {
+        var total = '{{cart.item_count}}';
+        var womenscpak = 0;  
+        {% for item in cart.items %}
+        {% case item.product.id %}
+          {% when 8081586504 %}
+            womenscpak = '{{item.quantity}}'
+        {% endcase %}
+      {% endfor %}
+      if (womenscpak == 0 ) {
+        if (total >= 3 && womenscpak == 0) {
+          jQuery.get('/discount/GKKM12')
+        }
+      }
+      else {
+        if (total - womenscpak == 0) {
+          jQuery.get('/discount/GKKMGWC')
+        }
+        else {
+          jQuery.get('/discount/GWC' + (womenscpak) + "S" + (total - womenscpak))
+        }
+      } 
+      }
   }
 }); 
 </script>
