@@ -82,6 +82,13 @@ $('.klaviyo_header_close').on('click', function() {
   $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
 
 });
+
+function closeWelcomePop() {
+  $('#newsletter_popup3').hide(); 
+  $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
+
+}
+
 $('body').click(function (event) {
    if(!$(event.target).closest('.modal').length && !$(event.target).is('.modal') && !$(event.target).is('#referafriend h3') && !$(event.target).is('#getadiscount h3') && !
     $(event.target).is('#size-chart')  && !$(event.target).closest('#CartContainer').length && !$(event.target).is('button') && !$(event.target).is('button span') && !$(event.target).is('#hamburger span') && !$(event.target).closest('.mobile-nav1').length ) {
