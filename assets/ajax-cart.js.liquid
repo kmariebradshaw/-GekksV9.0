@@ -35,37 +35,40 @@ $('#CartContainer').show().removeClass('slide-out').addClass('slide-in');
 
 
   var emailSignUp = readCookie('emailSignUp');
+
   if (emailSignUp) {
         var total = cart.item_count;
-        console.log('here')
-        console.log(total)
         var womenscpak = 0;  
- 
          $.each(cart.items, function(index, cartItem) {
            console.log(cartItem.id); 
            if ( (cartItem.id == 26654825736) || (cartItem.id == 26654748040) || (cartItem.id == 26654825672)) {
              womenscpak += cartItem.quantity
+
            }
             
          });
- 
- 
       if (womenscpak == 0 ) {
         if (total >= 3 && womenscpak == 0) {
+          var twelvesub = "$" + total * 12 + ".00"
           jQuery.get('/discount/GKKM12')
-          console.log('no closet')
+          // $('#ajax-cart-price span').text('$12.00'); 
+          $('#ajax-cart-price-subtotal #original-sub').addClass('strikethrough'); 
+          $('#ajax-cart-price-subtotal #add-new').text(" " + twelvesub); 
         }
       }
       else {
         if (total - womenscpak == 0) {
+          var twelvesub = "$" + total * 36 + ".00"
           jQuery.get('/discount/GKKMGWC')
-                    console.log('closet')
-
+          // $('#ajax-cart-price span').text('$36.00'); 
+          $('#ajax-cart-price-subtotal #original-sub').addClass('strikethrough'); 
+          $('#ajax-cart-price-subtotal #add-new').text(" " + twelvesub); 
         }
         else {
-          jQuery.get('/discount/GWC' + (womenscpak) + "S" + (total - womenscpak))
-                    console.log('closet pack plus')
-
+          var twelvesub = "$" + (((total - womenscpak) * 12) + (womenscpak * 36)) +  ".00"        
+          jQuery.get('/discount/GWC' + (womenscpak) + "S" + (total - womenscpak));
+          $('#ajax-cart-price-subtotal #original-sub').addClass('strikethrough'); 
+          $('#ajax-cart-price-subtotal #add-new').text(" " + twelvesub); 
         }
       } 
   }
