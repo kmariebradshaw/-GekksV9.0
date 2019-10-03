@@ -15,9 +15,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PWJVTQQ');
 
 </script>
-     <!-- LiveConnectTag for advertisers -->
-  <script type="text/javascript" src="//b-code.liadm.com/a-021u.min.js" async="true" charset="utf-8"></script>
-<!-- LiveConnectTag for advertisers -->
+
 
 
 <!-- Global site tag (gtag.js) - Google AdWords: 973442114 -->
@@ -79,6 +77,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    <script src="https://scripts.sirv.com/sirv.js" defer></script>
 
     {% include 'ajax-cart-template' %}
+     {% include 'auto-twelve' %}
 
     <script async>
       jQuery(function($) {
@@ -310,13 +309,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           KlaviyoSubscribe.attachToModalForm('.modal-newsletter', {
             delay_seconds: 0,
             ignore_cookie: true,
-            success_message: "<div class='success_feedback accent-padding'><div class='accent-padding'><h2 class='nm'>Thank you!</h2><h3>You've unlocked 15% off <br> on orders $40+</h3><p class='tac'>Use code 'Welcome15'</p></div></div>",            
+          success_message: "<div class='success_feedback accent-padding'><div class='accent-padding'><p class='nmt klaviyo_header_close_news tac clickable' style='font-size: 12pt;' onclick='closeWelcomePop()'>X</p><h2 class='nm'>Thank you!</h2><h3>You've unlocked $12 Gekks when you purchase 3 or more pairs.</h3><p class='tac'>Discount will be automatically applied in checkout</p></div></div>",
               success: function ($form) {
               createCookie("emailSignUp", "popup", 14)
               $('#container-news').css("background-image", "none"); 
               $('#success-close').show();
               ga('send', 'event', 'Acquisition', 'Pop Up', 'Website');
-              $form.find('.hide_on_submit').hide();
+      $form.hide().find('.hide_on_submit').hide();
             },
          });  
       })
@@ -361,12 +360,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   duration: 600,
 })
   </script>
-    <script>
-    $('document').ready(function() {
-      deleteCookie("emailSignUp"); 
-    }); 
-    
-  </script>
+
 <input class="js-form-discount" type="hidden" name="discount" value="" style="display: none;" >
 
   {% include 'carro' %}</body>

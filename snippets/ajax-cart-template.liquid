@@ -5,7 +5,7 @@
 <section class="accent-padding">
   <a href="/cart"><h3 class="ib">Your Cart</h3></a>
   <h3 id="close-cart" onclick="cartClose();">✕</h3>
-  <form action="/cart" method="post" novalidate class="border-lightgray ajaxcart  accent-padding">
+  <form action="/cart" method="post" novalidate class="border-lightgray ajaxcart  accent-padding" id="ajax-cart-form">
     <div id="product-wrap">
       {{#items}}
       <div class="flex-container-no">
@@ -17,7 +17,7 @@
         <div class="accent-padding">
           <p class="nmb"><a href="{{url}}"class="ajaxcart__product-name" style="text-transform: none;">{{name}}</a></p>
           {{#if variation}}
-          <p class="nm"><span>{{{linePrice}}}</span></p>
+          <p class="nm" id="ajax-cart-price"><span>{{{linePrice}}}</span></p>
           <p class="ajaxcart__product-meta nm subscript nm" style="text-transform: lowercase">{{variation}}</p>
           <p class="nmt subscript">Quantity: {{itemQty}}</p>
         </div>
@@ -35,19 +35,19 @@
         </div>
    
       <div class="ajaxcart__footer index-padding-to">
-        <p class="tac"><span>Subtotal: {{{totalPrice}}}</span></p>
+        <p class="tac" id="ajax-cart-price-subtotal"><span>Subtotal:</span><span id="original-sub"> {{{totalPrice}}}</span><span id="add-new"></span></p>
         <p id="cart-add-ons" class="subscript tac">
          </p>
-
         {%endraw%}
         {% raw %}
         <button type="submit" class="btn btn--secondary btn--full cart__checkout btn clickable" name="checkout" style="margin-bottom: 5px;">
           {% endraw %}Checkout{% raw %}
         </button>
         {% endraw %}
-        {% if additional_checkout_buttons %}
-          <div class="additional_checkout_buttons">{{ content_for_additional_checkout_buttons }}</div>
-        {% endif %}
+          {% if additional_checkout_buttons %}
+           <p class="subscript tac text-green">other payment options</p>
+            {{ content_for_additional_checkout_buttons }}
+          {% endif %}
         {% raw %}
       </div>
     </form>

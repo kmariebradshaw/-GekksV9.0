@@ -7,6 +7,9 @@
     <link rel="icon" type="image/png" href="{{ 'favicon.png' | asset_url }}">
 
     <title>{{ page_title }}</title>
+        <script src="{{ 'jquery.min.js' | asset_url }}"></script>
+
+    {% include 'auto-twelve' %}
 
     {{ content_for_header }}
     {{ checkout_scripts }}
@@ -23,9 +26,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </script>
     <script src="{{ 'custom.jquery.js' | asset_url }}" defer></script>
-<!-- LiveConnectTag for advertisers -->
-  <script type="text/javascript" src="//b-code.liadm.com/a-021u.min.js" async="true" charset="utf-8"></script>
-<!-- LiveConnectTag for advertisers -->
 
     <!-- Global site tag (gtag.js) - Google AdWords: 973442114 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-973442114"></script>
@@ -40,7 +40,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {{ 'customcheckout.js' | asset_url | script_tag }}
 
     {% include 'postpurchase-survey' %}
-    {% include 'auto-twelve' %}
 
   </head>
   
