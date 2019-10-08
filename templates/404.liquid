@@ -22,7 +22,7 @@
           <div class="btn background-green clickable"  onClick="ga('send', 'event', '404', 'Guess', 'Red');"><h3 class="text-white tac accent-padding">Red</h3></div>
         </div>
       </section>
-      <a href="/"><h5 class="text-green tac">or go back</h5></a>
+      <a href="/" class="go-back-404"><h5 class="text-green tac">or go back</h5></a>
     </div>
   </section>
 </main>
@@ -39,6 +39,7 @@
         $('#not-found-page p').html("He's a little new to the rules around<br> here. We apologize on his behalf, but<br> only until he's out of his puppy phase.")
         $('#jasper img').hide()
         $('#culprit').show();
+        $('.go-back-404').hide(); 
         $(this).hide().parent().siblings().hide()
           break;
       case "picci":
