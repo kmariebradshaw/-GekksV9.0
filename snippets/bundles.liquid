@@ -37,7 +37,7 @@
 
 // bundles info 
 $(document).ready(function() {
-$('.info-icon, .info-banner').click(function() {
+$('.info-icon, .info-banner, .button-trigger').click(function() {
   $('#display-bundle').fadeIn(); 
   $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').addClass('darken');
   ga('send', 'event', 'Bundles', 'Bundles Shown', '{{template.name}}');

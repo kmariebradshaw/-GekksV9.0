@@ -5,7 +5,7 @@
     <form action="//manage.kmail-lists.com/subscriptions/subscribe" method="POST" novalidate="novalidate" class="hide_on_submit klaviyo_subscription_form">
       <input type="hidden" name="g" value="Ai9wnf">
       <h1 class="text-white nm hide_on_submit">Over 30% Off</h1>
-          <p class="hide_on_submit text-white nmt"><span>by unlocking $12 Gekks</span></p>  
+          <p class="hide_on_submit text-white nmt"><span>by unlocking Bundles</span></p>  
 
       <p class="nmt"></p>
       <input type="email" id="newsletter_popup_$email" class="newsletter_email hide_on_submit" name="email" placeholder="enter email">
@@ -16,7 +16,7 @@
        </div> 
          <div class="mo">
           <button type="submit" class="klaviyo_submit_button border-white"><span>sign up</span></button> 
-          <div class="voxie-text-us">
+          <div class="voxie-text-us" style="display: none;">
             <a href="https://inboundtxt.com/t/RxwJEWO"><div class="voxie-text-button border-white"><span>Or Sign Up with Phone</span></div></a>
           </div>       
         </div>
@@ -40,7 +40,7 @@ $(document).ready(function(){
         KlaviyoSubscribe.attachToModalForm('.modal-newsletter', {
           delay_seconds: 0,  
           ignore_cookie: true,
-          success_message: "<div class='success_feedback accent-padding'><div class='accent-padding'><p class='nmt klaviyo_header_close_news tac clickable' style='font-size: 12pt;' onclick='closeWelcomePop()'>X</p><h2 class='nm'>Thank you!</h2><h3>You've unlocked $12 Gekks when you purchase 3 or more pairs.</h3><p class='tac'>Discount will be automatically applied in checkout</p></div></div>",
+          success_message: "<div class='success_feedback accent-padding'><div class='accent-padding'><p class='nmt klaviyo_header_close_news tac clickable' style='font-size: 12pt;' onclick='closeWelcomePop()'>X</p><h2 class='nm'>Thank you!</h2><h3>You've unlocked Bundle Pricing</h3><table><tr><th class='t-size table-title'>Pairs</th><th class='t-size table-title'>Price / Pair</th><th class='t-size table-title'>Savings</th></tr><tr class='lg'><td>1</td><td>$18.00</td><td>$0.00</td></tr><tr class='dg'><td>2</td><td>$16.00</td><td>$4.00</td></tr><tr class='lg'><td>3</td><td>$12.00</td><td>$18.00</td></tr><tr class='dg'><td>4+</td><td>$10.00</td><td>$32.00</td></tr></table><p class='tac'>Discount will be automatically applied in checkout</p></div></div>",
            success: function ($form) {
             createCookie("emailSignUp", "popup", 14)
             $('#container-news').css("background-image", "none"); 

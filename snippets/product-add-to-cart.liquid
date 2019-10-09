@@ -18,9 +18,9 @@
         {% if product.price < product.compare_at_price_max and product.type == "Closet Pack" %}<p style="display: inline-block;" class="subscript" id="compare-price-{{ product.id }}">{{ product.compare_at_price | money }}</p>{% endif %}
       </div>
       {% else %}
-        <p id="product-price-{{ product.id }}">{{ product.price | money }}</p>
+        <p id="product-price-{{ product.id }}" class="strikethrough">{{ product.price | money }}</p>
       {% endif %}
-                  <img src="{{'info-icon.png' | asset_url}}" class="info-icon clickable do" />
+                  <img src="{{'info-icon.png' | asset_url}}" class="info-icon clickable" />
 
       {% unless product.title == "Select" or product.title == "Gift Cards" %} 
       <div id="review-details" class="ib">
@@ -64,6 +64,8 @@
         </span>
        </div>
      </a>
+             <h5 class="text-green underline button-trigger subscript nm clickable">Learn about our bundle pricing</h5>
+
     </div>  
 
       {% endunless %}

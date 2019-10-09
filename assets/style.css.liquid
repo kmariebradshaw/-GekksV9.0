@@ -20,8 +20,10 @@ a {
   text-transform: lowercase; 
   text-decoration: none;
 }  
+.ma { margin: 0 auto; }
 .invis {     visibility: hidden;
  }
+ .underline { text-decoration: underline; }
  .strikethrough { color: gray; text-decoration: line-through; }
 div { box-sizing: border-box; } 
 html { padding-bottom: 0 !important; } 
@@ -986,12 +988,29 @@ footer input::placeholder { color: #fff; }
   }
   .announcement-bar { line-height: 33px; }
   @media only screen and (max-width: 588px) {
+    .index-sections .button {
+      text-transform: none;
+      display: inline-block;
+      padding: 5px;
+      width: 150px;
+    }
     .index-sections .info-icon {
-      width: 20px !important;
+      width: 20px;
       margin-top: -12px;
+      position: absolute;
+      margin-left: 3px;
     }
   }
-.index-sections  .info-icon { width: 30px; }
+  @media only screen and (min-width: 589px) {
+  .index-sections .button-trigger { margin-top: 10px !important; } 
+  .index-sections  .info-icon { 
+      width: 30px; 
+      margin-top: -20px;
+      position: absolute;
+      margin-left: 30px;
+    }
+  }
+.index-sections .button-trigger { background-color: white; }
 .info-icon { width: 20px; }
 
   #sold-out-email {
