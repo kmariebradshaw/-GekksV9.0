@@ -20,9 +20,11 @@
       {% else %}
         <p id="product-price-{{ product.id }}">{{ product.price | money }}</p>
       {% endif %}
+                  <img src="{{'info-icon.png' | asset_url}}" class="info-icon clickable do" />
+
       {% unless product.title == "Select" or product.title == "Gift Cards" %} 
       <div id="review-details" class="ib">
-      <a href="/pages/reviews">
+      <a href="/pages/r eviews">
         <div class="prodrating">
           {% if product.title == "Ballet Flats" or product.type == "Closet Pack" or product.title == "Heels & Wedges" %}
           <img src="{{'475stars.png' | asset_url}}" alt="4.75" />
@@ -65,17 +67,56 @@
     </div>  
 
       {% endunless %}
-                 <div class=" fw ndo-plus">
-        <div class="priceu" style="display: none;">
-        {% if product.title == "Women's Closet Pack" %}
-          <h3 class="tac nmb">$36.00 <span style="text-decoration: line-through; color: gray;">{% if product.price < product.compare_at_price_max %}$49.00{% endif %}</span></h3>
-        {% else %}
-          <div class="flex-container-no">
-          <h3 class="" style=" margin-right: 10px">$18 <span class="subscript" style="font-weight: 300; margin: 0 5px;">or</span> $12 </h3><span class="subscript" style="font-weight: 300;">when you buy 3 <br>or more pairs</span>
+        <div class=" fw ndo-plus">
+          <div class="priceu" style="display: none;">
+            {% if product.title == "Women's Closet Pack" %}
+              <p class="tac nm ib"><span>$36.00</span> <span style="text-decoration: line-through; color: gray;" class="subscript">{% if product.price < product.compare_at_price_max %}$49.00{% endif %}</span></p>
+            {% else %}
+              <div class="flex-container-no">
+                <p class="nm ib" style=" margin-right: 10px; font-weight: 800;">$18 <span class="subscript" style="font-weight: 300; margin: 0 5px;">or</span> $12 </p><span class="subscript" style="font-weight: 300;">when you buy 3 <br>or more pairs</span>
+              </div>
+            <div id="review-details" class="ib">
+              <a href="/pages/reviews">
+                <div class="prodrating">
+                  {% if product.title == "Ballet Flats" or product.type == "Closet Pack" or product.title == "Heels & Wedges" %}
+                    <img src="{{'475stars.png' | asset_url}}" alt="4.75" />
+                  {% else %}
+                    <img src="{{'4stars.png' | asset_url}}" alt="4" />         
+                  {% endif%}
+                </div>
+                <span class="text-green vam">
+                  {% case product.title %}
+                    {% when "Ballet Flats" %}
+                      1224
+                    {% when "Women's Closet Pack" %}
+                      540
+                    {% when "Heels & Wedges" %}
+                      87
+                    {% when "Men's Closet Pack" %}
+                      109
+                    {% when "Loafers & Slip-Ons" %}
+                      {% if product.collections.first.title == "Women" %}
+                        323
+                      {% else %}
+                        124
+                      {% endif %}
+                    {% when "Sneakers & Lace-Ups" %}
+                      {% if product.collections.first.title == "Women" %}
+                        219
+                      {% else %}
+                        76
+                      {% endif %}
+                  {% endcase %}
+                </span>
+              </a>
+            </div>
+                        {% endif %}
+          </div>
+
+
+
         </div>
-          {% endif %}
-        </div>
-      </div>
+
       {% else %}
         <meta itemprop="priceCurrency" content="{{ shop.currency }}">                          
         <link itemprop="availability" href="http://schema.org/OutOfStock">
@@ -171,46 +212,6 @@
     </div>
   {% endunless %}
 </form>
-
-<div style="display: none;" id="display-size" class="sizing-chart border-lightgray modal">
-  <div class="accent-padding">
-   <p class="nm klaviyo_header_close tar clickable">✕</p>
-  <table>
-    <tr>
-      <th colspan="2" class="blank-row"></th>
-      <th class="t-size table-title">small</th>
-      <th class="t-size table-title">medium</th>
-      <th class="t-size table-title">large</th>
-    </tr>
-    <tr class="lg">
-      <td rowspan="2" class="table-title"><span>mens</span></td>
-      <td class="table-title lg">US</td>
-      <td>6.5-8</td>
-      <td>8.5-11</td>
-      <td>11.5+</td>
-    </tr>
-    <tr class="dg">
-      <td class="table-title">UK</td>
-      <td>39-41</td>
-      <td>42-44</td>
-      <td> 44+ </td>
-    </tr>
-    <tr class="lg">
-      <td rowspan="2" class="table-title"><span>womens</span></td>
-      <td class="table-title lg">US</td>
-      <td>5-6.5</td>
-      <td>7-8.5</td>
-      <td>9-11.5</td>
-    </tr>
-    <tr class="dg">
-      <td class="table-title">UK</td>
-      <td>35-37</td>
-      <td>38-39</td>
-      <td>40-42</td>
-    </tr>
-  </table>
-</div>
-</div>
 
 {% unless product.title == "Select" %} 
 {% if product.available %}

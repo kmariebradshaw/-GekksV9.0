@@ -77,8 +77,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    <script src="https://scripts.sirv.com/sirv.js" defer></script>
 
     {% include 'ajax-cart-template' %}
-     {% include 'auto-twelve' %}
-
+    {% include 'bundles' %}
     <script async>
       jQuery(function($) {
         ajaxCart.init({
@@ -155,6 +154,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
     <header>
+      <div class="background-green tac fw announcement-bar"><p class="nm clickable info-banner"><span class="text-white">Bundle And Save: Click For Details</span></p></div>
       <div class="wrap cbb-ignored-image" style="text-align: center;">
         <a href="/?sh=d">
             <img src="{{'jlogo.png' | asset_url}}" alt="Gekks" class="logo" />
@@ -170,7 +170,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <li class="sub-nav-header"><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a></li>
                     {% endfor %}
                     <div class="sub-nav">
-                      {% for childlink in linklists[child_list_handle].links offset: 1 %}
+                      {% for childlink in linklists[child_list_handle].links offset: 2 %}
                       <li><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a></li>
                     {% endfor %}
                     </div>

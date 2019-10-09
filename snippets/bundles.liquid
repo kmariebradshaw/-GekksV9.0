@@ -1,0 +1,48 @@
+<div style="display: none;" id="display-bundle" class="sizing-chart border-lightgray modal">
+  <div class="accent-padding">
+   <p class="nm klaviyo_header_close tar clickable">✕</p>
+   <h3 class="text-green tac">Bundle and Save</h3>
+   <p class="tac subscript">Mix and Max Styles & Sizes</p>
+  <table>
+    <tr>
+      <th class="t-size table-title">Pairs</th>
+      <th class="t-size table-title">Price / Pair</th>
+      <th class="t-size table-title">Savings</th>
+    </tr>
+    <tr class="lg">
+      <td>1</td>
+      <td>$18.00</td>
+      <td>$0.00</td>
+    </tr>
+    <tr class="dg">
+      <td>2</td>
+      <td>$16.00</td>
+      <td>$4.00 </td>
+    </tr>
+    <tr class="lg">
+      <td>3</td>
+      <td>$12.00</td>
+      <td>$18.00</td>
+    </tr>
+    <tr class="dg">
+      <td>4+</td>
+      <td>$10.00</td>
+      <td>$32.00</td>
+    </tr>
+  </table>
+  <p class="tac subscript">No discount code needed, discount will<br class="mo"> automatically<br class="do"> apply at checkout</p>
+</div>
+</div>
+<script>
+
+// bundles info 
+$(document).ready(function() {
+$('.info-icon, .info-banner').click(function() {
+  $('#display-bundle').fadeIn(); 
+  $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').addClass('darken');
+  ga('send', 'event', 'Bundles', 'Bundles Shown', '{{template.name}}');
+
+})
+}); 
+
+</script>

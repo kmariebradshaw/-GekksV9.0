@@ -1,11 +1,3 @@
-// banner snow fall 
-$(document).ready(function() {
-  n = 0 
-  setInterval(function () {
-    n += 1
-    $('#banner-cta').css("background-position-y", n)
-  }, 100)
-})
 
 
 // hamburger nav
@@ -91,7 +83,7 @@ function closeWelcomePop() {
 
 $('body').click(function (event) {
    if(!$(event.target).closest('.modal').length && !$(event.target).is('.modal') && !$(event.target).is('#referafriend h3') && !$(event.target).is('#getadiscount h3') && !
-    $(event.target).is('#size-chart')  && !$(event.target).closest('#CartContainer').length && !$(event.target).is('button') && !$(event.target).is('button span') && !$(event.target).is('#hamburger span') && !$(event.target).closest('.mobile-nav1').length ) {
+    $(event.target).is('#size-chart')  && !$(event.target).closest('#CartContainer').length && !$(event.target).is('button') && !$(event.target).is('button span') && !$(event.target).is('#hamburger span') && !$(event.target).closest('.mobile-nav1').length && !$(event.target).closest('.info-icon').length && !$(event.target).closest('.info-banner').length) {
      $(".modal").hide(); 
      if ($('#CartContainer').is(":visible ")) {
       cartClose();
@@ -195,7 +187,7 @@ $('.sub-nav-header').on('click mouseover', function(event) {
   var subnav = $(this).next('.sub-nav')
   $('.sub-nav').not(subnav).hide(); 
   $(subnav).show(); 
-  $('header').css("height", $('.desktop-sub-nav').height() + subnav.height() + 30 + "px")
+  $('header').css("height", $('.desktop-sub-nav').height() + subnav.height() + 63 + "px")
 });
 $(window).scroll(function() {
   $('.sub-nav').hide(); 
@@ -404,8 +396,6 @@ check_if_in_view()
 $(document).ready(function() {
   check_if_in_view();
 })
-
-
 
 
 
