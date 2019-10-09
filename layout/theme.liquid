@@ -77,7 +77,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    <script src="https://scripts.sirv.com/sirv.js" defer></script>
 
     {% include 'ajax-cart-template' %}
-    {% include 'bundles' %}
     <script async>
       jQuery(function($) {
         ajaxCart.init({
@@ -88,14 +87,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           cartCostSelector: '#CartCost',
           moneyFormat: {{ shop.money_format | json }}
         });
+      }); 
 
         jQuery(document.body).on('afterCartLoad.ajaxCart', function(evt, cart) {
           timber.RightDrawer.open();
         });
-      }); 
     </script>
     <div id="CartContainer" >
     </div>
+        {% include 'bundles' %}
+
     {% include 'referafriend' %}
     {% unless template contains 'series' %}
     {% include 'klaviyo-pop' %}

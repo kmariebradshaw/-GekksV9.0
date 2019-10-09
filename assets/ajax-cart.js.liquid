@@ -33,18 +33,24 @@ $('#CartContainer').show().removeClass('slide-out').addClass('slide-in');
       'aw_remarketing_only': true
   });
 
-    // var total = cart.item_count; 
-    // switch (total) {
-    //   case "2":
-    //     console.log('2')
-    //     break; 
-    //   case "3":
-    //     console.log('3'); 
-    //     break;
-    //   case ">=4":
-    //     console.log('4'); 
-    //     break; 
-    // }
+    var total = cart.item_count; 
+    if (total > 1) {
+      var new_subtotal = ""
+      var mult = 0 
+      if (total == 2 ) {
+        mult = 16
+      }
+      else if (total == 3 ) {
+        mult = 12
+
+      }
+      else if (total >= 4) {
+        mult = 10
+      }
+      new_subtotal = "$" + total * mult + ".00"
+       $('#ajax-cart-price-subtotal #original-sub').addClass('strikethrough'); 
+       $('#ajax-cart-price-subtotal #add-new').text(" " + new_subtotal); 
+    }
 // 12 Gekks calculation 
   // var emailSignUp = readCookie('emailSignUp');
 
