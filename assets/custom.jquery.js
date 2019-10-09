@@ -341,9 +341,9 @@ $(document).ready(function(){
       window.location.href="/pages/customize"
     };
   }
-  if (customGekks) {
-    $('#custom-gekks a').attr("href", customGekks) 
-  } 
+  // if (customGekks) {
+  //   $('#custom-gekks a').attr("href", customGekks) 
+  // } 
 })
  function getParameterByName(name, url) {
   if (!url) {
