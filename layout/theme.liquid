@@ -88,11 +88,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           cartCostSelector: '#CartCost',
           moneyFormat: {{ shop.money_format | json }}
         });
-        });
 
         jQuery(document.body).on('afterCartLoad.ajaxCart', function(evt, cart) {
           timber.RightDrawer.open();
         });
+      }); 
     </script>
     <div id="CartContainer" >
     </div>
@@ -308,7 +308,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         createCookie("newsletterModal", "Displayed", 5)
           KlaviyoSubscribe.attachToModalForm('.modal-newsletter', {
             delay_seconds: 0,
-                  success_message: "<div class='success_feedback accent-padding'><div class='accent-padding'><p class='nmt klaviyo_header_close_news tac clickable' style='font-size: 12pt;' onclick='closeWelcomePop()'>X</p><h2 class='nm'>Thank you!</h2><h3>You've unlocked Bundle Pricing</h3><table><tr><th class='t-size table-title'>Pairs</th><th class='t-size table-title'>Price / Pair</th><th class='t-size table-title'>Savings</th></tr><tr class='lg'><td>1</td><td>$18.00</td><td>$0.00</td></tr><tr class='dg'><td>2</td><td>$16.00</td><td>$4.00</td></tr><tr class='lg'><td>3</td><td>$12.00</td><td>$18.00</td></tr><tr class='dg'><td>4+</td><td>$10.00</td><td>$32.00</td></tr></table><p class='tac'>Discount will be automatically applied in checkout</p></div></div>",
+            ignore_cookie: true,
+            success_message: "<div class='success_feedback accent-padding'><div class='accent-padding'><p class='nmt klaviyo_header_close_news tac clickable' style='font-size: 12pt;' onclick='closeWelcomePop()'>X</p><h2 class='nm'>Thank you!</h2><h3>You've unlocked Bundle Pricing</h3><table><tr><th class='t-size table-title'>Pairs</th><th class='t-size table-title'>Price / Pair</th><th class='t-size table-title'>Savings</th></tr><tr class='lg'><td>1</td><td>$18.00</td><td>$0.00</td></tr><tr class='dg'><td>2</td><td>$16.00</td><td>$4.00</td></tr><tr class='lg'><td>3</td><td>$12.00</td><td>$18.00</td></tr><tr class='dg'><td>4+</td><td>$10.00</td><td>$32.00</td></tr></table><p class='tac'>Discount will be automatically applied in checkout</p></div></div>",
               success: function ($form) {
               createCookie("emailSignUp", "popup", 14)
               $('#container-news').css("background-image", "none"); 
