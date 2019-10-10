@@ -11,19 +11,9 @@
     {% endif %}
     <p class="subscript">{{ product.description}}</p>
     {% if product.available %} 
-    <div class="price{% if product.price < product.compare_at_price_max %} sale{% endif %}" itemprop="price" content="{{ product.compare_at_price | money_without_currency }}">
-      {% if product.title == "Women's Closet Pack" or product.title == "Men's Closet Pack" %}
-      <div class="closetpackprice ib">
-        <p id="product-price-{{ product.id }}">{{ product.price | money }}</p>
-        {% if product.price < product.compare_at_price_max and product.type == "Closet Pack" %}<p style="display: inline-block;" class="subscript" id="compare-price-{{ product.id }}">{{ product.compare_at_price | money }}</p>{% endif %}
-      </div>
-      {% else %}
-        <p id="product-price-{{ product.id }}" class="strikethrough">{{ product.price | money }}</p>
-      {% endif %}
-                  <img src="{{'info-icon_clear.png' | asset_url}}" class="info-icon clickable" />
-
+    
       {% unless product.title == "Select" or product.title == "Gift Cards" %} 
-      <div id="review-details" class="ib">
+      <div id="review-details" class="tac fw">
       <a href="/pages/reviews">
         <div class="prodrating">
           {% if product.title == "Ballet Flats" or product.type == "Closet Pack" or product.title == "Heels & Wedges" %}
@@ -66,7 +56,39 @@
 
      </a>
    </div>
-             <h5 class="text-green underline button-trigger subscript nm clickable">Learn about our bundle pricing</h5>
+     <div id="display-bundle" class="sizing-chart fw ma tac" style="margin-bottom: 20px;">
+  <div class="">
+   <h3 class="text-green tac nmb">Bundle and Save</h3>
+   <p class="tac nmt">Mix and Max <span>Any Size & Style</span></p>
+  <table style="width: 100%;">
+    <tr>
+      <th class="t-size table-title">Pairs</th>
+      <th class="t-size table-title">Price</th>
+    </tr>
+    <tr class="lg">
+      <td>1</td>
+      <td>$18.00</td>
+    </tr>
+    <tr class="dg">
+      <td>2</td>
+      <td><span class="strikethrough">$36.00</span> $32.00</td>
+    </tr>
+    <tr class="lg">
+      <td>3</td>
+      <td><span class="strikethrough">$54.00</span> $42.00</td>
+    </tr>
+    <tr class="dg">
+      <td>4</td>
+      <td><span class="strikethrough">$72.00</span> $48.00</td>
+    </tr>
+     <tr class="lg">
+      <td>5+</td>
+      <td><span class="strikethrough">$90.00+</span> $60.00+<br>& Free Shipping!</td>
+    </tr>
+  </table>
+</div>
+</div>
+   </div>
 
     </div>  
 
