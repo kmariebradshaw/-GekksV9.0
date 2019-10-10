@@ -20,7 +20,7 @@
       {% else %}
         <p id="product-price-{{ product.id }}" class="strikethrough">{{ product.price | money }}</p>
       {% endif %}
-                  <img src="{{'info-icon.png' | asset_url}}" class="info-icon clickable" />
+                  <img src="{{'info-icon_clear.png' | asset_url}}" class="info-icon clickable" />
 
       {% unless product.title == "Select" or product.title == "Gift Cards" %} 
       <div id="review-details" class="ib">
