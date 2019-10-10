@@ -24,7 +24,7 @@
 
       {% unless product.title == "Select" or product.title == "Gift Cards" %} 
       <div id="review-details" class="ib">
-      <a href="/pages/r eviews">
+      <a href="/pages/reviews">
         <div class="prodrating">
           {% if product.title == "Ballet Flats" or product.type == "Closet Pack" or product.title == "Heels & Wedges" %}
           <img src="{{'475stars.png' | asset_url}}" alt="4.75" />
@@ -63,7 +63,9 @@
         {% endcase %}
         </span>
        </div>
+
      </a>
+   </div>
              <h5 class="text-green underline button-trigger subscript nm clickable">Learn about our bundle pricing</h5>
 
     </div>  

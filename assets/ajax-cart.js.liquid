@@ -32,7 +32,7 @@ $('#CartContainer').show().removeClass('slide-out').addClass('slide-in');
       'currency': 'USD',
       'aw_remarketing_only': true
   });
-
+    var freeShipping = false; 
     var total = cart.item_count; 
     if (total > 1) {
       var new_subtotal = ""
@@ -41,11 +41,15 @@ $('#CartContainer').show().removeClass('slide-out').addClass('slide-in');
         mult = 16
       }
       else if (total == 3 ) {
-        mult = 12
+        mult = 14
 
       }
-      else if (total >= 4) {
-        mult = 10
+      else if (total == 4) {
+        mult = 12
+      }
+       else if (total >= 5) {
+        mult = 12
+        freeShipping = true
       }
       new_subtotal = "$" + total * mult + ".00"
        $('#ajax-cart-price-subtotal #original-sub').addClass('strikethrough'); 
