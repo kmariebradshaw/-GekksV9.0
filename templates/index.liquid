@@ -18,7 +18,16 @@
       </section> 
 
 <section class="fw endorsements-features" id="featured"><ul class="background-beige"><li><h3>featured in</h3></li><li><img src="{{'BuzzFeed.png' | asset_url}}" alt="BuzzFeed"/></li><li><img src="{{'simple.png' | asset_url}}" alt="Real Simple" /></li><li><img src="{{'vogue.png' | asset_url}}" alt="Vogue"/></li><li><img src="{{'maxim.png' | asset_url}}" alt="Maxim"/></li><li><img src="{{'who-what-wear-press.png' | asset_url}}" alt="Teen Vogue"/></li></ul> </section> 
+<script>
+  $(document).ready(function() {
+  n = 0 
+  setInterval(function () {
+    n += 1
+    $('.info-banner span').fadeToggle(); 
+  }, 1000)
+})
 
+</script>
 
 <section class="fw index-padding flex-container">
   <div id="check-it">

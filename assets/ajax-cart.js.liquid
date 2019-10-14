@@ -34,16 +34,23 @@ $('#CartContainer').show().removeClass('slide-out').addClass('slide-in');
       var mult = 0 
       if (total == 2 ) {
         mult = 16
+       jQuery.get('/discount/bundles2')
+
       }
       else if (total == 3 ) {
         mult = 14
+       jQuery.get('/discount/bundles3')
 
       }
       else if (total == 4) {
         mult = 12
+               jQuery.get('/discount/bundles4')
+
       }
        else if (total >= 5) {
         mult = 12
+               jQuery.get('/discount/bundles4')
+
         freeShipping = true
       }
       new_subtotal = "$" + total * mult + ".00"
