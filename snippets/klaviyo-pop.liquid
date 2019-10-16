@@ -1,12 +1,20 @@
 
 
  <div class="modal modal-newsletter" id="newsletter_popup3" style="display:none;">
+  
+<style>
+  .welcomeab { display: none; }
+  .originalab { display: inherit; }
+</style>
   <div class="background-green tac flex-container-no" id="container-news">
     <form action="//manage.kmail-lists.com/subscriptions/subscribe" method="POST" novalidate="novalidate" class="hide_on_submit klaviyo_subscription_form">
       <input type="hidden" name="g" value="Ai9wnf">
-      <h1 class="text-white nm hide_on_submit">Over 30% Off</h1>
-          <p class="hide_on_submit text-white nmt"><span>by unlocking $12 Gekks</span></p>  
+       <h1 class="text-white nm hide_on_submit originalab">Over 30% Off</h1>
+        <h1 class="text-white nm hide_on_submit welcomeab">First Order Discount</h1>
+          <p class="hide_on_submit text-white nmt welcomeab"><span>Over 30% off by unlocking $12 Gekks</span></p>  
 
+           <p class="hide_on_submit text-white nmt originalab"><span>by unlocking $12 Gekks</span></p>  
+  
       <p class="nmt"></p>
       <input type="email" id="newsletter_popup_$email" class="newsletter_email hide_on_submit" name="email" placeholder="enter email">
       <div class="klaviyo_form_actions hide_on_submit">
@@ -139,5 +147,4 @@ $(document).ready(function(){
   };
 });
 </script>
-
 
