@@ -48,6 +48,14 @@ $(document).ready(function(){
       ga('send', 'event', 'Acquisition', 'Pop Up', 'Website');
              
       $form.hide().find('.hide_on_submit').hide();
+  {% if template contains 'product' %}
+      {% if product.title != "Men's Closet Pack" %}
+        $('.price, body #moprice').attr('style', 'display: none !important;')
+        $('.priceu').show();
+        console.log('here')
+      {% endif %}
+    {% endif %}
+
     },
   });  
   };

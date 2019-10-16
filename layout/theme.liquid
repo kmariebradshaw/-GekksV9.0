@@ -316,6 +316,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               $('#success-close').show();
               ga('send', 'event', 'Acquisition', 'Pop Up', 'Website');
       $form.hide().find('.hide_on_submit').hide();
+        {% if template contains 'product' %}
+      {% if product.title != "Men's Closet Pack" %}
+        $('.price, body #moprice').attr('style', 'display: none !important;')
+        $('.priceu').show();
+        console.log('here')
+      {% endif %}
+    {% endif %}
             },
          });  
       })
