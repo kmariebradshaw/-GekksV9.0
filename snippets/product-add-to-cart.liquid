@@ -121,7 +121,7 @@
     <p class="subscript clickable" id="size-chart"><img src="{{'ruler.png' | asset_url}}" class="ruler-icon"/>sizing chart</p>
   {% endif %}
   <p class="priceu subscript" id="discount-at-checkout" style="display: none;"><span>*discount applied at checkout</span></p>
-  <button type="submit" name="add" id="add-cart" class="background-green text-white clickable"><span>add to cart</span></button>
+  <button type="submit" name="add" id="add-cart" class="background-green text-white clickable" onclick="pintrk('track', 'addtocart');"><span>add to cart</span></button>
   {% unless product.title == "Select" or product.title == "Gift Cards" %}
     {% assign select = collections.all.products[6]%}
     <div class="example-shoes border-beige">
