@@ -1,0 +1,118 @@
+    <main id="page">	     
+	    <section class="background-green tac text-white page-header">
+          <h1>{{ page.title }}</h1>
+      	</section>
+        <section class="index-padding">
+        	<div class="tac fw accent-padding">
+        		<img src="{{'Icon-woman.svg' | asset_url}}" class="icon highlight" id="womens-bundle-choice"/>
+        		<img src="{{'Icon-man.svg' | asset_url}}" class="icon" id="mens-bundle-choice"/>
+        	</div>
+        	<div id="womens-bundle">
+        		<p class="bundle-style" id="4832850820">Flats</p>
+        		<p class="bundle-style" id="4833042564">Loafers</p>
+        		<p class="bundle-style" id="4833046212">Sneakers</p>
+        		<p class="bundle-style" id="89803620369">Heels</p>
+        	</div>
+        	<div id="mens-bundle" style="display: none;">
+        		<p class="bundle-style" id="4832930500">Loafers</p>
+        		<p class="bundle-style" id="4832899012">Sneakers</p>
+        		<p class="vhidden">Sneakers</p>
+        		<p class="vhidden">Heels</p>
+        	</div>
+
+        	<script>
+        		$('.bundle-style').click(function() {
+        			var sku =  $(this).attr("id")
+        			$(".modal.accent-padding.s" + sku).show(); 
+      				$('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').addClass('darken');
+        		})
+        		$('.icon').click(function() {
+        			$(this).addClass('highlight').siblings().removeClass('highlight')
+        			if ($(this).attr("id") == "womens-bundle-choice") {
+        				$('#womens-bundle').show()
+        				$('#mens-bundle').hide(); 
+        			}
+        			else if ($(this).attr("id") == "mens-bundle-choice") {
+        				$('#womens-bundle').hide()
+        				$('#mens-bundle').show(); 
+        			}
+        		})
+        	</script>
+        	{% for product in collections.all.products %}
+        	  {% if product.available %}
+        		{% unless product.title == "Gift Cards" or product.title == "Select" or product.type == "Closet Pack"%}
+					<div id="product" itemscope itemtype="http://schema.org/Product" class="modal accent-padding s{{product.id}}" style="display: none;">
+ 					 <section class="flex-container-no jcc">
+				       
+      <img data-src="{{ product.featured_image.src | product_img_url: '2000x2000' }}" alt="{{ product.title }}" id="featured-image" class="lazyload"/>
+        <div id="thumbnails" class="mo-plus" style="display: none;">
+          <ul>
+            {% for image in product.images limit: 1 %}
+            <li><img data-src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image lazyload"/></li>
+            {% endfor %}
+            {% for image in product.images limit: 5 offset: 2 %}
+            <li><img data-src="{{ image | product_img_url: 'compact' }}" class="product-image lazyload"/></li>
+            {% endfor %} 
+          </ul>
+        </div>
+  					</section>
+  				  {% include 'product-add-to-bundle' %}
+				</div>
+<script text="text/javascript">
+  var _learnq = _learnq || [];
+
+  var item = {
+    Name: {{ product.title|json }},
+    ProductID: {{ product.id|json }},
+    Categories: {{ product.collections|map:'title'|json }},
+    ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+    URL: "{{ shop.secure_url }}{{ product.url }}",
+    Brand: {{ product.vendor|json }},
+    Price: {{ product.price|money|json }},
+    CompareAtPrice: {{ product.compare_at_price_max|money|json }}
+  };
+
+  _learnq.push(['track', 'Viewed Product', item]);
+  _learnq.push(['trackViewedItem', {
+    Title: item.Name,
+    ItemId: item.ProductID,
+    Categories: item.Categories,
+    ImageUrl: item.ImageURL,
+    Url: item.URL,
+    Metadata: {
+      Brand: item.Brand,
+      Price: item.Price,
+      CompareAtPrice: item.CompareAtPrice
+    }
+  }]);
+
+  var _learnq = _learnq || [];
+  document.getElementById("add-cart").addEventListener('click',function (){
+    _learnq.push(['track', 'Added to Cart', item]);
+  });
+</script>
+
+{% endunless %}
+{% endif %}
+			{% endfor %}
+	    </section>
+
+	    <style>
+	    .highlight {border: 2px solid #6DCDB8; border-radius: 100%;}
+	    .icon { width: 70px;  }
+    .scroll-product-photos { 
+    	width: 100px; 
+    	display: inline-block;
+    	vertical-align: middle;
+    }
+    .scroll-product-photos.featured { 
+    	width: 300px !important; 
+    }
+    .scroll-product-photos img { 
+    	max-width: 100%;
+    	vertical-align: middle;
+     }
+     .modal { background-color: white; width: 400px;}
+
+</style>
+    </main>
