@@ -283,7 +283,7 @@ $('.shoe-wrapper').scroll(function() {
 {% endunless %} 
 {% endif %} 
 {% else %}
-<div class="fw tac">
+{% comment %}<div class="fw tac">
   <div class="flex-container-no select-grid clickable">
     <div class="half" id="shop-flats"><h3><a href="/products/flats-version" class="text-white">Flats</a></h3></div>
     <div class="half" id="shop-sneakers"><h3><a href="/products/womens-sneaker-version" class="text-white">Sneakers</a></h3></div>
@@ -292,7 +292,8 @@ $('.shoe-wrapper').scroll(function() {
     <div class="half" id="shop-loafers"><a href="/products/womens-loafer-version" class="text-white"><h3>Loafers</h3></a></div>
     <div class="half" id="shop-heels"><a href="/products/heels" class="text-white"><h3>Heels</h3></a></div>
   </div>
-</div>
+</div>{% endcomment %}
+{% include 'custom-pack' %}
 {% endif %}
 </form>
  {% unless product.available %} 

@@ -1,0 +1,260 @@
+{% comment %} url params for each of the different styles{% endcomment %}
+
+
+ <section id="product-details">
+	<h3 id="bundle_title">Your Bundle</h3>
+	<h4 class="nmb"><span id="bundle_price">$36.00</span><span class="strikethrough" id="bundle_compare_at_price"> $54.00</span></h3>
+	<h4 class="text-green nm"><span id="bundle_savings">33%</span> Bundles Savings!</h4>
+	<p class="subscript">Based on your answers, your closet needs <span id="bundle_description"></span></p>
+   <select id="custom-pack-size" class="fw">
+     <option value="small">small</option>
+     <option value="medium" selected>medium</option>
+     <option value="large">large</option>
+   </select> 
+   <section id="bundle_flats" class="flex-container-no" style="display: none;">
+   	 <img src="{{'Icon-ballet-results.png' | asset_url }}" class="bundle-icon">
+   	 <div class="bundle-color-selection black highlight"></div>
+   	 <div class="bundle-color-selection beige"></div>
+   </section>
+     <section id="bundle_flats2" class="flex-container-no" style="display: none;">
+   	 <img src="{{'Icon-ballet-results.png' | asset_url }}" class="bundle-icon">
+   	 <div class="bundle-color-selection black highlight"></div>
+   	 <div class="bundle-color-selection beige"></div>
+   </section>
+   <section id="bundle_wloafer" class="flex-container-no" style="display: none;">
+   	 <img src="{{'Icon-loafers-results.png' | asset_url }}" class="bundle-icon">
+   	 <div class="bundle-color-selection black highlight"></div>
+   	 <div class="bundle-color-selection rose"></div>
+   	 <div class="bundle-color-selection green"></div>
+   	 <div class="bundle-color-selection blue"></div>
+   </section>
+   <section id="bundle_wsneaker" class="flex-container-no"style="display: none;">
+   	 <img src="{{'Icon-sneakers-results.png' | asset_url }}" class="bundle-icon">
+   	 <div class="bundle-color-selection black highlight"></div>
+   	 <div class="bundle-color-selection rose"></div>
+   	 <div class="bundle-color-selection green"></div>
+   	 <div class="bundle-color-selection blue"></div>
+   </section>
+   <section id="bundle_heels" class="flex-container-no" style="display: none;">
+   	 <img src="{{'Gekks-Icon-Heels-Socks.png' | asset_url }}" class="bundle-icon">
+   	  <div class="bundle-color-selection black highlight"></div>
+      <div class="bundle-color-selection beige"></div>
+   </section>
+   <section id="bundle_heels2" class="flex-container-no" style="display: none;">
+   	 <img src="{{'Gekks-Icon-Heels-Socks.png' | asset_url }}" class="bundle-icon">
+   	  <div class="bundle-color-selection black highlight"></div>
+    <div class="bundle-color-selection beige"></div>
+   </section>
+   <section id="bundle_mloafer" class="flex-container-no" style="display: none;">
+   	 <img src="{{'Icon-loafers-results.png' | asset_url}}" class="bundle-icon">
+   	  <div class="bundle-color-selection black highlight"></div>
+   	  <div class="bundle-color-selection green"></div>
+   	  <div class="bundle-color-selection blue"></div>
+   </section>
+   <section id="bundle_msneaker" class="flex-container-no" style="display: none;">
+   	 <img src="{{'Icon-sneakers-results.png' | asset_url}}" class="bundle-icon">
+   	  <div class="bundle-color-selection black highlight"></div>
+   	  <div class="bundle-color-selection green"></div>
+   	  <div class="bundle-color-selection blue"></div>
+   </section>
+
+</section>
+
+<style>
+	#bundle_price { margin-right: 5px; }
+	.rose { background-color: #F7CAC9; }
+	.green { background-color: #00A68C; }
+	.blue { background-color: #0E3A53; }
+	.beige { background-color: #F9F2ED; }
+	.black { background-color: #000; }
+	.bundle-color-selection {
+		width: 20px; 
+		height: 20px; 
+		border-radius: 100%; 
+		cursor: pointer;
+	}
+	.highlight {border: 2px solid #6DCDB8;}
+	.bundle-color-selection { margin-right: 10px; }
+	.bundle-icon { max-width: 65px; margin-right: 10px; }
+</style>
+	
+<script>
+	var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+};
+
+	$('.bundle-color-selection').addClass('highlight').siblings().removeClass('highlight'); 
+
+	var pack_id = getUrlParameter('pack')
+	var title = ""
+	var price = ""
+	var savings = ""
+	var description = ""
+	var photo_collection = ""
+	var mloafers = 0 
+	switch (pack_id) {
+		case "1":
+			title = "The Ultimate Pack"
+			price = "$48.00"
+			compare_at = "$72.00"
+			savings = "33%"
+			description = "one flat, one heel, one loafer, and one sneaker."
+			photo_collection = ""	
+			$('#bundle_wloafer, #bundle_wsneaker, #bundle_flats, #bundle_heels').show()		
+			break;
+		case "2":
+			title = "The Metropolitan Pack"
+			price = "$48.00"
+			compare_at = "$72.00"
+			savings = "33%"
+			description = "two flats and two heels."
+			photo_collection = ""
+			$('#bundle_flats, #bundle_flats2, #bundle_heels, #bundle_heels2').show(); 	
+			break;
+		case "3":
+			title = ""
+			price = "$48.00"
+			compare_at = "$72.00"
+			savings = "33%"
+			description = "two flats, one loafer, and one sneaker."
+			$('#bundle_flats, #bundle_flats2, #bundle_wloafer, #bundle_wsneaker').show(); 	
+			photo_collection = ""
+			break;
+		case "4":
+			title = ""
+			price = "$48.00"
+			compare_at = "$72.00"
+			savings = "33%"
+			description = "two men's loafers, and two men's sneakers."
+			// 
+			photo_collection = ""
+			break;
+		case "5":
+			title = ""
+			price = "$48.00"
+			compare_at = "$72.00"
+			savings = "33%"
+			description = "two flats, and two loafers."
+			// 
+			photo_collection = ""
+			break;
+		case "6":
+			title = ""
+			price = "$60.00"
+			compare_at = "$90.00"
+			savings = "33%"
+			description = "two flats, one loafer, one sneaker, and one heel."
+			$('#bundle_wloafer, #bundle_wsneaker, #bundle_flats, #bundle_flats2, #bundle_heels').show(); 
+			photo_collection = ""
+			break;
+		case "7":
+			title = ""
+			price = "$42.00"
+			compare_at = "$54.00"
+			savings = "22%"
+			description = "two flats, and one loafer."
+			$('#bundle_flats, #bundle_flats2, #bundle_wloafer').show(); 	
+			photo_collection = ""
+			break;
+		case "8":
+			title = ""
+			price = "$42.00"
+			compare_at = "$54.00"
+			savings = "22%"
+			description = "two flats, and one heel."
+			$('#bundle_flats, #bundle_flats2, #bundle_heel').show(); 	
+			photo_collection = ""
+			break;
+		case "9":
+			title = ""
+			price = "$42.00"
+			compare_at = "$54.00"
+			savings = "22%"
+			description = "one loafer, one flat, one heel."
+			$('#bundle_wloafer, #bundle_flats, #bundle_heels').show()
+			photo_collection = ""
+			break;
+		case "10":
+			title = "The Couples Pack"
+			price = "$60.00"
+			compare_at = "$90.00"
+			savings = "33%"
+			description = "One men's loafer, one men's sneaker, one women's flat, one woman's loafer and woman's sneaker"
+			$('#bundle_wloafer, #bundle_wsneaker, #bundle_flats, #bundle_heels, #bundle_mloafer, #bundles_msneaker').show()		
+			photo_collection = ""
+			break;
+		case "11":
+			title = ""
+			price = "$70.00"
+			savings = "$108.00"
+			description = "35%"
+			photo_collection = "two women's flats, two women's sneakers, two women's loafers."
+			photo_collection = ""
+			// 
+			break;
+		case "12":
+			title = "The Flats Pack"
+			price = "$48.00"
+			compare_at = "$72.00"
+			savings = "33%"
+			description = "four women's flats."
+			// 
+			photo_collection = ""
+			break;
+		// case "13":
+		// 	title = ""
+		// 	price = ""
+		// 	savings = ""
+		// 	description = ""
+		// 	photo_collection = ""
+		// 	break;
+
+	}
+
+
+	$('#bundle_title').text(title); 
+	$('#bundle_price').text(price)
+	$('#bundle_compare_at_price').text(compare_at)
+	$('#bundle_savings').text(savings)
+	$('#bundle_description').text(description)
+
+
+
+
+
+
+	var selected_variants = "one loafer, one sneaker, and one heel."
+	$('#recommendation').text(selected_variants); 
+
+	$('#custom-pack-size').change(function() {
+		console.log('hit')
+		$('#featured-image').addClass('abs')
+		$('#featured-image').animate({height: '+=20px', width: '+=20px'}, 200, function() {
+			$('#featured-image').animate({height: '-=20px', width: '-=20px'}, 200)
+			$('#featured-image').removeClass('abs')
+		})
+	}); 
+	
+</script>
+
+{% comment %} your custom bundle will be linked in nav and on homepage in case they want to explore, micro interactions / animations on size selections, photos change on color selections{% endcomment %}
+
+{% comment %}
+1. Program 
+
+
+
+
+
+{% endcomment %}

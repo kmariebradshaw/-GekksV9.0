@@ -29,7 +29,7 @@
             {% for image in product.images limit: 1 %}
             <li><img data-src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image lazyload"/></li>
             {% endfor %}
-            {% for image in product.images limit: 5 offset: 2 %}
+            {% for image in product.images limit: 4 offset: 2 %}
             <li><img data-src="{{ image | product_img_url: 'compact' }}" class="product-image lazyload"/></li>
             {% endfor %} 
           </ul>
