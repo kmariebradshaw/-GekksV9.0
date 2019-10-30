@@ -57,10 +57,12 @@
    	  <div class="bundle-color-selection green"></div>
    	  <div class="bundle-color-selection blue"></div>
    </section>
+  <button type="submit" name="add" id="add-cart" class="background-green text-white clickable"><span>add to cart</span></button>
 
 </section>
 
 <style>
+	#add-cart { margin: 15px 0; }
 	#bundle_price { margin-right: 5px; }
 	.rose { background-color: #F7CAC9; }
 	.green { background-color: #00A68C; }
@@ -68,13 +70,14 @@
 	.beige { background-color: #F9F2ED; }
 	.black { background-color: #000; }
 	.bundle-color-selection {
-		width: 20px; 
-		height: 20px; 
+		width: 25px; 
+		height: 25px; 
 		border-radius: 100%; 
 		cursor: pointer;
+		margin-right: 10px;
+		border: 2px solid white; 
 	}
 	.highlight {border: 2px solid #6DCDB8;}
-	.bundle-color-selection { margin-right: 10px; }
 	.bundle-icon { max-width: 65px; margin-right: 10px; }
 </style>
 	
@@ -94,7 +97,9 @@
     }
 };
 
-	$('.bundle-color-selection').addClass('highlight').siblings().removeClass('highlight'); 
+	$('.bundle-color-selection').click(function() {
+		$(this).addClass('highlight').siblings('.bundle-color-selection').removeClass('highlight'); 
+	}); 
 
 	var pack_id = getUrlParameter('pack')
 	var title = ""
