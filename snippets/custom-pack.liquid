@@ -21,6 +21,16 @@
    	 <div class="bundle-color-selection black highlight"></div>
    	 <div class="bundle-color-selection beige"></div>
    </section>
+    <section id="bundle_flats3" class="flex-container-no" style="display: none;">
+   	 <img src="{{'Icon-ballet-results.png' | asset_url }}" class="bundle-icon">
+   	 <div class="bundle-color-selection black highlight"></div>
+   	 <div class="bundle-color-selection beige"></div>
+   </section>
+        <section id="bundle_flats4" class="flex-container-no" style="display: none;">
+   	 <img src="{{'Icon-ballet-results.png' | asset_url }}" class="bundle-icon">
+   	 <div class="bundle-color-selection black highlight"></div>
+   	 <div class="bundle-color-selection beige"></div>
+   </section>
    <section id="bundle_wloafer" class="flex-container-no" style="display: none;">
    	 <img src="{{'Icon-loafers-results.png' | asset_url }}" class="bundle-icon">
    	 <div class="bundle-color-selection black highlight"></div>
@@ -28,7 +38,21 @@
    	 <div class="bundle-color-selection green"></div>
    	 <div class="bundle-color-selection blue"></div>
    </section>
+     <section id="bundle_wloafer2" class="flex-container-no" style="display: none;">
+   	 <img src="{{'Icon-loafers-results.png' | asset_url }}" class="bundle-icon">
+   	 <div class="bundle-color-selection black highlight"></div>
+   	 <div class="bundle-color-selection rose"></div>
+   	 <div class="bundle-color-selection green"></div>
+   	 <div class="bundle-color-selection blue"></div>
+   </section>
    <section id="bundle_wsneaker" class="flex-container-no"style="display: none;">
+   	 <img src="{{'Icon-sneakers-results.png' | asset_url }}" class="bundle-icon">
+   	 <div class="bundle-color-selection black highlight"></div>
+   	 <div class="bundle-color-selection rose"></div>
+   	 <div class="bundle-color-selection green"></div>
+   	 <div class="bundle-color-selection blue"></div>
+   </section>
+    <section id="bundle_wsneaker2" class="flex-container-no"style="display: none;">
    	 <img src="{{'Icon-sneakers-results.png' | asset_url }}" class="bundle-icon">
    	 <div class="bundle-color-selection black highlight"></div>
    	 <div class="bundle-color-selection rose"></div>
@@ -51,7 +75,19 @@
    	  <div class="bundle-color-selection green"></div>
    	  <div class="bundle-color-selection blue"></div>
    </section>
+    <section id="bundle_mloafer2" class="flex-container-no" style="display: none;">
+   	 <img src="{{'Icon-loafers-results.png' | asset_url}}" class="bundle-icon">
+   	  <div class="bundle-color-selection black highlight"></div>
+   	  <div class="bundle-color-selection green"></div>
+   	  <div class="bundle-color-selection blue"></div>
+   </section>
    <section id="bundle_msneaker" class="flex-container-no" style="display: none;">
+   	 <img src="{{'Icon-sneakers-results.png' | asset_url}}" class="bundle-icon">
+   	  <div class="bundle-color-selection black highlight"></div>
+   	  <div class="bundle-color-selection green"></div>
+   	  <div class="bundle-color-selection blue"></div>
+   </section>
+    <section id="bundle_msneaker2" class="flex-container-no" style="display: none;">
    	 <img src="{{'Icon-sneakers-results.png' | asset_url}}" class="bundle-icon">
    	  <div class="bundle-color-selection black highlight"></div>
    	  <div class="bundle-color-selection green"></div>
@@ -142,7 +178,7 @@
 			compare_at = "$72.00"
 			savings = "33%"
 			description = "two men's loafers, and two men's sneakers."
-			// 
+			$('#bundle_mloafer, #bundle_msneaker, #bundle_msneaker2, #bundle_mloafer2').show(); 
 			photo_collection = ""
 			break;
 		case "5":
@@ -151,7 +187,7 @@
 			compare_at = "$72.00"
 			savings = "33%"
 			description = "two flats, and two loafers."
-			// 
+			$('#bundle_flats, #bundle_flats2, #bundle_wloafer, #bundle_wloafer2').show(); 	
 			photo_collection = ""
 			break;
 		case "6":
@@ -178,7 +214,7 @@
 			compare_at = "$54.00"
 			savings = "22%"
 			description = "two flats, and one heel."
-			$('#bundle_flats, #bundle_flats2, #bundle_heel').show(); 	
+			$('#bundle_flats, #bundle_flats2, #bundle_heels').show(); 
 			photo_collection = ""
 			break;
 		case "9":
@@ -196,17 +232,17 @@
 			compare_at = "$90.00"
 			savings = "33%"
 			description = "One men's loafer, one men's sneaker, one women's flat, one woman's loafer and woman's sneaker"
-			$('#bundle_wloafer, #bundle_wsneaker, #bundle_flats, #bundle_heels, #bundle_mloafer, #bundles_msneaker').show()		
+			$('#bundle_wloafer, #bundle_wsneaker, #bundle_flats, #bundle_heels, #bundle_mloafer, #bundle_msneaker').show()		
 			photo_collection = ""
 			break;
 		case "11":
 			title = "The Shoe Lover"
 			price = "$70.00"
-			savings = "$108.00"
-			description = "35%"
-			photo_collection = "two women's flats, two women's sneakers, two women's loafers."
+			compare_at = "$108.00"
+			savings = "35%"
+			description = "two women's flats, two women's sneakers, two women's loafers."
 			photo_collection = ""
-			// 
+			$('#bundle_flats, #bundle_flats2, #bundle_wloafer, #bundle_wloafer2, #bundle_wsneaker, #bundle_wsneaker2').show(); 	
 			break;
 		case "12":
 			title = "The Flats Pack"
@@ -214,8 +250,8 @@
 			compare_at = "$72.00"
 			savings = "33%"
 			description = "four women's flats."
-			// 
 			photo_collection = ""
+			$('#bundle_flats, #bundle_flats2, #bundle_flats3, #bundle_flats4').show(); 	
 			break;
 		// case "13":
 		// 	title = ""
@@ -239,27 +275,14 @@
 
 
 
-	var selected_variants = "one loafer, one sneaker, and one heel."
-	$('#recommendation').text(selected_variants); 
 
 	$('#custom-pack-size').change(function() {
-		console.log('hit')
 		$('#featured-image').addClass('abs')
-		$('#featured-image').animate({height: '+=20px', width: '+=20px'}, 200, function() {
-			$('#featured-image').animate({height: '-=20px', width: '-=20px'}, 200)
+		$('#featured-image').animate({height: '+=2%', width: '+=2%'}, 200, function() {
+			$('#featured-image').animate({height: '-=2%', width: '-=2%'}, 200)
 			$('#featured-image').removeClass('abs')
 		})
 	}); 
 	
 </script>
 
-{% comment %} your custom bundle will be linked in nav and on homepage in case they want to explore, micro interactions / animations on size selections, photos change on color selections{% endcomment %}
-
-{% comment %}
-1. Program 
-
-
-
-
-
-{% endcomment %}
