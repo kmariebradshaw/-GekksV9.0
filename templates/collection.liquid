@@ -2,10 +2,10 @@
     {% if collection.title == "Men" %}
     {% else %}
       <section class="page-title accent-padding">
-        <h1 class="text-green">Bundle<br>& Save</h1>
+        <h1 class="text-green">Bundle <br class="ndo-plus">& Save</h1>
       </section>
       <section class="flex-container-no product-row">
-        <img src="{{'Lifestyle1_Verticle.jpg' | asset_url}}" class="accent-lifestyle"/>
+        <img src="{{'Lifestyle1_Verticle.jpg' | asset_url}}" class="accent-lifestyle ndo-plus"/>
         <a href="/products/select?pack=1">
           <div class="product-collection-wrapper">
             <div id="trial-pack-photo">
@@ -25,8 +25,8 @@
             </div>
           </div>
         </a>
-        <a href="/products/select?pack=2">
-          <div class="product-collection-wrapper">
+        <a href="/products/select?pack=2" class="ndo-plus">
+          <div class="product-collection-wrapper ndo-plus">
             <div id="office-pack-photo">
               <img src="{{'2_Transparent.png' | asset_url}}"/>
             </div>
@@ -59,9 +59,45 @@
         </div>
         </a>
       </section>
-      
+      <section class="product-row mo-plus">
+      </section>
+      <section class="product-row mo-plus">
+            <a href="/products/select?pack=2">
+          <div class="product-collection-wrapper mo-plus">
+            <div id="office-pack-photo">
+              <img src="{{'2_Transparent.png' | asset_url}}"/>
+            </div>
+           <div class="accent-padding">
+            <h3 class="ttu nmb">The Office Pack</h3>
+            <h4 class="nmt">$48.00 <span class="strikethrough">$72.00</span></h4>
+            <p>two flats and two heels</p>
+            <div class="acfe">
+              <div class="black color-preview-circle"></div>
+              <div class="beige color-preview-circle"></div>
+            </div>
+            </div>
+          </div>
+        </a>
+         <a href="/products/select?pack=4">
+          <div class="product-collection-wrapper">
+            <div id="men-pack-photo">
+              <img src="{{'4_Transparent.png' | asset_url}}"/>
+            </div>
+            <div class="accent-padding">
+              <h3 class="ttu nmb">The Men’s Closet Pack</h3>
+              <h4 class="nmt">$48.00 <span class="strikethrough">$72.00</span></h4>
+              <p>two men's loafers, and two men's sneakers.</p>
+              <div class="acfe">
+                <div class="green color-preview-circle"></div>
+                <div class="blue color-preview-circle"></div>
+                <div class="black color-preview-circle"></div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </section>
       <section class="flex-container-no product-row">
-        <a href="/products/select?pack=4">
+        <a href="/products/select?pack=4" class="ndo-plus">
           <div class="product-collection-wrapper">
             <div id="men-pack-photo">
               <img src="{{'4_Transparent.png' | asset_url}}"/>
@@ -293,7 +329,6 @@
   #shoe-pack-photo { background-color: #d1fad9; }
   .collection-wrapper .page-title { 
     background-image: url("{{'6.jpg' | asset_url}}"); 
-  background-position: bottom right;
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -333,7 +368,21 @@
       padding: 10px;
     }
   }
+  @media only screen and (min-width: 589px) and (max-width: 799px) {
+    .collection-wrapper .page-title h1 { 
+      margin-top: 0; 
+      font-size: 38pt; 
+    }
+  }
+  @media only screen and (min-width: 800px) {
+    .collection-wrapper .page-title { background-position: bottom right;}
+  }
+  @media only screen and (max-width: 799px) {
+    .collection-wrapper .page-title { background-position: bottom;}
+    .collection-wrapper .page-title h1 { text-align: center; }
+  }
   .asfe { align-self: flex-end; }
+  .page-title { min-height: 225px; }
 </style>
 
 {% comment %}nude flat product shot in sam edelman, red toms, nude heel{% endcomment %}
