@@ -172,6 +172,7 @@
   })
     
 </script>
+{% unless product.title == "Select" %}
 <script text="text/javascript">
   var _learnq = _learnq || [];
 
@@ -205,3 +206,4 @@
     _learnq.push(['track', 'Added to Cart', item]);
   });
 </script>
+{% endunless %}
