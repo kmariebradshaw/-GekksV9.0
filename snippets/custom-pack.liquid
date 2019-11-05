@@ -98,7 +98,11 @@
 </section>
 
 <style>
-	#add-cart { margin: 15px 0; }
+	#add-cart-custom { 
+    padding: 10px;
+    margin: 15px auto;
+    text-align: center;
+}
 	#bundle_price { margin-right: 5px; }
 	.rose { background-color: #F7CAC9; }
 	.green { background-color: #00A68C; }
@@ -334,7 +338,7 @@
 
   	$('#add-cart-custom').click(function() {
   		var size = $('#custom-pack-size option:selected').text(); 
-  		console.log(size)
+  		$('#add-cart-custom').css("background-color", "lightgray").html("<span>adding...</span>")
 		$( ".bundle-color-selection.highlight:visible" ).each(function() {
 			push_to_queue($(this).data('variant-id-' + size), 1)
 		 }); 
