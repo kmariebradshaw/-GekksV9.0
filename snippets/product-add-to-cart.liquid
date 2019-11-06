@@ -100,7 +100,7 @@
            {% endif %}
         {% else %} 
            {% if product.title != "Ballet Flats" %}
-           	<option {% if forloop.index == 2 %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+           	<option {% if forloop.index == 5 %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
            {% else %}
            	<option {% if forloop.index == 3 %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
            {% endif %}
