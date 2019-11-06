@@ -164,6 +164,40 @@
         $('#featured-image').attr("src","//cdn.shopify.com/s/files/1/0424/0893/products/Black_Flat2_2000x2000.jpg?v=1529418978")
       }
     }
+    else if ("{{product.title }}" == "Women's Loafers & Slip-Ons") {
+      if ($(this).hasClass('green')) {
+        console.log('green')
+
+      }
+      else if ($(this).hasClass('blue')) {
+        console.log('blue')
+
+      }
+      else if ($(this).hasClass('rose')) {
+        console.log('rose')
+
+      }
+      else if ($(this).hasClass('black')) {
+        console.log('black')
+      }
+    }
+    else if ("{{product.title }}" == "Women's Sneakers & Lace-Ups") {
+      if ($(this).hasClass('green')) {
+        console.log('green')
+
+      }
+      else if ($(this).hasClass('blue')) {
+        console.log('blue')
+
+      }
+      else if ($(this).hasClass('rose')) {
+        console.log('rose')
+
+      }
+      else if ($(this).hasClass('black')) {
+        console.log('black')
+      }
+    }
     $('.product-image').each(function() {
       if ($(this).attr("src").replace("compact", "2000x2000") == $('#featured-image').attr("src")) {
   $(this).addClass('border-lightgray').parent().siblings().children().removeClass('border-lightgray'); 
