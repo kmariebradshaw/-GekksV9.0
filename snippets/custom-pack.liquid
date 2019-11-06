@@ -13,22 +13,22 @@
    <section id="bundle_flats" class="flex-container-no" style="display: none;">
    	 <img src="{{'Icon-ballet-results.png' | asset_url }}" class="bundle-icon">
    	 <div class="bundle-color-selection black highlight" data-variant-id-medium="18247857860" data-variant-id-large="18247857988" data-variant-id-small="18247857668"></div>
-   	 <div class="bundle-color-selection beige" data-variant-id="18247857924" data-variant-id-large="18247858052" data-variant-id-small="19347385476"></div>
+   	 <div class="bundle-color-selection beige" data-variant-id-medium="18247857924" data-variant-id-large="18247858052" data-variant-id-small="19347385476"></div>
    </section>
      <section id="bundle_flats2" class="flex-container-no" style="display: none;">
    	  <img src="{{'Icon-ballet-results.png' | asset_url }}" class="bundle-icon">
    	 <div class="bundle-color-selection black highlight" data-variant-id-medium="18247857860" data-variant-id-large="18247857988" data-variant-id-small="18247857668"></div>
-   	 <div class="bundle-color-selection beige" data-variant-id="18247857924" data-variant-id-large="18247858052" data-variant-id-small="19347385476"></div>
+     <div class="bundle-color-selection beige" data-variant-id-medium="18247857924" data-variant-id-large="18247858052" data-variant-id-small="19347385476"></div>
    </section>
     <section id="bundle_flats3" class="flex-container-no" style="display: none;">
    	 <img src="{{'Icon-ballet-results.png' | asset_url }}" class="bundle-icon">
-   	  <div class="bundle-color-selection black highlight" data-variant-id-medium="18247857860" data-variant-id-large="18247857988" data-variant-id-small="18247857668"></div>
-   	 <div class="bundle-color-selection beige" data-variant-id="18247857924" data-variant-id-large="18247858052" data-variant-id-small="19347385476"></div>
+   	   <div class="bundle-color-selection black highlight" data-variant-id-medium="18247857860" data-variant-id-large="18247857988" data-variant-id-small="18247857668"></div>
+     <div class="bundle-color-selection beige" data-variant-id-medium="18247857924" data-variant-id-large="18247858052" data-variant-id-small="19347385476"></div>
    </section>
      <section id="bundle_flats4" class="flex-container-no" style="display: none;">
    	 <img src="{{'Icon-ballet-results.png' | asset_url }}" class="bundle-icon">
    	 <div class="bundle-color-selection black highlight" data-variant-id-medium="18247857860" data-variant-id-large="18247857988" data-variant-id-small="18247857668"></div>
-   	 <div class="bundle-color-selection beige" data-variant-id="18247857924" data-variant-id-large="18247858052" data-variant-id-small="19347385476"></div>
+     <div class="bundle-color-selection beige" data-variant-id-medium="18247857924" data-variant-id-large="18247858052" data-variant-id-small="19347385476"></div>
    </section>
    <section id="bundle_wloafer" class="flex-container-no" style="display: none;">
    	 <img src="{{'Icon-loafers-results.png' | asset_url }}" class="bundle-icon">
@@ -153,7 +153,7 @@
 			compare_at = "$72.00"
 			savings = "33%"
 			description = "one flat, one heel, one loafer, and one sneaker."
-			photo_collection = ""	
+			photo_collection = ".photo-1"	
 			$('#bundle_wloafer, #bundle_wsneaker, #bundle_flats, #bundle_heels').show()		
 			break;
 		case "2":
@@ -162,7 +162,7 @@
 			compare_at = "$72.00"
 			savings = "33%"
 			description = "two flats and two heels."
-			photo_collection = ""
+			photo_collection = ".photo-2"
 			$('#bundle_flats, #bundle_flats2, #bundle_heels, #bundle_heels2').show(); 	
 			break;
 		case "3":
@@ -172,7 +172,7 @@
 			savings = "33%"
 			description = "two flats, one loafer, and one sneaker."
 			$('#bundle_flats, #bundle_flats2, #bundle_wloafer, #bundle_wsneaker').show(); 	
-			photo_collection = ""
+			photo_collection = ".photo-3"
 			break;
 		case "4":
 			title = "The Men’s Closet Pack"
@@ -181,7 +181,7 @@
 			savings = "33%"
 			description = "two men's loafers, and two men's sneakers."
 			$('#bundle_mloafer, #bundle_msneaker, #bundle_msneaker2, #bundle_mloafer2').show(); 
-			photo_collection = ""
+			photo_collection = ".photo-4"
 			break;
 		case "5":
 			title = "The Casual Pack"
@@ -190,7 +190,7 @@
 			savings = "33%"
 			description = "two flats, and two loafers."
 			$('#bundle_flats, #bundle_flats2, #bundle_wloafer, #bundle_wloafer2').show(); 	
-			photo_collection = ""
+			photo_collection = ".photo-5"
 			break;
 		case "6":
 			title = "The Women’s Closet Pack"
@@ -199,7 +199,7 @@
 			savings = "33%"
 			description = "two flats, one loafer, one sneaker, and one heel."
 			$('#bundle_wloafer, #bundle_wsneaker, #bundle_flats, #bundle_flats2, #bundle_heels').show(); 
-			photo_collection = ""
+			photo_collection = ".photo-6"
 			break;
 		case "7":
 			title = "The Casual Pack Lite"
@@ -208,7 +208,7 @@
 			savings = "22%"
 			description = "two flats, and one loafer."
 			$('#bundle_flats, #bundle_flats2, #bundle_wloafer').show(); 	
-			photo_collection = ""
+			photo_collection = ".photo-7"
 			break;
 		case "8":
 			title = "The Office Pack Lite"
@@ -217,7 +217,7 @@
 			savings = "22%"
 			description = "two flats, and one heel."
 			$('#bundle_flats, #bundle_flats2, #bundle_heels').show(); 
-			photo_collection = ""
+			photo_collection = ".photo-8"
 			break;
 		case "9":
 			title = "The Laceless"
@@ -226,7 +226,7 @@
 			savings = "22%"
 			description = "one loafer, one flat, one heel."
 			$('#bundle_wloafer, #bundle_flats, #bundle_heels').show()
-			photo_collection = ""
+			photo_collection = ".photo-9"
 			break;
 		case "10":
 			title = "The Couples Pack"
@@ -235,7 +235,7 @@
 			savings = "33%"
 			description = "one men's loafer, one men's sneaker, one women's flat, one woman's loafer and woman's sneaker"
 			$('#bundle_wloafer, #bundle_wsneaker, #bundle_flats, #bundle_heels, #bundle_mloafer, #bundle_msneaker').show()		
-			photo_collection = ""
+			photo_collection = ".photo-10"
 			break;
 		case "11":
 			title = "The Shoe Lover"
@@ -243,7 +243,7 @@
 			compare_at = "$108.00"
 			savings = "35%"
 			description = "two women's flats, two women's sneakers, two women's loafers."
-			photo_collection = ""
+			photo_collection = ".photo-11"
 			$('#bundle_flats, #bundle_flats2, #bundle_wloafer, #bundle_wloafer2, #bundle_wsneaker, #bundle_wsneaker2').show(); 	
 			break;
 		case "12":
@@ -252,7 +252,7 @@
 			compare_at = "$72.00"
 			savings = "33%"
 			description = "four women's flats."
-			photo_collection = ""
+			photo_collection = ".photo-12"
 			$('#bundle_flats, #bundle_flats2, #bundle_flats3, #bundle_flats4').show(); 	
 			break;
 		// case "13":
@@ -271,7 +271,7 @@
 	$('#bundle_compare_at_price').text(compare_at)
 	$('#bundle_savings').text(savings)
 	$('#bundle_description').text(description)
-
+  $(photo_collection).show(); 
 
 
 
