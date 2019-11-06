@@ -29,7 +29,7 @@
             {% for image in product.images limit: 1 %}
             <li><img data-src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image lazyload"/></li>
             {% endfor %}
-            {% for image in product.images limit: 4 offset: 2 %}
+            {% for image in product.images limit: 5 offset: 2 %}
             <li><img data-src="{{ image | product_img_url: 'compact' }}" class="product-image lazyload"/></li>
             {% endfor %} 
           </ul>
@@ -164,22 +164,23 @@
         $('#featured-image').attr("src","//cdn.shopify.com/s/files/1/0424/0893/products/Black_Flat2_2000x2000.jpg?v=1529418978")
       }
     }
-    else if ("{{product.title }}" == "Women's Loafers & Slip-Ons") {
+    else if ("{{product.title }}" == "Loafers & Slip-Ons" && 
+    "{{product.collections.first.title}}" == "Women") {
       if ($(this).hasClass('green')) {
-        console.log('green')
-
+        $('#featured-image').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Green_2000x2000.jpg?v=1573059225"); 
+        $('#thumbnails ul li img:visible').first().attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Green_compact.jpg?v=1573059225").addClass('border-lightgray').parents().siblings().children().removeClass('border-lightgray'); 
       }
       else if ($(this).hasClass('blue')) {
-        console.log('blue')
-
+        $('#featured-image').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Blue_2000x2000.jpg?v=1573059225"); 
+        $('#thumbnails ul li img:visible').first().attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Blue_compact.jpg?v=1573059225").addClass('border-lightgray').parents().siblings().children().removeClass('border-lightgray'); 
       }
       else if ($(this).hasClass('rose')) {
-        console.log('rose')
-
+        $('#featured-image').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Pink_2000x2000.jpg?v=1573059225"); 
+        $('#thumbnails ul li img:visible').first().attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Pink_compact.jpg?v=1573059225").addClass('border-lightgray').parents().siblings().children().removeClass('border-lightgray');
       }
       else if ($(this).hasClass('black')) {
-        console.log('black')
-      }
+          $('#featured-image').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Black_2000x2000.jpg?v=1573059225"); 
+        $('#thumbnails ul li img:visible').first().attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Black_compact.jpg?v=1573059225").addClass('border-lightgray').parents().siblings().children().removeClass('border-lightgray');      }
     }
     else if ("{{product.title }}" == "Women's Sneakers & Lace-Ups") {
       if ($(this).hasClass('green')) {
