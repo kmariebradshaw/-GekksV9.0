@@ -1,53 +1,4 @@
-  <section id="product-images">
-     {% unless product.title == "Gift Cards" %}
-        <div id="thumbnails" class="ndo-plus">
-          <ul>
-            {% for image in product.images limit: 1 %}
-            <li><img data-src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image lazyload"/></li>
-            {% endfor %}
-            {% for image in product.images limit: 4 offset: 2 %}
-            <li><img data-src="{{ image | product_img_url: 'compact' }}" class="product-image lazyload"/></li>
-            {% endfor %} 
-          </ul>
-        </div>
-      {% endunless %} 
-      {% if product.type == "Closet Pack"%}
-      <div class="mo-plus fw" id="moprice"><h3 class="tac nmb">{{ product.price | money }} <span style="text-decoration: line-through; color: gray;">{% if product.price < product.compare_at_price_max and product.type == "Closet Pack" %}{{ product.compare_at_price | money }}{% endif %}</span></h3>
-        {% if product.title == "Women's Closet Pack" %}
-          <p class="subscript tac nmt">Save $5 when you buy a closet pack!</p>
-        {% elsif product.title == "Men's Closet Pack" %}
-          <p class="subscript tac nmt">Save $4 when you buy a closet pack!</p>
-        {% endif %}
-      </div>
-      {% endif %}
-      <div class="mo-plus fw">
-        <div class="priceu" style="display: none;">
-        {% if product.title == "Women's Closet Pack" %}
-          <h3 class="tac nmb">$36.00 <span style="text-decoration: line-through; color: gray;">{% if product.price < product.compare_at_price_max %}$49.00{% endif %}</span></h3>
-        {% else %}
-          <div class="flex-container-no">
-          <h3 class="tar" style="width: 56%; margin-right: 10px">$18.00 <span class="subscript" style="font-weight: 300; margin: 0 5px;">or</span> $12.00 </h3><span class="subscript" style="font-weight: 300;">when you buy 3 <br>or more pairs</span>
-        </div>
-          {% endif %}
-        </div>
-      </div>
-      <img data-src="{{ product.featured_image.src | product_img_url: '2000x2000' }}" alt="{{ product.title }}" id="featured-image" class="lazyload"/>
-      {% unless product.title == "Gift Cards" %}
-        <div id="thumbnails" class="mo-plus" style="display: none;">
-          <ul>
-            {% for image in product.images limit: 1 %}
-            <li><img data-src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image lazyload"/></li>
-            {% endfor %}
-            {% for image in product.images limit: 5 offset: 2 %}
-            <li><img data-src="{{ image | product_img_url: 'compact' }}" class="product-image lazyload"/></li>
-            {% endfor %} 
-          </ul>
-        </div>
-        {% endunless %}
-  </section>
 
-
-<form action="/cart/add" method="post" id="product-form-{{ product.id }} t" class="checkout" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
  <section id="product-details">
 	<h3 id="bundle_title">Your Bundle</h3>
@@ -81,31 +32,31 @@
    </section>
    <section id="bundle_wloafer" class="flex-container-no" style="display: none;">
    	 <img src="{{'Icon-loafers-results.png' | asset_url }}" class="bundle-icon">
-   	 <div class="bundle-color-selection black highlight" data-attr-id-small="18250901828" data-attr-id-medium="18250902084" data-attr-id-large="18250902276"></div>
-   	 <div class="bundle-color-selection rose" data-attr-id-small="31001775046733" data-attr-id-medium="31001775079501" data-attr-id-large="31001775112269"></div>
-   	 <div class="bundle-color-selection green" data-attr-id-small="31001768788045" data-attr-id-medium="31001768984653" data-attr-id-large="31001769017421"></div>
-   	 <div class="bundle-color-selection blue" data-attr-id-small="31001769410637" data-attr-id-medium="31001769443405" data-attr-id-large="31001769476173"></div>
+   	 <div class="bundle-color-selection black highlight" data-variant-id-small="18250901828" data-variant-id-medium="18250902084" data-variant-id-large="18250902276"></div>
+   	 <div class="bundle-color-selection rose" data-variant-id-small="31001775046733" data-variant-id-medium="31001775079501" data-variant-id-large="31001775112269"></div>
+   	 <div class="bundle-color-selection green" data-variant-id-small="31001768788045" data-variant-id-medium="31001768984653" data-variant-id-large="31001769017421"></div>
+   	 <div class="bundle-color-selection blue" data-variant-id-small="31001769410637" data-variant-id-medium="31001769443405" data-variant-id-large="31001769476173"></div>
    </section>
      <section id="bundle_wloafer2" class="flex-container-no" style="display: none;">
    	 <img src="{{'Icon-loafers-results.png' | asset_url }}" class="bundle-icon">
-	 <div class="bundle-color-selection black highlight" data-attr-id-small="18250901828" data-attr-id-medium="18250902084" data-attr-id-large="18250902276"></div>
-   	 <div class="bundle-color-selection rose" data-attr-id-small="31001775046733" data-attr-id-medium="31001775079501" data-attr-id-large="31001775112269"></div>
-   	 <div class="bundle-color-selection green" data-attr-id-small="31001768788045" data-attr-id-medium="31001768984653" data-attr-id-large="31001769017421"></div>
-   	 <div class="bundle-color-selection blue" data-attr-id-small="31001769410637" data-attr-id-medium="31001769443405" data-attr-id-large="31001769476173"></div>
+	 <div class="bundle-color-selection black highlight" data-variant-id-small="18250901828" data-variant-id-medium="18250902084" data-variant-id-large="18250902276"></div>
+   	 <div class="bundle-color-selection rose" data-variant-id-small="31001775046733" data-variant-id-medium="31001775079501" data-variant-id-large="31001775112269"></div>
+   	 <div class="bundle-color-selection green" data-variant-id-small="31001768788045" data-variant-id-medium="31001768984653" data-variant-id-large="31001769017421"></div>
+   	 <div class="bundle-color-selection blue" data-variant-id-small="31001769410637" data-variant-id-medium="31001769443405" data-variant-id-large="31001769476173"></div>
    </section>
    <section id="bundle_wsneaker" class="flex-container-no"style="display: none;">
    	 <img src="{{'Icon-sneakers-results.png' | asset_url }}" class="bundle-icon">
-   	 <div class="bundle-color-selection black highlight" data-attr-id-small="18250940100" data-attr-id-medium="18250940804" data-attr-id-large="18250941956"></div>
-   	 <div class="bundle-color-selection rose" data-attr-id-small="31001784582221" data-attr-id-medium="31001784614989" data-attr-id-large="31001784647757"></div>
-   	 <div class="bundle-color-selection green" data-attr-id-small="31001784057933" data-attr-id-medium="31001784090701" data-attr-id-large="31001784320077"></div>
-   	 <div class="bundle-color-selection blue" data-attr-id-small="31001784877133" data-attr-id-medium="31001784909901" data-attr-id-large="31001784942669"></div>
+   	 <div class="bundle-color-selection black highlight" data-variant-id-small="18250940100" data-variant-id-medium="18250940804" data-variant-id-large="18250941956"></div>
+   	 <div class="bundle-color-selection rose" data-variant-id-small="31001784582221" data-variant-id-medium="31001784614989" data-variant-id-large="31001784647757"></div>
+   	 <div class="bundle-color-selection green" data-variant-id-small="31001784057933" data-variant-id-medium="31001784090701" data-variant-id-large="31001784320077"></div>
+   	 <div class="bundle-color-selection blue" data-variant-id-small="31001784877133" data-variant-id-medium="31001784909901" data-variant-id-large="31001784942669"></div>
    </section>
     <section id="bundle_wsneaker2" class="flex-container-no"style="display: none;">
    	 <img src="{{'Icon-sneakers-results.png' | asset_url }}" class="bundle-icon">
-	 <div class="bundle-color-selection black highlight" data-attr-id-small="18250940100" data-attr-id-medium="18250940804" data-attr-id-large="18250941956"></div>
-   	 <div class="bundle-color-selection rose" data-attr-id-small="31001784582221" data-attr-id-medium="31001784614989" data-attr-id-large="31001784647757"></div>
-   	 <div class="bundle-color-selection green" data-attr-id-small="31001784057933" data-attr-id-medium="31001784090701" data-attr-id-large="31001784320077"></div>
-   	 <div class="bundle-color-selection blue" data-attr-id-small="31001784877133" data-attr-id-medium="31001784909901" data-attr-id-large="31001784942669"></div>
+	 <div class="bundle-color-selection black highlight" data-variant-id-small="18250940100" data-variant-id-medium="18250940804" data-variant-id-large="18250941956"></div>
+   	 <div class="bundle-color-selection rose" data-variant-id-small="31001784582221" data-variant-id-medium="31001784614989" data-variant-id-large="31001784647757"></div>
+   	 <div class="bundle-color-selection green" data-variant-id-small="31001784057933" data-variant-id-medium="31001784090701" data-variant-id-large="31001784320077"></div>
+   	 <div class="bundle-color-selection blue" data-variant-id-small="31001784877133" data-variant-id-medium="31001784909901" data-variant-id-large="31001784942669"></div>
    </section>
    <section id="bundle_heels" class="flex-container-no" style="display: none;">
    	 <img src="{{'Gekks-Icon-Heels-Socks.png' | asset_url }}" class="bundle-icon">
@@ -119,9 +70,9 @@
    </section>
    <section id="bundle_mloafer" class="flex-container-no" style="display: none;">
    	 <img src="{{'Icon-loafers-results.png' | asset_url}}" class="bundle-icon">
-   	  <div class="bundle-color-selection black highlight" data-attr-id-small="18249609860" data-attr-id-medium="18249610628" data-attr-id-large="18249611396"></div>
-   	  <div class="bundle-color-selection green" data-attr-id-small="31001863848013" data-attr-id-medium="31001863880781" data-attr-id-large="31001863913549"></div>
-   	  <div class="bundle-color-selection blue" data-attr-id-small="31001864142925" data-attr-id-medium="31001864175693" data-attr-id-large="31001864208461"></div>
+   	  <div class="bundle-color-selection black highlight" data-variant-id-small="18249609860" data-variant-id-medium="18249610628" data-variant-id-large="18249611396"></div>
+   	  <div class="bundle-color-selection green" data-variant-id-small="31001863848013" data-variant-id-medium="31001863880781" data-variant-id-large="31001863913549"></div>
+   	  <div class="bundle-color-selection blue" data-variant-id-small="31001864142925" data-variant-id-medium="31001864175693" data-variant-id-large="31001864208461"></div>
    </section>
     <section id="bundle_mloafer2" class="flex-container-no" style="display: none;">
    	 <img src="{{'Icon-loafers-results.png' | asset_url}}" class="bundle-icon">
@@ -131,19 +82,19 @@
    </section>
    <section id="bundle_msneaker" class="flex-container-no" style="display: none;">
    	 <img src="{{'Icon-sneakers-results.png' | asset_url}}" class="bundle-icon">
-   	  <div class="bundle-color-selection black highlight" data-attr-id-small="18249077252" data-attr-id-medium="18249078276" data-attr-id-large="18249079492"></div>
-   	  <div class="bundle-color-selection green" data-attr-id-small="31001872400461" data-attr-id-medium="31001872433229" data-attr-id-large="31001872465997"></div>
-   	  <div class="bundle-color-selection blue" data-attr-id-small="31001875152973" data-attr-id-medium="31001875185741" data-attr-id-large="31001875218509"></div>
+   	  <div class="bundle-color-selection black highlight" data-variant-id-small="18249077252" data-variant-id-medium="18249078276" data-variant-id-large="18249079492"></div>
+   	  <div class="bundle-color-selection green" data-variant-id-small="31001872400461" data-variant-id-medium="31001872433229" data-variant-id-large="31001872465997"></div>
+   	  <div class="bundle-color-selection blue" data-variant-id-small="31001875152973" data-variant-id-medium="31001875185741" data-variant-id-large="31001875218509"></div>
    </section>
     <section id="bundle_msneaker2" class="flex-container-no" style="display: none;">
    	 <img src="{{'Icon-sneakers-results.png' | asset_url}}" class="bundle-icon">
-   	   <div class="bundle-color-selection black highlight" data-attr-id-small="18249077252" data-attr-id-medium="18249078276" data-attr-id-large="18249079492"></div>
-   	  <div class="bundle-color-selection green" data-attr-id-small="31001872400461" data-attr-id-medium="31001872433229" data-attr-id-large="31001872465997"></div>
-   	  <div class="bundle-color-selection blue" data-attr-id-small="31001875152973" data-attr-id-medium="31001875185741" data-attr-id-large="31001875218509"></div>
+   	   <div class="bundle-color-selection black highlight" data-variant-id-small="18249077252" data-variant-id-medium="18249078276" data-variant-id-large="18249079492"></div>
+   	  <div class="bundle-color-selection green" data-variant-id-small="31001872400461" data-variant-id-medium="31001872433229" data-variant-id-large="31001872465997"></div>
+   	  <div class="bundle-color-selection blue" data-variant-id-small="31001875152973" data-variant-id-medium="31001875185741" data-variant-id-large="31001875218509"></div>
    </section>
   <div id="add-cart-custom" class="background-green text-white clickable"><span>add to cart</span></div>
 </section>
-</form>
+
 <style>
 	#add-cart-custom { 
     padding: 10px;
@@ -385,9 +336,13 @@
 
   	$('#add-cart-custom').click(function() {
   		var size = $('#custom-pack-size option:selected').text(); 
+      console.log(size)
   		$('#add-cart-custom').css("background-color", "lightgray").html("<span>adding...</span>")
 		$( ".bundle-color-selection.highlight:visible" ).each(function() {
-			push_to_queue($(this).data('variant-id-' + size), 1)
+			var variantSelected = $(this).data('variant-id-' + size)
+      console.log(variantSelected)
+      push_to_queue(variantSelected, 1)
+
 		 }); 
 		Shopify.moveAlong()
  	}); 

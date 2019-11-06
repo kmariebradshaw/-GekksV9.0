@@ -22,7 +22,6 @@
             {% endfor %}
     {% endunless %}
   </section>
-  {% if product.title != "Select" %}
   <section id="product-images">
      {% unless product.title == "Gift Cards" %}
         <div id="thumbnails" class="ndo-plus">
@@ -71,9 +70,7 @@
         {% endunless %}
   </section>
     {% include 'product-add-to-cart' %}
-  {% else %}
-    {% include 'custom-pack' %}
-  {% endif %}
+
   <section class="fw endorsements-features" id="featured">
     
     <ul class="background-beige">
