@@ -28,10 +28,10 @@
         <div id="thumbnails" class="ndo-plus">
           <ul>
             {% for image in product.images limit: 1 %}
-            <li><img data-src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image lazyload"/></li>
-            {% endfor %}
-            {% for image in product.images limit: 4 offset: 2 %}
-            <li><img data-src="{{ image | product_img_url: 'compact' }}" class="product-image lazyload"/></li>
+            <li><img src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image first-thumb"/></li>
+            {% endfor %} 
+             {% for image in product.images limit: 4 offset: 1 %}
+            <li><img src="{{ image | product_img_url: 'compact' }}" class="product-image"/></li>
             {% endfor %} 
           </ul>
         </div>
@@ -56,15 +56,15 @@
           {% endif %}
         </div>
       </div>
-      <img data-src="{{ product.featured_image.src | product_img_url: '2000x2000' }}" alt="{{ product.title }}" id="featured-image" class="lazyload"/>
+      <img src="{{ product.featured_image.src | product_img_url: '1000x1000' }}" alt="{{ product.title }}" id="featured-image" />
       {% unless product.title == "Gift Cards" %}
         <div id="thumbnails" class="mo-plus" style="display: none;">
           <ul>
             {% for image in product.images limit: 1 %}
-            <li><img data-src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image lazyload"/></li>
-            {% endfor %}
-            {% for image in product.images limit: 5 offset: 2 %}
-            <li><img data-src="{{ image | product_img_url: 'compact' }}" class="product-image lazyload"/></li>
+            <li><img src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image first-thumb"/></li>
+            {% endfor %} 
+             {% for image in product.images limit: 4 offset: 1 %}
+            <li><img src="{{ image | product_img_url: 'compact' }}" class="product-image"/></li>
             {% endfor %} 
           </ul>
         </div>
@@ -151,23 +151,59 @@
   $('.color').change(function() {
     if ("{{product.title}}" == "Heels & Wedges") {
       if ($(this).hasClass('nude')) {
-        var src = "//cdn.shopify.com/s/files/1/0424/0893/products/Nude_Heel_3_2000x2000.jpg?v=1529528675"
+        var src = "//cdn.shopify.com/s/files/1/0424/0893/products/Nude_Heel_3_1000x1000.jpg?v=1529528675"
         $('#featured-image').attr("src", src)
         }
       else if ($(this).hasClass('black')) {
-        $('#featured-image').attr("src","//cdn.shopify.com/s/files/1/0424/0893/products/Womens_BlackHeel_2000x2000.jpg?v=1529528675")
+        $('#featured-image').attr("src","//cdn.shopify.com/s/files/1/0424/0893/products/Womens_BlackHeel_1000x1000.jpg?v=1529528675")
       }
     }
     else if ("{{product.title}}" == "Ballet Flats") {
       if ($(this).hasClass('nude')) {
-        $('#featured-image').attr("src","//cdn.shopify.com/s/files/1/0424/0893/products/Nude_Flat_Bare_2000x2000.jpg?v=1529418978")
+        $('#featured-image').attr("src","//cdn.shopify.com/s/files/1/0424/0893/products/Nude_Flat_Bare_1000x1000.jpg?v=1529418978")
       }
       else if ($(this).hasClass('black')) {
-        $('#featured-image').attr("src","//cdn.shopify.com/s/files/1/0424/0893/products/Black_Flat2_2000x2000.jpg?v=1529418978")
+        $('#featured-image').attr("src","//cdn.shopify.com/s/files/1/0424/0893/products/Black_Flat2_1000x1000.jpg?v=1529418978")
       }
     }
+    else if ("{{product.title }}" == "Loafers & Slip-Ons" && 
+    "{{product.collections.first.title}}" == "Women") {
+      if ($(this).hasClass('green')) {
+        $('#featured-image').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Green_1000x1000.jpg?v=1573059225"); 
+        $('img.first-thumb').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Green_compact.jpg?v=1573059225").addClass('border-lightgray').parents().siblings().children().removeClass('border-lightgray'); 
+      }
+      else if ($(this).hasClass('blue')) {
+        $('#featured-image').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Blue_1000x1000.jpg?v=1573059225"); 
+        $('img.first-thumb').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Blue_compact.jpg?v=1573059225").addClass('border-lightgray').parents().siblings().children().removeClass('border-lightgray'); 
+      }
+      else if ($(this).hasClass('rose')) {
+        $('#featured-image').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Pink_1000x1000.jpg?v=1573059225"); 
+        $('img.first-thumb').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Pink_compact.jpg?v=1573059225").addClass('border-lightgray').parents().siblings().children().removeClass('border-lightgray');
+      }
+      else if ($(this).hasClass('black')) {
+          $('#featured-image').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Black_1000x1000.jpg?v=1573059225"); 
+        $('img.first-thumb').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Black_compact.jpg?v=1573059225").addClass('border-lightgray').parents().siblings().children().removeClass('border-lightgray');      }
+    }
+    else if ("{{product.title }}" == "Sneakers & Lace-Ups"  && 
+    "{{product.collections.first.title}}" == "Women") {
+      if ($(this).hasClass('green')) {
+        $('#featured-image').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Green_e7070e83-413b-452b-99e0-44e851c33237_2000x2000.jpg?v=1573061484"); 
+        $('img.first-thumb').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Green_e7070e83-413b-452b-99e0-44e851c33237_compact.jpg?v=1573061484").addClass('border-lightgray').parents().siblings().children().removeClass('border-lightgray'); 
+      }
+      else if ($(this).hasClass('blue')) {
+        $('#featured-image').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Blue_d5743e15-32c4-4807-bb27-969949028ab3_1000x1000.jpg?v=1573060125"); 
+        $('img.first-thumb').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Blue_d5743e15-32c4-4807-bb27-969949028ab3_compact.jpg?v=1573060125").addClass('border-lightgray').parents().siblings().children().removeClass('border-lightgray'); 
+      }
+      else if ($(this).hasClass('rose')) {
+        $('#featured-image').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Pink_48019095-8d90-46f6-a273-1eee45fff410_1000x1000.jpg?v=1573060217"); 
+        $('img.first-thumb').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Pink_48019095-8d90-46f6-a273-1eee45fff410_compact.jpg?v=1573060217").addClass('border-lightgray').parents().siblings().children().removeClass('border-lightgray'); 
+      }
+      else if ($(this).hasClass('black')) {
+        $('#featured-image').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Black_8de7d893-b782-4a4d-bff8-cfe62d437f41_1000x1000.jpg?v=1573055042"); 
+        $('img.first-thumb').attr("src", "//cdn.shopify.com/s/files/1/0424/0893/products/1_Black_8de7d893-b782-4a4d-bff8-cfe62d437f41_compact.jpg?v=1573055042").addClass('border-lightgray').parents().siblings().children().removeClass('border-lightgray');       }
+    }
     $('.product-image').each(function() {
-      if ($(this).attr("src").replace("compact", "2000x2000") == $('#featured-image').attr("src")) {
+      if ($(this).attr("src").replace("compact", "1000x1000") == $('#featured-image').attr("src")) {
   $(this).addClass('border-lightgray').parent().siblings().children().removeClass('border-lightgray'); 
       }
     }); 
