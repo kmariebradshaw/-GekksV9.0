@@ -291,8 +291,8 @@
 <script>
   $(document).ready(function () {
     if ($(window).width() >= 800) {
-      console.log('hit')
-      $('.choose-your-colors').insertBefore('.endorsements-features')
+      $('.choose-your-colors').insertBefore('.endorsements-features'); 
+      $('.first-thumb:visible').insertAfter('#product-details .subscript').attr("data-src").replace("compact", "1000x1000"); 
     }
 
 
