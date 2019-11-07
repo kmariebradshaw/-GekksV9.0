@@ -264,6 +264,21 @@
 
 	$('.bundle-color-selection').click(function() {
 		$(this).addClass('highlight').siblings('.bundle-color-selection').removeClass('highlight'); 
+    if ($(this).hasClass('black')) {
+      $(this).parent().siblings().children('.black-color-choice').show().siblings().hide(); 
+    }
+    else if ($(this).hasClass('blue')) {
+      $(this).parent().siblings().children('.blue-color-choice').show().siblings().hide(); 
+    }
+    else if ($(this).hasClass('rose')) {
+      $(this).parent().siblings().children('.rose-color-choice').show().siblings().hide(); 
+    }
+    else if ($(this).hasClass('green')) {
+      $(this).parent().siblings().children('.green-color-choice').show().siblings().hide(); 
+    }
+    else if ($(this).hasClass('beige')) {
+      $(this).parent().siblings().children('.beige-color-choice').show().siblings().hide(); 
+    }
 	}); 
 
 	var pack_id = getUrlParameter('pack')
