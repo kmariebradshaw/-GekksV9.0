@@ -1,6 +1,6 @@
-    <main id="page">	     
-	    <section class="background-green tac text-white page-header">
-          <h1>{{ page.title }}</h1>
+    <main id="bundle-page">	     
+	     <section class="tac text-green page-header">
+          <h1>Build your Bundle</h1>
       	</section>
         <section class="index-padding">
         	<div class="tac fw accent-padding">
@@ -97,22 +97,27 @@
 			{% endfor %}
 	    </section>
 
-	    <style>
-	    .highlight {border: 2px solid #6DCDB8; border-radius: 100%;}
-	    .icon { width: 70px;  }
-    .scroll-product-photos { 
-    	width: 100px; 
-    	display: inline-block;
-    	vertical-align: middle;
-    }
-    .scroll-product-photos.featured { 
-    	width: 300px !important; 
-    }
-    .scroll-product-photos img { 
-    	max-width: 100%;
-    	vertical-align: middle;
-     }
-     .modal { background-color: white; width: 400px;}
-
+<style>
+.highlight {border: 2px solid #6DCDB8; border-radius: 100%;}
+.icon { width: 70px;  }
+.scroll-product-photos { 
+width: 100px; 
+display: inline-block;
+vertical-align: middle;
+}
+.scroll-product-photos.featured { 
+width: 300px !important; 
+}
+.scroll-product-photos img { 
+max-width: 100%;
+vertical-align: middle;
+}
+.modal { background-color: white; width: 400px;}
+#bundle-page .page-header {
+  background-image: url("{{'SockCircle.png' | asset_url}}") ;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 60%;
+}
 </style>
     </main>
