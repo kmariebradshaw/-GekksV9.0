@@ -2,25 +2,63 @@
 	     <section class="tac text-green page-header">
           <h1>Build your Bundle</h1>
       	</section>
-        <p class="tac"><span>Bundle any style, color, size and save!<br></span>
-
         <section class="index-padding">
-        	<div class="tac fw accent-padding">
-        		<img src="{{'Icon-woman.svg' | asset_url}}" class="icon highlight" id="womens-bundle-choice"/>
-        		<img src="{{'Icon-man.svg' | asset_url}}" class="icon" id="mens-bundle-choice"/>
+          <p class="tac"><span>Bundle any style, color, size and save!<br></span>
+          <div class="flex-container-no jces">
+            <p class="third nm pricing-font">2 pairs: <span class="strikethrough">$36.00</span> $32.00</p>
+            <p class="third nm pricing-font">3 pairs: <span class="strikethrough">$54.00</span> $42.00</p>
+            <p class="third nm pricing-font">4 pairs: <span class="strikethrough">$72.00</span> $48.00</p>
+          </div>
+          <p class="tac nmt pricing-font">5+ pair: <span class="strikethrough">$90.00+</span> $60.00+ & Free Shipping!</p>
+        	<div class="tac fw accent-padding flex-container-no jcc select-gender-style aife">
+            <div id="womens-bundle-choice">
+        		  <img src="{{'Icon-woman.svg' | asset_url}}" class="icon highlight" />
+              <h5 class="text-green nm">Shop Women's</h5>
+            </div>
+            <div id="mens-bundle-choice">
+        		  <img src="{{'Icon-man.svg' | asset_url}}" class="icon"/>
+              <h5 class="text-green nm">Shop Men's</h5>
+            </div>
         	</div>
-        	<div id="womens-bundle">
-        		<p class="bundle-style" id="4832850820">Flats</p>
-        		<p class="bundle-style" id="4833042564">Loafers</p>
-        		<p class="bundle-style" id="4833046212">Sneakers</p>
-        		<p class="bundle-style" id="89803620369">Heels</p>
-        	</div>
-        	<div id="mens-bundle" style="display: none;">
-        		<p class="bundle-style" id="4832930500">Loafers</p>
-        		<p class="bundle-style" id="4832899012">Sneakers</p>
-        		<p class="vhidden">Sneakers</p>
-        		<p class="vhidden">Heels</p>
-        	</div>
+          <h2 class="text-green">Select Style</h2>
+          <div class="flex-container-no womens-bundle">
+            <div class="half">
+              <img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_2000x2000.jpg?v=1573054961" class="fw">
+              <h4 class="tac">Loafers</h4>
+            </div>
+            <div class="half">
+              <img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_eb0a0759-4910-43dd-9bb8-daa0c386d7b6_2000x2000.jpg?v=1573055042" class="fw">
+              <h4 class="tac">Sneakers</h4>
+            </div>
+          </div>
+          <div class="flex-container-no womens-bundle">
+            <div class="half">
+              <img src="{{'Nude_Flat_4.jpg' | asset_url}}" class="fw">
+              <h4 class="tac">Flats</h4>
+            </div>
+            <div class="half">
+              <img src="{{'heelshot.jpg' | asset_url}}" class="fw">
+              <h4 class="tac">Heels</h4>
+            </div>
+          </div>
+          <div class="flex-container-no mens-bundle" style="display: none;">
+            <div class="half">
+              <img src="{{'placeholder.png' | asset_url}}" class="fw">
+              <h4 class="tac">Loafers</h4>
+            </div>
+            <div class="half">
+              <img src="{{'placeholder.png' | asset_url}}" class="fw">
+              <h4 class="tac">Sneakers</h4>
+            </div>
+          </div>
+          <h2></h2>
+          <section class="border-lightgray accent-padding">
+            <h2 class="text-green nm">Your Bundle</h2>
+          </section>
+
+
+
+  
 
         	<script>
         		$('.bundle-style').click(function() {
@@ -28,15 +66,15 @@
         			$(".modal.accent-padding.s" + sku).show(); 
       				$('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').addClass('darken');
         		})
-        		$('.icon').click(function() {
-        			$(this).addClass('highlight').siblings().removeClass('highlight')
+        		$('.select-gender-style div').click(function() {
+        			$(this).children('img').addClass('highlight').parent().siblings().children().removeClass('highlight')
         			if ($(this).attr("id") == "womens-bundle-choice") {
-        				$('#womens-bundle').show()
-        				$('#mens-bundle').hide(); 
+        				$('.womens-bundle').show()
+        				$('.mens-bundle').hide(); 
         			}
         			else if ($(this).attr("id") == "mens-bundle-choice") {
-        				$('#womens-bundle').hide()
-        				$('#mens-bundle').show(); 
+        				$('.womens-bundle').hide()
+        				$('.mens-bundle').show(); 
         			}
         		})
         	</script>
@@ -60,6 +98,53 @@
   					</section>
   				  {% include 'product-add-to-bundle' %}
 				</div>
+<style>
+.womens-bundle h4, .mens-bundle h4 {
+    background: #6DCDB8;
+    padding: 10px;
+    color: white;
+    box-shadow: 1px 1px 2px grey;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+.womens-bundle { align-items: flex-end; }
+.select-gender-style div { 
+  margin: 0 10px; 
+  align-self: flex-end; 
+}
+@media only screen and (max-width: 588px) {
+  .pricing-font { font-size: 7pt; }
+  .pricing-font span { font-size: 6pt; }
+  #bundle-page .icon { width: 35px;  }
+
+}
+.womens-bundle .half, .mens-bundle .half { margin: 10px; padding-top: 0;}
+.highlight {border: 2px solid #6DCDB8; border-radius: 100%;}
+.icon { width: 50px;  }
+.scroll-product-photos { 
+width: 100px; 
+display: inline-block;
+vertical-align: middle;
+}
+.scroll-product-photos.featured { 
+width: 300px !important; 
+}
+.scroll-product-photos img { 
+max-width: 100%;
+vertical-align: middle;
+}
+.modal { background-color: white; width: 400px;}
+#bundle-page .page-header {
+  background-image: url("{{'SockCircle.png' | asset_url}}") ;
+  background-position: center;
+  background-repeat: no-repeat;
+    background-size: 60%;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+</style>
 <script text="text/javascript">
   var _learnq = _learnq || [];
 
@@ -99,27 +184,4 @@
 			{% endfor %}
 	    </section>
 
-<style>
-.highlight {border: 2px solid #6DCDB8; border-radius: 100%;}
-.icon { width: 70px;  }
-.scroll-product-photos { 
-width: 100px; 
-display: inline-block;
-vertical-align: middle;
-}
-.scroll-product-photos.featured { 
-width: 300px !important; 
-}
-.scroll-product-photos img { 
-max-width: 100%;
-vertical-align: middle;
-}
-.modal { background-color: white; width: 400px;}
-#bundle-page .page-header {
-  background-image: url("{{'SockCircle.png' | asset_url}}") ;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 60%;
-}
-</style>
     </main>
