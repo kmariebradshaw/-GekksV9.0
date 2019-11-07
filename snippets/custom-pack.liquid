@@ -126,7 +126,7 @@
       </div>
       <div class="tac half">
          <h4 class="text-green nm">Heels</h4>
-   	     <img src="{{'Gekks-Icon-Heels-Socks.png' | asset_url }}" class="bundle-icon">
+   	     <img src="{{'Gekks-Icon-Heels-Socks.png' | asset_url }}" class="bundle-icon" style="margin: auto;">
    	     <div class="bundle-color-selection black highlight" data-variant-id-medium="702715527185" data-variant-id-large="702715592721" data-variant-id-small="702715461649"></div>
          <div class="bundle-color-selection beige" data-variant-id-medium="702715559953" data-variant-id-large="702715625489" data-variant-id-small="702715494417"></div>
       </div>
@@ -138,7 +138,7 @@
       </div>
       <div class="tac half">
          <h4 class="text-green nm">Heels 2</h4>
-         <img src="{{'Gekks-Icon-Heels-Socks.png' | asset_url }}" class="bundle-icon">
+         <img src="{{'Gekks-Icon-Heels-Socks.png' | asset_url }}" class="bundle-icon" style="margin: auto;">
          <div class="bundle-color-selection black highlight" data-variant-id-medium="702715527185" data-variant-id-large="702715592721" data-variant-id-small="702715461649"></div>
          <div class="bundle-color-selection beige" data-variant-id-medium="702715559953" data-variant-id-large="702715625489" data-variant-id-small="702715494417"></div>
       </div>
@@ -243,6 +243,21 @@
       margin: 20px auto;
       text-align: center;
   }
+#product-images {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+}
+#featured-image {
+    width: 100%;
+    max-width: 400px;
+}
+}
+@media only screen and (max-width: 799px) and (min-width: 589px) {
+#thumbnails li img {
+    width: 75px !important;
+}
 }
 </style>
 	
@@ -421,13 +436,13 @@
 
 
 
-	$('#custom-pack-size').change(function() {
-		$('#featured-image').addClass('abs')
-		$('#featured-image').animate({height: '+=2%', width: '+=2%'}, 200, function() {
-			$('#featured-image').animate({height: '-=2%', width: '-=2%'}, 200)
-			$('#featured-image').removeClass('abs')
-		})
-	}); 
+	// $('#custom-pack-size').change(function() {
+	// 	$('#featured-image').addClass('abs')
+	// 	$('#featured-image').animate({height: '+=2%', width: '+=2%'}, 200, function() {
+	// 		$('#featured-image').animate({height: '-=2%', width: '-=2%'}, 200)
+	// 		$('#featured-image').removeClass('abs')
+	// 	})
+	// }); 
 	
 </script>
 
