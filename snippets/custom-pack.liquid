@@ -530,7 +530,7 @@
   }
 
   	$('#add-cart-custom').click(function() {
-  		var size = $('#custom-pack-size option:selected').text(); 
+  		var size = $('#custom-pack-size option:selected').text().split(' ')[0]; 
       console.log(size)
   		$('#add-cart-custom').css("background-color", "lightgray").html("<span>adding...</span>")
 		$( ".bundle-color-selection.highlight:visible" ).each(function() {
