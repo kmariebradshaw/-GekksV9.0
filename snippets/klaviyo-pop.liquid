@@ -9,8 +9,8 @@
   <div class="background-green tac flex-container-no" id="container-news">
     <form action="//manage.kmail-lists.com/subscriptions/subscribe" method="POST" novalidate="novalidate" class="hide_on_submit klaviyo_subscription_form">
       <input type="hidden" name="g" value="Ai9wnf">
-       <h1 class="text-white nm hide_on_submit originalab">Over 30% Off</h1>
-          <p class="hide_on_submit text-white nmt" ><span>Get your Gekks for as low as $10 a pair by unlocking Bundle Pricing</span></p>    
+       <h1 class="text-white nm hide_on_submit originalab">Exclusive Discounts</h1>
+          <p class="hide_on_submit text-white nmt" ><span>Sign up to stay in the know for product launches and exclusive offers.</span></p>    
       <p class="nmt"></p>
       <input type="email" id="newsletter_popup_$email" class="newsletter_email hide_on_submit" name="email" placeholder="enter email">
       <div class="klaviyo_form_actions hide_on_submit">
@@ -25,7 +25,6 @@
           </div>       
         </div>
       </div>
-      <p class="text-white hide_on_submit do">Stay in the know with <br><b>exclusive deals</b></p>
       <p class="nmt klaviyo_header_close tac text-white clickable hide_on_submit" style="font-size: 10pt; margin-top: 10px; text-decoration: underline;"><span>decline 30% off</span></p>
       <div class="error_message subscript" style="display: none;"></div> 
     </form>
@@ -44,7 +43,7 @@ $(document).ready(function(){
         KlaviyoSubscribe.attachToModalForm('.modal-newsletter', {
           delay_seconds: 0,  
           ignore_cookie: true,
-          success_message: "<div class='success_feedback accent-padding'><div class='accent-padding'><p class='nmt klaviyo_header_close_news tac clickable' style='font-size: 12pt;' onclick='closeWelcomePop()'>X</p><h2 class='nm'>Thank you!</h2><h3>You've unlocked bundle pricing.</h3><p class='tac'>Discount will be automatically applied in checkout</p></div></div>",
+          success_message: "<div class='success_feedback accent-padding'><div class='accent-padding'><p class='nmt klaviyo_header_close_news tac clickable' style='font-size: 12pt;' onclick='closeWelcomePop()'>X</p><h2 class='nm'>Thank you!</h2></div></div>",
            success: function ($form) {
             $('#container-news').css("background-image", "none"); 
       $('#success-close').show();
@@ -72,7 +71,7 @@ $(document).ready(function(){
     <input type="hidden" name="g" value="zEZHLa"> 
     <div class="hide_on_submit">
       <h1 class="accent-padding border-white nm">Wait!</h1> 
-      <p class="text-green">Unlock bundle pricing before you go and save your 30% off coupon</b></p>
+      <p class="text-green">Lock in savings before you go and stay up to date with product launches</b></p>
       <div class="klaviyo_fieldset hide_on_submit">
       <div class="klaviyo_field_group">
         <input type="email" id="newsletter_popup_$email" name="email"></div>
@@ -80,7 +79,7 @@ $(document).ready(function(){
      <div class="">
       <div class="klaviyo_form_actions hide_on_submit">
         <div class="do">
-          <button type="submit" class="klaviyo_submit_button"><span>Get My Discount!</span></button>
+          <button type="submit" class="klaviyo_submit_button"><span>let's go!</span></button>
         </div>
 
       </div>
@@ -116,7 +115,7 @@ $(document).ready(function(){
 
             $('.modal').removeClass('darken')
             KlaviyoSubscribe.attachToModalForm('#exit_offer', {
-              success_message: "<div class='success_feedback accent-padding'><div class='accent-padding border-white'><h2>Thank you!</h2><h3>Bundle pricing is unlocked and will be automatically applied at checkout.</h3>",
+              success_message: "<div class='success_feedback accent-padding'><div class='accent-padding border-white'><h2>Thank you!</h2>",
               ignore_cookie: true, 
               delay_seconds: 0.1,
               success: function ($form) {
