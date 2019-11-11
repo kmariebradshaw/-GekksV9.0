@@ -298,9 +298,12 @@
       $('.choose-your-colors').insertBefore('.endorsements-features');
 
       var newSrc = $('.first-thumb:visible').attr("data-src").replace("compact", "1000x1000")
-      $('.first-thumb:visible').attr("src", newSrc)
+      $('.first-thumb:visible').attr("src", newSrc).attr("data-src", newSrc)
       $('.first-thumb:visible').insertAfter('#product-details .subscript').removeClass('border-lightgray').addClass('border-green'); 
-
+      var newFeatured = $('#thumbnails:visible ul li img:visible:first'); 
+      var newFeaturedSrc = $(newFeatured).attr("data-src").replace("compact", "1000x1000")
+      $(newFeatured).addClass('border-lightgray')
+      $('#featured-image').attr("src", newFeaturedSrc).attr("data-src", newFeaturedSrc)
     }
 
 
