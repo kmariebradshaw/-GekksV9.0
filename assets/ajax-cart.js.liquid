@@ -33,46 +33,6 @@ $('#CartContainer').show().removeClass('slide-out').addClass('slide-in');
       'aw_remarketing_only': true
   });
 
-
-  var emailSignUp = readCookie('emailSignUp');
-
-  if (emailSignUp) {
-        var total = cart.item_count;
-        var womenscpak = 0;  
-         $.each(cart.items, function(index, cartItem) {
-           console.log(cartItem.id); 
-           if ( (cartItem.id == 26654825736) || (cartItem.id == 26654748040) || (cartItem.id == 26654825672)) {
-             womenscpak += cartItem.quantity
-
-           }
-            
-         });
-      if (womenscpak == 0 ) {
-        if (total >= 3 && womenscpak == 0) {
-          var twelvesub = "$" + total * 12 + ".00"
-          jQuery.get('/discount/GKKM12')
-          // $('#ajax-cart-price span').text('$12.00'); 
-          $('#ajax-cart-price-subtotal #original-sub').addClass('strikethrough'); 
-          $('#ajax-cart-price-subtotal #add-new').text(" " + twelvesub); 
-        }
-      }
-      else {
-        if (total - womenscpak == 0) {
-          var twelvesub = "$" + total * 36 + ".00"
-          jQuery.get('/discount/GKKMGWC')
-          // $('#ajax-cart-price span').text('$36.00'); 
-          $('#ajax-cart-price-subtotal #original-sub').addClass('strikethrough'); 
-          $('#ajax-cart-price-subtotal #add-new').text(" " + twelvesub); 
-        }
-        else {
-          var twelvesub = "$" + (((total - womenscpak) * 12) + (womenscpak * 36)) +  ".00"        
-          jQuery.get('/discount/GWC' + (womenscpak) + "S" + (total - womenscpak));
-          $('#ajax-cart-price-subtotal #original-sub').addClass('strikethrough'); 
-          $('#ajax-cart-price-subtotal #add-new').text(" " + twelvesub); 
-        }
-      } 
-  }
-
 _showFeedback('success',' added to cart! <a href="/cart" class="text-green">View Cart.</a>',$formContainer);if(window.Shopify&&Shopify.StorefrontExpressButtons){Shopify.StorefrontExpressButtons.initialize();}};adjustCart=function(){$body.on('click','.ajaxcart__qty-adjust',function(){if(isUpdating){return;}
 var $el=$(this),line=$el.data('line'),$qtySelector=$el.siblings('.ajaxcart__qty-num'),qty=parseInt($qtySelector.val().replace(/\D/g,''));var qty=validateQty(qty);if($el.hasClass('ajaxcart__qty--plus')){qty+=1;}else{qty-=1;if(qty<=0)qty=0;}
 if(line){updateQuantity(line,qty);}else{$qtySelector.val(qty);}});$body.on('change','.ajaxcart__qty-num',function(){if(isUpdating){return;}
