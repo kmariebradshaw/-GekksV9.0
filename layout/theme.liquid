@@ -189,7 +189,7 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
             <ul class="mobile-nav1 accent-padding" style="display: none;">
                       <p class="nmt tar clickable" id="hamburger-close" style="font-size: 15pt;margin-right:5px;"><span>✕</span></p>
 
-              {% for link in linklists.mobile-nav-1.links limit:3 %}
+              {% for link in linklists.mobile-nav-bundles.links limit:3 %}
                 {% assign child_list_handle = link.title | handleize %}
                 {% if linklists[child_list_handle].links != blank %}
                   {% if link.title == "Women's" %} 
@@ -211,7 +211,7 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
               {% endfor %}
               <li><a href="#" id="nav-more" class="collection-prod">more<span>◯</span></a>
               <ul class="childlink accent-padding" style="display: none;">
-              {% for link in linklists.mobile-nav-1.links offset: 3 %}
+              {% for link in linklists.mobile-nav-bundles.links offset: 3 %}
                 {% if link.title == "Login" %}
                   {% if customer %}
                     <li class="nav-more"><a href="/account">View Account</a></li>
