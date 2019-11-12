@@ -25,7 +25,7 @@
               </p>
             </div>
               <div class="accent-padding price-details">
-                <h3 class="tar"><span id="updated-price"></span><span id="original-price">{{ item.line_price | money}}</span> </h3>
+                <h3 class="tar"><span id="updated-price"></span><span id="original-price"> {{ item.line_price | money}}</span> </h3>
                 <a href="/cart/change?id={{ item.id }}&quantity=0" class="cart-update">remove</a></p>
               </div>
             </div>
@@ -35,8 +35,9 @@
           <h3 class="text-green tac">order summary</h3>
           <div class="index-padding">
             <p><span>items</span><span class="fr">{{cart.item_count}}</span></p>
-            <p><span>subtotal</span><span class="fr">{{ cart.total_price | money }}</span></p>
+            <p><span>subtotal</span><span class="fr" id="original-sub-total">{{ cart.total_price | money }}</span><span class="fr" id="updated-sub-total"></span></p>
           </div>
+            <p class="qualified-for-free-shipping tac text-green" style="display: none;"><span>You've Qualified for Free Shipping!</span></p>
           <input type="submit" id="checkout" name="checkout" value="checkout">
           <p class="subscript tac text-green">other payment options</p>
           {% if additional_checkout_buttons %}
@@ -68,6 +69,7 @@
 <script>
   var cart_total =  ({{cart.item_count }}) 
   var new_price = ""
+
   if (cart_total == 1) {
       console.log("1 - invalid")
   }
@@ -79,8 +81,10 @@
   }
    else if (cart_total >= 5){    
       new_price = 12.00
-      // free
+      $('.qualified-for-free-shipping').show(); 
   }
+    var new_subtotal = cart_total * new_price
+
   if (cart_total > 2) {
     $('.line-item-details #item-line-price').each(function() {
       $(this).html("@ $" + new_price + " <span class='strikethrough'>$18.00</span>")
@@ -89,7 +93,9 @@
       var line_item_quantity = $(this).find('#line-item-quantity-number').text()
       var new_total = new_price * line_item_quantity 
       $(this).find('#original-price').addClass('strikethrough')
-      $(this).find('#updated-price').html("$" + new_total + ".00 "); 
+      $(this).find('#updated-price').html("$ " + new_total + ".00"); 
     })
-    }
+    $('#updated-sub-total').html("$" + new_subtotal + ".00")
+    $('#original-sub-total').addClass('strikethrough').css("margin-left", "5px"); 
+  }
 </script>
