@@ -36,7 +36,7 @@
             </ul>
           </div>
         {% endunless %} 
-        <img src="{{ product.featured_image.src | product_img_url: '2000x2000' }}" alt="{{ product.title }}" id="featured-image" />
+        <img src="{{ product.featured_image.src | product_img_url: '2000x2000' }}" alt="{{ product.title }}" id="featured-image" class="main-image"/>
         {% unless product.type == "Gift Card" %}
           <div id="thumbnails" class="mo-plus" style="display: none;">
             <ul>
