@@ -54,13 +54,154 @@
           <h2></h2>
           <section class="border-lightgray accent-padding">
             <h2 class="text-green nm">Your Bundle</h2>
-            <p class="subscript">Your Bundle is Currently Empty. Select a Style Above to Get Started.</p>
+            {% if cart.items %}
+          {% for item in cart.items %}
+        <div class="flex-container-no line-item-wrapper">
+            <div class="three-five accent-padding">
+              <a href="{{ item.url}}">
+                <img src="{{ item.variant.image.src | product_img_url: 'large' }}"  alt="{{ item.product.title }}" class="fw">
+              </a>
+            </div>
+            <div class="line-item-details">
+              <h3 class="nmb">{{item.product.title}}</h3>
+              <p>
+                <span>Style:</span> {{ item.variant.title | capitalize }}<br>
+                <span>Qty:</span> <span style="font-weight: lighter" id="line-item-quantity-number">{{ item.quantity }}</span></p>
+                <a onclick="removeItem({{ item.id }}, $(this))" class="cart-update">remove</a></p>
+
+              </p>
+            </div>
+            </div>
+          {% endfor %}
+            {% else %}
+              <p class="subscript">Your Bundle is Currently Empty. Select a Style Above to Get Started.</p>
+            {% endif %}
           </section>
           
 
 
           <div class="modal create-loafers" style="display: none;">
-            <h3 class="text-green tar bundle-modal-close">✕</h3>
+            <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
+            <img src="{{'BlackLoafer.jpg' | asset_url}}" class="fw black-color-choice modal-featured"/>
+            <img src="{{'PinkLoafer.jpg' | asset_url}}" class="fw rose-color-choice modal-featured" style="display: none;"/>
+            <img src="{{'GreenLoafer.jpg' | asset_url}}" class="fw green-color-choice modal-featured" style="display: none;"/>
+            <img src="{{'BlueLoafer.jpg' | asset_url}}" class="fw blue-color-choice modal-featured" style="display: none;"/>
+            <div class="flex-container-no jcc">
+              <div class="bundle-color-selection black highlight" data-variant-id-small="18250901828" data-variant-id-medium="18250902084" data-variant-id-large="18250902276"></div>
+              <div class="bundle-color-selection rose" data-variant-id-small="31001775046733" data-variant-id-medium="31001775079501" data-variant-id-large="31001775112269"></div>
+              <div class="bundle-color-selection green" data-variant-id-small="31001768788045" data-variant-id-medium="31001768984653" data-variant-id-large="31001769017421"></div>
+              <div class="bundle-color-selection blue" data-variant-id-small="31001769410637" data-variant-id-medium="31001769443405" data-variant-id-large="31001769476173"></div>
+            </div>
+            <div class="flex-container-no jcc">
+              <div class="quarter"><img src="{{'loafers-b2.jpg' | asset_url}}" class="fw"></div>
+              <div class="quarter"><img src="{{'loafers-b3.jpg' | asset_url}}" class="fw"></div>
+              <div class="quarter"><img src="{{'loafers-b4.jpg' | asset_url}}" class="fw"></div>
+            </div>
+            <div class="flex-container-no accent-padding">
+              <select class="build-bundle-size">
+               <option value="small">small (us:5-6.5)</option>
+               <option value="medium" selected>medium (us:7-8.5)</option>
+               <option value="large">large (us:9-11.5)</option>
+              </select> 
+              <select class="build-bundle-quantity">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+              <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
+            </div>
+          </div>
+
+          <div class="modal create-sneakers" style="display: none;">
+            <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
+            <img src="{{'BlackSneaker.jpg' | asset_url}}" class="fw black-color-choice modal-featured"/>
+            <img src="{{'PinkSneaker.jpg' | asset_url}}" class="fw rose-color-choice modal-featured" style="display: none;"/>
+            <img src="{{'GreenSneaker.jpg' | asset_url}}" class="fw green-color-choice modal-featured" style="display: none;"/>
+            <img src="{{'BlueSneaker.jpg' | asset_url}}" class="fw blue-color-choice modal-featured" style="display: none;" />     
+            <div class="flex-container-no jcc">
+              <div class="bundle-color-selection black highlight" data-variant-id-small="18250940100" data-variant-id-medium="18250940804" data-variant-id-large="18250941956"></div>
+              <div class="bundle-color-selection rose" data-variant-id-small="31001784582221" data-variant-id-medium="31001784614989" data-variant-id-large="31001784647757"></div>
+              <div class="bundle-color-selection green" data-variant-id-small="31001784057933" data-variant-id-medium="31001784090701" data-variant-id-large="31001784320077"></div>
+              <div class="bundle-color-selection blue" data-variant-id-small="31001784877133" data-variant-id-medium="31001784909901" data-variant-id-large="31001784942669"></div>
+            </div>
+            <div class="flex-container-no jcc">
+              <div class="quarter"><img src="{{'sneaker-b2.jpg' | asset_url}}" class="fw"></div>
+              <div class="quarter"><img src="{{'sneaker-b3.jpg' | asset_url}}" class="fw"></div>
+              <div class="quarter"><img src="{{'sneaker-b4.jpg' | asset_url}}" class="fw"></div>
+            </div>
+            <div class="flex-container-no accent-padding">
+              <select class="build-bundle-size">
+               <option value="small">small (us:5-6.5)</option>
+               <option value="medium" selected>medium (us:7-8.5)</option>
+               <option value="large">large (us:9-11.5)</option>
+              </select> 
+              <select class="build-bundle-quantity">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+              <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
+            </div>
+          </div>
+          
+          <div class="modal create-flats" style="display: none;">
+            <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
+            <img src="{{'flatblack.jpg' | asset_url}}" class="fw black-color-choice modal-featured" />
+            <img src="{{'flatbeige.jpg' | asset_url}}" class="fw beige-color-choice modal-featured" style="display: none;" />            
+            <div class="flex-container-no jcc">
+              <div class="bundle-color-selection black highlight" data-variant-id-medium="18247857860" data-variant-id-large="18247857988" data-variant-id-small="18247857668"></div>
+              <div class="bundle-color-selection beige" data-variant-id-medium="18247857924" data-variant-id-large="18247858052" data-variant-id-small="19347385476"></div>
+            </div>
+            <div class="flex-container-no jcc">
+              <div class="quarter"><img src="{{'flats-b2.jpg' | asset_url}}" class="fw"></div>
+              <div class="quarter"><img src="{{'flats-b3.jpg' | asset_url}}" class="fw"></div>
+              <div class="quarter"><img src="{{'flats-b4.jpg' | asset_url}}" class="fw"></div>
+            </div>
+            <div class="flex-container-no accent-padding">
+              <select class="build-bundle-size">
+               <option value="small">small (us:5-6.5)</option>
+               <option value="medium" selected>medium (us:7-8.5)</option>
+               <option value="large">large (us:9-11.5)</option>
+              </select> 
+              <select class="build-bundle-quantity">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+              <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
+            </div>
+          </div>
+
+          <div class="modal create-heels" style="display: none;">
+            <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
+            <img src="{{'heelblack.jpg' | asset_url}}" class="fw black-color-choice modal-featured" />
+            <img src="{{'heelbeige.jpg' | asset_url}}" class="fw beige-color-choice modal-featured" style="display: none;" />
+            <div class="flex-container-no jcc">
+              <div class="bundle-color-selection black highlight" data-variant-id-medium="702715527185" data-variant-id-large="702715592721" data-variant-id-small="702715461649"></div>
+              <div class="bundle-color-selection beige" data-variant-id-medium="702715559953" data-variant-id-large="702715625489" data-variant-id-small="702715494417"></div>
+            </div>
+            <div class="flex-container-no jcc">
+              <div class="quarter"><img src="{{'heels-b2.jpg' | asset_url}}" class="fw"></div>
+              <div class="quarter"><img src="{{'heels-b3.jpg' | asset_url}}" class="fw"></div>
+              <div class="quarter"><img src="{{'heels-b4.jpg' | asset_url}}" class="fw"></div>
+            </div>
+            <div class="flex-container-no accent-padding">
+              <select class="build-bundle-size">
+               <option value="small">small (us:5-6.5)</option>
+               <option value="medium" selected>medium (us:7-8.5)</option>
+               <option value="large">large (us:9-11.5)</option>
+              </select> 
+              <select class="build-bundle-quantity">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+              <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
+            </div>
+          </div>
+          
+          <div class="modal create-msneakers" style="display: none;">
+            <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
             <img src="{{'placeholder.png' | asset_url}}" id="modal-featured">
             <div class="flex-container-no jcc">
               <div class="bundle-color-selection black highlight" data-variant-id-small="18250901828" data-variant-id-medium="18250902084" data-variant-id-large="18250902276"></div>
@@ -68,9 +209,7 @@
               <div class="bundle-color-selection green" data-variant-id-small="31001768788045" data-variant-id-medium="31001768984653" data-variant-id-large="31001769017421"></div>
               <div class="bundle-color-selection blue" data-variant-id-small="31001769410637" data-variant-id-medium="31001769443405" data-variant-id-large="31001769476173"></div>
             </div>
-            <div class="flex-container-no">
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
+            <div class="flex-container-no jcc">
               <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
               <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
             </div>
@@ -88,8 +227,9 @@
               <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
             </div>
           </div>
-            <div class="modal create-sneakers" style="display: none;">
-            <h3 class="text-green tar bundle-modal-close">✕</h3>
+          
+          <div class="modal create-mloafers" style="display: none;">
+            <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
             <img src="{{'placeholder.png' | asset_url}}" id="modal-featured">
             <div class="flex-container-no jcc">
               <div class="bundle-color-selection black highlight" data-variant-id-small="18250901828" data-variant-id-medium="18250902084" data-variant-id-large="18250902276"></div>
@@ -97,124 +237,7 @@
               <div class="bundle-color-selection green" data-variant-id-small="31001768788045" data-variant-id-medium="31001768984653" data-variant-id-large="31001769017421"></div>
               <div class="bundle-color-selection blue" data-variant-id-small="31001769410637" data-variant-id-medium="31001769443405" data-variant-id-large="31001769476173"></div>
             </div>
-            <div class="flex-container-no">
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-            </div>
-            <div class="flex-container-no accent-padding">
-              <select class="build-bundle-size">
-               <option value="small">small (us:5-6.5)</option>
-               <option value="medium" selected>medium (us:7-8.5)</option>
-               <option value="large">large (us:9-11.5)</option>
-              </select> 
-              <select class="build-bundle-quantity">
-                <option value="1" selected>1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-              <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
-            </div>
-          </div>
-            <div class="modal create-flats" style="display: none;">
-            <h3 class="text-green tar bundle-modal-close">✕</h3>
-            <img src="{{'placeholder.png' | asset_url}}" id="modal-featured">
             <div class="flex-container-no jcc">
-              <div class="bundle-color-selection black highlight" data-variant-id-small="18250901828" data-variant-id-medium="18250902084" data-variant-id-large="18250902276"></div>
-              <div class="bundle-color-selection rose" data-variant-id-small="31001775046733" data-variant-id-medium="31001775079501" data-variant-id-large="31001775112269"></div>
-              <div class="bundle-color-selection green" data-variant-id-small="31001768788045" data-variant-id-medium="31001768984653" data-variant-id-large="31001769017421"></div>
-              <div class="bundle-color-selection blue" data-variant-id-small="31001769410637" data-variant-id-medium="31001769443405" data-variant-id-large="31001769476173"></div>
-            </div>
-            <div class="flex-container-no">
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-            </div>
-            <div class="flex-container-no accent-padding">
-              <select class="build-bundle-size">
-               <option value="small">small (us:5-6.5)</option>
-               <option value="medium" selected>medium (us:7-8.5)</option>
-               <option value="large">large (us:9-11.5)</option>
-              </select> 
-              <select class="build-bundle-quantity">
-                <option value="1" selected>1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-              <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
-            </div>
-          </div>
-            <div class="modal create-heels" style="display: none;">
-            <h3 class="text-green tar bundle-modal-close">✕</h3>
-            <img src="{{'placeholder.png' | asset_url}}" id="modal-featured">
-            <div class="flex-container-no jcc">
-              <div class="bundle-color-selection black highlight" data-variant-id-small="18250901828" data-variant-id-medium="18250902084" data-variant-id-large="18250902276"></div>
-              <div class="bundle-color-selection rose" data-variant-id-small="31001775046733" data-variant-id-medium="31001775079501" data-variant-id-large="31001775112269"></div>
-              <div class="bundle-color-selection green" data-variant-id-small="31001768788045" data-variant-id-medium="31001768984653" data-variant-id-large="31001769017421"></div>
-              <div class="bundle-color-selection blue" data-variant-id-small="31001769410637" data-variant-id-medium="31001769443405" data-variant-id-large="31001769476173"></div>
-            </div>
-            <div class="flex-container-no">
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-            </div>
-            <div class="flex-container-no accent-padding">
-              <select class="build-bundle-size">
-               <option value="small">small (us:5-6.5)</option>
-               <option value="medium" selected>medium (us:7-8.5)</option>
-               <option value="large">large (us:9-11.5)</option>
-              </select> 
-              <select class="build-bundle-quantity">
-                <option value="1" selected>1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-              <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
-            </div>
-          </div>
-            <div class="modal create-msneakers" style="display: none;">
-            <h3 class="text-green tar bundle-modal-close">✕</h3>
-            <img src="{{'placeholder.png' | asset_url}}" id="modal-featured">
-            <div class="flex-container-no jcc">
-              <div class="bundle-color-selection black highlight" data-variant-id-small="18250901828" data-variant-id-medium="18250902084" data-variant-id-large="18250902276"></div>
-              <div class="bundle-color-selection rose" data-variant-id-small="31001775046733" data-variant-id-medium="31001775079501" data-variant-id-large="31001775112269"></div>
-              <div class="bundle-color-selection green" data-variant-id-small="31001768788045" data-variant-id-medium="31001768984653" data-variant-id-large="31001769017421"></div>
-              <div class="bundle-color-selection blue" data-variant-id-small="31001769410637" data-variant-id-medium="31001769443405" data-variant-id-large="31001769476173"></div>
-            </div>
-            <div class="flex-container-no">
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-            </div>
-            <div class="flex-container-no accent-padding">
-              <select class="build-bundle-size">
-               <option value="small">small (us:5-6.5)</option>
-               <option value="medium" selected>medium (us:7-8.5)</option>
-               <option value="large">large (us:9-11.5)</option>
-              </select> 
-              <select class="build-bundle-quantity">
-                <option value="1" selected>1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-              <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
-            </div>
-          </div>
-            <div class="modal create-mloafers" style="display: none;">
-            <h3 class="text-green tar bundle-modal-close">✕</h3>
-            <img src="{{'placeholder.png' | asset_url}}" id="modal-featured">
-            <div class="flex-container-no jcc">
-              <div class="bundle-color-selection black highlight" data-variant-id-small="18250901828" data-variant-id-medium="18250902084" data-variant-id-large="18250902276"></div>
-              <div class="bundle-color-selection rose" data-variant-id-small="31001775046733" data-variant-id-medium="31001775079501" data-variant-id-large="31001775112269"></div>
-              <div class="bundle-color-selection green" data-variant-id-small="31001768788045" data-variant-id-medium="31001768984653" data-variant-id-large="31001769017421"></div>
-              <div class="bundle-color-selection blue" data-variant-id-small="31001769410637" data-variant-id-medium="31001769443405" data-variant-id-large="31001769476173"></div>
-            </div>
-            <div class="flex-container-no">
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
               <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
               <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
               <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
@@ -238,6 +261,30 @@
   
 
         	<script>
+            $('.bundle-modal-close').click(function() {
+              $(this).parent().parent().hide(); 
+              $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
+            })
+
+            $('.bundle-color-selection').click(function() {
+              $(this).addClass('highlight').siblings('.bundle-color-selection').removeClass('highlight'); 
+              if ($(this).hasClass('black')) {
+                $(this).parent().siblings('.black-color-choice').show().siblings('.modal-featured').hide(); 
+              }
+              else if ($(this).hasClass('blue')) {
+                $(this).parent().siblings('.blue-color-choice').show().siblings('.modal-featured').hide(); 
+              }
+              else if ($(this).hasClass('rose')) {
+                $(this).parent().siblings('.rose-color-choice').show().siblings('.modal-featured').hide(); 
+              }
+              else if ($(this).hasClass('green')) {
+                $(this).parent().siblings('.green-color-choice').show().siblings('.modal-featured').hide(); 
+              }
+              else if ($(this).hasClass('beige')) {
+                $(this).parent().siblings('.beige-color-choice').show().siblings('.modal-featured').hide(); 
+              }
+            }); 
+
         		$('.bundle-style').click(function() {
         			var sku =  "." + $(this).attr("id")
               console.log(sku)
@@ -256,9 +303,78 @@
         			}
         		})
         	</script>
+<script>
+  Shopify.queue = [];
+
+  Shopify.moveAlong = function() {
+    // If we still have requests in the queue, let's process the next one.
+    console.log(Shopify.queue.length)
+    if (Shopify.queue.length) {
+      var request = Shopify.queue.shift();
+      // pass the properties into addItem as well
+      Shopify.addItem(request.variantId, request.quantity, Shopify.moveAlong);
+    }
+    else {
+      location.reload(); 
+    }
+  };
+
+  // Create a new Shopify.addItem function that takes the 'properties' parameter
+  Shopify.addItem = function(id, qty, properties, callback) {
+    var params = {
+      quantity: qty,
+      id: id
+    };
+    if(properties != false){
+      params.properties = properties;
+    }
+    $.ajax({
+      type: 'POST',
+      url: '/cart/add.js',
+      dataType: 'json',
+      data: params,
+      success: function(){
+        if(typeof callback === 'function'){
+          callback();
+
+        }
+      },
+      error: function(){}
+    });
+  }
+  
+
+  function removeItem(variantId, element) {
+    jQuery.post('/cart/update.js', 'updates['+variantId+']=0')
+    $(element).parent().parent().hide(); 
+  } 
+
+  function push_to_queue(variantID, quantity) {
+    Shopify.queue.push({
+      variantId: variantID,
+      quantity: quantity
+    });
+  }
+
+$('.add-to-bundle-button').click(function() {
+  console.log('click')
+    var size = $('.build-bundle-size:visible option:selected').val()
+    var quantity = $('.build-bundle-quantity:visible option:selected').val(); 
+    console.log(size)
+    console.log(quantity)
+    $( ".bundle-color-selection.highlight:visible" ).each(function() {
+        var variantSelected = $(this).data('variant-id-' + size); 
+        console.log(variantSelected)
+        push_to_queue(variantSelected, quantity)
+    });
+  Shopify.moveAlong()
+}); 
+</script>
+
         	
 <style>
-#modal-featured { 
+  .line-item-details { width: 65% !important; }
+.modal-featured { 
   display: block;
   margin: 20px auto;
   width: 300px;
@@ -271,8 +387,9 @@
   margin-right: 20px; 
   font-size: 20pt;
   cursor: pointer;
+  margin-top: -10px;
 }
-
+  .modal h5 { margin-left: 20px; }
 .womens-bundle h4, .mens-bundle h4 {
     background: #6DCDB8;
     padding: 10px;
@@ -305,7 +422,8 @@
   border: 2px solid white; 
   margin: 20px 10px;
 }
-.quarter { margin: 0 2.5px;d }
+.quarter { margin: 0 2.5px; }
+.three-five { width: 35%; }
 .highlight {border: 2px solid darkgray;}
 @media only screen and (max-width: 588px) {
   .pricing-font { font-size: 7pt; }
@@ -328,7 +446,7 @@ width: 300px !important;
 max-width: 100%;
 vertical-align: middle;
 }
-.modal { background-color: white; width: 400px;}
+.modal { background-color: white; max-width: 400px;}
 #bundle-page .page-header {
   background-image: url("{{'SockCircle.png' | asset_url}}") ;
   background-position: center;
@@ -339,4 +457,6 @@ vertical-align: middle;
     align-items: center;
     justify-content: center;
 }
+.highlight {border: 2px solid darkgray;}
+
 </style>
