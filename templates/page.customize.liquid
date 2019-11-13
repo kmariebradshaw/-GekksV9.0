@@ -124,8 +124,8 @@
             <h1 id="rtitle" class="text-green nm">Title</h1>
             <img src="{{'placeholder.png' | asset_url}}" />
             <p id="rdescription" class="nmt">alsdkfjalskdjflasdf description and description and description</p>
-            <button class="accent-padding background-green"><h3 class="text-white nm">let's do it!</h3></button>
-            <button class="accent-padding background-green"><h3 class="text-white nm">reviews</h3></button>
+            <a href="/collections/all" id="rlink"><button class="accent-padding background-green"><h3 class="text-white nm">let's do it!</h3></button></a>
+            <a href="/pages/reviews"><button class="accent-padding background-green"><h3 class="text-white nm">reviews</h3></button></a>
             <div class="flex-container-no">
                <div class="quarter">
                     <img data-src="{{'simple.png' | asset_url}}" alt="Real Simple" class="pres-log lazyload" style="margin-left: 0;"/>
@@ -168,6 +168,10 @@
         section { min-height: 95vh; }
         .index-sections{ margin-top: 0 !important; }
         #flow-slide-1 h2 { font-size: 26pt; }
+    }
+    #rdescription {
+        max-width: 320px;
+        margin: 20px auto;
     }
     ul.bulleted-list { 
         list-style: disc;
@@ -398,45 +402,54 @@
                 if (flats == 1 ) {
                     resultsTitle = "Gekks for Flats"
                     resultsDescription = "Gekks and Flats go together like peanut butter and jelly. Don't believe us? Check them out for yourself!"
+                    resultsLink= "/products/flats-version"
                 }
                 else if (sn == 1 ) {
                     resultsTitle = "Sneakers & Lace-Ups"
                     resultsDescription = "From the gym to the office, Gekks keep your favorite sneakers stink free."
+                    resultsLink= "/products/womens-sneaker-version"
                 }
                 else if (loaf == 1 ) {
                     resultsTitle = "Loafers & Slip-Ons"
                     resultsDescription = "The ultimate in convenience just got more convenient. Combine your Loafers with Gekks and see what you have been missing."
+                    resultsLink= "/products/womens-loafer-version"
                 }
                 else if (heels == 1 ) {
                     resultsTitle =  "Gekks for Heels"
                     resultsDescription = "Don’t let blisters ruin your look. Gekks keep your feet (and heels!) fresh while preventing blisters. "
+                    resultsLink= "/products/heels"
                 }
             }
             else {
                 if (mens == true ) {
                     resultsTitle = "Mens Closet Pack"
                     resultsDescription = "Two pairs of Gekks for Loafers and two pairs of Gekks for Sneakers"
+                    resultsLink= "/collections/all?rec=mencpak"
                 }
                 else if (flats == 1 && heels == 1) {
                     resultsTitle = "The Office Pack"
                     resultsDescription = "Two pairs of Gekks for Heels and two pairs of Gekks for Flats"
+                    resultsLink= "/collections/women?rec=office-pack"
                 }
                 else if (flats == 1 && loaf ==1) {
                     resultsTitle = "The Casual Pack"
                     resultsDescription = "Two pairs of Gekks for Flats and two pairs of Gekks for Flats"
+                    resultsLink= "/collections/women?rec=casual-pack"
                 }
                 else if (flats == 1 && sn == 1 ) {
                     resultsTitle = "Womens Closet Pack"
                     resultsDescription = "Two pairs of Gekks for flats, one pair of Gekks for loafers, one pair of Gekks for sneakers, and one pair of Gekks for heels"
+                    resultsLink= "/collections/women?rec=wcpak"
                 }
                 else {
                     resultsTitle = "The Trial Pack"
                     resultsDescription = "One pair of Gekks for Flats, one pair of Gekks for Heels, one pair Gekks for Loafers, and one pair of Gekks for Sneakers"
-
+                    resultsLink= "/collections/women?rec=trial"
                 }
             }
             $('#rtitle').text(resultsTitle); 
             $('#rdescription').text(resultsDescription); 
+            $('#rlink').attr("href", resultsLink); 
             nextSlide($(this))
         }
     })
