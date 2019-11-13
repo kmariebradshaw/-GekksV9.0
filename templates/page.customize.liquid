@@ -1,6 +1,6 @@
 {% layout 'theme.flow' %} 
 <div class="index-sections">
-    <h5 class="text-green tar close-flow"><a href="/">✕</a></span></h5>
+    <h5 class="text-green tar close-flow"><a href="/?sh=d" onClick="ga('send', 'event', 'Education', 'Progress', 'Close');">✕</a></span></h5>
     <section class="flex-container-no jcc" id="flow-slide-1">
         <div class="tac">
             <h2>Free Your <span class="text-green">Feet.</span></h2>
@@ -22,6 +22,7 @@
                 <li class="sbutton woman-selection border-beige flex-container-no accent-padding" onClick="ga('send', 'event', 'Education', 'Gender', 'Woman');"><img src="{{'Icon-woman.svg' | asset_url}}" /><div>women's</div></li>
                 <li class="sbutton man-selection accent-padding border-beige flex-container-no" onClick="ga('send', 'event', 'Education', 'Gender', 'Man');"><img src="{{'Icon-man.svg' | asset_url}}" /><div>men's</div></li>
             </ul>
+            <p class="error tac" style="display: none;">please select an option</p>
             <p class="subscript">did you know that the average person<br> spends a month of their life searching <br>for socks in their sock drawer?</p>
             <p class="subscript">what a waste of time.</p>
             <button class="flow-button accent-padding background-green male-female-choice" onClick="ga('send', 'event', 'Education', 'Progress', 'Male / Female');"><h3 class="text-white nm">ready!</h3></button>
@@ -116,6 +117,7 @@
                 <li class="sbutton loaf border-beige accent-padding" onClick="ga('send', 'event', 'Education', 'Style', 'Loafer');"><img src="{{'Gekks-Icon-Loafer_NEW.png' | asset_url}}" /><div>loafers & slip-ons</div>boat shoes, lace-less shoes</li>
                 <li class="sbutton sn accent-padding border-beige" onClick="ga('send', 'event', 'Education', 'Style', 'Sneaker');"><img src="{{'Gekks-Icon-Sneaker_NEW.png' | asset_url}}" /><div>sneakers & lace-ups</div>tennis shoes, shoes with laces, etc.</li>
             </ul>
+            <p class="error tac" style="display: none;">please select an option</p>
             <button class="flow-button flow-shoe-selection accent-padding background-green" onClick="ga('send', 'event', 'Education', 'Progress', 'Style Selection');"><h3 class="text-white nm">show my results</h3></button>
         </div>
     </section>
@@ -123,10 +125,10 @@
         <div class="tac">
             <h3>based on your answers,<br>the perfect Gekks for you are...</h3>
             <h1 id="rtitle" class="text-green nm"></h1>
-            <img src="{{'Gekks-Icon-Flats_NEW.png' | asset_url}}" style="display: none;" id="flats-results" class="results-icon"/>
-            <img src="{{'Gekks-Icon-Sneaker_NEW.png' | asset_url}}" style="display: none;" id="sn-results" class="results-icon"/>
-            <img src="{{'Gekks-Icon-Loafer_NEW.png' | asset_url}}" style="display: none;" id="loaf-results" class="results-icon"/>
-            <img src="{{'Gekks-Icon-Heel_NEW.png' | asset_url}}" style="display: none;" id="heels-results" class="results-icon"/>
+            <img src="{{'flats.png' | asset_url}}" style="display: none;" id="flats-results" class="results-icon"/>
+            <img src="{{'sneakers.png' | asset_url}}" style="display: none;" id="sn-results" class="results-icon"/>
+            <img src="{{'womensloafer.png' | asset_url}}" style="display: none;" id="loaf-results" class="results-icon"/>
+            <img src="{{'heels.png' | asset_url}}" style="display: none;" id="heels-results" class="results-icon"/>
             <img src="{{'BundleThumbnail_OfficePack.png' | asset_url}}" style="display: none;" id="office-results" class="results-icon"/>
             <img src="{{'BundleThumbnail_MensClosetPack.png' | asset_url}}" style="display: none;" id="mens-results" class="results-icon"/>
             <img src="{{'BundleThumbnail_CasualPack.png' | asset_url}}" style="display: none;" id="casual-results" class="results-icon"/>
@@ -167,6 +169,7 @@
         background-image: url("{{'Pairs-03.svg' | asset_url}}");
         background-repeat: no-repeat;
     }
+
     @media only screen and (min-width: 800px) {
         section { 
             min-height: calc(100vh - 450px);
@@ -365,6 +368,7 @@
         text-align: left;
     }
     .icon-flow-list img { float: right; }
+    .error { color: crimson; }
 </style>
 <script>
     var womens = false
@@ -380,6 +384,9 @@
         }
         else if ($(this).hasClass('man-selection')) {
             mens = mens ? false : true ; 
+            if (mens == true ) {
+                $('.icon-flow-list .flats, .icon-flow-list .heels').hide(); 
+            }
         }
     })
     $('#flow-slide-6 .sbutton').click(function() {
@@ -408,6 +415,9 @@
         if (mens == true || womens == true ) {
             nextSlide($(this)); 
         }
+        else {
+            $(this).siblings('.error').show(); 
+        }
     })
     // determine suggestion based on which variables were selected and only allows a user to continue if at least one is true 
     var resultsTitle = ""
@@ -425,21 +435,32 @@
                 else if (sn == 1 ) {
                     resultsTitle = "Sneakers & Lace-Ups"
                     resultsDescription = "From the gym to the office, Gekks keep your favorite sneakers stink free."
-                    resultsLink= "/products/womens-sneaker-version"
                     $('#sn-results').show(); 
+                    if (mens == true) {
+                        resultsLink= "/products/sneaker-version"
+                    }
+                    else {                        
+                        resultsLink= "/products/womens-sneaker-version"
+                    }
                 }
                 else if (loaf == 1 ) {
                     resultsTitle = "Loafers & Slip-Ons"
                     resultsDescription = "The ultimate in convenience just got more convenient. Combine your Loafers with Gekks and see what you have been missing."
-                    resultsLink= "/products/womens-loafer-version"
                     $('#loaf-results').show(); 
+                    if (mens == true ) {
+                        resultsLink= "/products/loafer-version"
+                    }
+                    else {
+                        resultsLink= "/products/womens-loafer-version"
+                    }
 
                 }
                 else if (heels == 1 ) {
                     resultsTitle =  "Gekks for Heels"
                     resultsDescription = "Don’t let blisters ruin your look. Gekks keep your feet (and heels!) fresh while preventing blisters. "
                     resultsLink= "/products/heels"
-                    $('#heel-results').show(); 
+
+                    $('#heels-results').show(); 
                 }
             }
             else {
@@ -480,7 +501,11 @@
             $('#rtitle').text(resultsTitle); 
             $('#rdescription').text(resultsDescription); 
             $('#rlink').attr("href", resultsLink); 
+            createCookie("customGekks", resultsLink, 7)
             nextSlide($(this))
+        }
+        else {
+            $(this).siblings('.error').show(); 
         }
     })
     // flip animations 
