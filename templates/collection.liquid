@@ -1,6 +1,4 @@
  <main class="collection-wrapper">
-    {% if collection.title == "Men" %}
-    {% else %}
       <section class="page-title accent-padding">
         <h1 class="text-green">Bundle <br class="ndo-plus">& Save</h1>
       </section>
@@ -10,7 +8,7 @@
           <section class="card lifestyle-card" id="lifestyle1">
           </section>
         </section>
-        <section class="col">
+        <section class="col" id="trial">
           <section class="card">
             <a href="/products/select?pack=1">
             <div class="product-collection-wrapper">
@@ -33,7 +31,7 @@
           </a>
           </section>
         </section>
-        <section class="col">
+        <section class="col" id="office-pack">
           <section class="card">
             <a href="/products/select?pack=2" >
               <div class="product-collection-wrapper">
@@ -73,7 +71,7 @@
             </a>
           </section>
         </section>
-        <section class="col">
+        <section class="col" id="mencpak">
           <section class="card">
             <a href="/products/select?pack=4">
               <div class="product-collection-wrapper">
@@ -142,7 +140,7 @@
           <section class="card lifestyle-card" id="lifestyle2">
           </section>
         </section>
-         <section class="col">
+         <section class="col" id="wcpak">
           <section class="card">
            <a href="/products/select?pack=6">
            <div class="product-collection-wrapper">
@@ -165,7 +163,7 @@
            </a>
           </section>
          </section>
-         <section class="col">
+         <section class="col" id="office-pack">
           <section class="card">
             <a href="/products/select?pack=8">
               <div class="product-collection-wrapper">
@@ -255,7 +253,7 @@
             </a>
           </section>
         </section>
-        <section class="col">
+        <section class="col" id="casual-pack">
           <section class="card">
             <a href="/products/select?pack=7">
              <div class="product-collection-wrapper">
@@ -327,25 +325,38 @@
           <section class="card lifestyle-card" id="lifestyle3">
           </section>
         </section>
-      </section>
-
-
-
-
-
-
-       
-  
-
-
-{% comment %}        <img src="{{'Lifestyle3_Verticle.jpg' | asset_url}}" class="accent-lifestyle"/>
-{% endcomment %}          
-    {% endif %}
+      </section>        
 </main>
+<script>
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
 
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+};
+    var rec = getUrlParameter('rec')
+    var rec_id = "#" + rec
+    console.log(rec)
+    console.log(rec_id)
+    if (rec_id) {
+      $(rec_id).insertBefore('#trial').find(".card").addClass('recommended-highlight'); 
+    }
+
+</script>
 
 
 <style>
+.recommended-highlight {
+  border: 2px solid gold;
+}
 
 .row {
   display: flex; 
@@ -449,32 +460,3 @@
     }
 </style>
 
-{% comment %}nude flat product shot in sam edelman, red toms, nude heel{% endcomment %}
-
-
-{% comment %}<script>
-  $(document).ready(function() {
-    var maxheight = 0;
-
-    $('.product-collection-wrapper').each(function () {
-        maxheight = ($(this).height() > maxheight ? $(this).height() : maxheight); 
-    });
-        $('.product-collection-wrapper, .accent-lifestyle').height(maxheight)
-  }); 
-</script>{% endcomment %}
-
-{% comment %}        <a href="/products/select?pack=12">
-         <div class="product-collection-wrapper">
-          <img src="{{'placeholder.png' | asset_url}}" />
-          <h3 class="ttu nmb">The Flats Pack</h3>
-          <h4 class="nmt">$48.00 <span class="strikethrough">$72.00</span></h4>
-          <p>four women's flats</p>
-          <div>
-            <div class="green color-preview-circle"></div>
-            <div class="blue color-preview-circle"></div>
-            <div class="rose color-preview-circle"></div>
-            <div class="black color-preview-circle"></div>
-            <div class="beige color-preview-circle"></div>
-          </div>
-        </div>
-        </a>{% endcomment %}
