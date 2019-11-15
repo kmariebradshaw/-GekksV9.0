@@ -40,6 +40,8 @@ $(document).ready(function(){
     setTimeout(function(){
       $('.modal').removeClass('darken')
       if ($('.modal:visible').length == 0) {
+        $('.mobile-nav1').removeClass('slide-in').addClass('slide-out'); 
+        cartClose(); 
         KlaviyoSubscribe.attachToModalForm('.modal-newsletter', {
           delay_seconds: 0,  
           ignore_cookie: true,
