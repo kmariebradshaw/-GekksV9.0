@@ -1,9 +1,9 @@
 {% layout 'theme.flow' %} 
-<div class="index-sections">
+<div class="index-sections" id="flow">
     <h5 class="text-green tar close-flow"><a href="/?sh=d" onClick="ga('send', 'event', 'Education', 'Progress', 'Close');">✕</a></span></h5>
     <section class="flex-container-no jcc" id="flow-slide-1">
         <div class="tac">
-            <h2 class="nmb">Free Your <span class="text-green">Feet.</span></h2>
+            <h2 class="nm">Free Your <br><span class="text-green">Feet.</span></h2>
             <p>wish you could<br> #gosockless without...</p>
             <ul class="bulleted-list">
                 <li>your no show socks<br> sliding down all day?</li>
@@ -23,7 +23,7 @@
                 <li class="sbutton man-selection accent-padding border-beige flex-container-no" onClick="ga('send', 'event', 'Education', 'Gender', 'Man');"><img src="{{'Icon-man.svg' | asset_url}}" /><div>men's</div></li>
             </ul>
             <p class="error tac" style="display: none;">please select an option</p>
-            <p class="subscript">did you know that the average person<br> spends a month of their life searching <br>for socks in their sock drawer?</p>
+            <p class="subscript">did you know that the average person<br class="do"> spends a month of their life searching <br class="do">for socks in their sock drawer?</p>
             <p class="subscript">what a waste of time.</p>
             <button class="flow-button accent-padding background-green male-female-choice" onClick="ga('send', 'event', 'Education', 'Progress', 'Male / Female');"><h3 class="text-white nm">ready!</h3></button>
         </div>
@@ -91,7 +91,7 @@
     </section>
     <section class="flex-container-no jcc" style="display: none;" id="flow-slide-4">
         <div class="tac">
-            <h3>how are <br>Gekks different?</h3>
+            <h2>how are <br>Gekks different?</h2>
             <ul id="problem-info">
                 <li>unlike all other no-shows, <br>Gekks lock and stay <b>INSIDE</b> your shoes</li>
                 <li>knit with the same odor<br> eliminating yarn used by the<br> military and NASA </li>
@@ -170,6 +170,7 @@
         background-repeat: no-repeat;
     }
 
+
     @media only screen and (min-width: 800px) {
         section { 
             min-height: calc(100vh - 450px);
@@ -181,7 +182,12 @@
         header, footer { display: none; }
         section { min-height: 80vh;}
         .index-sections{ margin-top: 0 !important; }
-        #flow-slide-1 h2 { font-size: 26pt; }
+        #flow #flow-slide-1 h2 { font-size: 45pt; }
+       .bulleted-list { font-size: 14pt; }
+        #slide-1 p { font-size: 20pt; }
+        #flow p { font-size: 14pt;}
+        #flow h3 { font-size: 16pt; }
+        #flow h2 { font-size: 20pt; }
     }
     #rdescription {
         max-width: 320px;
@@ -217,7 +223,7 @@
     .accent-padding { padding: 10px; }
     /*sockless style flip animations*/
     .front, .icon-flow-list li { font-size: 8pt;}
-    .front div, .icon-flow-list li div { font-size: 12pt; }
+    .front div, .icon-flow-list li div { font-size: 13pt; }
     .flip-container { perspective: 1000; }
     .flipped {
         -webkit-transform:rotateY(180deg);
@@ -320,7 +326,7 @@
     #problem-info li{
         padding: 10px; 
         margin: 0 5px; 
-        font-size: 12pt; 
+        font-size: 14pt; 
         min-height: 70px;
         text-align: left;
     }
@@ -463,15 +469,8 @@
                     $('#heels-results').show(); 
                 }
             }
-            else {
-                if (mens == true ) {
-                    resultsTitle = "Mens Closet Pack"
-                    resultsDescription = "Two pairs of Gekks for Loafers and two pairs of Gekks for Sneakers"
-                    resultsLink= "/collections/all?rec=mencpak"
-                    $('#mens-results').show(); 
-
-                }
-                else if (flats == 1 && heels == 1) {
+            else if (flats + sn + loaf + heels == 2 ){
+                if (flats == 1 && heels == 1) {
                     resultsTitle = "The Office Pack"
                     resultsDescription = "Two pairs of Gekks for Heels and two pairs of Gekks for Flats"
                     resultsLink= "/collections/women?rec=office-pack"
@@ -479,7 +478,7 @@
                 }
                 else if (flats == 1 && loaf ==1) {
                     resultsTitle = "The Casual Pack"
-                    resultsDescription = "Two pairs of Gekks for Flats and two pairs of Gekks for Flats"
+                    resultsDescription = "Two pairs of Gekks for Flats and two pairs of Gekks for Loafers"
                     resultsLink= "/collections/women?rec=casual-pack"
                     $('#casual-results').show(); 
                 }
@@ -490,15 +489,23 @@
                     $('#wcpak-results').show(); 
 
                 }
-                else {
+            }
+            else if   (mens == true ) {
+                    resultsTitle = "Mens Closet Pack"
+                    resultsDescription = "Two pairs of Gekks for Loafers and two pairs of Gekks for Sneakers"
+                    resultsLink= "/collections/all?rec=mencpak"
+                    $('#mens-results').show(); 
+
+                } 
+            else {
+
                     resultsTitle = "The Trial Pack"
                     resultsDescription = "One pair of Gekks for Flats, one pair of Gekks for Heels, one pair Gekks for Loafers, and one pair of Gekks for Sneakers"
                     resultsLink= "/collections/women?rec=trial"
                     $('#trial-results').show(); 
 
                 }
-            }
-            $('#rtitle').text(resultsTitle); 
+                    $('#rtitle').text(resultsTitle); 
             $('#rdescription').text(resultsDescription); 
             $('#rlink').attr("href", resultsLink); 
             createCookie("customGekks", resultsLink, 7)
