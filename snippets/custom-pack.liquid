@@ -4,7 +4,7 @@
 	<h3 id="bundle_title">Your Bundle</h3>
 	<h4 class="nmb"><span id="bundle_price">$36.00</span><span class="strikethrough" id="bundle_compare_at_price"> $54.00</span></h4>
 	<h4 class="text-green nm"><span id="bundle_savings">33%</span> Bundles Savings!</h4>
-	<p class="subscript">Based on your answers, your closet needs <span id="bundle_description"></span></p>
+	<p class="subscript">Includes <span id="bundle_description"></span></p>
    <div class="choose-your-colors">
    <h4 class="space-bottom tac">Choose Your Colors:</h4>
    <section id="bundle_flats" class="flex-container-no" style="display: none;">
@@ -204,34 +204,83 @@
         <div class="bundle-color-selection blue" data-variant-id-small="31001875152973" data-variant-id-medium="31001875185741" data-variant-id-large="31001875218509"></div>{% endcomment %}
       </div>
    </section>
+  <h4 class="tac nmb fw">Choose Your Size:</h4>
    <div id="mens-size" style="display: none">
-      <h5 id="mens-size-label">Men's Size:</h5>
+      <h5 id="mens-size-label" class="nmb">Men's Size:</h5>
       <select id="custom-pack-size-men" class="fw">
-       <option value="small">small (us:6.5-8)</option>
-       <option value="medium" selected>medium (us:8.5-11)</option>
-       <option value="large">large (us:11.5-14)</option>
+       <option value="small">small (us: 6.5-8)</option>
+       <option value="medium" selected>medium (us: 8.5-11)</option>
+       <option value="large">large (us: 11.5-14)</option>
      </select> 
    </div>
+
      <h5 style="display: none; margin-bottom: 0 !important;" id="womens-size-label">Women's Size:</h5>
+     <div id="womens-size-no-label">
    <select id="custom-pack-size" class="fw">
-     <option value="small">small (us:5-6.5)</option>
-     <option value="medium" selected>medium (us:7-8.5)</option>
-     <option value="large">large (us:9-11.5)</option>
+     <option value="small">small (us :5-6.5)</option>
+     <option value="medium" selected>medium (us: 7-8.5)</option>
+     <option value="large">large (us: 9-11.5)</option>
    </select> 
+ </div>
+  <p class="subscript clickable fw tac" id="size-chart"><img src="{{'ruler.png' | asset_url}}" class="ruler-icon"/>sizing chart</p>
   <div id="add-cart-custom" class="background-green text-white clickable"><span>add to cart</span></div>
+  <div style="display: none;" id="display-size" class="sizing-chart border-lightgray modal">
+  <div class="accent-padding">
+   <p class="nm klaviyo_header_close tar clickable">✕</p>
+  <table>
+    <tr>
+      <th colspan="2" class="blank-row"></th>
+      <th class="t-size table-title">small</th>
+      <th class="t-size table-title">medium</th>
+      <th class="t-size table-title">large</th>
+    </tr>
+    <tr class="lg">
+      <td rowspan="2" class="table-title"><span>mens</span></td>
+      <td class="table-title lg">US</td>
+      <td>6.5-8</td>
+      <td>8.5-11</td>
+      <td>11.5+</td>
+    </tr>
+    <tr class="dg">
+      <td class="table-title">UK</td>
+      <td>39-41</td>
+      <td>42-44</td>
+      <td> 44+ </td>
+    </tr>
+    <tr class="lg">
+      <td rowspan="2" class="table-title"><span>womens</span></td>
+      <td class="table-title lg">US</td>
+      <td>5-6.5</td>
+      <td>7-8.5</td>
+      <td>9-11.5</td>
+    </tr>
+    <tr class="dg">
+      <td class="table-title">UK</td>
+      <td>35-37</td>
+      <td>38-39</td>
+      <td>40-42</td>
+    </tr>
+  </table>
+</div>
+</div>
 </section>
 </div>
+
 <style>
 	#add-cart-custom { 
     padding: 10px;
-    margin: 15px auto;
+    margin: 15px 10px;
     text-align: center;
   }
-  #mens-size, #womens-size-label {
-    width: 80%;
-    margin: 10px auto;
+  #womens-size-no-label { margin: 10px 10px; }
+  @media only screen and (min-width: 800px) {
+ #mens-size, #womens-size-label{
+    width: 100%;
   }
-  #custom-pack-size-men { width: 100%; margin-top: 0;}
+  }
+  #mens-size, #womens-size-label{
+    margin: 10px 10px;
+  }
   .space-bottom { margin-bottom: 30px; }
   section.flex-container-no { margin: 10px; }
   .half { padding: 10px !important; }
@@ -273,9 +322,10 @@
   .choose-your-colors{
     display: flex;
     flex-wrap: wrap;
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
   }
+  #womens-size-no-label { width: 100%; }
   .space-bottom {
     display: block;
     width: 100%;
@@ -284,13 +334,14 @@
     margin: 10px;
     width: 47%;
 }
-#add-cart-custom { width: 80%; } #custom-pack-size {
-    max-width: 80%;
+#add-cart-custom { width: 100%; } 
+#custom-pack-size {
+    width: 100%;
     text-align: center;
-    margin: 20px auto 0 auto;
 }
+#custom-pack-size-men { margin-top: 30px !important; }
 .first-thumb  {
-    max-width: 100%;
+    max-width: 75%;
     margin: 10px auto;
   }
 }
@@ -458,8 +509,8 @@
   			price = "$72.00"
   			compare_at = "$108.00"
   			savings = "33%"
-  			description = "one pair of men's loafers, one pair of men's sneakers, one pair of women's flats, one pair of woman's loafers and one pair of woman's sneakers."
-  			$('#bundle_wloafer, #bundle_wsneaker, #bundle_flats, #bundle_heels, #bundle_mloafer, #bundle_msneaker').show();
+  			description = "two pairs of men's loafers, one pair of men's sneakers, one pair of women's flats, one pair of woman's loafers and one pair of woman's sneakers."
+  			$('#bundle_wloafer, #bundle_wsneaker, #bundle_flats, #bundle_mloafer, #bundle_mloafer2, #bundle_msneaker').show();
         $('#mens-size').show(); 
         $('#womens-size-label').show(); 
   			photo_collection = ".photo-10"
@@ -469,9 +520,9 @@
   			price = "$96.00"
   			compare_at = "$144.00"
   			savings = "33%"
-  			description = "two pairs of women's flats, two pairs of women's sneakers, two pairs of women's loafers."
+  			description = "two pairs of women's flats, two pairs of women's sneakers, two pairs of women's loafers, and two pairs of women's heels."
   			photo_collection = ".photo-11"
-  			$('#bundle_flats, #bundle_flats2, #bundle_wloafer, #bundle_wloafer2, #bundle_wsneaker, #bundle_wsneaker2').show(); 	
+  			$('#bundle_flats, #bundle_flats2, #bundle_heels, #bundle_heels2, #bundle_wloafer, #bundle_wloafer2, #bundle_wsneaker, #bundle_wsneaker2').show(); 	
   			break;
   		case "12":
   			title = "The Flats Pack"
@@ -566,7 +617,7 @@
 $('#add-cart-custom').click(function() {
   $('#add-cart-custom').css("background-color", "lightgray").html("<span>adding...</span>");
   if (pack_id == 10 || pack_id == 4) {
-    var sizeWomen = $('#custom-pack-size option:selected').text().split(' ')[0]; 
+    var sizeWomen = $('#custom-pack-size option:selected').val(); 
     var sizeMen = $('#custom-pack-size-men option:selected').text().split(' ')[0]; 
     $( ".bundle-color-selection.highlight:visible" ).each(function() {
       if ($(this).parent().parent().hasClass('men-style')) {

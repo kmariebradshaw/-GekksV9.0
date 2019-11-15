@@ -1,15 +1,13 @@
     <main id="bundle-page">	     
-	     <section class="tac text-green page-header">
-          <h1>Build your Bundle</h1>
-      	</section>
         <section class="index-padding">
+          <h1 class="tac text-green nm accent-padding">Build your Bundle</h1>
           <p class="tac"><span>Bundle any style, color, size and save!<br></span>
-          <div class="flex-container-no jces">
+          <div class="flex-container-no jces tac">
             <p class="third nm pricing-font">2 pairs: <span class="strikethrough">$36.00</span> $32.00</p>
             <p class="third nm pricing-font">3 pairs: <span class="strikethrough">$54.00</span> $42.00</p>
             <p class="third nm pricing-font">4 pairs: <span class="strikethrough">$72.00</span> $48.00</p>
           </div>
-          <p class="tac nmt pricing-font">5+ pair: <span class="strikethrough">$90.00+</span> $60.00+ & Free Shipping!</p>
+          <p class="tac pricing-font">5+ pair: <span class="strikethrough">$90.00+</span> $60.00+ & Free Shipping!</p>
         	<div class="tac fw accent-padding flex-container-no jcc select-gender-style aife">
             <div id="womens-bundle-choice">
         		  <img src="{{'Icon-woman.svg' | asset_url}}" class="icon highlight" />
@@ -21,34 +19,44 @@
             </div>
         	</div>
           <h2 class="text-green">Select Style</h2>
+          {% comment %}<div class="flex-container-no do womens-bundle">
+            <div class="quarter"><img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_2000x2000.jpg?v=1573054961" class="fw"></div>
+            <div class="quarter"> <img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_eb0a0759-4910-43dd-9bb8-daa0c386d7b6_2000x2000.jpg?v=1573055042" class="fw"></div>
+            <div class="quarter"><img src="{{'Nude_Flat_4.jpg' | asset_url}}" class="fw"></div>
+            <div class="quarter"><img src="{{'heelshot.jpg' | asset_url}}" class="fw"></div>
+          </div>
+          <div class="flex-container-no do mens-bundle jcc" style="display: none;">
+            <div class="quarter"><img src="//cdn.shopify.com/s/files/1/0424/0893/products/2_dfefd4ff-bd53-4e9e-9895-c73c1935ff9b_2000x2000.jpg?v=1573252367" class="fw"></div>
+            <div class="quarter"> <img src="//cdn.shopify.com/s/files/1/0424/0893/products/SneakerFull_2000x2000.jpg?v=1573252161" class="fw"></div>
+          </div>{% endcomment %}
           <div class="flex-container-no womens-bundle">
-            <div class="half">
+            <div class="half bundle-style clickable" id="create-loafers">
               <img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_2000x2000.jpg?v=1573054961" class="fw">
-              <h4 class="tac bundle-style" id="create-loafers">Loafers</h4>
+              <h4 class="tac">Loafers</h4>
             </div>
-            <div class="half">
+            <div class="half clickable bundle-style" id="create-sneakers">
               <img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_eb0a0759-4910-43dd-9bb8-daa0c386d7b6_2000x2000.jpg?v=1573055042" class="fw">
-              <h4 class="tac bundle-style" id="create-sneakers">Sneakers</h4>
+              <h4 class="tac">Sneakers</h4>
             </div>
           </div>
           <div class="flex-container-no womens-bundle">
-            <div class="half">
+            <div class="half clickable bundle-style" id="create-flats">
               <img src="{{'Nude_Flat_4.jpg' | asset_url}}" class="fw">
-              <h4 class="tac bundle-style" id="create-flats">Flats</h4>
+              <h4 class="tac">Flats</h4>
             </div>
-            <div class="half">
+            <div class="half clickable bundle-style" id="create-heels">
               <img src="{{'heelshot.jpg' | asset_url}}" class="fw">
-              <h4 class="tac bundle-style" id="create-heels">Heels</h4>
+              <h4 class="tac">Heels</h4>
             </div>
           </div>
           <div class="flex-container-no mens-bundle" style="display: none;">
-            <div class="half">
-              <img src="{{'placeholder.png' | asset_url}}" class="fw">
-              <h4 class="tac bundle-style" id="create-mloafers">Loafers</h4>
+            <div class="half clickable bundle-style" id="create-mloafers">
+              <img src="//cdn.shopify.com/s/files/1/0424/0893/products/2_dfefd4ff-bd53-4e9e-9895-c73c1935ff9b_2000x2000.jpg?v=1573252367" class="fw">
+              <h4 class="tac">Loafers</h4>
             </div>
-            <div class="half">
-              <img src="{{'placeholder.png' | asset_url}}" class="fw">
-              <h4 class="tac bundle-style" id="create-msneakers">Sneakers</h4>
+            <div class="half clickable  bundle-style" id="create-msneakers">
+              <img src="//cdn.shopify.com/s/files/1/0424/0893/products/SneakerFull_2000x2000.jpg?v=1573252161" class="fw">
+              <h4 class="tac">Sneakers</h4>
             </div>
           </div>
           <h2></h2>
@@ -73,6 +81,7 @@
             </div>
             </div>
           {% endfor %}
+          <a href="/cart"><div class="background-green accent-padding fw" style="margin-top: 20px;"><h3 class="text-white tac nm">add to cart</h3></div></a>
             {% else %}
               <p class="subscript">Your Bundle is Currently Empty. Select a Style Above to Get Started.</p>
             {% endif %}
@@ -202,16 +211,15 @@
           
           <div class="modal create-msneakers" style="display: none;">
             <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
-            <img src="{{'placeholder.png' | asset_url}}" id="modal-featured">
+            <img src="//cdn.shopify.com/s/files/1/0424/0893/t/359/assets/MensSneaker_ProductShot.jpg?12875" class="modal-featured">
             <div class="flex-container-no jcc">
-              <div class="bundle-color-selection black highlight" data-variant-id-small="18250901828" data-variant-id-medium="18250902084" data-variant-id-large="18250902276"></div>
-              <div class="bundle-color-selection rose" data-variant-id-small="31001775046733" data-variant-id-medium="31001775079501" data-variant-id-large="31001775112269"></div>
-              <div class="bundle-color-selection green" data-variant-id-small="31001768788045" data-variant-id-medium="31001768984653" data-variant-id-large="31001769017421"></div>
-              <div class="bundle-color-selection blue" data-variant-id-small="31001769410637" data-variant-id-medium="31001769443405" data-variant-id-large="31001769476173"></div>
+              <div class="bundle-color-selection black highlight" data-variant-id-small="18249077252" data-variant-id-medium="18249078276" data-variant-id-large="18249079492"></div>
+
             </div>
             <div class="flex-container-no jcc">
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
+              <div class="quarter"><img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_4db88422-8fdd-455c-8e8d-0285a0b464e5_2000x2000.jpg?v=1573252161" class="fw"></div>
+              <div class="quarter"><img src="//cdn.shopify.com/s/files/1/0424/0893/products/4_4ff341d6-c379-4fe7-8475-7817a32c3a4b_2000x2000.jpg?v=1573252161" class="fw"></div>
+              <div class="quarter"><img src="//cdn.shopify.com/s/files/1/0424/0893/products/SneakerFull_2000x2000.jpg?v=1573252161" class="fw"></div>
             </div>
             <div class="flex-container-no accent-padding">
               <select class="build-bundle-size">
@@ -230,17 +238,15 @@
           
           <div class="modal create-mloafers" style="display: none;">
             <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
-            <img src="{{'placeholder.png' | asset_url}}" id="modal-featured">
+            <img src="//cdn.shopify.com/s/files/1/0424/0893/t/359/assets/MensLoafer_ProductShot.jpg?12875" class="modal-featured">
             <div class="flex-container-no jcc">
-              <div class="bundle-color-selection black highlight" data-variant-id-small="18250901828" data-variant-id-medium="18250902084" data-variant-id-large="18250902276"></div>
-              <div class="bundle-color-selection rose" data-variant-id-small="31001775046733" data-variant-id-medium="31001775079501" data-variant-id-large="31001775112269"></div>
-              <div class="bundle-color-selection green" data-variant-id-small="31001768788045" data-variant-id-medium="31001768984653" data-variant-id-large="31001769017421"></div>
-              <div class="bundle-color-selection blue" data-variant-id-small="31001769410637" data-variant-id-medium="31001769443405" data-variant-id-large="31001769476173"></div>
+              <div class="bundle-color-selection black highlight" data-variant-id-small="18249609860" data-variant-id-medium="18249610628" data-variant-id-large="18249611396"></div>
+
             </div>
             <div class="flex-container-no jcc">
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'placeholder.png' | asset_url}}" class="fw"></div>
+              <div class="quarter"><img src="//cdn.shopify.com/s/files/1/0424/0893/products/Toe_2000x2000.jpg?v=1573252367" class="fw"></div>
+              <div class="quarter"><img src="//cdn.shopify.com/s/files/1/0424/0893/products/4_07544231-58f7-4160-a32d-7f2fc8971553_2000x2000.jpg?v=1573252367" class="fw"></div>
+              <div class="quarter"><img src="//cdn.shopify.com/s/files/1/0424/0893/products/2_dfefd4ff-bd53-4e9e-9895-c73c1935ff9b_2000x2000.jpg?v=1573252367" class="fw"></div>
             </div>
             <div class="flex-container-no accent-padding">
               <select class="build-bundle-size">
@@ -431,6 +437,10 @@ $('.add-to-bundle-button').click(function() {
   #bundle-page .icon { width: 35px;  }
 
 }
+@media only screen and (max-width: 799px) {
+  .do { display: none !important; }
+}
+.cart-update { width: 100% !important; }
 .womens-bundle .half, .mens-bundle .half { margin: 10px; padding-top: 0;}
 .highlight {border: 2px solid #6DCDB8; border-radius: 100%;}
 .icon { width: 50px;  }
@@ -456,6 +466,7 @@ vertical-align: middle;
     margin-top: 0;
   }
 }
+
 .modal { background-color: white; max-width: 400px;}
 #bundle-page .page-header {
   background-image: url("{{'SockCircle.png' | asset_url}}") ;

@@ -25,7 +25,7 @@
 
     <meta charset="utf-8">
     <meta name="robots" content="index, follow, archive">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
     {% assign maxmeta = 155 %}
     {% if template contains 'product' %}
     {% if template == 'collection' %}
@@ -49,7 +49,7 @@
     <link rel="icon" type="image/png" href="{{ 'favicon.png' | asset_url }}">
     
     {{ 'style.css' | asset_url | stylesheet_tag }}
-    <script type="text/javascript" src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=ueKycW"></script>
+    <script type="text/javascript" src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=ueKycW" defer></script>
     <script src="{{'klaviyo.js' | asset_url}}" ></script>
     <script src="{{ 'jquery.min.js' | asset_url }}" ></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js" async=""></script>
@@ -58,14 +58,14 @@
     <script src="{{  'option_selection.js' | shopify_asset_url }}" defer></script>
     <script src="{{ 'ajax-cart.js'  | asset_url }}" defer></script>
     <script src="{{ 'modernizr.min.js' | asset_url }}" defer></script>
-    <script src="{{ 'handlebars.min.js' | asset_url }}" defer></script>
+    <script src="{{ 'handlebars.min.js' | asset_url }}" ></script>
     <script src="{{ 'jquery.easing.1.3.min.js' | asset_url }}" defer></script>
     <script src="{{'jquery.mobile.custom.min.js' | asset_url}}" defer></script> 
-    <script src="{{'iframeResizer.min.js' | asset_url}}"></script> 
+    <script src="{{'iframeResizer.min.js' | asset_url}}" defer></script> 
 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" defer />
 <script src="{{'lazysizes.min.js' | asset_url}}" async=""></script>
-
+  
    <script src="https://scripts.sirv.com/sirv.js" defer></script>
 
     {% include 'ajax-cart-template' %}
@@ -116,16 +116,7 @@
   var a = document.getElementsByTagName('script')[0]; a.parentNode.insertBefore(b, a);
   })();
   </script>
-  <!-- start inspectlet -->
-  <script type="text/javascript">
-(function() {
-window.__insp = window.__insp || [];
-__insp.push(['wid', 300505337]);
-var ldinsp = function(){
-if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js?wid=300505337&r=' + Math.floor(new Date().getTime()/3600000); var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
-setTimeout(ldinsp, 0);
-})();
-</script>
+
 <!-- Start of mygekks Zendesk Widget script -->
 <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(e){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var e=this.createElement("script");n&&(this.domain=n),e.id="js-iframe-async",e.src="https://assets.zendesk.com/embeddable_framework/main.js",this.t=+new Date,this.zendeskHost="mygekks.zendesk.com",this.zEQueue=a,this.body.appendChild(e)},o.write('<body onload="document._l();">'),o.close()}();
 /*]]>*/</script> 
@@ -159,7 +150,7 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
     <header>
       <div class="wrap cbb-ignored-image" style="text-align: center;">
         <a href="/?sh=d">
-            <img src="{{'jlogo.png' | asset_url}}" alt="Gekks" class="logo" />
+            <img data-src="{{'jlogo.png' | asset_url}}" alt="Gekks" class="logo lazyload" />
         </a>
         <div class="desktop" id="top-nav">
           <nav>
@@ -241,7 +232,7 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
                 <a href="/account/login"><img src="{{'login.png' | asset_url}}" alt="Login/Register"/></a>
               {% endif %}
             </div>
-              <a href="/cart/" class="cart"><span>{{ cart.item_count }}</span> <image class="cart-icon" src="{{'shoppingbag.svg' | asset_url}}" style="margin-bottom: -11px;"/></a>
+              <a href="/cart/" class="cart"><span>{{ cart.item_count }}</span> <image class="cart-icon" src="{{'shoppingbag.svg' | asset_url}}" style="margin-bottom: -11px;" alt="shopping cart"/></a>
             <div id="hamburger" style="display: none;">
               <span></span>
               <span></span>
@@ -256,9 +247,9 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
     
     <footer class="background-green">
         <div class="social-icons">
-          <a href="https://www.instagram.com/gekks_go_sockless/?hl=en" target="_blank""><img data-src="{{'ig.png' | asset_url}}" class="lazyload" alt="Instagram" /></a>
-          <a href="https://www.facebook.com/GekksLowCutLiners/" target="_blank"><img data-src="{{'fb.png' | asset_url}}" alt="Facebook" class="lazyload" /></a>
-          <a href="https://www.pinterest.com/gekksliners/" target="_blank"><img data-src="{{'pinterest.png' | asset_url}}" alt="Pinterest" class="lazyload" /></a>
+          <a href="https://www.instagram.com/gekks_go_sockless/?hl=en" rel="noreferrer" target="_blank""><img data-src="{{'ig.png' | asset_url}}" class="lazyload" alt="Instagram" /></a>
+          <a href="https://www.facebook.com/GekksLowCutLiners/" target="_blank" rel="noreferrer"><img data-src="{{'fb.png' | asset_url}}" alt="Facebook" class="lazyload" /></a>
+          <a href="https://www.pinterest.com/gekksliners/" target="_blank" rel="noreferrer"><img data-src="{{'pinterest.png' | asset_url}}" alt="Pinterest" class="lazyload" /></a>
       </div>
         <div id="footer-nav">
           <div id="nav-wrap">
@@ -295,14 +286,14 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
           </div>
           <div class="background-darkgray">
             <div class="fw flex-container-no" id="payment-options">
-              <img src="{{'amazon-pay.png' | asset_url}}" class="payment-icon" />
-              <img src="{{'amex.png' | asset_url}}" class="payment-icon" />
-              <img src="{{'apple-pay.png' | asset_url}}" class="payment-icon" />
-              <img src="{{'discover.png' | asset_url}}" class="payment-icon" />
-              <img src="{{'google-pay.png' | asset_url}}" class="payment-icon" />
-              <img src="{{'mastercard.png' | asset_url}}" class="payment-icon" />
-              <img src="{{'paypal.png' | asset_url}}" class="payment-icon" />
-              <img src="{{'visa.png' | asset_url}}" class="payment-icon" />
+              <img data-src="{{'amazon-pay.png' | asset_url}}" class="payment-icon lazyload" alt="amazon pay"/>
+              <img data-src="{{'amex.png' | asset_url}}" class="payment-icon lazyload" alt="amex"/>
+              <img data-src="{{'apple-pay.png' | asset_url}}" class="payment-icon lazyload" alt="apple pay"/>
+              <img data-src="{{'discover.png' | asset_url}}" class="payment-icon lazyload" alt="discover"/>
+              <img data-src="{{'google-pay.png' | asset_url}}" class="payment-icon lazyload" alt="google pay"/>
+              <img data-src="{{'mastercard.png' | asset_url}}" class="payment-icon lazyload" alt="mastercard" />
+              <img data-src="{{'paypal.png' | asset_url}}" class="payment-icon lazyload" alt="paypal" />
+              <img data-src="{{'visa.png' | asset_url}}" class="payment-icon lazyload" alt="visa"/>
             </div>
             <h3 class="copywrite tac text-white nmb">© {{ shop.name }} {{ 'now' | date: '%Y' }}
             <p class="subscript nm tac">US Patent 9,839,259B2</p></h3>

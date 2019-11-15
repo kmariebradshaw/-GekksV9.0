@@ -25,7 +25,7 @@
               </p>
             </div>
               <div class="accent-padding price-details">
-                <h3 class="tar"><span id="updated-price"></span><span id="original-price"> {{ item.line_price | money}}</span> </h3>
+                <h3 class="tar"><span id="updated-price"></span><span id="original-price">{{ item.line_price | money}}</span> </h3>
                 <a href="/cart/change?id={{ item.id }}&quantity=0" class="cart-update">remove</a></p>
               </div>
             </div>
@@ -64,25 +64,38 @@
   </section>
 </main>
 
-
+<style>
+  @media only screen and (max-width: 588px) {
+    #original-price { font-size: 10pt; }
+    .price-details { width: 30%; }
+  }
+</style>
 
 <script>
+  
+
   var cart_total =  ({{cart.item_count }}) 
   var new_price = ""
 
-  if (cart_total == 1) {
-      console.log("1 - invalid")
+  if (cart_total == 2) {
+    jQuery.get('/discount/bundles2')
   }
-  else if (cart_total == 3){    
-      new_price = 14.00
+  else if (cart_total == 3) {
+    new_price = 14.00
+    jQuery.get('/discount/bundles3')
   }
-   else if (cart_total == 4){    
-      new_price = 12.00
+  else if (cart_total == 4) {
+    jQuery.get('/discount/bundles4')
+    new_price = 12.00
   }
-   else if (cart_total >= 5){    
-      new_price = 12.00
-      $('.qualified-for-free-shipping').show(); 
+  else if (cart_total >= 5) {
+    jQuery.get('/discount/bundles4')
+    new_price = 12.00
+    $('.qualified-for-free-shipping').show(); 
+
   }
+
+
     var new_subtotal = cart_total * new_price
 
   if (cart_total > 2) {
@@ -93,7 +106,7 @@
       var line_item_quantity = $(this).find('#line-item-quantity-number').text()
       var new_total = new_price * line_item_quantity 
       $(this).find('#original-price').addClass('strikethrough')
-      $(this).find('#updated-price').html("$ " + new_total + ".00"); 
+      $(this).find('#updated-price').html(" $" + new_total + ".00 <br class='mo'>" ); 
     })
     $('#updated-sub-total').html("$" + new_subtotal + ".00")
     $('#original-sub-total').addClass('strikethrough').css("margin-left", "5px"); 
