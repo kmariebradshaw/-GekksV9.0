@@ -20,9 +20,9 @@
        </div> 
          <div class="mo">
           <button type="submit" class="klaviyo_submit_button border-white"><span>sign up</span></button> 
-          <div class="voxie-text-us">
+         {% comment %} <div class="voxie-text-us">
             <a href="https://inboundtxt.com/t/RxwJEWO"><div class="voxie-text-button border-white"><span>Or Sign Up with Phone</span></div></a>
-          </div>       
+          </div>     {% endcomment %}  
         </div>
       </div>
       <p class="nmt klaviyo_header_close tac text-white clickable hide_on_submit" style="font-size: 10pt; margin-top: 10px; text-decoration: underline;"><span>decline offer</span></p>
@@ -90,9 +90,9 @@ $(document).ready(function(){
         <div class="klaviyo_form_actions hide_on_submit">
           <button type="submit" class="klaviyo_submit_button"><span>Sign Up with Email</span></button>
         </div>
-        <div class="voxie-text-us">
+        {% comment %}<div class="voxie-text-us">
           <a href="https://inboundtxt.com/t/ax6q3W3"><div class="voxie-text-button"><span>Or Sign Up with Phone</span></div></a>
-        </div>
+        </div>{% endcomment %}
       </div>
     </div>
    <p class="error_message subscript tac" style="display: none;"></p>
@@ -100,12 +100,12 @@ $(document).ready(function(){
    <div class="success_message" ></div>
   </div>
 </div>
-<script>
+{% comment %}<script>
   $('.voxie-text-button').click(function() {
     $(this).closest('.modal').hide(); 
     ga('send', 'event', 'Acquisition', 'Voxie', 'Website');
   })
-</script>
+</script>{% endcomment %}
 <script>
 $(document).ready(function(){
   var executed = false 
