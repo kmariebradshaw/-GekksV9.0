@@ -124,7 +124,7 @@
     <section id="flow-slide-7" class="flex-container-no jcc" style="display: none;">
         <div class="tac">
             <h3>based on your answers,<br> you've been matched with...</h3>
-            <h1 id="rtitle" class="text-green nm"></h1>
+            <h1 id="rtitle" class="text-green nm">The Trial Pack</h1>
             <img data-src="{{'flats.png' | asset_url}}" style="display: none;" id="flats-results" class="results-icon lazyload"/>
             <img data-src="{{'sneakers.png' | asset_url}}" style="display: none;" id="sn-results" class="results-icon lazyload"/>
             <img data-src="{{'womensloafer.png' | asset_url}}" style="display: none;" id="loaf-results" class="results-icon lazyload"/>
@@ -135,8 +135,8 @@
             <img data-src="{{'BundleThumbnail_WomensClosetPack.png' | asset_url}}" style="display: none;" id="wcpak-results" class="results-icon lazyload"/>
             <img data-src="{{'BundleThumbnail_TrialPack.png' | asset_url}}" style="display: none;" id="trial-results" class="results-icon lazyload"/>
 
-            <p id="rdescription" class="nmt"></p>
-            <a href="/collections/all" id="rlink" onClick="ga('send', 'event', 'Education', 'Progress', 'Flow End');"><button class="accent-padding background-green"><h3 class="text-white nm">let's do it!</h3></button></a>
+            <p id="rdescription" class="nmt">One pair of Gekks for Flats, one pair of Gekks for Heels, one pair Gekks for Loafers, and one pair of Gekks for Sneakers</p>
+            <a href="/collections/women?rec=trial" id="rlink" onClick="ga('send', 'event', 'Education', 'Progress', 'Flow End');"><button class="accent-padding background-green"><h3 class="text-white nm">let's do it!</h3></button></a>
             <a href="/pages/reviews"><button class="accent-padding background-green"><h3 class="text-white nm">reviews</h3></button></a>
             <div class="flex-container-no">
                <div class="quarter">
@@ -487,16 +487,15 @@
                     resultsDescription = "Two pairs of Gekks for flats, one pair of Gekks for loafers, one pair of Gekks for sneakers, and one pair of Gekks for heels"
                     resultsLink= "/collections/women?rec=wcpak"
                     $('#wcpak-results').show(); 
-
                 }
-            }
-            else if   (mens == true ) {
+                else if   (mens == true ) {
                     resultsTitle = "Mens Closet Pack"
                     resultsDescription = "Two pairs of Gekks for Loafers and two pairs of Gekks for Sneakers"
                     resultsLink= "/collections/all?rec=mencpak"
                     $('#mens-results').show(); 
 
-                } 
+                }
+            }
             else {
 
                     resultsTitle = "The Trial Pack"
@@ -504,8 +503,8 @@
                     resultsLink= "/collections/women?rec=trial"
                     $('#trial-results').show(); 
 
-                }
-                    $('#rtitle').text(resultsTitle); 
+            }
+            $('#rtitle').text(resultsTitle); 
             $('#rdescription').text(resultsDescription); 
             $('#rlink').attr("href", resultsLink); 
             createCookie("customGekks", resultsLink, 7)
