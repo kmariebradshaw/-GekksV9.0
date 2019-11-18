@@ -164,8 +164,10 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
                     {% endfor %}
                     <div class="sub-nav">
                       {% for childlink in linklists[child_list_handle].links offset: 1 %}
+                     {% unless childlink.title == "Create Your Pack" %}
                       <li><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a></li>
-                    {% endfor %}
+                    {% endunless %}
+                      {% endfor %}
                     </div>
                   </ul>
                {% else %}
@@ -191,9 +193,14 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
                   <a class="collection-prod" href="{{ link.url }}">{{ link.title | escape }} <span>◯</span></a>
 
                    <ul class="childlink accent-padding" style="display: none;">
+
                     {% for childlink in linklists[child_list_handle].links %}
+                                                          {% unless childlink.title == "Create Your Pack" %}
+
                       <li><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a></li>
-                    {% endfor %}
+                                  {% endunless %}
+
+                     {% endfor %}
                    </ul>
                  </li> 
                 {% else %}
