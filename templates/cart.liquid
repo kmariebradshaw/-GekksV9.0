@@ -10,7 +10,7 @@
       <form action="/cart" method="post">
         <div class="side-bar-form">
           {% for item in cart.items %}
-        <div class="flex-container-no border-lightgray">
+        <div class="flex-container-no border-lightgray line-item-wrapper">
             <div class="quarter accent-padding">
               <a href="{{ item.url}}">
                 <img src="{{ item.variant.image.src | product_img_url: 'large' }}"  alt="{{ item.product.title }}" class="fw">
@@ -20,13 +20,13 @@
               <h3 class="nmb">{{item.product.title}}</h3>
               <p>
                 <span>Style:</span> {{ item.variant.title | capitalize }}<br>
-                <span>Qty:</span> <input type="text" size="4" id="updates_{{ item.id }}" name="updates[{{ item.id }}]" value="{{ item.quantity }}"> @ {{ item.line_price | divided_by: item.quantity | money }}</p>
+                <span>Qty:</span> <span style="font-weight: lighter" id="line-item-quantity-number">{{ item.quantity }}</span> <span style="font-weight: lighter;" id="item-line-price">@ {{ item.line_price | divided_by: item.quantity | money }}</span></p>
+
               </p>
             </div>
               <div class="accent-padding price-details">
-                <h3 class="tar">{{ item.line_price | money}} </h3>
+                <h3 class="tar"><span id="updated-price"></span><span id="original-price">{{ item.line_price | money}}</span> </h3>
                 <a href="/cart/change?id={{ item.id }}&quantity=0" class="cart-update">remove</a></p>
-                <input type="submit" name="update" value="update" class="cart-update">
               </div>
             </div>
           {% endfor %}
@@ -35,8 +35,9 @@
           <h3 class="text-green tac">order summary</h3>
           <div class="index-padding">
             <p><span>items</span><span class="fr">{{cart.item_count}}</span></p>
-            <p><span>subtotal</span><span class="fr">{{ cart.total_price | money }}</span></p>
+            <p><span>subtotal</span><span class="fr" id="original-sub-total">{{ cart.total_price | money }}</span><span class="fr" id="updated-sub-total"></span></p>
           </div>
+            <p class="qualified-for-free-shipping tac text-green" style="display: none;"><span>You've Qualified for Free Shipping!</span></p>
           <input type="submit" id="checkout" name="checkout" value="checkout">
           <p class="subscript tac text-green">other payment options</p>
           {% if additional_checkout_buttons %}
@@ -56,9 +57,59 @@
           </div>
         </form> 
 
-</div>
+        </div>
       </div>
       {% endif %}
     </div>
   </section>
 </main>
+
+<style>
+  @media only screen and (max-width: 588px) {
+    #original-price { font-size: 10pt; }
+    .price-details { width: 30%; }
+  }
+</style>
+
+<script>
+  
+
+  var cart_total =  ({{cart.item_count }}) 
+  var new_price = ""
+
+  if (cart_total == 2) {
+    new_price = 16.00
+    jQuery.get('/discount/bundles2')
+  }
+  else if (cart_total == 3) {
+    new_price = 14.00
+    jQuery.get('/discount/bundles3')
+  }
+  else if (cart_total == 4) {
+    jQuery.get('/discount/bundles4')
+    new_price = 12.00
+  }
+  else if (cart_total >= 5) {
+    jQuery.get('/discount/bundles4')
+    new_price = 12.00
+    $('.qualified-for-free-shipping').show(); 
+
+  }
+
+
+    var new_subtotal = cart_total * new_price
+
+  if (cart_total >= 2) {
+    $('.line-item-details #item-line-price').each(function() {
+      $(this).html("@ $" + new_price + " <span class='strikethrough'>$18.00</span>")
+    })  
+    $('.line-item-wrapper').each(function() {
+      var line_item_quantity = $(this).find('#line-item-quantity-number').text()
+      var new_total = new_price * line_item_quantity 
+      $(this).find('#original-price').addClass('strikethrough')
+      $(this).find('#updated-price').html(" $" + new_total + ".00 <br class='mo'>" ); 
+    })
+    $('#updated-sub-total').html("$" + new_subtotal + ".00")
+    $('#original-sub-total').addClass('strikethrough').css("margin-left", "5px"); 
+  }
+</script>

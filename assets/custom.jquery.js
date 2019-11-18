@@ -91,7 +91,7 @@ function closeWelcomePop() {
 
 $('body').click(function (event) {
    if(!$(event.target).closest('.modal').length && !$(event.target).is('.modal') && !$(event.target).is('#referafriend h3') && !$(event.target).is('#getadiscount h3') && !
-    $(event.target).is('#size-chart') && !$(event.target).is(".ruler-icon")  && !$(event.target).closest('#CartContainer').length && !$(event.target).is('button') && !$(event.target).is('button span') && !$(event.target).is('#hamburger span') && !$(event.target).closest('.mobile-nav1').length ) {
+    $(event.target).is('#size-chart') && !$(event.target).is(".ruler-icon")  && !$(event.target).closest(".bundle-style").length && !$(event.target).closest('#CartContainer').length && !$(event.target).is('button') && !$(event.target).is('button span') && !$(event.target).is('#hamburger span') && !$(event.target).closest('.mobile-nav1').length ) {
      $(".modal").hide(); 
      if ($('#CartContainer').is(":visible ")) {
       cartClose();
@@ -215,12 +215,12 @@ $('body').click(function (event) {
 $('#thumbnails ul li img').click(function() {
   var src = $(this).attr("src").replace("compact", "2000x2000"); 
   $(this).addClass('border-lightgray').parent().siblings().children().removeClass('border-lightgray'); 
-  $('#featured-image').attr("src", src); 
+  $('.main-image:visible').attr("src", src); 
 }); 
 var swipeLocation = 0 
 var thumbs = $("#thumbnails ul li").children().toArray()
 
-$('#featured-image').on("swipeleft", function(event) {
+$('.main-image').on("swipeleft", function(event) {
   var currentSrc = $(this).attr("src"); 
   $.each(thumbs, function(index, thumb) {
     if ($(thumb).attr("src").replace("compact", "2000x2000") == currentSrc) {
@@ -230,11 +230,11 @@ $('#featured-image').on("swipeleft", function(event) {
   if ((thumbs.length - 1)> swipeLocation) {
 swipeLocation += 1 
   } 
-  $("#featured-image").attr("src", $(thumbs[swipeLocation]).attr("src").replace("compact", "2000x2000"))
+  $(".main-image").attr("src", $(thumbs[swipeLocation]).attr("src").replace("compact", "2000x2000"))
   $('#thumbnails ul li img').removeClass('border-lightgray')
   $(thumbs[swipeLocation]).addClass('border-lightgray')
  }); 
-            $('#featured-image').on("swiperight", function(event) {
+            $('.main-image').on("swiperight", function(event) {
   var currentSrc = $(this).attr("src"); 
   $.each(thumbs, function(index, thumb) {
     if ($(thumb).attr("src").replace("compact", "2000x2000") == currentSrc) {
@@ -244,7 +244,7 @@ swipeLocation += 1
   if (swipeLocation > 0) { 
     swipeLocation -=1
   } 
-  $("#featured-image").attr("src", $(thumbs[swipeLocation]).attr("src").replace("compact", "2000x2000"))
+  $(".main-image").attr("src", $(thumbs[swipeLocation]).attr("src").replace("compact", "2000x2000"))
    $('#thumbnails ul li img').removeClass('border-lightgray')
   $(thumbs[swipeLocation]).addClass('border-lightgray')
  }); 
@@ -336,7 +336,21 @@ function deleteCookie(name) {
 if(window.location.href.indexOf("countdown") > -1) {
   localStorage.setItem("timer", true);
 }
+// url params as variables 
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
 
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+};
 // redirect v. no redirect 
 $(document).ready(function(){
   var flowFinish = readCookie('flowFinish')

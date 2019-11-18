@@ -1,47 +1,480 @@
- <main>
-  <div class="fw accent-padding">
-    {% if collection.title == "Men" %}
-     <div class="flex-container collections-grid clickable">
-        <div class="half" id="shop-mens-loafers"><h2><a href="/products/loafer-version" class="text-white">Shop Loafers</a></h2></div>
-        <div class="half" id="shop-mens-sneakers"><h2><a href="/products/sneaker-version" class="text-white">Shop Sneakers</a></h2></div>
-      </div>
-    {% else %}
-      <div class="flex-container collections-grid clickable">
-        <div class="half" id="shop-flats"><h2><a href="/products/flats-version" class="text-white">Shop Flats</a></h2></div>
-        <div class="half" id="shop-sneakers"><h2><a href="/products/womens-sneaker-version" class="text-white">Shop Sneakers</a></h2></div>
-      </div>
-      <div class="flex-container collections-grid clickable">
-        <div class="half" id="shop-loafers"><a href="/products/womens-loafer-version" class="text-white"><h2>Shop Loafers</h2></a></div>
-        <div class="half" id="shop-heels"><a href="/products/heels" class="text-white"><h2>Shop Heels</h2></a></div>
-      </div>
-    {% endif %}
-</div>
-  <section class="fw endorsements-features" id="featured">   
-    <ul class="background-beige">
-      <li><p>endorsed by</p></li>
-      {% if collection.title == "Men" %}
-        {% include 'endorsed_by_m' %}
-      {% else %}
-        {% include 'endorsed_by_w' %} 
-      {% endif %} 
-    </ul>
-  </section>
-  <section id="key-features" class="index-padding">
-    <div class="title-border"></div>
-    <h2>Give Gekks a Go</h2>
-    <ul class="icon-display">
-      <li><img src="{{'sweat.svg' | asset_url}}" alt="Sweat Reducing"/><br><span class="text-green">stench control</span><br><p class="subscript">antimicrobial yarn eliminates the sockless stench</p></li> 
-      <li class="do"><img src="{{'comfortable.svg' | asset_url}}" alt="Comfortable" /><br><span class="text-green">comfortable</span><br><p class="subscript">55% polyester, 39% nylon, 6% silver coated nylon</p></li> 
-      <li><img src="{{'longlasting.svg' | asset_url}}" alt="Long Lasting" /><br><span class="text-green">long lasting</span><p class="subscript">adhesive pads come with two layers to make your Gekks and your soles last longer</p></li> 
-    </ul>
-    <ul class="icon-display">
-      <li><img src="{{'convenient.svg' | asset_url}}" alt="Convenient"/><br><span class="text-green">convenient</span><p class="subscript">slip in and out barefoot using our patented fastening system</p></li> 
-      <li class="do"><img src="{{'ecofriendly.svg' | asset_url}}" alt="Eco-Friendly"/><br><span class="text-green">eco-friendly</span><p class="subscript">REPREVE yarn to help you reduce your carbon footprint</p></li> 
-      <li><img src="{{'fashionforward.svg' | asset_url}}" alt="Fashion Forward"/><br><span class="text-green">fashion forward</span><p class="subscript">rock that sockless style with all your shoe choices</p></li> 
-    </ul>
-    <ul class="icon-display mo">
-      <li><img src="{{'ecofriendly.svg' | asset_url}}" alt="Eco-Friendly"/><br><span class="text-green">eco-friendly</span><p class="subscript">REPREVE yarn, made from recycled bottles, to help you reduce your carbon footprint</p></li> 
-      <li><img src="{{'comfortable.svg' | asset_url}}" alt="Comfortable" /><br><span class="text-green">comfortable</span><br><p class="subscript">55% polyester, 39% nylon, 6% silver coated nylon</p></li> 
-    </ul>
-  </section>
+ <main class="collection-wrapper">
+      <section class="page-title accent-padding">
+        <h1 class="text-green">Bundle <br class="ndo-plus">& Save</h1>
+      </section>
+
+      <section class="row">
+        <section class="col lifestyle-col">
+          <section class="card lifestyle-card" id="lifestyle1">
+          </section>
+        </section>
+        <section class="col" id="trial">
+          <section class="card">
+            <a href="/products/select?pack=1">
+            <div class="product-collection-wrapper">
+            <div id="trial-pack-photo">
+              <img data-src="{{'1_Transparent.png' | asset_url}}" class="lazyload" class="lazyload" alt="the trial pack"/>
+            </div>
+            <div class="accent-padding">
+              <h3 class="ttu nmb">The Trial Pack </h3>
+              <h4 class="nm">4 Pairs</h4>
+              <h4 class="nmt">$48.00 <span class="strikethrough">$72.00</span></h4>
+              <p>one flat, one heel, one loafer, and one sneaker</p>
+              <div class="acfe">
+                <div class="green color-preview-circle"></div>
+                <div class="blue color-preview-circle"></div>
+                <div class="rose color-preview-circle"></div>
+                <div class="black color-preview-circle"></div>
+                <div class="beige color-preview-circle"></div>
+              </div>
+            </div>
+          </div>
+          </a>
+          </section>
+        </section>
+        <section class="col" id="office-pack">
+          <section class="card">
+            <a href="/products/select?pack=2" >
+              <div class="product-collection-wrapper">
+                <div id="office-pack-photo">
+                  <img data-src="{{'2_Transparent.png' | asset_url}}" class="lazyload" alt="the office pack"/>
+                </div>
+                <div class="accent-padding">
+                  <h3 class="ttu nmb">The Office Pack</h3>
+                  <h4 class="nm">4 Pairs</h4>
+                  <h4 class="nmt">$48.00 <span class="strikethrough">$72.00</span></h4>
+                  <p>two flats and two heels</p>
+                <div class="acfe">
+                  <div class="black color-preview-circle"></div>
+                  <div class="beige color-preview-circle"></div>
+                </div>
+              </div>
+            </div>
+          </a>
+          </section>
+        </section>
+<!--         <section class="col">
+          <section class="card">
+            <a href="/pages/bundles">
+             <div class="product-collection-wrapper">
+              <img data-src="{{'SockCircle.png' | asset_url}}"  class="lazyload" alt="create your own bundle"/>
+              <div class="accent-padding">
+                <h3 class="ttu nmb">Create Your Bundle</h3>
+                <h4 class="nmt text-green">Up to 35% Savings</h4>
+                <p>any combination of Gekks and colors</p>
+                <div class="acfe">
+                  <div class="green color-preview-circle"></div>
+                  <div class="blue color-preview-circle"></div>
+                  <div class="rose color-preview-circle"></div>
+                  <div class="black color-preview-circle"></div>
+                  <div class="beige color-preview-circle"></div>
+                </div>
+              </div>
+            </div>
+           </a>
+          </section> -->
+<!--         </section> -->
+        <section class="col" id="mencpak">
+          <section class="card">
+            <a href="/products/select?pack=4">
+              <div class="product-collection-wrapper">
+                <div id="men-pack-photo">
+                  <img data-src="{{'4_Transparent.png' | asset_url}}" class="lazyload" alt="Men's Closet Pack"/>
+                </div>
+                <div class="accent-padding">
+                  <h3 class="ttu nmb">The Men’s Closet Pack</h3>
+                  <h4 class="nm">4 Pairs</h4>
+                  <h4 class="nmt">$48.00 <span class="strikethrough">$72.00</span></h4>
+                  <p>two men's loafers, and two men's sneakers.</p>
+                  <div class="acfe">
+                 {% comment %}   <div class="green color-preview-circle"></div>
+                    <div class="blue color-preview-circle"></div>{% endcomment %}
+                    <div class="black color-preview-circle"></div>
+                  </div>
+                </div>
+              </div>
+           </a>
+          </section>
+        </section>
+        <section class="col" id="casual-pack">
+          <section class="card">
+            <a href="/products/select?pack=5">
+              <div class="product-collection-wrapper">
+                <div id="cas-pack-photo">
+                  <img data-src="{{'5_Transparent.png' | asset_url}}" class="lazyload" alt="The Casual Pack"/>
+                </div>
+                <div class="accent-padding">
+                  <h3 class="ttu nmb">The Casual Pack</h3>
+                  <h4 class="nm">4 Pairs</h4>
+                  <h4 class="nmt">$48.00 <span class="strikethrough">$72.00</span></h4>
+                  <p>two flats, and two loafers</p>
+                  <div class="acfe">
+                    <div class="green color-preview-circle"></div>
+                    <div class="blue color-preview-circle"></div>
+                    <div class="rose color-preview-circle"></div>
+                    <div class="black color-preview-circle"></div>
+                    <div class="beige color-preview-circle"></div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </section>
+        </section>
+<!--          <section class="col">
+          <section class="card">
+            <a href="/pages/bundles">
+               <div class="product-collection-wrapper">
+                <img data-src="{{'SockCircle.png' | asset_url}}"  class="lazyload" alt="Create Your Own Bundle"/>
+                <div class="accent-padding">
+                  <h3 class="ttu nmb">Create Your Bundle</h3>
+                  <h4 class="nmt text-green">Up to 35% Savings</h4>
+                  <p>any combination of Gekks and colors</p>
+                  <div class="acfe">
+                    <div class="green color-preview-circle"></div>
+                    <div class="blue color-preview-circle"></div>
+                    <div class="rose color-preview-circle"></div>
+                    <div class="black color-preview-circle"></div>
+                    <div class="beige color-preview-circle"></div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </section>
+        </section> -->
+        <section class="col lifestyle-col">
+          <section class="card lifestyle-card" id="lifestyle2">
+          </section>
+        </section>
+         <section class="col" id="wcpak">
+          <section class="card">
+           <a href="/products/select?pack=6">
+           <div class="product-collection-wrapper">
+            <div id="womens-pack-photo">
+                <img data-src="{{'6_Transparent.png' | asset_url}}" class="lazyload" alt="Women's Closet Pack"/>
+              </div>
+              <div class="accent-padding">
+                <h3 class="ttu nmb">The Women’s Closet Pack</h3>
+                <h4 class="nm">5 Pairs</h4>
+                <h4 class="nmt">$60.00 <span class="strikethrough">$90.00</span></h4>
+                <p>two flats, one loafer, one sneaker, and one heel</p>
+                <div class="acfe">
+                  <div class="green color-preview-circle"></div>
+                  <div class="blue color-preview-circle"></div>
+                  <div class="rose color-preview-circle"></div>
+                  <div class="black color-preview-circle"></div>
+                  <div class="beige color-preview-circle"></div>
+                </div>
+               </div>
+            </div>
+           </a>
+          </section>
+         </section>
+         <section class="col">
+          <section class="card">
+            <a href="/products/select?pack=8">
+              <div class="product-collection-wrapper">
+              <div id="officelite-pack-photo">
+                  <img data-src="{{'8_Transparent.png' | asset_url}}" class="lazyload" alt="Office Lite Pack"/>
+                </div>
+                <div class="accent-padding">
+                  <h3 class="ttu nmb">The Office Pack Lite</h3>
+                  <h4 class="nm">3 Pairs</h4>
+                  <h4 class="nmt">$42.00 <span class="strikethrough">$54.00</span></h4>
+                  <p>two flats, and one heel</p>
+                  <div class="acfe">
+                    <div class="green color-preview-circle"></div>
+                    <div class="blue color-preview-circle"></div>
+                    <div class="rose color-preview-circle"></div>
+                    <div class="black color-preview-circle"></div>
+                    <div class="beige color-preview-circle"></div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </section>
+         </section>
+<!--         <section class="col">
+          <section class="card">
+            <a href="/pages/bundles">
+            <div class="product-collection-wrapper">
+              <img data-src="{{'SockCircle.png' | asset_url}}"  class="lazyload" alt="Create Your Own Bundle" />
+              <div class="accent-padding">
+                <h3 class="ttu nmb">Create Your Bundle</h3>
+                <h4 class="nmt text-green">Up to 35% Savings</h4>
+                <p>any combination of Gekks and colors</p>
+                <div class="acfe">
+                  <div class="green color-preview-circle"></div>
+                  <div class="blue color-preview-circle"></div>
+                  <div class="rose color-preview-circle"></div>
+                  <div class="black color-preview-circle"></div>
+                  <div class="beige color-preview-circle"></div>
+                </div>
+              </div>
+            </div>
+          </a>
+          </section>
+        </section> -->
+        <section class="col">
+          <section class="card">
+            <a href="/products/select?pack=10">
+              <div class="product-collection-wrapper">
+                <div id="couples-pack-photo">
+                  <img data-src="{{'10_Transparent.png' | asset_url}}" class="lazyload" alt="Couples Pack"/>
+                </div>
+                <div class="accent-padding">
+                  <h3 class="ttu nmb">The Couples Pack</h3>
+                  <h4 class="nm">6 Pairs</h4>
+                  <h4 class="nmt">$72.00 <span class="strikethrough">$90.00</span></h4>
+                  <p>two men's loafers and one sneaker, one women's flat, loafer and sneaker</p>
+                  <div class="acfe">
+                    <div class="green color-preview-circle"></div>
+                    <div class="blue color-preview-circle"></div>
+                    <div class="rose color-preview-circle"></div>
+                    <div class="black color-preview-circle"></div>
+                    <div class="beige color-preview-circle"></div>
+                  </div>
+                 </div> 
+              </div>
+            </a>
+          </section>
+        </section>
+         <section class="col">
+          <section class="card">
+            <a href="/products/select?pack=11">
+             <div class="product-collection-wrapper">
+              <div id="shoe-pack-photo">
+                  <img data-src="{{'11_Transparent.png' | asset_url}}" class="lazyload" alt="The Shoe Lover Pack"/>
+                </div>
+              <div class="accent-padding">
+                <h3 class="ttu nmb">The Shoe Lover</h3>
+                <h4 class="nm">8 Pairs</h4>
+                <h4 class="nmt">$96.00 <span class="strikethrough">$144.00</span></h4>
+                <p>two flats, two women's sneakers, two women's loafers, two heels</p>
+                <div class="acfe">
+                  <div class="green color-preview-circle"></div>
+                  <div class="blue color-preview-circle"></div>
+                  <div class="rose color-preview-circle"></div>
+                  <div class="black color-preview-circle"></div>
+                  <div class="beige color-preview-circle"></div>
+                </div>
+              </div>
+            </div>
+            </a>
+          </section>
+        </section>
+        <section class="col" >
+          <section class="card">
+            <a href="/products/select?pack=7">
+             <div class="product-collection-wrapper">
+              <div id="caslite-pack-photo">
+                <img data-src="{{'7_Transparent.png' | asset_url}}" class="lazyload" alt="The Casual Pack Lite"/>
+              </div>
+              <div class="accent-padding">
+                <h3 class="ttu nmb">The Casual Pack Lite</h3>
+                <h4 class="nm">3 Pairs</h4>
+                <h4 class="nmt">$42.00 <span class="strikethrough">$54.00</span></h4>
+                <p>two flats, and one loafer</p>
+                <div class="acfe">
+                  <div class="green color-preview-circle"></div>
+                  <div class="blue color-preview-circle"></div>
+                  <div class="rose color-preview-circle"></div>
+                  <div class="black color-preview-circle"></div>
+                  <div class="beige color-preview-circle"></div>
+                </div>
+              </div>
+            </div>
+          </a>
+         </section>
+        </section>
+        <section class="col">
+          <section class="card">
+            <a href="/products/select?pack=3">
+             <div class="product-collection-wrapper">
+                <div id="metro-pack-photo">
+                  <img data-src="{{'3_Transparent.png' | asset_url}}" class="lazyload" alt="The Metropolitan Pack"/>
+                </div>
+                <div class="accent-padding">
+                  <h3 class="ttu nmb">The Metropolitan Pack</h3>
+                  <h4 class="nm">4 Pairs</h4>
+                  <h4 class="nmt">$48.00 <span class="strikethrough">$72.00</span></h4>
+                  <p>two flats, one loafer, and one sneaker</p>
+                  <div class="bundle-spacer"></div>
+                  <div>
+                    <div class="green color-preview-circle"></div>
+                    <div class="blue color-preview-circle"></div>
+                    <div class="rose color-preview-circle"></div>
+                    <div class="black color-preview-circle"></div>
+                    <div class="beige color-preview-circle"></div>
+                  </div>
+                </div>
+            </div>
+          </a>
+          </section>
+        </section>
+<!--         <section class="col">
+          <section class="card">
+            <a href="/pages/bundles">
+             <div class="product-collection-wrapper">
+              <img data-src="{{'SockCircle.png' | asset_url}}"  class="lazyload" alt="Create Your Own Bundle"/>
+              <div class="accent-padding">
+                <h3 class="ttu nmb">Create Your Bundle</h3>
+                <h4 class="nmt text-green">Up to 35% Savings</h4>
+                <p>any combination of Gekks and colors</p>
+                <div class="acfe">
+                  <div class="green color-preview-circle"></div>
+                  <div class="blue color-preview-circle"></div>
+                  <div class="rose color-preview-circle"></div>
+                  <div class="black color-preview-circle"></div>
+                  <div class="beige color-preview-circle"></div>
+                </div>
+              </div>
+            </div>
+           </a>
+          </section>
+        </section> -->
+         <section class="col lifestyle-col">
+          <section class="card lifestyle-card" id="lifestyle3">
+          </section>
+        </section>
+      </section>        
 </main>
+<script>
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+};
+    var rec = getUrlParameter('rec')
+    var rec_id = "#" + rec
+    if (rec_id) {
+      $(rec_id).insertBefore('#trial').find(".card").addClass('recommended-highlight'); 
+    }
+
+</script>
+
+
+<style>
+.recommended-highlight {
+  border: 2px solid gold;
+}
+
+.row {
+  display: flex; 
+  flex-flow: row wrap; 
+  margin-top: 5px;
+}
+
+.col { 
+  display: flex; 
+  flex-flow: column; 
+}
+
+.card {
+  display: flex;
+  margin: 5px;
+  align-items: stretch;
+  flex-direction: column;
+  height: 100%;
+}
+
+.collection-wrapper a { height: 100%; }
+
+  #metro-pack-photo { background-color:  #fdd5f1; }
+  #trial-pack-photo { background-color:  #d4f3fa; }
+  #office-pack-photo { background-color: #d7e1fe; }
+  #men-pack-photo { background-color:  #fad7b0; }
+  #cas-pack-photo { background-color: #fbdce8; }
+  #womens-pack-photo { background-color: #fbfcbf; }
+  #caslite-pack-photo { background-color: #e5f4fa; }
+  #officelite-pack-photo { background-color: #d9f8eb; }
+  #laceless-pack-photo { background-color: #c8faf8; }
+  #couples-pack-photo { background-color: #fcd4c6; }
+  #shoe-pack-photo { background-color: #d1fad9; }
+  .collection-wrapper .page-title { 
+    background-image: url("{{'6.jpg' | asset_url}}"); 
+    background-repeat: no-repeat;
+}
+  .product-row {  align-items: flex-start; }
+  .product-collection-wrapper { 
+    border: 2px solid whitesmoke;
+    height: 100%;
+  }
+  .product-collection-wrapper img { width: 100%; }
+  .color-preview-circle { 
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    margin-right: 2px;
+    display: inline-block;
+   }
+  .rose { background-color: #efc3be; }
+  .green { background-color: #0ad4c4; }
+  .blue { background-color: #1c7baa; }
+  .beige { background-color: #F9F2ED; }
+  .black { background-color: #000; }
+  @media only screen and (min-width: 1100px) and (max-width: 1400px) {
+
+  }
+  @media only screen and (min-width: 589px) and (max-width: 799px) {
+    .collection-wrapper .page-title h1 { 
+      margin-top: 20px; 
+      font-size: 38pt; 
+    }
+    .lifestyle-col { flex: 45% !important; }
+        .col { flex: 1 0 200px;}
+
+  }
+  @media only screen and (min-width: 800px) {
+    .collection-wrapper .page-title { background-position: bottom right;}
+    .product-row { margin: 30px 0;}
+    .col  { flex: 1 0 300px; }
+        .lifestyle-col { flex: 33% !important; }
+         .collection-wrapper .page-title { 
+
+    background-size: 60%;
+}
+
+  }
+  @media only screen and (max-width: 799px) {
+    .collection-wrapper .page-title { background-position: center 40px;}
+    .collection-wrapper .page-title h1 { text-align: center; }
+    .product-row { margin: 10px 0;}
+    .collection-wrapper .page-title { 
+      background-size: contain;
+}
+
+  }
+  @media only screen and (max-width: 588px) {
+    .col { flex: 1 0 148px;}
+    body h1 {
+      font-size: 27pt;
+  }
+  }
+  .asfe { align-self: flex-end; }
+  .page-title { min-height: 225px; }
+  #lifestyle1 { 
+    background-image: url("{{'Lifestyle1_Verticle.jpg' | asset_url}}"); 
+    background-size: cover;
+    background-position: bottom center;
+  }
+    #lifestyle2 { 
+      background-image: url("{{'Lifestyle2_Verticle.jpg' | asset_url}}");
+    background-size: cover;
+    background-position: bottom center;
+      }
+    #lifestyle3 { 
+      background-image: url("{{'Lifestyle3_Verticle.jpg' | asset_url}}"); 
+      background-size: cover;
+      background-position: bottom center;
+    }
+</style>
+

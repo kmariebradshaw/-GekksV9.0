@@ -7,14 +7,7 @@
                                          (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
                                         })(window,document.documentElement,'async-hide','dataLayer',4000,
                                             {'GTM-5NSXTXW':true});</script>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PWJVTQQ');
 
-</script>
 
 <!-- Global site tag (gtag.js) - Google AdWords: 973442114 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-973442114"></script>
@@ -155,20 +148,17 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
 </noscript>
   </head>
   <body class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '/', '-' | split: '.' }} {% if template == 'index' or page.handle == 'store' %}zoom-aware{% endif %}">
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWJVTQQ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+
     
     <header>
       <div class="wrap cbb-ignored-image" style="text-align: center;">
         <a href="/?sh=d">
-            <img src="{{'jlogo.png' | asset_url}}" alt="Gekks" class="logo" />
+            <img data-src="{{'jlogo.png' | asset_url}}" alt="Gekks" class="logo lazyload" />
         </a>
         <div class="desktop" id="top-nav">
           <nav>
             <ul class="desktop-nav">
-              {% for link in linklists.main-menu.links %}
+              {% for link in linklists.main-menu-uu.links %}
                 {% assign child_list_handle = link.title | handleize %}
                 {% if linklists[child_list_handle].links != blank %}
                   <ul class="childlink desktop-sub-nav">
@@ -177,8 +167,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     {% endfor %}
                     <div class="sub-nav">
                       {% for childlink in linklists[child_list_handle].links offset: 1 %}
+                     {% unless childlink.title == "Create Your Pack" %}
                       <li><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a></li>
-                    {% endfor %}
+                    {% endunless %}
+                      {% endfor %}
                     </div>
                   </ul>
                {% else %}
@@ -212,11 +204,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     {% if shop.metafields.locksmith.active %}{% include 'locksmith' %}{% else %}{{ content_for_layout }}{% endif %}
     
-        <footer class="background-green">
+        
+    <footer class="background-green">
         <div class="social-icons">
-          <a href="https://www.instagram.com/gekks_go_sockless/?hl=en" target="_blank""><img data-src="{{'ig.png' | asset_url}}" class="lazyload" alt="Instagram" /></a>
-          <a href="https://www.facebook.com/GekksLowCutLiners/" target="_blank"><img data-src="{{'fb.png' | asset_url}}" alt="Facebook" class="lazyload" /></a>
-          <a href="https://www.pinterest.com/gekksliners/" target="_blank"><img data-src="{{'pinterest.png' | asset_url}}" alt="Pinterest" class="lazyload" /></a>
+          <a href="https://www.instagram.com/gekks_go_sockless/?hl=en" rel="noreferrer" target="_blank"><img data-src="{{'ig.png' | asset_url}}" class="lazyload" alt="Instagram" /></a>
+          <a href="https://www.facebook.com/GekksLowCutLiners/" target="_blank" rel="noreferrer"><img data-src="{{'fb.png' | asset_url}}" alt="Facebook" class="lazyload" /></a>
+          <a href="https://www.pinterest.com/gekksliners/" target="_blank" rel="noreferrer"><img data-src="{{'pinterest.png' | asset_url}}" alt="Pinterest" class="lazyload" /></a>
       </div>
         <div id="footer-nav">
           <div id="nav-wrap">
@@ -230,19 +223,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </ul>
                 <ul>
                 <h3>shop</h3>
-                {% for link in linklists.footer-1.links limit: 3 offset: 10%}<li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>{% endfor %}
+                {% for link in linklists.footer-1.links limit: 3 offset: 10%}
+                  {% if link.title == "Men" or link.title == "Women" %}
+                    <li><a href="/collections/women">{{ link.title | escape }}</a></li>
+                  {% else %}
+                    <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+                  {% endif %}
+                {% endfor %}
               </ul>
             </div>
             <div id="footer-aside">
               <div id="referafriend" class="background-darkgray" onclick="ga('send', 'event', 'Refer', 'Footer', 'Click');"><h3 class="text-green">refer a friend</h3></div>
+
+              <div id="getadiscount" class="background-darkgray"><h3 class="text-white">get a discount</h3></div>
+
+
 
 
 
 
 
           </div>
-        <h3 class="copywrite tac text-white background-darkgray nmb">© {{ shop.name }} {{ 'now' | date: '%Y' }}
-        <p class="subscript nm tac">US Patent 9,839,259B2</p></h3>
+          <div class="background-darkgray">
+            <div class="fw flex-container-no" id="payment-options">
+              <img data-src="{{'amazon-pay.png' | asset_url}}" class="payment-icon lazyload" alt="amazon pay"/>
+              <img data-src="{{'amex.png' | asset_url}}" class="payment-icon lazyload" alt="amex"/>
+              <img data-src="{{'apple-pay.png' | asset_url}}" class="payment-icon lazyload" alt="apple pay"/>
+              <img data-src="{{'discover.png' | asset_url}}" class="payment-icon lazyload" alt="discover"/>
+              <img data-src="{{'google-pay.png' | asset_url}}" class="payment-icon lazyload" alt="google pay"/>
+              <img data-src="{{'mastercard.png' | asset_url}}" class="payment-icon lazyload" alt="mastercard" />
+              <img data-src="{{'paypal.png' | asset_url}}" class="payment-icon lazyload" alt="paypal" />
+              <img data-src="{{'visa.png' | asset_url}}" class="payment-icon lazyload" alt="visa"/>
+            </div>
+            <h3 class="copywrite tac text-white nmb">© {{ shop.name }} {{ 'now' | date: '%Y' }}
+            <p class="subscript nm tac">US Patent 9,839,259B2</p></h3>
+          </div>
     </footer>
 
     

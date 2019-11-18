@@ -65,17 +65,7 @@
     </div>  
 
       {% endunless %}
-                 <div class=" fw ndo-plus">
-        <div class="priceu" style="display: none;">
-        {% if product.title == "Women's Closet Pack" %}
-          <h3 class="tac nmb">$36.00 <span style="text-decoration: line-through; color: gray;">{% if product.price < product.compare_at_price_max %}$49.00{% endif %}</span></h3>
-        {% else %}
-          <div class="flex-container-no">
-          <h3 class="" style=" margin-right: 10px">$18 <span class="subscript" style="font-weight: 300; margin: 0 5px;">or</span> $12 </h3><span class="subscript" style="font-weight: 300;">when you buy 3 <br>or more pairs</span>
-        </div>
-          {% endif %}
-        </div>
-      </div>
+
       {% else %}
         <meta itemprop="priceCurrency" content="{{ shop.currency }}">                          
         <link itemprop="availability" href="http://schema.org/OutOfStock">
@@ -111,7 +101,7 @@
       {% endfor %}
    </select>
    <select name="quantity" id="quantity">
-     {% for i in (1..10) %}
+     {% for i in (2..10) %}
      <option value="{{ i }}">{{ i }}</option>
      {% endfor %}         
   </select>  
@@ -283,7 +273,7 @@ $('.shoe-wrapper').scroll(function() {
 {% endunless %} 
 {% endif %} 
 {% else %}
-<div class="fw tac">
+{% comment %}<div class="fw tac">
   <div class="flex-container-no select-grid clickable">
     <div class="half" id="shop-flats"><h3><a href="/products/flats-version" class="text-white">Flats</a></h3></div>
     <div class="half" id="shop-sneakers"><h3><a href="/products/womens-sneaker-version" class="text-white">Sneakers</a></h3></div>
@@ -292,7 +282,8 @@ $('.shoe-wrapper').scroll(function() {
     <div class="half" id="shop-loafers"><a href="/products/womens-loafer-version" class="text-white"><h3>Loafers</h3></a></div>
     <div class="half" id="shop-heels"><a href="/products/heels" class="text-white"><h3>Heels</h3></a></div>
   </div>
-</div>
+</div>{% endcomment %}
+  {% include 'custom-pack' %}
 {% endif %}
 </form>
  {% unless product.available %} 
