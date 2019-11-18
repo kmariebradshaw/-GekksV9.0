@@ -33,6 +33,37 @@ $('#CartContainer').show().removeClass('slide-out').addClass('slide-in');
       'aw_remarketing_only': true
   });
 
+
+  var cart_total =  cart.item_count
+  var new_price = ""
+
+  if (cart_total == 2) {
+    new_price = 16.00
+    jQuery.get('/discount/bundles2')
+  }
+  else if (cart_total == 3) {
+    new_price = 14.00
+    jQuery.get('/discount/bundles3')
+  }
+  else if (cart_total == 4) {
+    jQuery.get('/discount/bundles4')
+    new_price = 12.00
+  }
+  else if (cart_total >= 5) {
+    jQuery.get('/discount/bundles4')
+    new_price = 12.00
+
+  }
+
+
+    var new_subtotal = cart_total * new_price
+    console.log(new_subtotal)
+
+    $('#ajax-cart-price-subtotal #original-sub').addClass('strikethrough'); 
+          $('#ajax-cart-price-subtotal #add-new').text("$" + new_subtotal + ".00"); 
+
+
+
 _showFeedback('success',' added to cart! <a href="/cart" class="text-green">View Cart.</a>',$formContainer);if(window.Shopify&&Shopify.StorefrontExpressButtons){Shopify.StorefrontExpressButtons.initialize();}};adjustCart=function(){$body.on('click','.ajaxcart__qty-adjust',function(){if(isUpdating){return;}
 var $el=$(this),line=$el.data('line'),$qtySelector=$el.siblings('.ajaxcart__qty-num'),qty=parseInt($qtySelector.val().replace(/\D/g,''));var qty=validateQty(qty);if($el.hasClass('ajaxcart__qty--plus')){qty+=1;}else{qty-=1;if(qty<=0)qty=0;}
 if(line){updateQuantity(line,qty);}else{$qtySelector.val(qty);}});$body.on('change','.ajaxcart__qty-num',function(){if(isUpdating){return;}

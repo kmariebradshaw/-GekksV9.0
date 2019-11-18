@@ -1,23 +1,28 @@
     <main id="bundle-page">	     
         <section class="index-padding">
-          <h1 class="tac text-green nm accent-padding">Build your Bundle</h1>
-          <p class="tac"><span>Bundle any style, color, size and save!<br></span>
-          <div class="flex-container-no jces tac">
-            <p class="half nm pricing-font">2 pairs: <span class="strikethrough">$36.00</span> $32.00</p>
-            <p class="half nm pricing-font">3 pairs: <span class="strikethrough">$54.00</span> $42.00</p>
+          <section class="fh flex-container-no jcc">
+            <div>
+              <h1 class="tac text-green nm accent-padding">Build your Bundle</h1>
+              <p class="tac"><span>Bundle any style, color, size and save!<br></span></p>
+                <p class=" pricing-font tac">2 pairs: <span class="strikethrough">$36.00</span> $32.00</p>
+                <p class="tac pricing-font">3 pairs: <span class="strikethrough">$54.00</span> $42.00</p>
+                <p class="tac pricing-font">4 pairs: <span class="strikethrough">$72.00</span> $48.00</p>
+              <p class="tac pricing-font">5+ pair: <span class="strikethrough">$90.00+</span> $60.00+ & Free Shipping!</p>
+            	<div class="tac fw accent-padding flex-container-no jcc select-gender-style aife">
+                <div id="womens-bundle-choice">
+            		  <img src="{{'Icon-woman.svg' | asset_url}}" class="icon" />
+                  <h5 class="text-green nm">Shop Women's</h5>
+                </div>
+                <div id="mens-bundle-choice">
+            		  <img src="{{'Icon-man.svg' | asset_url}}" class="icon"/>
+                  <h5 class="text-green nm">Shop Men's</h5>
+                </div>
+            	</div>
           </div>
-            <p class="tac pricing-font">4 pairs: <span class="strikethrough">$72.00</span> $48.00</p>
-          <p class="tac pricing-font">5+ pair: <span class="strikethrough">$90.00+</span> $60.00+ & Free Shipping!</p>
-        	<div class="tac fw accent-padding flex-container-no jcc select-gender-style aife">
-            <div id="womens-bundle-choice">
-        		  <img src="{{'Icon-woman.svg' | asset_url}}" class="icon highlight" />
-              <h5 class="text-green nm">Shop Women's</h5>
-            </div>
-            <div id="mens-bundle-choice">
-        		  <img src="{{'Icon-man.svg' | asset_url}}" class="icon"/>
-              <h5 class="text-green nm">Shop Men's</h5>
-            </div>
-        	</div>
+        </section>
+        <div id="style-select-custom">
+          <div style="height: 87px;"></div>
+
           <h2 class="text-green">Select Style</h2>
           {% comment %}<div class="flex-container-no do womens-bundle">
             <div class="quarter"><img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_2000x2000.jpg?v=1573054961" class="fw"></div>
@@ -60,9 +65,12 @@
             </div>
           </div>
           <h2></h2>
+        </div>
           <section class="border-lightgray accent-padding">
             <h2 class="text-green nm">Your Bundle</h2>
-            {% if cart.items %}
+            {% if cart.item_count > 0 %}
+                      <a href="/cart"><div class="background-green accent-padding fw" style="margin-top: 20px;"><h3 class="text-white tac nm">add to cart</h3></div></a>
+
           {% for item in cart.items %}
         <div class="flex-container-no line-item-wrapper">
             <div class="three-five accent-padding">
@@ -81,7 +89,6 @@
             </div>
             </div>
           {% endfor %}
-          <a href="/cart"><div class="background-green accent-padding fw" style="margin-top: 20px;"><h3 class="text-white tac nm">add to cart</h3></div></a>
             {% else %}
               <p class="subscript">Your Bundle is Currently Empty. Select a Style Above to Get Started.</p>
             {% endif %}
@@ -89,7 +96,7 @@
           
 
 
-          <div class="modal create-loafers" style="display: none;">
+          <div class="modal create-loafers border-gray" style="display: none;">
             <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
             <img src="{{'BlackLoafer.jpg' | asset_url}}" class="fw black-color-choice modal-featured"/>
             <img src="{{'PinkLoafer.jpg' | asset_url}}" class="fw rose-color-choice modal-featured" style="display: none;"/>
@@ -121,7 +128,7 @@
             </div>
           </div>
 
-          <div class="modal create-sneakers" style="display: none;">
+          <div class="modal create-sneakers border-gray" style="display: none;">
             <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
             <img src="{{'BlackSneaker.jpg' | asset_url}}" class="fw black-color-choice modal-featured"/>
             <img src="{{'PinkSneaker.jpg' | asset_url}}" class="fw rose-color-choice modal-featured" style="display: none;"/>
@@ -153,7 +160,7 @@
             </div>
           </div>
           
-          <div class="modal create-flats" style="display: none;">
+          <div class="modal create-flats border-gray" style="display: none;">
             <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
             <img src="{{'flatblack.jpg' | asset_url}}" class="fw black-color-choice modal-featured" />
             <img src="{{'flatbeige.jpg' | asset_url}}" class="fw beige-color-choice modal-featured" style="display: none;" />            
@@ -181,7 +188,7 @@
             </div>
           </div>
 
-          <div class="modal create-heels" style="display: none;">
+          <div class="modal create-heels border-gray" style="display: none;">
             <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
             <img src="{{'heelblack.jpg' | asset_url}}" class="fw black-color-choice modal-featured" />
             <img src="{{'heelbeige.jpg' | asset_url}}" class="fw beige-color-choice modal-featured" style="display: none;" />
@@ -209,7 +216,7 @@
             </div>
           </div>
           
-          <div class="modal create-msneakers" style="display: none;">
+          <div class="modal create-msneakers border-gray" style="display: none;">
             <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
             <img src="//cdn.shopify.com/s/files/1/0424/0893/t/359/assets/MensSneaker_ProductShot.jpg?12875" class="modal-featured">
             <div class="flex-container-no jcc">
@@ -236,7 +243,7 @@
             </div>
           </div>
           
-          <div class="modal create-mloafers" style="display: none;">
+          <div class="modal create-mloafers border-gray" style="display: none;">
             <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
             <img src="//cdn.shopify.com/s/files/1/0424/0893/t/359/assets/MensLoafer_ProductShot.jpg?12875" class="modal-featured">
             <div class="flex-container-no jcc">
@@ -311,6 +318,9 @@
         				$('.womens-bundle').hide()
         				$('.mens-bundle').show(); 
         			}
+               $('html, body').animate({
+                  scrollTop: $("#style-select-custom").offset().top
+                }, 1000);
         		})
         	</script>
 <script>
@@ -389,6 +399,9 @@ $('.add-to-bundle-button').click(function() {
   margin: 20px auto;
   width: 300px;
  }
+ .fh {
+    height: calc(95vh - 80px);
+}
 .build-bundle-size, .build-bundle-quantity {
   margin-top: 0px;
   margin-right: 10px;

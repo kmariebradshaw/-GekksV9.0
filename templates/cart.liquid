@@ -78,6 +78,7 @@
   var new_price = ""
 
   if (cart_total == 2) {
+    new_price = 16.00
     jQuery.get('/discount/bundles2')
   }
   else if (cart_total == 3) {
@@ -98,7 +99,7 @@
 
     var new_subtotal = cart_total * new_price
 
-  if (cart_total > 2) {
+  if (cart_total >= 2) {
     $('.line-item-details #item-line-price').each(function() {
       $(this).html("@ $" + new_price + " <span class='strikethrough'>$18.00</span>")
     })  
