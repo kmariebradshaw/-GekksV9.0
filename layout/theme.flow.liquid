@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="en">
   <head> 
     <style>.async-hide { opacity: 0 !important} </style>
@@ -26,23 +27,14 @@
     <meta name="robots" content="index, follow, archive">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     {% assign maxmeta = 155 %}
-    {% if template contains 'product' %}
-    {% if template == 'collection' %}
-    <meta name="description" content="{{ collection.description | strip_html | strip_newlines | truncate: maxmeta | escape }}">
+      {% if page_description %}
+        <meta name="description" content="{{ page_description | escape }}">
     {% else %}
-    <meta name="description" content="{{ product.description | strip_html | strip_newlines | truncate: maxmeta | escape }}">
-    {% endif %}
-    {% elsif page_description %}
-  <meta name="description" content="{{ page_description | escape }}">
-   
- 
-    {% else %}
-    <meta name="description" content="{{ shop.description }}">
-    <meta property="og:image" content="{{'m-atf.jpg' | asset_url}}" />
-
+      <meta name="description" content="{{ shop.description }}">
+      <meta property="og:image" content="{{'m-atf.jpg' | asset_url}}" />
     {% endif %}
     <meta name="keywords" content="">
-    <title>{% if template == 'index' %}Gekks™ | The Innovative No Show Sock for Flats, Loafers, & Sneakers {% elsif template == '404' %}Page Not Found | {{ shop.name }}{% else %}{{ page_title }}{% endif %}</title>
+    <title>{{ page_title }}</title>
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="icon" type="image/png" href="{{ 'favicon.png' | asset_url }}">
     
@@ -52,76 +44,20 @@
     <script src="{{  'main.js' | asset_url }}" defer></script>
     <script src="{{  'option_selection.js' | shopify_asset_url }}" defer></script>
     <script src="{{ 'ajax-cart.js'  | asset_url }}" defer></script>
-    <script src="{{'klaviyo.js' | asset_url}}" ></script>
     <script src="{{ 'modernizr.min.js' | asset_url }}" defer></script>
     <script src="{{ 'handlebars.min.js' | asset_url }}" defer></script>
     <script src="{{ 'jquery.easing.1.3.min.js' | asset_url }}" defer></script>
-     <script src="{{'lazysizes.min.js' | asset_url}}" async=""></script>
-
-<script type="text/javascript" src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=ueKycW"></script>
-   <script src="https://scripts.sirv.com/sirv.js" defer></script>
-
-    {% include 'ajax-cart-template' %}
-
-    <script async>
-      jQuery(function($) {
-        ajaxCart.init({
-          formSelector: 'form[action="/cart/add"]',
-          cartContainer: '#CartContainer',
-          addToCartSelector: '[type="submit"]',
-          cartCountSelector: '.cart span',
-          cartCostSelector: '#CartCost',
-          moneyFormat: {{ shop.money_format | json }}
-        });
-        });
-
-        jQuery(document.body).on('afterCartLoad.ajaxCart', function(evt, cart) {
-          timber.RightDrawer.open();
-        });
-    </script>
-    <div id="CartContainer" class="hidden">
-      <div style="position: fixed; top:0; right: 0; border: 1px solid lightgray; border-radius: 50%;">X</div>
-    </div>
-    {% include 'referafriend' %}
-   
+    <script src="{{'lazysizes.min.js' | asset_url}}" async=""></script>
     <script src="{{  'api.jquery.js' | shopify_asset_url }}" async></script>
-
-    {% if template contains 'customers' %}
-    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
-    {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
-    {% endif %}
     <script type="text/javascript">
       var global_money_format = '{{ shop.money_format }}';
     </script>
     {% include 'head-fb-open-graph' %}
     {{ content_for_header }}
    
-    {% comment %}Klaivyo{% endcomment %}
-    <script type="text/javascript">
-  var _learnq = _learnq || [];
+ 
+  
 
-  _learnq.push(['account', 'pk_c257ee3a5e3b40251891c2148e1e6c4824']);
-
-  (function () {
-  var b = document.createElement('script'); b.type = 'text/javascript'; b.async = true;
-  b.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'a.klaviyo.com/media/js/analytics/analytics.js';
-  var a = document.getElementsByTagName('script')[0]; a.parentNode.insertBefore(b, a);
-  })();
-  </script>
-  <!-- start inspectlet -->
-  <script type="text/javascript">
-(function() {
-window.__insp = window.__insp || [];
-__insp.push(['wid', 300505337]);
-var ldinsp = function(){
-if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js?wid=300505337&r=' + Math.floor(new Date().getTime()/3600000); var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
-setTimeout(ldinsp, 0);
-})();
-</script>
-<!-- Start of mygekks Zendesk Widget script -->
-<script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(e){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var e=this.createElement("script");n&&(this.domain=n),e.id="js-iframe-async",e.src="https://assets.zendesk.com/embeddable_framework/main.js",this.t=+new Date,this.zendeskHost="mygekks.zendesk.com",this.zEQueue=a,this.body.appendChild(e)},o.write('<body onload="document._l();">'),o.close()}();
-/*]]>*/</script>
-<!-- End of mygekks Zendesk Widget script -->
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -130,26 +66,9 @@ setTimeout(ldinsp, 0);
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<!--    pinterest  -->
-    <script type="text/javascript">
-!function(e){if(!window.pintrk){window.pintrk=function()
-{window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
-n=window.pintrk;n.queue=[],n.version="3.0";var
-t=document.createElement("script");t.async=!0,t.src=e;var
-r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(t,r)}}
-("https://s.pinimg.com/ct/core.js"); 
 
-pintrk('load','2614444454225', { em: '{{ customer.email }}', });
-pintrk('page');
-</script> 
-<noscript> 
-<img height="1" width="1" style="display:none;" alt=""
-src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" /> 
-</noscript>
   </head>
   <body class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '/', '-' | split: '.' }} {% if template == 'index' or page.handle == 'store' %}zoom-aware{% endif %}">
-
-    
     <header>
       <div class="wrap cbb-ignored-image" style="text-align: center;">
         <a href="/?sh=d">
@@ -192,17 +111,11 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
               {% endif %}
             </div>
               <a href="/cart/" class="cart"><span>{{ cart.item_count }}</span> <image class="cart-icon" src="{{'shoppingbag.svg' | asset_url}}" style="margin-bottom: -11px;"/></a>
-            <div id="hamburger" style="display: none;">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
          </div>
       </div>
     </header>
 
-    {% if shop.metafields.locksmith.active %}{% include 'locksmith' %}{% else %}{{ content_for_layout }}{% endif %}
+  {{ content_for_layout }}
     
         
     <footer class="background-green">
@@ -233,9 +146,7 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
               </ul>
             </div>
             <div id="footer-aside">
-              <div id="referafriend" class="background-darkgray" onclick="ga('send', 'event', 'Refer', 'Footer', 'Click');"><h3 class="text-green">refer a friend</h3></div>
 
-              <div id="getadiscount" class="background-darkgray"><h3 class="text-white">get a discount</h3></div>
 
 
 
@@ -277,15 +188,6 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
       </div>
     </noscript>    
     <!-- END Google Code for Remarketing Tag --> 
-    
-    {% if template contains 'reviews' %}{{ 'reviews.css' | asset_url | stylesheet_tag }}{% endif %}
-    
-    <script>jQuery(function(){jQuery(".swatch :radio").change(function(){var t=jQuery(this).closest(".swatch").attr("data-option-index"),e=jQuery(this).val();jQuery(this).closest("form").find(".single-option-selector").eq(t).val(e).trigger("change")})});</script>
-    
-    {% include 'remove-sold-out' %}
-    {% include 'linked-options' %}
-        
-    <script>$("#referafriend").click(function(){/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)?document.getElementById("k_id_modal").style.display="inline-block":document.getElementById("desktop_refer_k").style.display="inline-block"});</script>
 
 
   </body>
