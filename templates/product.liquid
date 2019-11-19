@@ -2,7 +2,7 @@
   <meta itemprop="name" content="{{ product.title }}">
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | product_img_url: 'grande' }}">
-    {% unless product.title == "Gift Cards" or product.title == "Select" %}
+   {% comment %} {% unless product.title == "Gift Cards" or product.title == "Select" %}
   <section class="flex-container-no background-green mo-plus accent-padding fw tac">
             {% capture product_collection_url %}{{ product.url | within: collection }}{% endcapture %}
             {% for collection in product.collections %}
@@ -20,10 +20,10 @@
                 {% endfor %}
               {% endif %}
             {% endfor %}
-    {% endunless %}
+    {% endunless %}{% endcomment %}
   </section>
-  {% if product.title != "Select" %}
-    <section id="product-images">
+{% comment %}  {% if product.title != "Select" %}
+{% endcomment %}    <section id="product-images">
        {% unless product.type == "Gift Card" %}
           <div id="thumbnails" class="ndo-plus">
             <ul>
@@ -50,7 +50,7 @@
           </div>
           {% endunless %}
     </section>
-    {% else %}
+    {% comment %}{% else %}
 
 
     {% include 'prebuilt-bundles-photos' %}
@@ -69,7 +69,7 @@
 
 
 
-    {% endif %}
+    {% endif %}{% endcomment %}
     {% include 'product-add-to-cart' %}
 
   <section class="fw endorsements-features" id="featured">
@@ -140,10 +140,12 @@
       <li data-aos="slide-up"><img data-src="{{'comfortable.svg' | asset_url}}" alt="Comfortable"  class="lazyload"/><br><span class="text-green">comfortable</span><br><p class="subscript">55% polyester, 39% nylon, 6% silver coated nylon</p></li> 
     </ul>
   </section>
+  {% unless product.type == "Pre-Built Bundle" %}
   <section class="index-padding-bo tac" id="product-masonry">
 	{% capture photo_source %}grid-{{product.id}}.png{% endcapture %}
     <img class="fw lazyload" data-src="{{ photo_source | asset_url }}"/>
   </section>
+  {% endunless %}
 </main>
 <script>
   $('.color').change(function() {

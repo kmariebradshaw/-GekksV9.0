@@ -4,7 +4,7 @@
 {% if product.title != "Select" %}
  
  <section id="product-details">
-    {% if product.type == "Closet Pack" or product.type == "Gift Card" %}
+    {% if product.type == "Closet Pack" or product.type == "Gift Card" or product.type == "Pre-Built Bundle" %}
       <h3>{{product.title}}</h3>
     {% else %}
       <h3>{{ product.collections.first.title }}'s {{product.title}}</h3>
@@ -112,7 +112,7 @@
   {% endif %}
   <p class="priceu subscript" id="discount-at-checkout" style="display: none;"><span>*discount applied at checkout</span></p>
   <button type="submit" name="add" id="add-cart" class="background-green text-white clickable" onclick="pintrk('track', 'addtocart');"><span>add to cart</span></button>
-  {% unless product.title == "Select" or product.title == "Gift Cards" %}
+  {% unless product.title == "Select" or product.title == "Gift Cards" or product.type == "Pre-Built Bundle" %}
     {% assign select = collections.all.products[6]%}
     <div class="example-shoes border-beige">
       <p class="tac nm">Examples Of Shoes These Work In</p>
@@ -272,8 +272,8 @@ $('.shoe-wrapper').scroll(function() {
 {% endif %}
 {% endunless %} 
 {% endif %} 
-{% else %}
-{% comment %}<div class="fw tac">
+{% comment %}{% else %}
+{% endcomment %}{% comment %}<div class="fw tac">
   <div class="flex-container-no select-grid clickable">
     <div class="half" id="shop-flats"><h3><a href="/products/flats-version" class="text-white">Flats</a></h3></div>
     <div class="half" id="shop-sneakers"><h3><a href="/products/womens-sneaker-version" class="text-white">Sneakers</a></h3></div>
@@ -283,8 +283,8 @@ $('.shoe-wrapper').scroll(function() {
     <div class="half" id="shop-heels"><a href="/products/heels" class="text-white"><h3>Heels</h3></a></div>
   </div>
 </div>{% endcomment %}
-  {% include 'custom-pack' %}
-{% endif %}
+{% comment %}  {% include 'custom-pack' %}
+{% endcomment %}{% endif %}
 </form>
  {% unless product.available %} 
  <div id="sold-out-email">
