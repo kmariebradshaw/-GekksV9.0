@@ -63,7 +63,7 @@
             <div class="flip-container">
               <div class="flipper">
                 <div class="front">
-                <li class="sbutton lost flip-b" onClick="ga('send', 'event', 'Education', 'Problem', 'Search');"><img data-src="{{'Icon-sock-drawer.png' | asset_url}}" class="lazlyload"  />
+                <li class="sbutton lost flip-b" onClick="ga('send', 'event', 'Education', 'Problem', 'Search');"><img data-src="{{'Icon-sock-drawer.png' | asset_url}}" class="lazyload"  />
                     <div>searching your sock drawer</div>your socks aren't organized,<br> don't lie.</li>
                 </div>
                 <div class="back-card">
@@ -103,7 +103,7 @@
     <section class="flex-container-no jcc" id="flow-slide-5" style="display:none;">
         <div class="tac">
            <h3>watch Gekks in action</h3>
-           <img data-src="{{'updated-be.gif' | asset_url }}" alt="Slip in and Out Barefoot" class="in-flow-video lazyload"/>
+           <img src="{{'updated-be.gif' | asset_url }}" alt="Slip in and Out Barefoot" class="in-flow-video"/>
             <button class="flow-button continue accent-padding background-green" onClick="ga('send', 'event', 'Education', 'Progress', 'Gif');"><h3 class="text-white nm">solve my problems</h3></button>
         </div>
     </section>
@@ -156,21 +156,6 @@
     </section>
 </div>
 <style>
-    #flow-slide-1 {
-        background-image: url("{{'Pairs-01.svg' | asset_url}}");
-        background-repeat: no-repeat;        
-    }
-    #flow-slide-2 {
-        background-image: url("{{'Pairs-02.svg' | asset_url}}");
-        background-repeat: no-repeat;
-        background-position: right;
-    }
-    #flow-slide-4  {
-        background-image: url("{{'Pairs-03.svg' | asset_url}}");
-        background-repeat: no-repeat;
-    }
-
-
     @media only screen and (min-width: 800px) {
         section { 
             min-height: calc(100vh - 450px);
@@ -193,7 +178,7 @@
         max-width: 320px;
         margin: 20px auto;
     }
-    .results-icon { width: 50%; }
+    .results-icon { max-width: 50%; }
     ul.bulleted-list { 
         list-style: disc;
         text-align: left;
@@ -495,6 +480,14 @@
                     $('#mens-results').show(); 
 
                 }
+                else {
+
+                    resultsTitle = "The Trial Pack"
+                    resultsDescription = "One pair of Gekks for Flats, one pair of Gekks for Heels, one pair Gekks for Loafers, and one pair of Gekks for Sneakers"
+                    resultsLink= "/collections/women?rec=trial"
+                    $('#trial-results').show(); 
+
+            }
             }
             else {
 
