@@ -100,11 +100,19 @@
         {% endif %}
       {% endfor %}
    </select>
+   {% if product.type == "Closet Pack" or product.type == "Pre-Built Bundle" %}
    <select name="quantity" id="quantity">
+     {% for i in (1..10) %}
+     <option value="{{ i }}">{{ i }}</option>
+     {% endfor %}         
+  </select>  
+  {% else %}
+     <select name="quantity" id="quantity">
      {% for i in (2..10) %}
      <option value="{{ i }}">{{ i }}</option>
      {% endfor %}         
   </select>  
+  {% endif %}
   {% if product.title == "Gift Cards" %}
     <div class="spacer"></div>
   {% else %}
