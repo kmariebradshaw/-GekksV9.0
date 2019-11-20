@@ -43,17 +43,19 @@
 {% else %}
 <div class="swatch clearfix" data-option-index="{{ option_index }}">
  {% unless swatch == "Color" and product.title == "Extra Gripper Sets" %}
-
+ {% assign variant_index = -1 %}
   {% assign values = '' %}
   {% for variant in product.variants %}
     {% assign value = variant.options[option_index] %}
+    {% assign variant_index = variant_index | plus: 1 %}
+
     {% unless values contains value %}
       {% assign values = values | join: ',' %}
       {% assign values = values | append: ',' | append: value %} 
       {% assign values = values | split: ',' %}
     	{% unless is_color and value == "Extra Gripper Set" %}
      {% unless value == "NA" %}
-      <div data-value="{{ value | escape }}" class="swatch-element {% if is_color %}color {% endif %}{{ value | handle }} {% if variant.available %}available{% else %}soldout{% endif %}">
+      <div data-value="{{ value | escape }}" class="swatch-element {% if is_color %}color {% endif %}{{ value | handle }} {% if variant.available %}available{% else %}soldout{% endif %}" data-index="{{ variant_index }}">
         {% if is_color %}
         <div class="tooltip">{{ value }}</div>
         {% endif %}
