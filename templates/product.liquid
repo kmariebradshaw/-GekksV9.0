@@ -8,10 +8,10 @@
           <div id="thumbnails" class="ndo-plus">
             <ul>
               {% for image in product.images limit: 1 %}
-              <li><img src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image first-thumb"/></li>
+              <li><img src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image first-thumb" alt="{{ product.title }}"/></li>
               {% endfor %} 
                {% for image in product.images limit: 4 offset: 1 %}
-              <li><img src="{{ image | product_img_url: 'compact' }}" class="product-image"/></li>
+              <li><img src="{{ image | product_img_url: 'compact' }}" class="product-image" alt="{{ product.title }}"/></li>
               {% endfor %} 
             </ul>
           </div>
@@ -21,10 +21,10 @@
           <div id="thumbnails" class="mo-plus" style="display: none;">
             <ul>
               {% for image in product.images limit: 1 %}
-              <li><img src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image first-thumb"/></li>
+              <li><img src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image first-thumb" alt="{{ product.title }}"/></li>
               {% endfor %} 
                {% for image in product.images limit: 4 offset: 1 %}
-              <li><img src="{{ image | product_img_url: 'compact' }}" class="product-image"/></li>
+              <li><img src="{{ image | product_img_url: 'compact' }}" class="product-image" alt="{{ product.title }}"/></li>
               {% endfor %} 
             </ul>
           </div>
@@ -67,7 +67,7 @@
   {% unless product.type == "Pre-Built Bundle" %}
   <section class="index-padding-bo tac" id="product-masonry">
 	{% capture photo_source %}grid-{{product.id}}.png{% endcapture %}
-    <img class="fw lazyload" data-src="{{ photo_source | asset_url }}"/>
+    <img class="fw lazyload" data-src="{{ photo_source | asset_url }}" alt="{{product.title}} lifestyle collage"/>
   </section>
   {% endunless %}
 </main>
