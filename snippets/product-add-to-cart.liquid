@@ -12,7 +12,7 @@
     <p class="subscript">{{ product.description}}</p>
     {% if product.available %} 
     <div class="price{% if product.price < product.compare_at_price_max %} sale{% endif %}" itemprop="price" content="{{ product.compare_at_price | money_without_currency }}">
-      {% if product.title == "Women's Closet Pack" or product.title == "Men's Closet Pack" %}
+      {% if product.title == "Women's Closet Pack" or product.title == "Men's Closet Pack" or  product.type == "Pre-Built Bundle" %}
       <div class="closetpackprice ib">
         <p id="product-price-{{ product.id }}">{{ product.price | money }}</p>
         {% if product.price < product.compare_at_price_max and product.type == "Closet Pack" %}<p style="display: inline-block;" class="subscript" id="compare-price-{{ product.id }}">{{ product.compare_at_price | money }}</p>{% endif %}
