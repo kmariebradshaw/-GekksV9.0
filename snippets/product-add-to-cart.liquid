@@ -11,17 +11,26 @@
     {% endif %}
     <p class="subscript">{{ product.description}}</p>
     {% if product.available %} 
-    <div class="price{% if product.price < product.compare_at_price_max %} sale{% endif %}" itemprop="price" content="{{ product.compare_at_price | money_without_currency }}">
-      {% if product.title == "Women's Closet Pack" or product.title == "Men's Closet Pack" or  product.type == "Pre-Built Bundle" %}
-      <div class="closetpackprice ib">
-        <p id="product-price-{{ product.id }}">{{ product.price | money }}</p>
-        {% if product.price < product.compare_at_price_max and product.type == "Pre-Built Bundle" %}<p style="display: inline-block;" class="subscript" id="compare-price-{{ product.id }}">{{ product.compare_at_price | money }}</p>{% endif %}
-      </div>
-      {% else %}
-        <p id="product-price-{{ product.id }}">{{ product.price | money }}</p>
-      {% endif %}
+        {% if product.type != "Pre-Built Bundle" %}
+            <div class="flex-container-no jcc">
+              <h3 class="" style=" margin-right: 10px">$18 <span class="subscript" style="font-weight: 300; margin: 0 5px;">or</span> $12 </h3><span class="subscript" style="font-weight: 300;">when you buy 4 <br>or more pairs</span>
+            </div>
+        {% else %}
+          <div class="price{% if product.price < product.compare_at_price_max %} sale{% endif %}" itemprop="price" content="{{ product.compare_at_price | money_without_currency }}">
+            <div class="closetpackprice ib">
+              <p id="product-price-{{ product.id }}">{{ product.price | money }}</p>
+              <p style="display: inline-block;" class="subscript" id="compare-price-{{ product.id }}">{{ product.compare_at_price | money }}</p>
+            </div>
+        {% endif %}
+   
+      
+
       {% unless product.title == "Select" or product.title == "Gift Cards" %} 
-      <div id="review-details" class="ib">
+      {% if product.type == "Pre-Built Bundle" %}
+        <div id="review-details" class="ib">
+      {% else %}
+          <div id="review-details" class="fw tac" style="margin: 10px auto;">
+      {% endif %}
       <a href="/pages/reviews">
         <div class="prodrating">
           {% if product.title == "Ballet Flats" or product.type == "Closet Pack" or product.title == "Heels & Wedges" or product.type == "Pre-Built Bundle" %}
@@ -137,6 +146,9 @@
   {% endif %}
   <p class="priceu subscript" id="discount-at-checkout" style="display: none;"><span>*discount applied at checkout</span></p>
   <button type="submit" name="add" id="add-cart" class="background-green text-white clickable" onclick="pintrk('track', 'addtocart');"><span>add to cart</span></button>
+  {% if product.type == "Pre-Built Bundle" %}
+    <p style="margin-top: 20px;" class="subscript">Add any combinations of Gekks colors and sizes by building your own bundle. <a href="/pages/bundles" class="text-green">click here.</a></p>
+  {% endif %}
   {% unless product.title == "Select" or product.title == "Gift Cards" or product.type == "Pre-Built Bundle" %}
     {% assign select = collections.all.products[6]%}
     <div class="example-shoes border-beige">
