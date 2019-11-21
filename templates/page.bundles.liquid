@@ -3,15 +3,10 @@
           <h1>Bundle and Save!</h1>
         </section> 
         <section class="index-padding">
-          <p class="tac pricing-font nmb"><span>Bundle any style, color, size, and save!<br></span></p>
-          <div class="flex-container-no">
-            <div class="half">
+          <h3 class="tac nmt"><span>Bundle any style, color, size, and save!<br></span></h3>
               <p class=" pricing-font tac nm">2 pairs: <span class="strikethrough">$36.00</span> $32.00</p>
-            </div>
-            <div class="half">
               <p class="tac pricing-font nm">3 pairs: <span class="strikethrough">$54.00</span> $42.00</p>
-            </div>
-          </div>
+    
           <p class="tac pricing-font nm">4 pairs: <span class="strikethrough">$72.00</span> $48.00</p>
           <p class="tac pricing-font nm">5+ pair: <span class="strikethrough">$90.00+</span> $60.00+ & Free Shipping!</p>
           <h1 class="text-green tac">Build <img src="{{'your.png' | asset_url}}" id="your"> Bundle</h1>
@@ -354,19 +349,16 @@
   Shopify.queue = [];
 
   Shopify.moveAlong = function() {
-    // If we still have requests in the queue, let's process the next one.
-    console.log(Shopify.queue.length)
     if (Shopify.queue.length) {
       var request = Shopify.queue.shift();
-      // pass the properties into addItem as well
       Shopify.addItem(request.variantId, request.quantity, Shopify.moveAlong);
     }
     else {
-      location.reload(); 
+
+
     }
   };
 
-  // Create a new Shopify.addItem function that takes the 'properties' parameter
   Shopify.addItem = function(id, qty, properties, callback) {
     var params = {
       quantity: qty,
@@ -404,14 +396,12 @@
   }
 
 $('.add-to-bundle-button').click(function() {
-  console.log('click')
     var size = $('.build-bundle-size:visible option:selected').val()
     var quantity = $('.build-bundle-quantity:visible option:selected').val(); 
     console.log(size)
     console.log(quantity)
     $( ".bundle-color-selection.highlight:visible" ).each(function() {
         var variantSelected = $(this).data('variant-id-' + size); 
-        console.log(variantSelected)
         push_to_queue(variantSelected, quantity)
     });
   Shopify.moveAlong()
