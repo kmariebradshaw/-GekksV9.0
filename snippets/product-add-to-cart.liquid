@@ -39,24 +39,38 @@
         <span class="text-green vam">
         {% case product.title %}
           {% when "Ballet Flats" %}
-            1224
-          {% when "Women's Closet Pack" %}
-            540
+            2285
+          {% when "The Women's Closet Pack" %}
+            1087
           {% when "Heels & Wedges" %}
-            87
-          {% when "Men's Closet Pack" %}
+            68
+          {% when "The Trial Pack" %}
+            58
+          {% when "The Office Pack" %}
+            49
+          {% when "The Casual Pack" %}
+            41
+          {% when "The Office Pack Lite" %}
+            18
+          {% when "The Shoe Lover" %}
+            62
+          {% when "The Casual Pack Lite" %}
+            12
+          {% when "The Metropolitan Pack" %}
+            42
+          {% when "The Men's Closet Pack" %}
             109
           {% when "Loafers & Slip-Ons" %}
             {% if product.collections.first.title == "Women" %}
-              323
+              203
             {% else %}
-              124
+              135
             {% endif %}
           {% when "Sneakers & Lace-Ups" %}
             {% if product.collections.first.title == "Women" %}
-              219
+              316
             {% else %}
-              76
+              210
             {% endif %}
         {% endcase %}
         </span>
