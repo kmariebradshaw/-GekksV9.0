@@ -65,34 +65,33 @@
           </div>
           <h2></h2>
         </div>
+          <div id="bundle-refresh">
           <section class="border-lightgray accent-padding" id="your-bundle">
             <h2 class="text-green nm">Your Bundle</h2>
             {% if cart.item_count > 0 %}
-                      <a href="/cart"><div class="background-green accent-padding fw" style="margin-top: 20px;"><h3 class="text-white tac nm">add to cart</h3></div></a>
-
-          {% for item in cart.items %}
-        <div class="flex-container-no line-item-wrapper">
-            <div class="three-five accent-padding">
-              <a href="{{ item.url}}">
-                <img src="{{ item.variant.image.src | product_img_url: 'large' }}"  alt="{{ item.product.title }}" class="fw">
-              </a>
-            </div>
-            <div class="line-item-details">
-              <h3 class="nmb">{{item.product.title}}</h3>
-              <p>
-                <span>Style:</span> {{ item.variant.title | capitalize }}<br>
-                <span>Qty:</span> <span style="font-weight: lighter" id="line-item-quantity-number">{{ item.quantity }}</span></p>
-                <a onclick="removeItem({{ item.id }}, $(this))" class="cart-update">remove</a></p>
-
-              </p>
-            </div>
-            </div>
-          {% endfor %}
+              <a href="/cart"><div class="background-green accent-padding fw" style="margin-top: 20px;"><h3 class="text-white tac nm">add to cart</h3></div></a>
+              {% for item in cart.items %}
+                <div class="flex-container-no line-item-wrapper">
+                  <div class="three-five accent-padding">
+                    <a href="{{ item.url}}">
+                      <img src="{{ item.variant.image.src | product_img_url: 'large' }}"  alt="{{ item.product.title }}" class="fw">
+                    </a>
+                  </div>
+                  <div class="line-item-details">
+                    <h3 class="nmb">{{item.product.title}}</h3>
+                    <p>
+                      <span>Style:</span> {{ item.variant.title | capitalize }}<br>
+                      <span>Qty:</span> <span style="font-weight: lighter" id="line-item-quantity-number">{{ item.quantity }}</span></p>
+                      <a onclick="removeItem({{ item.id }}, $(this))" class="cart-update">remove</a>
+                    </p>
+                  </div>
+                </div>
+              {% endfor %}
             {% else %}
               <p class="subscript">Your Bundle is Currently Empty. Select a Style Above to Get Started.</p>
             {% endif %}
           </section>
-          
+          </div>
 
 
           <div class="modal create-loafers border-gray" style="display: none;">
@@ -354,8 +353,10 @@
       Shopify.addItem(request.variantId, request.quantity, Shopify.moveAlong);
     }
     else {
+      $('.modal').hide(); 
+      $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
 
-
+      $('#bundle-refresh').load(document.URL + ' #bundle-refresh')
     }
   };
 
