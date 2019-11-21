@@ -24,7 +24,7 @@
       <div id="review-details" class="ib">
       <a href="/pages/reviews">
         <div class="prodrating">
-          {% if product.title == "Ballet Flats" or product.type == "Closet Pack" or product.title == "Heels & Wedges" %}
+          {% if product.title == "Ballet Flats" or product.type == "Closet Pack" or product.title == "Heels & Wedges" or product.type == "Pre-Built Bundle" %}
           <img src="{{'475stars.png' | asset_url}}" alt="4.75" />
           {% else %}
           <img src="{{'4stars.png' | asset_url}}" alt="4" />         
@@ -89,8 +89,11 @@
            	<option {% if forloop.index == 2 %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
            {% endif %}
         {% else %} 
-           {% if product.title != "Ballet Flats" %}
+           {% if product.type == "Pre-Built Bundle" %}
+              <option {% if forloop.index == 0 %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+           {% elsif product.title != "Ballet Flats" %}
            	<option {% if forloop.index == 5 %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+
            {% else %}
            	<option {% if forloop.index == 3 %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
            {% endif %}
