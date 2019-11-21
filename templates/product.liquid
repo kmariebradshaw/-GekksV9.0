@@ -193,3 +193,6 @@
 </script> 
 {% endif %}
 {% endunless %}
+{% for variant in product.variants %}
+  <img src="{{ variant.featured_image.src | img_url: 'master'}}" style="display: none;"/>
+{% endfor %} 
