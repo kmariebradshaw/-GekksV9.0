@@ -4,7 +4,7 @@
 {% if product.title != "Select" %}
  
  <section id="product-details">
-    {% if product.type == "Closet Pack" or product.type == "Gift Card" %}
+    {% if product.type == "Closet Pack" or product.type == "Gift Card" or product.type == "Pre-Built Bundle" %}
       <h3>{{product.title}}</h3>
     {% else %}
       <h3>{{ product.collections.first.title }}'s {{product.title}}</h3>
@@ -12,7 +12,7 @@
     <p class="subscript">{{ product.description}}</p>
     {% if product.available %} 
     <div class="price{% if product.price < product.compare_at_price_max %} sale{% endif %}" itemprop="price" content="{{ product.compare_at_price | money_without_currency }}">
-      {% if product.title == "Women's Closet Pack" or product.title == "Men's Closet Pack" %}
+      {% if product.title == "Women's Closet Pack" or product.title == "Men's Closet Pack" or  product.type == "Pre-Built Bundle" %}
       <div class="closetpackprice ib">
         <p id="product-price-{{ product.id }}">{{ product.price | money }}</p>
         {% if product.price < product.compare_at_price_max and product.type == "Closet Pack" %}<p style="display: inline-block;" class="subscript" id="compare-price-{{ product.id }}">{{ product.compare_at_price | money }}</p>{% endif %}
@@ -24,7 +24,7 @@
       <div id="review-details" class="ib">
       <a href="/pages/reviews">
         <div class="prodrating">
-          {% if product.title == "Ballet Flats" or product.type == "Closet Pack" or product.title == "Heels & Wedges" %}
+          {% if product.title == "Ballet Flats" or product.type == "Closet Pack" or product.title == "Heels & Wedges" or product.type == "Pre-Built Bundle" %}
           <img src="{{'475stars.png' | asset_url}}" alt="4.75" />
           {% else %}
           <img src="{{'4stars.png' | asset_url}}" alt="4" />         
@@ -89,8 +89,11 @@
            	<option {% if forloop.index == 2 %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
            {% endif %}
         {% else %} 
-           {% if product.title != "Ballet Flats" %}
+           {% if product.type == "Pre-Built Bundle" %}
+              <option {% if forloop.index == 0 %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+           {% elsif product.title != "Ballet Flats" %}
            	<option {% if forloop.index == 5 %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+
            {% else %}
            	<option {% if forloop.index == 3 %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
            {% endif %}
@@ -100,19 +103,27 @@
         {% endif %}
       {% endfor %}
    </select>
+   {% if product.type == "Closet Pack" or product.type == "Pre-Built Bundle" %}
    <select name="quantity" id="quantity">
+     {% for i in (1..10) %}
+     <option value="{{ i }}">{{ i }}</option>
+     {% endfor %}         
+  </select>  
+  {% else %}
+     <select name="quantity" id="quantity">
      {% for i in (2..10) %}
      <option value="{{ i }}">{{ i }}</option>
      {% endfor %}         
   </select>  
+  {% endif %}
   {% if product.title == "Gift Cards" %}
     <div class="spacer"></div>
   {% else %}
-    <p class="subscript clickable" id="size-chart"><img src="{{'ruler.png' | asset_url}}" class="ruler-icon"/>sizing chart</p>
+    <p class="subscript clickable" id="size-chart"><img src="{{'ruler.png' | asset_url}}" alt="sizing-chart" class="ruler-icon"/>sizing chart</p>
   {% endif %}
   <p class="priceu subscript" id="discount-at-checkout" style="display: none;"><span>*discount applied at checkout</span></p>
   <button type="submit" name="add" id="add-cart" class="background-green text-white clickable" onclick="pintrk('track', 'addtocart');"><span>add to cart</span></button>
-  {% unless product.title == "Select" or product.title == "Gift Cards" %}
+  {% unless product.title == "Select" or product.title == "Gift Cards" or product.type == "Pre-Built Bundle" %}
     {% assign select = collections.all.products[6]%}
     <div class="example-shoes border-beige">
       <p class="tac nm">Examples Of Shoes These Work In</p>
@@ -272,8 +283,8 @@ $('.shoe-wrapper').scroll(function() {
 {% endif %}
 {% endunless %} 
 {% endif %} 
-{% else %}
-{% comment %}<div class="fw tac">
+{% comment %}{% else %}
+{% endcomment %}{% comment %}<div class="fw tac">
   <div class="flex-container-no select-grid clickable">
     <div class="half" id="shop-flats"><h3><a href="/products/flats-version" class="text-white">Flats</a></h3></div>
     <div class="half" id="shop-sneakers"><h3><a href="/products/womens-sneaker-version" class="text-white">Sneakers</a></h3></div>
@@ -283,8 +294,8 @@ $('.shoe-wrapper').scroll(function() {
     <div class="half" id="shop-heels"><a href="/products/heels" class="text-white"><h3>Heels</h3></a></div>
   </div>
 </div>{% endcomment %}
-  {% include 'custom-pack' %}
-{% endif %}
+{% comment %}  {% include 'custom-pack' %}
+{% endcomment %}{% endif %}
 </form>
  {% unless product.available %} 
  <div id="sold-out-email">

@@ -2,36 +2,16 @@
   <meta itemprop="name" content="{{ product.title }}">
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | product_img_url: 'grande' }}">
-    {% unless product.title == "Gift Cards" or product.title == "Select" %}
-  <section class="flex-container-no background-green mo-plus accent-padding fw tac">
-            {% capture product_collection_url %}{{ product.url | within: collection }}{% endcapture %}
-            {% for collection in product.collections %}
-              {% if collection.title == "Women"%}
-                {% for link in linklists.product-sub-nav.links %}
-                  {% unless link.url == product_collection_url %}
-                    <a href="{{ link.url }}" class="accent-padding subscript" id="sub-nav" onclick="ga('send', 'event', 'Product', 'Click', 'Green Sub Nav');">{{ link.title | escape }}</a>
-                  {% endunless %}
-                {% endfor %}
-              {% elsif collection.title == "Men" %}
-                {% for link in linklists.product-sub-nav-men.links %}
-                  {% unless link.url == product_collection_url%}
-                    <a href="{{ link.url }}" class="accent-padding subscript" id="sub-nav" onclick="ga('send', 'event', 'Product', 'Click', 'Green Sub Nav');">{{ link.title | escape }}</a>
-                  {% endunless %}
-                {% endfor %}
-              {% endif %}
-            {% endfor %}
-    {% endunless %}
   </section>
-  {% if product.title != "Select" %}
     <section id="product-images">
        {% unless product.type == "Gift Card" %}
           <div id="thumbnails" class="ndo-plus">
             <ul>
               {% for image in product.images limit: 1 %}
-              <li><img src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image first-thumb"/></li>
+              <li><img src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image first-thumb" alt="{{ product.title }}"/></li>
               {% endfor %} 
-               {% for image in product.images limit: 4 offset: 1 %}
-              <li><img src="{{ image | product_img_url: 'compact' }}" class="product-image"/></li>
+               {% for image in product.images limit: 5 offset: 1 %}
+              <li><img src="{{ image | product_img_url: 'compact' }}" class="product-image" alt="{{ product.title }}"/></li>
               {% endfor %} 
             </ul>
           </div>
@@ -41,39 +21,18 @@
           <div id="thumbnails" class="mo-plus" style="display: none;">
             <ul>
               {% for image in product.images limit: 1 %}
-              <li><img src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image first-thumb"/></li>
+              <li><img src="{{ image | product_img_url: 'compact' }}" class="border-lightgray product-image first-thumb" alt="{{ product.title }}"/></li>
               {% endfor %} 
-               {% for image in product.images limit: 4 offset: 1 %}
-              <li><img src="{{ image | product_img_url: 'compact' }}" class="product-image"/></li>
+               {% for image in product.images limit: 5 offset: 1 %}
+              <li><img src="{{ image | product_img_url: 'compact' }}" class="product-image" alt="{{ product.title }}"/></li>
               {% endfor %} 
             </ul>
           </div>
           {% endunless %}
     </section>
-    {% else %}
-
-
-    {% include 'prebuilt-bundles-photos' %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    {% endif %}
     {% include 'product-add-to-cart' %}
 
   <section class="fw endorsements-features" id="featured">
-    
     <ul class="background-beige">
       <li><p>endorsed by</p></li>
       {% if product.collections.first.title == "Men" %}
@@ -84,41 +43,6 @@
     </ul>
   </section>
 
-  <!-- brand promise ab -->
-  <section class="brand-promises background-lightgray" style="display: none;">
-    <ul class="background-lightgray flex-container-do">
-      {% include 'brand-promise' %}
-    </ul>
-  </section>
-  <style>
-    .brand-promises ul div { width: 25%; }
-    .brand-promises ul { margin: 0 ; padding: 10px; }
-    @media only screen and (min-width: 800px) {
-/*      .flex-container-do {
-        display: flex;
-        align-items: center;
-      }*/
-      .brand-promises ul img { max-width: 100px; }
-      .brand-promises ul div { width: 25%; }
-    }
-    @media only screen and (max-width: 799px) {
-      .brand-promises ul div { 
-        width: 48%; 
-        margin-right: 1%;
-        display: inline-block; 
-      }
-      .brand-promises ul div li span { font-size: 10pt; }
-      .brand-promises ul div img { width: 50px; }
-      .brand-promises ul { width: fit-content; margin: 0 auto; }
-    }
-    @media only screen and (min-width: 589px) {
-      .flex-container-do {
-        display: flex;
-        align-items: center;
-      }
-    }
-  </style>
-  <!-- end  -->
 
 
 
@@ -140,10 +64,12 @@
       <li data-aos="slide-up"><img data-src="{{'comfortable.svg' | asset_url}}" alt="Comfortable"  class="lazyload"/><br><span class="text-green">comfortable</span><br><p class="subscript">55% polyester, 39% nylon, 6% silver coated nylon</p></li> 
     </ul>
   </section>
+  {% unless product.type == "Pre-Built Bundle" %}
   <section class="index-padding-bo tac" id="product-masonry">
 	{% capture photo_source %}grid-{{product.id}}.png{% endcapture %}
-    <img class="fw lazyload" data-src="{{ photo_source | asset_url }}"/>
+    <img class="fw lazyload" data-src="{{ photo_source | asset_url }}" alt="{{product.title}} lifestyle collage"/>
   </section>
+  {% endunless %}
 </main>
 <script>
   $('.color').change(function() {
@@ -242,4 +168,31 @@
     _learnq.push(['track', 'Added to Cart', item]);
   });
 </script>
+{% if product.variants.size > 1 %}
+<script>
+  var variantImages = [],
+    variant,
+    variantImage
+    
+    {% for variant in product.variants %}
+       variant = {{ variant | json }};
+       if ( typeof variant.featured_image !== 'undefined' && variant.featured_image !== null ) {
+         variantImage =  variant.featured_image.src.split('?')[0].replace(/http(s)?:/,'');
+         variantImages.push(variantImage)
+          
+       }
+    {% endfor %}
+    {% if product.type == "Pre-Built Bundle" %}
+      $('.color').change(function() {
+        var imageIndex = $(this).data("index")
+        $('#featured-image').attr("src", variantImages[imageIndex])
+        $('.product-image').removeClass('border-lightgray')
+        $('.first-thumb:visible').attr("src", variantImages[imageIndex]).addClass('border-lightgray')
+      })
+    {% endif %}
+</script> 
+{% endif %}
 {% endunless %}
+{% for variant in product.variants %}
+  <img src="{{ variant.featured_image.src | img_url: 'master'}}" style="display: none;"/>
+{% endfor %} 

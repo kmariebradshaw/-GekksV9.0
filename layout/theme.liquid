@@ -164,9 +164,7 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
                     {% endfor %}
                     <div class="sub-nav">
                       {% for childlink in linklists[child_list_handle].links offset: 1 %}
-                     {% unless childlink.title == "Create Your Pack" %}
                       <li><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a></li>
-                    {% endunless %}
                       {% endfor %}
                     </div>
                   </ul>
@@ -195,10 +193,8 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
                    <ul class="childlink accent-padding" style="display: none;">
 
                     {% for childlink in linklists[child_list_handle].links %}
-                                                          {% unless childlink.title == "Create Your Pack" %}
 
                       <li><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a></li>
-                                  {% endunless %}
 
                      {% endfor %}
                    </ul>
@@ -322,13 +318,6 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
               $('#success-close').show();
               ga('send', 'event', 'Acquisition', 'Pop Up', 'Website');
       $form.hide().find('.hide_on_submit').hide();
-        {% if template contains 'product' %}
-      {% if product.title != "Men's Closet Pack" %}
-        $('.price, body #moprice').attr('style', 'display: none !important;')
-        $('.priceu').show();
-        console.log('here')
-      {% endif %}
-    {% endif %}
             },
          });  
       })
