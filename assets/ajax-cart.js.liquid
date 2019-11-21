@@ -33,15 +33,29 @@ $('#CartContainer').show().removeClass('slide-out').addClass('slide-in');
       'aw_remarketing_only': true
   });
 
+var bundles = 0 
+var original_bundles_price = 0 
 
-  var cart_total =  cart.item_count
+$.each(cart.items, function(index, cartItem) {
+    if ( cartItem.original_price >= 4200) {
+      bundles += cartItem.quantity
+      original_bundles_price += cartItem.original_price * cartItem.quantity
+    }
+});
+
+  var single_pack_total =  cart.item_count - bundles
+
   var new_price = ""
 
-  if (cart_total == 2) {
-    new_price = 16.00
-    jQuery.get('/discount/bundles2')
+  if (bundles >= 1 && single_pack_total >= 1)  {
+    new_price = 12.00
+    jQuery.get('/discount/bundles4')
   }
-  else if (cart_total == 3) {
+  else if (single_pack_total == 2) {
+    new_price = 16.00
+    jQuery.get('/discount/bundles3')
+  }
+  else if (single_pack_total == 3) {
     new_price = 14.00
     jQuery.get('/discount/bundles3')
   }
@@ -54,14 +68,15 @@ $('#CartContainer').show().removeClass('slide-out').addClass('slide-in');
     new_price = 12.00
 
   }
+    console.log("original bundles price" + original_bundles_price)
+    console.log("total bundles" + bundles)
+    console.log("single packs" + single_pack_total)
+    var new_subtotal = (original_bundles_price / 100)+ (single_pack_total * new_price)
 
-
-    var new_subtotal = cart_total * new_price
-    console.log(new_subtotal)
-
-    $('#ajax-cart-price-subtotal #original-sub').addClass('strikethrough'); 
-          $('#ajax-cart-price-subtotal #add-new').text("$" + new_subtotal + ".00"); 
-
+    if (single_pack_total >=1 ) {
+      $('#ajax-cart-price-subtotal #original-sub').addClass('strikethrough'); 
+      $('#ajax-cart-price-subtotal #add-new').text("$" + new_subtotal + ".00"); 
+    }
 
 
 _showFeedback('success',' added to cart! <a href="/cart" class="text-green">View Cart.</a>',$formContainer);if(window.Shopify&&Shopify.StorefrontExpressButtons){Shopify.StorefrontExpressButtons.initialize();}};adjustCart=function(){$body.on('click','.ajaxcart__qty-adjust',function(){if(isUpdating){return;}
