@@ -1,25 +1,29 @@
-    <main id="bundle-page">	     
+    <main id="bundle-page">	
+        <section class="page-title flex-container-no jcc">
+          <h1>Bundle and Save!</h1>
+        </section> 
         <section class="index-padding">
-          <section class="fh flex-container-no jcc">
-            <div>
-              <h1 class="tac text-green nm accent-padding">Build your Bundle</h1>
-              <p class="tac"><span>Bundle any style, color, size and save!<br></span></p>
-                <p class=" pricing-font tac">2 pairs: <span class="strikethrough">$36.00</span> $32.00</p>
-                <p class="tac pricing-font">3 pairs: <span class="strikethrough">$54.00</span> $42.00</p>
-                <p class="tac pricing-font">4 pairs: <span class="strikethrough">$72.00</span> $48.00</p>
-              <p class="tac pricing-font">5+ pair: <span class="strikethrough">$90.00+</span> $60.00+ & Free Shipping!</p>
-            	<div class="tac fw accent-padding flex-container-no jcc select-gender-style aife">
-                <div id="womens-bundle-choice">
-            		  <img src="{{'Icon-woman.svg' | asset_url}}" class="icon" />
-                  <h5 class="text-green nm">Shop Women's</h5>
-                </div>
-                <div id="mens-bundle-choice">
-            		  <img src="{{'Icon-man.svg' | asset_url}}" class="icon"/>
-                  <h5 class="text-green nm">Shop Men's</h5>
-                </div>
-            	</div>
+          <p class="tac pricing-font nmb"><span>Bundle any style, color, size, and save!<br></span></p>
+          <div class="flex-container-no">
+            <div class="half">
+              <p class=" pricing-font tac nm">2 pairs: <span class="strikethrough">$36.00</span> $32.00</p>
+            </div>
+            <div class="half">
+              <p class="tac pricing-font nm">3 pairs: <span class="strikethrough">$54.00</span> $42.00</p>
+            </div>
           </div>
-        </section>
+          <p class="tac pricing-font nm">4 pairs: <span class="strikethrough">$72.00</span> $48.00</p>
+          <p class="tac pricing-font nm">5+ pair: <span class="strikethrough">$90.00+</span> $60.00+ & Free Shipping!</p>
+          <h1 class="text-green tac">Build <img src="{{'your.png' | asset_url}}" id="your"> Bundle</h1>
+          <button class="fw background-green accent-padding" style="margin-bottom: 20px" id="womens-bundle-choice"><img src="{{'Icon-woman.svg' | asset_url}}" class="icon" />
+<h2 class="tac text-white nm button-label">Women</h2></button>
+          <button class="fw background-green accent-padding" id="mens-bundle-choice">
+            <img src="{{'Icon-man.svg' | asset_url}}" class="icon"/>
+            <h2 class="tac text-white button-label nm">Men</h2></button>
+
+
+
+
         <div id="style-select-custom">
           <div style="height: 87px;"></div>
 
@@ -66,7 +70,7 @@
           </div>
           <h2></h2>
         </div>
-          <section class="border-lightgray accent-padding">
+          <section class="border-lightgray accent-padding" id="your-bundle">
             <h2 class="text-green nm">Your Bundle</h2>
             {% if cart.item_count > 0 %}
                       <a href="/cart"><div class="background-green accent-padding fw" style="margin-top: 20px;"><h3 class="text-white tac nm">add to cart</h3></div></a>
@@ -119,10 +123,14 @@
                <option value="medium" selected>medium (us:7-8.5)</option>
                <option value="large">large (us:9-11.5)</option>
               </select> 
-              <select class="build-bundle-quantity">
+                         <select class="build-bundle-quantity">
                 <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+          
+
               </select>
               <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
             </div>
@@ -151,10 +159,14 @@
                <option value="medium" selected>medium (us:7-8.5)</option>
                <option value="large">large (us:9-11.5)</option>
               </select> 
-              <select class="build-bundle-quantity">
+                     <select class="build-bundle-quantity">
                 <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+          
+
               </select>
               <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
             </div>
@@ -179,10 +191,14 @@
                <option value="medium" selected>medium (us:7-8.5)</option>
                <option value="large">large (us:9-11.5)</option>
               </select> 
-              <select class="build-bundle-quantity">
+                    <select class="build-bundle-quantity">
                 <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+          
+
               </select>
               <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
             </div>
@@ -207,10 +223,14 @@
                <option value="medium" selected>medium (us:7-8.5)</option>
                <option value="large">large (us:9-11.5)</option>
               </select> 
-              <select class="build-bundle-quantity">
+                    <select class="build-bundle-quantity">
                 <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+          
+
               </select>
               <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
             </div>
@@ -238,6 +258,10 @@
                 <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+          
+
               </select>
               <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
             </div>
@@ -261,10 +285,14 @@
                <option value="medium" selected>medium (us:7-8.5)</option>
                <option value="large">large (us:9-11.5)</option>
               </select> 
-              <select class="build-bundle-quantity">
+                       <select class="build-bundle-quantity">
                 <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+          
+
               </select>
               <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
             </div>
@@ -308,8 +336,7 @@
         			$(sku).show(); 
       				$('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').addClass('darken');
         		})
-        		$('.select-gender-style div').click(function() {
-        			$(this).children('img').addClass('highlight').parent().siblings().children().removeClass('highlight')
+        		$('#womens-bundle-choice, #mens-bundle-choice').click(function() {
         			if ($(this).attr("id") == "womens-bundle-choice") {
         				$('.womens-bundle').show()
         				$('.mens-bundle').hide(); 
@@ -393,7 +420,44 @@ $('.add-to-bundle-button').click(function() {
 
         	
 <style>
+  #your {
+    width: 27%;
+    vertical-align: middle;
+    margin: 13px -5px 0;
+}
+#bundle-page .page-title {
+  background-image: url("{{'SockCircle_Cut.jpg' | asset_url}}");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+}
+.button-label {
+    line-height: 35px;
+    margin-left: -35px;
+    display: inline;
+}
+#your-bundle {
+    border: 5px solid darkgray;
+}
+#bundle-page .icon { 
+  width: 35px;  
+  float: left;
+  background-color: white;
+  border-radius: 100%;
+}
+@media only screen and (max-width: 799px) {
+.half {
+    width: 100%;
+    padding: 10px 0 0 0;
+}
+}
+#bundle-page {
+    max-width: 800px;
+    margin: 0 auto;
+}
   .line-item-details { width: 65% !important; }
+}
 .modal-featured { 
   display: block;
   margin: 20px auto;
@@ -460,7 +524,6 @@ $('.add-to-bundle-button').click(function() {
 .cart-update { width: 100% !important; }
 .womens-bundle .half, .mens-bundle .half { margin: 10px; padding-top: 0;}
 .highlight {border: 2px solid #6DCDB8; border-radius: 100%;}
-.icon { width: 50px;  }
 .scroll-product-photos { 
 width: 100px; 
 display: inline-block;
