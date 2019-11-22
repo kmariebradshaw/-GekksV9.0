@@ -11,7 +11,7 @@
     {% endif %}
     <p class="subscript">{{ product.description}}</p>
     {% if product.available %} 
-        {% if product.type != "Pre-Built Bundle" %}
+        {% if product.type != "Pre-Built Bundle" and product.title != "Gift Cards" %}
             <div class="flex-container-no jcc">
               <h3 class="" style=" margin-right: 10px">$18 <span class="subscript" style="font-weight: 300; margin: 0 5px;">or</span> $12 </h3><span class="subscript" style="font-weight: 300;">when you buy 4 <br>or more pairs</span>
             </div>
@@ -126,7 +126,7 @@
         {% endif %}
       {% endfor %}
    </select>
-   {% if product.type == "Closet Pack" or product.type == "Pre-Built Bundle" %}
+   {% if product.type == "Closet Pack" or product.type == "Pre-Built Bundle" or product.title == "Gift Cards" %}
    <select name="quantity" id="quantity">
      {% for i in (1..10) %}
      <option value="{{ i }}">{{ i }}</option>
