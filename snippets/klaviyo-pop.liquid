@@ -1,16 +1,12 @@
 
 
  <div class="modal modal-newsletter" id="newsletter_popup3" style="display:none;">
-  
-<style>
-  .welcomeab { display: none; }
-  .originalab { display: inherit; }
-</style>
   <div class="background-green tac flex-container-no" id="container-news">
     <form action="//manage.kmail-lists.com/subscriptions/subscribe" method="POST" novalidate="novalidate" class="hide_on_submit klaviyo_subscription_form">
       <input type="hidden" name="g" value="Ai9wnf">
-       <h1 class="text-white nm hide_on_submit originalab">Exclusive Discounts</h1>
-          <p class="hide_on_submit text-white nmt" ><span>Sign up to stay in the know for product launches and exclusive offers.</span></p>    
+      <h1 class="text-white nm hide_on_submit">Over 30% Off</h1>
+          <p class="hide_on_submit text-white nmt"><span>by unlocking Bundles</span></p>  
+
       <p class="nmt"></p>
       <input type="email" id="newsletter_popup_$email" class="newsletter_email hide_on_submit" name="email" placeholder="enter email">
       <div class="klaviyo_form_actions hide_on_submit">
@@ -20,12 +16,13 @@
        </div> 
          <div class="mo">
           <button type="submit" class="klaviyo_submit_button border-white"><span>sign up</span></button> 
-         {% comment %} <div class="voxie-text-us">
+          <div class="voxie-text-us" style="display: none;">
             <a href="https://inboundtxt.com/t/RxwJEWO"><div class="voxie-text-button border-white"><span>Or Sign Up with Phone</span></div></a>
-          </div>     {% endcomment %}  
+          </div>       
         </div>
       </div>
-      <p class="nmt klaviyo_header_close tac text-white clickable hide_on_submit" style="font-size: 10pt; margin-top: 10px; text-decoration: underline;"><span>decline offer</span></p>
+      <p class="text-white hide_on_submit do">Stay in the know with <br><b>exclusive deals</b></p>
+      <p class="nmt klaviyo_header_close tac text-white clickable hide_on_submit" style="font-size: 10pt; margin-top: 10px; text-decoration: underline;"><span>decline 30% off</span></p>
       <div class="error_message subscript" style="display: none;"></div> 
     </form>
     <div class="success_message"></div>
@@ -40,19 +37,18 @@ $(document).ready(function(){
     setTimeout(function(){
       $('.modal').removeClass('darken')
       if ($('.modal:visible').length == 0) {
-        $('.mobile-nav1').removeClass('slide-in').addClass('slide-out'); 
-        cartClose(); 
         KlaviyoSubscribe.attachToModalForm('.modal-newsletter', {
           delay_seconds: 0,  
           ignore_cookie: true,
-          success_message: "<div class='success_feedback accent-padding'><div class='accent-padding'><p class='nmt klaviyo_header_close_news tac clickable' style='font-size: 12pt;' onclick='closeWelcomePop()'>X</p><h2 class='nm'>Thank you!</h2></div></div>",
-           success: function ($form) {
+         success_message: "<div class='success_feedback accent-padding ma'><div class='accent-padding'><p class='nmt klaviyo_header_close_news tac clickable' style='font-size: 12pt;' onclick='closeWelcomePop()'>X</p><h2 class='nm'>Thank you!</h2><h3>You've unlocked Bundle Pricing</h3><table class='ma'><tr><th class='t-size table-title'>Pairs</th><th class='t-size table-title'>Price</th></tr><tr class='lg'><td>1</td><td>$18.00</td></tr><tr class='dg'><td>2</td><td><span class='strikethrough'>$36.00</span> $32.00</td></tr><tr class='lg'><td>3</td><td><span class='strikethrough'>$54.00</span> $42.00</td></tr><tr class='dg'><td>4</td><td><span class='strikethrough'>$72.00</span> $48.00</td></tr><tr class='lg'><td>5+</td><td><span class='strikethrough'>$90.00+</span> $60.00+<br>& Free Shipping!</td></tr></table></div></div>",
+              success: function ($form) {
+                            $('.success_message').addClass('ma')
+            createCookie("emailSignUp", "popup", 14)
             $('#container-news').css("background-image", "none"); 
       $('#success-close').show();
       ga('send', 'event', 'Acquisition', 'Pop Up', 'Website');
              
       $form.hide().find('.hide_on_submit').hide();
-
     },
   });  
   };
@@ -73,7 +69,7 @@ $(document).ready(function(){
     <input type="hidden" name="g" value="zEZHLa"> 
     <div class="hide_on_submit">
       <h1 class="accent-padding border-white nm">Wait!</h1> 
-      <p class="text-green">Lock in savings before you go and stay up to date with product launches</b></p>
+      <p class="text-green">Get 10% off your first $30 order.<br> You'll also receive <b>exclusive discounts</b></p>
       <div class="klaviyo_fieldset hide_on_submit">
       <div class="klaviyo_field_group">
         <input type="email" id="newsletter_popup_$email" name="email"></div>
@@ -81,7 +77,7 @@ $(document).ready(function(){
      <div class="">
       <div class="klaviyo_form_actions hide_on_submit">
         <div class="do">
-          <button type="submit" class="klaviyo_submit_button"><span>let's go!</span></button>
+          <button type="submit" class="klaviyo_submit_button"><span>Get My Discount!</span></button>
         </div>
 
       </div>
@@ -90,9 +86,9 @@ $(document).ready(function(){
         <div class="klaviyo_form_actions hide_on_submit">
           <button type="submit" class="klaviyo_submit_button"><span>Sign Up with Email</span></button>
         </div>
-        {% comment %}<div class="voxie-text-us">
+        <div class="voxie-text-us">
           <a href="https://inboundtxt.com/t/ax6q3W3"><div class="voxie-text-button"><span>Or Sign Up with Phone</span></div></a>
-        </div>{% endcomment %}
+        </div>
       </div>
     </div>
    <p class="error_message subscript tac" style="display: none;"></p>
@@ -100,12 +96,12 @@ $(document).ready(function(){
    <div class="success_message" ></div>
   </div>
 </div>
-{% comment %}<script>
+<script>
   $('.voxie-text-button').click(function() {
     $(this).closest('.modal').hide(); 
     ga('send', 'event', 'Acquisition', 'Voxie', 'Website');
   })
-</script>{% endcomment %}
+</script>
 <script>
 $(document).ready(function(){
   var executed = false 
@@ -117,10 +113,12 @@ $(document).ready(function(){
 
             $('.modal').removeClass('darken')
             KlaviyoSubscribe.attachToModalForm('#exit_offer', {
-              success_message: "<div class='success_feedback accent-padding'><div class='accent-padding border-white'><h2>Thank you!</h2>",
+              success_message: "<div class='success_feedback accent-padding'><div class='accent-padding border-white'><h2>Thank you!</h2><h3>Use the discount code below to receive 10% off your first order over $30 USD</h3><h2 class='text-green'>GEKKS10</h2></div>",
               ignore_cookie: true, 
               delay_seconds: 0.1,
               success: function ($form) {
+                          createCookie("emailSignUp", "exit", 14)
+
               $form.find('.hide_on_submit').hide();
               ga('send', 'event', 'Acquisition', 'Exit Offer', 'Website');
               },
@@ -134,4 +132,5 @@ $(document).ready(function(){
   };
 });
 </script>
+
 
