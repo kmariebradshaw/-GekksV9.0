@@ -160,6 +160,15 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
       header { top: 40px !important; }
       main, .index-sections { padding-top: 126.7px !important; }
     </style>
+    <script>
+  $(document).ready(function() {
+    var banner = $('.theme-banner span')
+    console.log(banner)
+    setInterval(function(){ 
+      banner.toggleClass('text-green'); 
+    }, 1000);
+  })
+</script>
     <header>
 
       <div class="wrap cbb-ignored-image" style="text-align: center;">

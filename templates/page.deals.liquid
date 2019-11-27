@@ -1,8 +1,8 @@
 <main id="deals">
 <section class="page-header flex-container-no">
-  <h1 class="tac">Black Friday<br class="mo-plus"> Bundles</h1>
+  <h1>Black Friday<br> Bundles</h1>
 </section>
-<section class="main-deals flex-container accent-padding">
+<section class="main-deals flex-container accent-padding aifs">
   <div class="half mo-plus">
     <h3 class="text-green">Create Your Own Bundles of Varying Styles, Colors and Sizes:</h3>
     <p><span>2 pairs:</span> <span class="strikethrough">$36.00</span> $32.00 or $16.00 per pair</p>
@@ -64,8 +64,10 @@
       background-position: center;
       height: 200px;
       }
+      .page-header h1 { text-align: center; }
       .do { display: none; }
     }
+    .aifs { align-items: flex-start; }
   @media only screen and (min-width: 800px) {
       .page-header h1 { color: #6DCDB8; }
       .page-header { background-image: url("{{ 'BFB_ATFDesktop.jpg' | asset_url}} "); }
