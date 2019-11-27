@@ -326,7 +326,6 @@
 
         		$('.bundle-style').click(function() {
         			var sku =  "." + $(this).attr("id")
-              console.log(sku)
         			$(sku).show(); 
       				$('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').addClass('darken');
         		})
@@ -399,8 +398,7 @@
 $('.add-to-bundle-button').click(function() {
     var size = $('.build-bundle-size:visible option:selected').val()
     var quantity = $('.build-bundle-quantity:visible option:selected').val(); 
-    console.log(size)
-    console.log(quantity)
+
     $( ".bundle-color-selection.highlight:visible" ).each(function() {
         var variantSelected = $(this).data('variant-id-' + size); 
         push_to_queue(variantSelected, quantity)
