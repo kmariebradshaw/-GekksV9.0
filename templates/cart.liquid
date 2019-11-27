@@ -1,3 +1,12 @@
+  
+  {% assign bundles = 0 %}
+  {% for item in cart.items %}
+    {% if item.original_price >= 4200 %}
+      {% assign bundles = bundles | plus: item.quantity %}
+      {% assign original_bundles_price = item.original_price | times: item.quantity | plus: original_bundles_price %}
+    {% endif %}
+  {% endfor %}
+
 <main id="page" class="cart-page">          
       <section class="index-padding">
        <div class="title-border"></div>
@@ -20,13 +29,26 @@
               <h3 class="nmb">{{item.product.title}}</h3>
               <p>
                 <span>Style:</span> {{ item.variant.title | capitalize }}<br>
-                <span>Qty:</span> <span style="font-weight: lighter" id="line-item-quantity-number">{{ item.quantity }}</span> <span style="font-weight: lighter;" id="item-line-price">@ {{ item.line_price | divided_by: item.quantity | money }}</span></p>
+                <span>Qty:</span> <span style="font-weight: lighter" id="line-item-quantity-number">{{ item.quantity }}</span> </p>
 
               </p>
             </div>
               <div class="accent-padding price-details">
-                <h3 class="tar"><span id="updated-price"></span><span id="original-price">{{ item.line_price | money}}</span> </h3>
-                <a href="/cart/change?id={{ item.id }}&quantity=0" class="cart-update">remove</a></p>
+                {% if cart.item_count == 1 %}
+                  <h3 class="tar"><span id="updated-price"></span><span id="original-price">{{ item.line_price | money}}</span> </h3>
+                {% elsif bundles == 0 and cart.item_count == 2 %}
+                  {% assign new_price = item.quantity | times: 16 %}
+                  <h3 class="tar"><span id="updated-price"></span><span id="original-price">$ {{ new_price}}.00 </span><span class="strikethrough"> {{ item.line_price | money}}</span></h3>
+                 {% elsif bundles == 0 and cart.item_count >= 3  %}
+                  {% assign new_price = item.quantity | times: 12 %}
+                  <h3 class="tar"><span id="updated-price"></span><span id="original-price">$ {{ new_price}}.00 </span><span class="strikethrough"> {{ item.line_price | money}}</span></h3>
+                  {% elsif  bundles >= 1 and item.product.type != "Pre-Built Bundle" %}
+                    {% assign new_price = item.quantity | times: 12 %}
+                    <h3 class="tar"><span id="updated-price"></span><span id="original-price">$ {{ new_price}}.00 </span><span class="strikethrough"> {{ item.line_price | money}}</span></h3>
+                {% else %}
+                  <h3 class="tar"><span id="updated-price"></span><span id="original-price">{{ item.line_price | money}}</span> </h3>
+                {% endif %}
+                  <a href="/cart/change?id={{ item.id }}&quantity=0" class="cart-update">remove</a></p>
               </div>
             </div>
           {% endfor %}
@@ -72,19 +94,13 @@
 </style>
 
 <script>
-  {% for item in cart.items %}
-    {% if item.original_price >= 4200 %}
-      {% assign bundles = bundles | plus: item.quantity %}
-      {% assign original_bundles_price = item.original_price | times: item.quantity | plus: original_bundles_price %}
-    {% endif %}
-  {% endfor %}
   var original_bundles_price = "{{ original_bundles_price}}"
   var bundles = "{{ bundles }}"
 
 
   var single_pack_total =  "{{ cart.item_count }}" - "{{ bundles }}"
 
-  var new_price = ""
+  var new_price = "{{ cart.total_price | money}}"
 
   if (bundles >= 1 && single_pack_total >= 1)  {
     new_price = 12.00
@@ -92,7 +108,7 @@
   }
   else if (single_pack_total == 2) {
     new_price = 16.00
-    jQuery.get('/discount/bundles3')
+    jQuery.get('/discount/bundles2')
   }
   else if (single_pack_total == 3) {
     new_price = 12.00
