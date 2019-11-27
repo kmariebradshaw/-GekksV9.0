@@ -10,9 +10,9 @@
           <p class="tac pricing-font nm">4 pairs: <span class="strikethrough">$64.00</span> $48.00</p>
           <p class="tac pricing-font nm">5+ pairs: <span class="strikethrough">$80.00+</span> $60.00+ & Free Shipping!</p>
           <h1 class="text-green tac">Build <img src="{{'your.png' | asset_url}}" id="your"> Bundle</h1>
-          <button class="fw background-green accent-padding" style="margin-bottom: 20px" id="womens-bundle-choice"><img src="{{'Icon-woman.svg' | asset_url}}" class="icon" />
+          <button class="fw background-green accent-padding" style="margin-bottom: 20px" id="womens-bundle-choice" onClick="ga('send', 'event', 'Bundles', 'Gender Selection', 'Women');"><img src="{{'Icon-woman.svg' | asset_url}}" class="icon" />
 <h2 class="tac text-white nm button-label">Women</h2></button>
-          <button class="fw background-green accent-padding" id="mens-bundle-choice">
+          <button class="fw background-green accent-padding" id="mens-bundle-choice" onClick="ga('send', 'event', 'Bundles', 'Gender Selection', 'Men');>
             <img src="{{'Icon-man.svg' | asset_url}}" class="icon"/>
             <h2 class="tac text-white button-label nm">Men</h2></button>
 
@@ -34,31 +34,31 @@
             <div class="quarter"> <img src="//cdn.shopify.com/s/files/1/0424/0893/products/SneakerFull_2000x2000.jpg?v=1573252161" class="fw"></div>
           </div>{% endcomment %}
           <div class="flex-container-no womens-bundle">
-            <div class="half bundle-style clickable" id="create-loafers">
+            <div class="half bundle-style clickable" id="create-loafers" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'WLoafers');">
               <img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_2000x2000.jpg?v=1573054961" class="fw">
               <h4 class="tac">Loafers</h4>
             </div>
-            <div class="half clickable bundle-style" id="create-sneakers">
+            <div class="half clickable bundle-style" id="create-sneakers" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'WSneakers');">
               <img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_eb0a0759-4910-43dd-9bb8-daa0c386d7b6_2000x2000.jpg?v=1573055042" class="fw">
               <h4 class="tac">Sneakers</h4>
             </div>
           </div>
           <div class="flex-container-no womens-bundle">
-            <div class="half clickable bundle-style" id="create-flats">
+            <div class="half clickable bundle-style" id="create-flats" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'Flats');">
               <img src="{{'Nude_Flat_4.jpg' | asset_url}}" class="fw">
               <h4 class="tac">Flats</h4>
             </div>
-            <div class="half clickable bundle-style" id="create-heels">
+            <div class="half clickable bundle-style" id="create-heels" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'Heels');">
               <img src="{{'heelshot.jpg' | asset_url}}" class="fw">
               <h4 class="tac">Heels</h4>
             </div>
           </div>
           <div class="flex-container-no mens-bundle" style="display: none;">
-            <div class="half clickable bundle-style" id="create-mloafers">
+            <div class="half clickable bundle-style" id="create-mloafers" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'MLoafers');">
               <img src="//cdn.shopify.com/s/files/1/0424/0893/products/2_dfefd4ff-bd53-4e9e-9895-c73c1935ff9b_2000x2000.jpg?v=1573252367" class="fw">
               <h4 class="tac">Loafers</h4>
             </div>
-            <div class="half clickable  bundle-style" id="create-msneakers">
+            <div class="half clickable  bundle-style" id="create-msneakers" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'MSneakers');">
               <img src="//cdn.shopify.com/s/files/1/0424/0893/products/SneakerFull_2000x2000.jpg?v=1573252161" class="fw">
               <h4 class="tac">Sneakers</h4>
             </div>
@@ -69,7 +69,7 @@
           <section class="border-lightgray accent-padding" id="your-bundle">
             <h2 class="text-green nm">Your Bundle</h2>
             {% if cart.item_count > 0 %}
-              <a href="/cart"><div class="background-green accent-padding fw" style="margin-top: 20px;"><h3 class="text-white tac nm">add to cart</h3></div></a>
+              <a href="/cart"><div class="background-green accent-padding fw" style="margin-top: 20px;" onClick="ga('send', 'event', 'Bundles', 'Your Bundle', 'Add To Cart');"><h3 class="text-white tac nm">add to cart</h3></div></a>
               {% for item in cart.items %}
                 <div class="flex-container-no line-item-wrapper">
                   <div class="three-five accent-padding">
