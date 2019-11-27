@@ -68,9 +68,6 @@ $.each(cart.items, function(index, cartItem) {
     new_price = 12.00
 
   }
-    console.log("original bundles price" + original_bundles_price)
-    console.log("total bundles" + bundles)
-    console.log("single packs" + single_pack_total)
     var new_subtotal = (original_bundles_price / 100)+ (single_pack_total * new_price)
 
     if (single_pack_total >=1 ) {

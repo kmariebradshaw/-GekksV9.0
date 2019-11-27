@@ -109,7 +109,6 @@ $(document).ready(function(){
    $(document).on('mouseleave', leaveFromTop);
       function leaveFromTop(e){
         if ($('.modal:visible').length == 0 && (e.clientY < 0 ) && (!executed) && $('.mobile-nav1:visible').length == 0) {
-          console.log($('.mobile-nav1:visible').length)
 
             $('.modal').removeClass('darken')
             KlaviyoSubscribe.attachToModalForm('#exit_offer', {

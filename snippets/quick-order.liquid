@@ -54,11 +54,8 @@
 
 <script>
   $(window).load(function() {
-    var selected = $('#product_selection option:selected').text();
-    console.log(selected);
-    console.log('load');
+    var selected = $('#product_selection option:selected').text();;
     if(selected == 'Select') {
-      console.log('found it');
       $('#add-to-cart-7931129864').attr('disabled',true);
     }
   });

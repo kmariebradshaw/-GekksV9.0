@@ -368,9 +368,7 @@
       $('.first-thumb:visible').attr("src", newSrc).attr("data-src", newSrc)
       $('.first-thumb:visible').insertAfter('#product-details .subscript').removeClass('border-lightgray').addClass('border-green').addClass('cursor-block'); 
       var newFeatured = $('#thumbnails:visible ul li img:visible:first'); 
-      console.log(newFeatured)
       var newFeaturedSrc = $(newFeatured).attr("data-src").replace("compact", "2000x2000")
-      console.log(newFeaturedSrc)
       $(newFeatured).addClass('border-lightgray')
       $('.main-image:visible').attr("src", newFeaturedSrc).attr("data-src", newFeaturedSrc)
     }
@@ -571,7 +569,6 @@
 
   Shopify.moveAlong = function() {
     // If we still have requests in the queue, let's process the next one.
-    console.log(Shopify.queue.length)
     if (Shopify.queue.length) {
       var request = Shopify.queue.shift();
       // pass the properties into addItem as well
