@@ -1,55 +1,72 @@
-<main id="extra-page">
-    <div id="copied" class="tac" style="position: absolute; display: none;"><p class="subscript"><span>coupon copied</span></p></div>
-  <section class="index-padding" style="padding-top: 60px !important;padding-bottom: 60px !important;">
-    <h1 class="ttc tac nm">Happy Holidays</h1>
-    <div class="flex-container accent-padding border-lightgray">
-      <div class="third tac clickable" id="holiday10">
-        <h2 class="text-green ttc nmb">$10 Off</h3>
-        <p>on $40+ orders<br>code: Holiday10</p>
-      </div>
-      <div class="third tac clickable" id="holiday25">
-        <h2 class="text-green ttc nmb">$25 Off</h3>
-        <p>on $80+ orders<br>code: Holiday25</p>
-      </div>
-      <div class="third tac">
-        <h2 class="text-green ttc nmb">$5.00 Off</h2>
-        <p>on Women's Closet Packs<br> no coupon needed</p>
-      </div>
-    </div>
-    <p class=" tac">Sign up to stay in the know,<br>and receive our best holiday deals!</p>
-    <div class="klaviyo-form-MC9pTd" id="bfcm-embed"></div>
-  </section>
-</main>
+<main id="deals">
+<section class="page-header flex-container-no">
+  <h1 class="tac">Black Friday<br class="mo-plus"> Bundles</h1>
+</section>
+<section class="main-deals flex-container accent-padding">
+  <div class="half mo-plus">
+    <h3 class="text-green">Create Your Own Bundles of Varying Styles, Colors and Sizes:</h3>
+    <p><span>2 pairs:</span> <span class="strikethrough">$36.00</span> $32.00 or $16.00 per pair</p>
+    <p><span>3 pairs:</span> <span class="strikethrough">$54.00</span> $36.00 or $12.00 per pair</p>
+    <p><span>4 pairs:</span> <span class="strikethrough">$64.00</span> $48.00 or $12.00 per pair</p>
+    <p><span>5+ pairs:</span> <span class="strikethrough">$80.00+</span> $60.00+ or $12.00 per pair + Free Shipping! </p>
+    <a href="/pages/bundles"><span class="text-green">click here</span></a>
+  </div>
+  <div class="half">
+    <h3 class="text-green">Pre-Built Bundles</h3>
+    <h4 class="nmb">The Trial Pack:</h4>
+    <p>4 pairs <span class="strikethrough">$64.00</span> $48.00 or $12.00 per pair</p>
+    <p class="subscript">includes 1 pair of flats, 1 pair of heels, 1 pair of loafers & 1 pair of sneakers</p>
+    <a href="/products/the-trial"><span class="text-green">click here</span></a>
+    
+    <h4 class="nmb">The Office Pack:</h4>
+    <p>4 pairs <span class="strikethrough">$64.00</span> $48.00 or $12.00 per pair</p>
+    <p class="subscript">includes 2 pairs of flats & 2 pairs of heels</p>
+    <a href="/products/the-office"><span class="text-green">click here</span></a>
+    
+    <h4 class="nmb">The Casual Pack:</h4>
+    <p>4 pairs <span class="strikethrough">$64.00</span> $48.00 or $12.00 per pair</p>
+    <p class="subscript">includes 2 pairs of flats & 2 pairs of loafers</p>
+    <a href="/products/the-casual"><span class="text-green">click here</span></a>
+    
+    <h4 class="nmb">The Office Pack Lite:</h4>
+    <p>3 pairs <span class="strikethrough">$54.00</span> $36.00 or $12.00 per pair</p>
+    <p class="subscript">includes 2 pairs of flats & 1 pair of heels</p>
+    <a href="/products/the-office-lite"><span class="text-green">click here</span></a>
+    
+    <h4 class="nmb">The Shoe Lover:</h4>
+    <p>8 pairs <span class="strikethrough">$128.00</span> $96.00 or $12.00 per pair <span>+ free shipping!</span></p>
+    <p class="subscript">includes 2 pairs of flats, 2 pairs of heels, 2 pairs of loafers & pairs of sneakers</p>
+    <a href="/products/the-shoe-lover"><span class="text-green">click here</span></a>
+    
+    <h4 class="nmb">The Closet Pack:</h4>
+    <p>5 pairs <span class="strikethrough">$80.00</span> $60.00 or $12.00 per pair <span>+ free shipping!</span></p>
+    <p class="subscript">includes two pairs of flats, one pair of loafer, one pair of sneakers, and one pair of heels.</p>
+    <a href="/products/the-womens-closet"><span class="text-green">click here</span></a>
+  </div>
+  <div class="half do">
+    <h3 class="text-green">Create Your Own Bundles of Varying Styles, Colors and Sizes:</h3>
+    <p><span>2 pairs:</span> <span class="strikethrough">$36.00</span> $32.00 or $16.00 per pair</p>
+    <p><span>3 pairs:</span> <span class="strikethrough">$54.00</span> $36.00 or $12.00 per pair</p>
+    <p><span>4 pairs:</span> <span class="strikethrough">$64.00</span> $48.00 or $12.00 per pair</p>
+    <p><span>5+ pairs:</span> <span class="strikethrough">$80.00+</span> $60.00+ or $12.00 per pair + Free Shipping! </p>
+    <a href="/pages/bundles"><span class="text-green">click here</span></a>
 
-<script>
-  $('#holiday10').click(function() {
-    var $temp = $("<input>");
-    $("body").append($temp);
-    $temp.val("HOLIDAY10").select();
-    document.execCommand("copy")
-    $('#copied').slideUp().slideDown().delay(2000).slideUp(); 
-  })
-  $('#holiday25').click(function() {
-    var $temp = $("<input>");
-    $("body").append($temp);
-    $temp.val("HOLIDAY25").select();
-    document.execCommand("copy")
-    $('#copied').slideUp().slideDown().delay(2000).slideUp(); 
-   
-  })
-  $(document).ready(function() {
-    $('#banner-cta p').text("Holiday deals are here!")
-  })
-</script>
+    <img src="{{'presents.jpg' | asset_url}}" class="fw" style="margin-top: 20px;"/>
+  </div>
+</section>
 <style>
-.index-padding {
-  background-image: url("{{'Holiday_deals.gif' | asset_url}}");
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: contain;
-}
-.index-padding h1 { padding-top: 30%; }
-@media only screen and (max-width: 799px) {
-  .third { width: 100%; }
-}
-</style>
+  .main-deals h4, p, a { margin: 5px 0; }
+  @media only screen and (max-width: 799px) {
+    .half { text-align: center; padding: 0; }
+    .page-header { 
+      justify-content: center; 
+      background-image: url("{{ 'BFB_ATFMobile.jpg' | asset_url}} ");
+      background-position: center;
+      height: 200px;
+      }
+      .do { display: none; }
+    }
+  @media only screen and (min-width: 800px) {
+      .page-header h1 { color: #6DCDB8; }
+      .page-header { background-image: url("{{ 'BFB_ATFDesktop.jpg' | asset_url}} "); }
+    }
