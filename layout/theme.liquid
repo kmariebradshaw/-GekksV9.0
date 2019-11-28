@@ -2,6 +2,7 @@
 <html lang="en">
   <head> 
     <style>.async-hide { opacity: 0 !important} </style>
+
     <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
                                          h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
                                          (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
@@ -197,7 +198,19 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
              {% endfor %}  
             </ul>
             
-          
+                <script>
+$(document).ready(function(event) {  
+  var historyTraversal = event.persisted || 
+                         ( typeof window.performance != "undefined" && 
+                              window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    // Handle page restore.
+      // $('#top-nav').load(document.URL + ' #top-nav')
+      $('.cart').load(document.URL + ' .cart')
+
+  }
+});
+</script>
     
             
             <ul class="mobile-nav1 accent-padding" style="display: none;">
@@ -345,6 +358,7 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
          });  
       })
 </script>
+
     <!-- Google Code for Remarketing Tag -->
     <script type="text/javascript">
       /* <![CDATA[ */
