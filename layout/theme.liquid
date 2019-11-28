@@ -56,8 +56,8 @@
     <script src="{{ 'custom.jquery.js' | asset_url }}" defer></script>
     <script src="{{  'main.js' | asset_url }}" defer></script>
     <script src="{{  'option_selection.js' | shopify_asset_url }}" defer></script>
-    <script src="{{ 'ajax-cart.js'  | asset_url }}" defer></script>
-    <script src="{{ 'modernizr.min.js' | asset_url }}" defer></script>
+{% comment %}    <script src="{{ 'ajax-cart.js'  | asset_url }}" defer></script>
+{% endcomment %}    <script src="{{ 'modernizr.min.js' | asset_url }}" defer></script>
     <script src="{{ 'handlebars.min.js' | asset_url }}" ></script>
     <script src="{{ 'jquery.easing.1.3.min.js' | asset_url }}" defer></script>
     <script src="{{'jquery.mobile.custom.min.js' | asset_url}}" defer></script> 
@@ -68,9 +68,9 @@
   
    <script src="https://scripts.sirv.com/sirv.js" defer></script>
 
-    {% include 'ajax-cart-template' %}
-
-    <script async>
+{% comment %}    {% include 'ajax-cart-template' %}
+{% endcomment %}
+{% comment %}    <script async>
       jQuery(function($) {
         ajaxCart.init({
           formSelector: 'form[action="/cart/add"]',
@@ -85,13 +85,13 @@
         jQuery(document.body).on('afterCartLoad.ajaxCart', function(evt, cart) {
           timber.RightDrawer.open();
         });
-    </script>
+    </script>{% endcomment %}
     <div id="CartContainer" >
     </div>
     {% include 'referafriend' %}
     {% unless template contains 'series' %}
-    {% include 'klaviyo-pop' %}
-    {% endunless %}
+{% comment %}    {% include 'klaviyo-pop' %}
+{% endcomment %}    {% endunless %}
     <script src="{{  'api.jquery.js' | shopify_asset_url }}" async></script>
 
     {% if template contains 'customers' %}
@@ -147,7 +147,30 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
 </noscript>
   </head>
   <body class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '/', '-' | split: '.' }} {% if template == 'index' or page.handle == 'store' %}zoom-aware{% endif %}">
+    <div class="theme-banner fw tac"><a href="/pages/discounts"><span class="text-green text-white flash">Black Friday Deals are Now Live! <span class="text-white">Click Here</span></span></div>
+    <style>
+      .theme-banner {
+        position: fixed;
+        top: 0;
+        height: 40px;
+        line-height: 40px;
+        background-color: #545359;
+      }
+      .theme-banner a { text-transform: none; }
+      header { top: 40px !important; }
+      main, .index-sections { padding-top: 126.7px !important; }
+    </style>
+    <script>
+  $(document).ready(function() {
+    var banner = $('.theme-banner .flash')
+    console.log(banner)
+    setInterval(function(){ 
+      banner.toggleClass('text-green'); 
+    }, 1000);
+  })
+</script>
     <header>
+
       <div class="wrap cbb-ignored-image" style="text-align: center;">
         <a href="/?sh=d">
             <img data-src="{{'jlogo.png' | asset_url}}" alt="Gekks" class="logo lazyload" />
@@ -278,8 +301,8 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
             <div id="footer-aside">
               <div id="referafriend" class="background-darkgray" onclick="ga('send', 'event', 'Refer', 'Footer', 'Click');"><h3 class="text-white">refer a friend</h3></div>
 
-              <div id="getadiscount" class="background-darkgray"><h3 class="text-white">get a discount</h3></div>
-
+{% comment %}              <div id="getadiscount" class="background-darkgray"><h3 class="text-white">get a discount</h3></div>
+{% endcomment %}
 
 
 

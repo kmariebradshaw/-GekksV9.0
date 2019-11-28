@@ -1,7 +1,7 @@
   
   {% assign bundles = 0 %}
   {% for item in cart.items %}
-    {% if item.original_price >= 4200 %}
+    {% if item.product.type == "Pre-Built Bundle"  %}
       {% assign bundles = bundles | plus: item.quantity %}
       {% assign original_bundles_price = item.original_price | times: item.quantity | plus: original_bundles_price %}
     {% endif %}
@@ -129,7 +129,7 @@
 
 
 
-    if (single_pack_total >=1 ) {
+    if (single_pack_total > 1 ) {
 
     $('#updated-sub-total').html("$" + new_subtotal + ".00")
     $('#original-sub-total').addClass('strikethrough').css("margin-left", "5px"); 
