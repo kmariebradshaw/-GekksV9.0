@@ -1,10 +1,10 @@
 <main id="deals">
 <section class="page-header flex-container-no">
-  <h1>Black Friday<br> Bundles</h1>
+  <h1 class="text-green">Black Friday<br> Deals</h1>
 </section>
 <section class="main-deals flex-container accent-padding aifs">
   <div class="half mo-plus">
-    <h3 class="text-green">Create Your Own Bundles of Varying Styles, Colors and Sizes:</h3>
+    <h3 class="text-green">Save When You Create Your Own Bundles of Varying Styles, Colors and Sizes:</h3>
     <p><span>2 pairs:</span> <span class="strikethrough">$36.00</span> $32.00 or $16.00 per pair</p>
     <p><span>3 pairs:</span> <span class="strikethrough">$54.00</span> $36.00 or $12.00 per pair</p>
     <p><span>4 pairs:</span> <span class="strikethrough">$64.00</span> $48.00 or $12.00 per pair</p>
@@ -12,33 +12,33 @@
     <a href="/pages/bundles"><span class="text-green">click here</span></a>
   </div>
   <div class="half">
-    <h3 class="text-green">Pre-Built Bundles</h3>
-    <h4 class="nmb">The Trial Pack:</h4>
+    <h3 class="text-green">Popular Bundles</h3>
+    <h3 class="nmb">The Trial Pack:</h3>
     <p>4 pairs <span class="strikethrough">$64.00</span> $48.00 or $12.00 per pair</p>
     <p class="subscript">includes 1 pair of flats, 1 pair of heels, 1 pair of loafers & 1 pair of sneakers</p>
     <a href="/products/the-trial"><span class="text-green">click here</span></a>
     
-    <h4 class="nmb">The Office Pack:</h4>
+    <h3 class="nmb">The Office Pack:</h3>
     <p>4 pairs <span class="strikethrough">$64.00</span> $48.00 or $12.00 per pair</p>
     <p class="subscript">includes 2 pairs of flats & 2 pairs of heels</p>
     <a href="/products/the-office"><span class="text-green">click here</span></a>
     
-    <h4 class="nmb">The Casual Pack:</h4>
+    <h3 class="nmb">The Casual Pack:</h3>
     <p>4 pairs <span class="strikethrough">$64.00</span> $48.00 or $12.00 per pair</p>
     <p class="subscript">includes 2 pairs of flats & 2 pairs of loafers</p>
     <a href="/products/the-casual"><span class="text-green">click here</span></a>
     
-    <h4 class="nmb">The Office Pack Lite:</h4>
+    <h3 class="nmb">The Office Pack Lite:</h3>
     <p>3 pairs <span class="strikethrough">$54.00</span> $36.00 or $12.00 per pair</p>
     <p class="subscript">includes 2 pairs of flats & 1 pair of heels</p>
     <a href="/products/the-office-lite"><span class="text-green">click here</span></a>
     
-    <h4 class="nmb">The Shoe Lover:</h4>
+    <h3 class="nmb">The Shoe Lover:</h3>
     <p>8 pairs <span class="strikethrough">$128.00</span> $96.00 or $12.00 per pair <span>+ free shipping!</span></p>
     <p class="subscript">includes 2 pairs of flats, 2 pairs of heels, 2 pairs of loafers & pairs of sneakers</p>
     <a href="/products/the-shoe-lover"><span class="text-green">click here</span></a>
     
-    <h4 class="nmb">The Closet Pack:</h4>
+    <h3 class="nmb">The Closet Pack:</h3>
     <p>5 pairs <span class="strikethrough">$80.00</span> $60.00 or $12.00 per pair <span>+ free shipping!</span></p>
     <p class="subscript">includes two pairs of flats, one pair of loafer, one pair of sneakers, and one pair of heels.</p>
     <a href="/products/the-womens-closet"><span class="text-green">click here</span></a>
@@ -55,20 +55,29 @@
   </div>
 </section>
 <style>
-  .main-deals h4, p, a { margin: 5px 0; }
+  .main-deals p, a { margin: 5px 0; }
   @media only screen and (max-width: 799px) {
     .half { text-align: center; padding: 0; }
     .page-header { 
       justify-content: center; 
-      background-image: url("{{ 'BFB_ATFMobile.jpg' | asset_url}} ");
+/*      background-image: url("{{ 'BFB_ATFMobile.jpg' | asset_url}} ");
       background-position: center;
-      height: 200px;
+      height: 200px;*/
       }
       .page-header h1 { text-align: center; }
       .do { display: none; }
     }
     .aifs { align-items: flex-start; }
   @media only screen and (min-width: 800px) {
-      .page-header h1 { color: #6DCDB8; }
       .page-header { background-image: url("{{ 'BFB_ATFDesktop.jpg' | asset_url}} "); }
     }
+</style>
+    <script>
+  $(document).ready(function() {
+    var banner = $('h1')
+    console.log(banner)
+    setInterval(function(){ 
+      banner.toggleClass('text-green'); 
+    }, 1000);
+  })
+</script>
