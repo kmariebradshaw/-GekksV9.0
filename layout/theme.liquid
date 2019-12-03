@@ -91,8 +91,8 @@
     </div>
     {% include 'referafriend' %}
     {% unless template contains 'series' %}
-{% comment %}    {% include 'klaviyo-pop' %}
-{% endcomment %}    {% endunless %}
+  {% include 'klaviyo-pop' %}
+{% endunless %} 
     <script src="{{  'api.jquery.js' | shopify_asset_url }}" async></script>
 
     {% if template contains 'customers' %}
@@ -148,7 +148,7 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
 </noscript>
   </head>
   <body class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '/', '-' | split: '.' }} {% if template == 'index' or page.handle == 'store' %}zoom-aware{% endif %}">
-    <div class="theme-banner fw tac"><a href="/pages/discounts"><span class="text-green text-white flash">Black Friday Deals are Now Live! <span class="text-white">Click Here</span></span></div>
+    <div class="theme-banner fw tac" style="z-index: 99;"><a href="/pages/discounts"><span class="text-green text-white flash">Holiday Deals are Now Live! <span class="text-white">Click Here</span></span></div>
     <style>
       .theme-banner {
         position: fixed;

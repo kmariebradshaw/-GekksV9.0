@@ -33,7 +33,7 @@ $(document).ready(function(){
   var flowFinish = readCookie('flowFinish')
   var gekksVisit = readCookie('gekksVisit')
   var newsletterModal = readCookie('newsletterModal')
-  if ((flowFinish) && (gekksVisit) && !(newsletterModal) && $('.mobile-nav1:visible').length == 0){
+  if ((flowFinish) && (gekksVisit) && !(newsletterModal) && !$('.mobile-nav1').hasClass('slideOut')){
     setTimeout(function(){
       $('.modal').removeClass('darken')
       if ($('.modal:visible').length == 0) {
