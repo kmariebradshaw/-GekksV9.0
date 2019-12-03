@@ -3,10 +3,10 @@
 <!-- <section class="page-header flex-container-no">
   <h1 class="text-green">Cyber Monday<br> Deals</h1>
 </section> -->
-<section class="main-deals accent-padding">
-  <h2 class="text-green tac nmb">Hurry! Deal Ends <span id="timer">at Midnight</span></h2> 
- <a href="/pages/deals"><img src="{{'12Gekks_Holiday.gif' | asset_url}}" alt="$10 Gekks with Code 'Monday19'!" class="ma" style="width: 800px; max-width: 100%; display: inherit;"/></a>
-<a href="/pages/deals"> <h3 class="tac">bring me to bundles</h3></a>
+<section class="main-deals accent-padding tac">
+<!--   <h2 class="text-green tac nmb">Hurry! Deal Ends <span id="timer">at Midnight</span></h2> 
+ --> <a href="/pages/bundles" class="ma"><img src="{{'12Gekks_Holiday.gif' | asset_url}}" alt="$10 Gekks with Code 'Monday19'!" class="ma" style="width: 800px; max-width: 100%; display: inherit;"/></a>
+<a href="/pages/bundles"><h3 class="tac" style="text-decoration: underline;">bring me to bundles</h3></a>
 </section>
 <style>
   .main-deals p, a { margin: 5px 0; }
@@ -24,7 +24,7 @@
     .aifs { align-items: flex-start; }
   @media only screen and (min-width: 800px) {
       .page-header { background-image: url("{{ 'BFB_ATFDesktop.jpg' | asset_url}} "); }
-    }
+    } 
 </style>
     <script>
   $(document).ready(function() {
