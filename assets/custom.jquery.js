@@ -1,11 +1,4 @@
-// banner snow fall 
-$(document).ready(function() {
-  n = 0 
-  setInterval(function () {
-    n += 1
-    $('#banner-cta').css("background-position-y", n)
-  }, 100)
-})
+
 
 
 // hamburger nav
@@ -89,10 +82,15 @@ function closeWelcomePop() {
 
 }
 
-$('body').click(function (event) {
+$(document).click(function (event) {
+  console.log($(event.target)); 
    if(!$(event.target).closest('.modal').length && !$(event.target).is('.modal') && !$(event.target).is('#referafriend h3') && !$(event.target).is('#getadiscount h3') && !
     $(event.target).is('#size-chart') && !$(event.target).is(".ruler-icon")  && !$(event.target).closest(".bundle-style").length && !$(event.target).closest('#CartContainer').length && !$(event.target).is('button') && !$(event.target).is('button span') && !$(event.target).is('#hamburger span') && !$(event.target).closest('.mobile-nav1').length ) {
      $(".modal").hide(); 
+      $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
+      console.log('post remove')
+            $('body').removeClass('freeze-frame')
+
      if ($('#CartContainer').is(":visible ")) {
       cartClose();
      }
@@ -101,9 +99,7 @@ $('body').click(function (event) {
         $(".mobile-nav1").removeClass('slide-in').addClass('slide-out');
       }     
     }
-      $('body').removeClass('freeze-frame')
 
-      $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
    }    
 });
 // ajax cart close 
