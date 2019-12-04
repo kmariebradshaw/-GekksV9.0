@@ -1,4 +1,5 @@
     <main id="bundle-page">	
+      <section id="bundle-page-wrapper">
         <section class="page-title flex-container-no jcc">
           <h1>Bundle and Save!</h1>
         </section> 
@@ -260,9 +261,9 @@
             </div>
             <div class="flex-container-no accent-padding">
               <select class="build-bundle-size">
-               <option value="small">small (us:5-6.5)</option>
-               <option value="medium" selected>medium (us:7-8.5)</option>
-               <option value="large">large (us:9-11.5)</option>
+               <option value="small">small (us: 6.5-8)</option>
+               <option value="medium" selected>medium (us: 8.5-11)</option>
+               <option value="large">large (us: 11.5-14)</option>
               </select> 
               <select class="build-bundle-quantity">
                 <option value="1" selected>1</option>
@@ -295,9 +296,9 @@
             </div>
             <div class="flex-container-no accent-padding">
               <select class="build-bundle-size">
-               <option value="small">small (us:5-6.5)</option>
-               <option value="medium" selected>medium (us:7-8.5)</option>
-               <option value="large">large (us:9-11.5)</option>
+              <option value="small">small (us: 6.5-8)</option>
+               <option value="medium" selected>medium (us: 8.5-11)</option>
+               <option value="large">large (us: 11.5-14)</option>
               </select> 
                        <select class="build-bundle-quantity">
                 <option value="1" selected>1</option>
@@ -315,6 +316,7 @@
               <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
             </div>
           </div>
+        </section>
         </main>
 
   
@@ -451,6 +453,7 @@ $('.add-to-bundle-button').click(function() {
     margin-left: -35px;
     display: inline;
 }
+.modal { max-height: 100vh; overflow: scroll; }
 #your-bundle {
     border: 3px solid darkgray;
 }
@@ -466,7 +469,7 @@ $('.add-to-bundle-button').click(function() {
     padding: 10px 0 0 0;
 }
 }
-#bundle-page {
+#bundle-page-wrapper {
     max-width: 1000px;
     margin: 0 auto;
 }
