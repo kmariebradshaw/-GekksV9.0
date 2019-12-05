@@ -83,12 +83,10 @@ function closeWelcomePop() {
 }
 
 $(document).click(function (event) {
-  console.log($(event.target)); 
    if(!$(event.target).closest('.modal').length && !$(event.target).is('.modal') && !$(event.target).is('#referafriend h3') && !$(event.target).is('#getadiscount h3') && !
     $(event.target).is('#size-chart') && !$(event.target).is(".ruler-icon")  && !$(event.target).closest(".bundle-style").length && !$(event.target).closest('#CartContainer').length && !$(event.target).is('button') && !$(event.target).is('button span') && !$(event.target).is('#hamburger span') && !$(event.target).closest('.mobile-nav1').length ) {
      $(".modal").hide(); 
       $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
-      console.log('post remove')
             $('body').removeClass('freeze-frame')
 
      if ($('#CartContainer').is(":visible ")) {

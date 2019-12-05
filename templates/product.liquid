@@ -3,6 +3,7 @@
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | product_img_url: 'grande' }}">
   </section>
+  
     <section id="product-images">
        {% unless product.type == "Gift Card" %}
           <div id="thumbnails" class="ndo-plus">

@@ -146,6 +146,23 @@
   {% endif %}
   <p class="priceu subscript" id="discount-at-checkout" style="display: none;"><span>*discount applied at checkout</span></p>
   <button type="submit" name="add" id="add-cart" class="background-green text-white clickable" onclick="pintrk('track', 'addtocart');"><span>add to cart</span></button>
+  <h4 class="text-green clickable" id="prod-description">+ Product Description</h4>
+  <ul style="list-style: disc; text-align: left;" id="desc-dets" class="dn">
+    <li> Patented fastening system semi-permanently adheres Gekks to your shoes - you put Gekks in your shoe, not on your feet;</li>
+    <li>Slip in and out barefoot, but get all day comfort and stench control;</li>
+    <li>Ultra soft terry footbed;</li>
+    <li>Thin toe section will not alter the way your shoes fit;</li>
+    <li>39% polyester, 38% nylon, 6% spandex, 13% pima cotton, 4% silver coated nylon</li>
+  </ul>
+  <script>
+    $('#prod-description').click(function() {
+      $('#desc-dets').toggleClass('dn'); 
+       var text = $(this).text();
+        $(this).text(
+        text  == "+ Product Description" ? "- Product Description" : "+ Product Description"); 
+
+    })
+  </script>
   {% if product.type == "Pre-Built Bundle" %}
     <p style="margin-top: 20px;" class="subscript">Add any combinations of Gekks colors and sizes by building your own bundle. <a href="/pages/bundles" class="text-green">click here.</a></p>
   {% endif %}
