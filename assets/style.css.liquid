@@ -9,7 +9,7 @@
   src: url('Gilroy-Light.otf'); 
   font-weight: 300; 
   font-display: block;
-}
+} 
 /* general cross site styling */
 /* $green = #6DCDB8;
 $beige = #F9F2ED;
@@ -54,6 +54,8 @@ form input[type=submit], .modal .klaviyo_submit_button, form button { border: no
 .jcc { justify-content: center; }
 .jce { justify-content: flex-end; }
 .jcse { justify-content: space-evenly; }
+.asfe { align-self: flex-end }
+.asfs { align-self: flex-start; }
 .fdc { flex-direction: column; }
 .dn { display: none; }
 .ais { align-items: flex-start !important; }
@@ -860,6 +862,12 @@ footer input::placeholder { color: #fff; }
   color: #6DCDB8;
 } 
 #check-it { min-width: fit-content; }
+@media only screen and (max-width: 588px) {
+  .check-it .half-no { width: 50%; }
+}
+@media only screen and (min-width: 589px) {
+  .check-it .half-no { width: 25%; }
+}
 #video-overlay-pitch {
     margin-top: -40px;
     position: absolute;
