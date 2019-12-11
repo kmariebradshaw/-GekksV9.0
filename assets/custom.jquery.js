@@ -243,63 +243,6 @@ swipeLocation += 1
   $(thumbs[swipeLocation]).addClass('border-lightgray')
  }); 
 
-// 3-d shoe on index page 
-$('.switch-button').click(function(){
-      var display = ""
-      $('.drag-to').attr('src', '{{"drag-to.png" | asset_url}}')
-      switch ($(this).attr("id")) {
-        case "switch-to-flat": 
-          display = 'https://sibepher.sirv.com/Geek%20Flats%20NEW/Geek%20Flats%20NEW.spin'
-          $(this).parent().parent().addClass('current-switch').siblings().removeClass('current-switch');
-          break;
-        case "switch-to-sneaker":
-          display = 'https://sibepher.sirv.com/Gekk%20Sneaker%20NEW/Gekk%20Sneaker%20NEW.spin';
-          $(this).parent().parent().addClass('current-switch').siblings().removeClass('current-switch');
-          break;
-        case "switch-to-loafer":
-          display = 'https://sibepher.sirv.com/Gekk%20Loafer%20(1-26)/Gekk%20Loafer%20(1-26).spin';
-          $(this).parent().parent().addClass('current-switch').siblings().removeClass('current-switch');
-          break; 
-      } 
-      $('.shoe-switch').text('see in shoe')
-      $('.Sirv').attr('src', display); 
-    }); 
-
-    $('.shoe-switch').click(function() {
-      if ($('.Sirv').attr('src').indexOf('Shoe') >= 0) {
-        $('.drag-to').attr('src', '{{"drag-to.png" | asset_url}}')
-      }
-      else {
-        $('.drag-to').attr('src', '{{"horiz-drag.png" | asset_url}}')
-      }
-      var display = ""
-      if ($('.Sirv').attr('src').indexOf('Sneaker') >= 0) {
-        if ($('.Sirv').attr('src').indexOf('Shoe') >= 0)  {
-          display = 'https://sibepher.sirv.com/Gekk%20Sneaker%20NEW/Gekk%20Sneaker%20NEW.spin'
-        }
-        else {
-          display = 'https://sibepher.sirv.com/Gekk%20in%20Sneaker%20(1-30)/Sneaker%20in%20Shoe%20(1-30).spin'
-        }
-      }
-      else if ($('.Sirv').attr('src').indexOf('Loafer') >= 0) {
-        if ($('.Sirv').attr('src').indexOf('Shoe') >= 0)  {
-          display = 'https://sibepher.sirv.com/Gekk%20Loafer%20(1-26)/Gekk%20Loafer%20(1-26).spin'
-        }
-        else {
-          display = 'https://sibepher.sirv.com/Gekk%20in%20Loafer%20(1-30)/Loafer%20in%20Shoe%20(1-30).spin'
-        }
-      }
-      else if ($('.Sirv').attr('src').indexOf('Flat') >= 0) {
-        if ($('.Sirv').attr('src').indexOf('Shoe') >= 0)  {
-          display = 'https://sibepher.sirv.com/Geek%20Flats%20NEW/Geek%20Flats%20NEW.spin'
-        }
-        else {
-        display = 'https://sibepher.sirv.com/Flat%20in%20Shoe%20NEW/Flat%20in%20Shoe%20NEW.spin'
-        }
-      }
-      $('.Sirv').attr('src', display); 
-      $('.shoe-switch').text($('.shoe-switch').text() == "see in shoe" ? "see outside shoe" : "see in shoe")
-    })
 
 
 function createCookie(name,value,days) {
