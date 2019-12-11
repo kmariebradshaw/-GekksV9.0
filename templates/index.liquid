@@ -11,14 +11,46 @@
           </div>
         </div> 
       </section>
-      <section class="fw slideshow" id="d-atf2" style="display: none;">
+      <section class="fw d-slideshow do" id="d-atf2" style="">
         <div id="d-slide1" class="fw flex-container-no" >
-          <div class="half">
-            <h1 class="nmb">Find Your<br>Solemates</h1>
-             <p class="accent-padding">The Ultimate <span class="text-orange">No-Show Socks</span> that will mate for life with your shoes.</p>
+          <div class="half accent-padding">
+            <h1 class="nm">Find Your<br>Solemates</h1>
+             <p class="">The Ultimate <span class="text-orange">No-Show Socks</span> that will mate for life with your shoes.</p>
           </div>
           <div class="half no-pad">
             <img src="{{'ATF_desktop1.jpg' | asset_url}}" class="fw"/>
+          </div>
+        </div>
+        <div id="d-slide2" class="fw flex-container-no" style="display: none;" >
+          <div class="half accent-padding">
+            <h1 class="nm">Find Your<br>Solemates</h1>
+          </div>
+          <div class="half no-pad">
+            <img src="{{'ATF_desktop2.jpg' | asset_url}}" class="fw"/>
+          </div>
+        </div>
+        <div id="d-slide3" class="fw flex-container-no" style="display: none;" >
+          <div class="half accent-padding">
+            <h1 class="nm">Find Your<br>Solemates</h1>
+          </div>
+          <div class="half no-pad">
+            <img src="{{'ATF_desktop3.jpg' | asset_url}}" class="fw"/>
+          </div>
+        </div>
+        <div id="d-slide4" class="fw flex-container-no" style="display: none;" >
+          <div class="half accent-padding">
+            <h1 class="nm text-white">Find Your<br>Solemates</h1>
+          </div>
+          <div class="half no-pad">
+            <img src="{{'ATF_desktop4.jpg' | asset_url}}" class="fw"/>
+          </div>
+        </div>
+        <div id="d-slide5" class="fw flex-container-no" style="display: none;" >
+          <div class="half accent-padding">
+            <h1 class="nm">Find Your<br>Solemates</h1>
+          </div>
+          <div class="half no-pad">
+            <img src="{{'ATF_desktop5.jpg' | asset_url}}" class="fw"/>
           </div>
         </div>
       </section> 
@@ -79,23 +111,31 @@
           </div>
         </div>
       </section>
-      <div class="accent-padding tac">
+      <div class="accent-padding tac" id="mobile-circle">
         <div class="circle background-green" data-slide="slide1"></div>
         <div class="circle background-darkgray" data-slide="slide2"></div>
         <div class="circle background-darkgray" data-slide="slide3"></div> 
         <div class="circle background-darkgray" data-slide="slide4"></div>
         <div class="circle background-darkgray" data-slide="slide5"></div>
       </div>
+      <div class="accent-padding tac do">
+        <div class="d-circle background-green" data-slide="d-slide1"></div>
+        <div class="d-circle background-darkgray" data-slide="d-slide2"></div>
+        <div class="d-circle background-darkgray" data-slide="d-slide3"></div> 
+        <div class="d-circle background-darkgray" data-slide="d-slide4"></div>
+        <div class="d-circle background-darkgray" data-slide="d-slide5"></div>
+      </div>
       <style>
         #slide1, #slide2, #slide3, #slide4, #slide5 { 
           height: 100vw; 
           overflow: hidden;
         }
+        .d-slideshow img { margin-bottom: -3px; }
         #slide1 { 
           background-image: url("{{'slide1.jpg' | asset_url}}"); 
           background-size: cover;
         }
-        .circle {
+        .circle, .d-circle {
           height: 10px;
           width: 10px;
           display: inline-block;
@@ -129,23 +169,31 @@
             margin: 0 auto;
           }
         }
+        @media only screen and  (max-width: 799px) {
+          .do { display: none; }
+        }
+        @media only screen and (min-width: 800px) and (max-width: 1099px) {
+          .d-slideshow h1 { font-size: 44pt; }
+        }
+        @media only screen and (min-width: 800px) {
+          #mobile-circle { display: none; }
+        }
 
-#atf2 img {
-      display: block;
-        width: 100%;
-        height: auto;
-        position: absolute;
-        bottom: 0;
-    }
-.mobile-shopnow {
-    margin-top: -63px;
-    z-index: 1;
-    position: absolute;
-    margin-left: 20px;
-    width: 150px;
-    border-radius: 0;
-}
-     
+      #atf2 img {
+            display: block;
+              width: 100%;
+              height: auto;
+              position: absolute;
+              bottom: 0;
+        }
+        .mobile-shopnow {
+            margin-top: -63px;
+            z-index: 1;
+            position: absolute;
+            margin-left: 20px;
+            width: 150px;
+            border-radius: 0;
+        }
         .text-orange {
           color: #DC5729;
           font-weight: 300;
@@ -178,6 +226,31 @@
       $('.circle').click(function() {
         var newSlide = "#" + $(this).data("slide")
          $('.slideshow > div:visible').hide()
+         $(newSlide).show()
+         $(this).addClass('background-green').removeClass('background-darkgray').siblings().removeClass('background-green').addClass('background-darkgray')
+      })
+       </script>
+         <script>
+      $(document).ready(function() {
+
+       setInterval(function(){ 
+        var visibleSlide = $('.d-slideshow > div:visible').attr("id")
+        if (visibleSlide == "d-slide5") {
+          $('.d-slideshow > div:visible').hide();
+          $('#d-slide1').show(); 
+          $('.d-circle.background-green').removeClass('background-green').addClass('background-darkgray')
+          $('.d-circle:first-of-type').addClass('background-green').removeClass('background-darkgray')
+        }
+        else {          
+          $('.d-slideshow > div:visible').hide().next('.d-slideshow > div').show()
+          $('.d-circle.background-green').removeClass('background-green').addClass('background-darkgray').next('.d-circle').addClass('background-green').removeClass('background-darkgray')
+        }
+        }, 5000);
+      })
+
+      $('.d-circle').click(function() {
+        var newSlide = "#" + $(this).data("slide")
+         $('.d-slideshow > div:visible').hide()
          $(newSlide).show()
          $(this).addClass('background-green').removeClass('background-darkgray').siblings().removeClass('background-green').addClass('background-darkgray')
       })
