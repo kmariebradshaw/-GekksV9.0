@@ -10,6 +10,17 @@
             </a>
           </div>
         </div> 
+      </section>
+      <section class="fw slideshow" id="d-atf2" style="display: none;">
+        <div id="d-slide1" class="fw flex-container-no" >
+          <div class="half">
+            <h1 class="nmb">Find Your<br>Solemates</h1>
+             <p class="accent-padding">The Ultimate <span class="text-orange">No-Show Socks</span> that will mate for life with your shoes.</p>
+          </div>
+          <div class="half no-pad">
+            <img src="{{'ATF_desktop1.jpg' | asset_url}}" class="fw"/>
+          </div>
+        </div>
       </section> 
       <section class="fw slideshow flex-container-no mo-plus" id="atf2">
         <div id="slide1" class="accent-padding fw" >
@@ -92,6 +103,7 @@
           margin: auto 2.5px;
           cursor: pointer;
         }
+        .no-pad { padding: 0 !important; }
         #slide1 #custom-gekks { width: 150px; margin: 0 auto; }
         @media only screen and (max-width: 588px) {
           .img-container {
@@ -118,7 +130,7 @@
           }
         }
 
-.slideshow img {
+#atf2 img {
       display: block;
         width: 100%;
         height: auto;
@@ -127,7 +139,7 @@
     }
 .mobile-shopnow {
     margin-top: -63px;
-    z-index: 99999;
+    z-index: 1;
     position: absolute;
     margin-left: 20px;
     width: 150px;
@@ -138,13 +150,14 @@
           color: #DC5729;
           font-weight: 300;
         }
-        #slide2 { background-color: #81945c;}
-        #slide3 {background-color: #fcfe91;}
-        #slide4 {background-color: #d9f8eb;}
-        #slide5 {background-color: #535459;}
+        #slide1, #d-slide1 { background-color: #81945c;}
+        #slide2, #d-slide2 {background-color: #fcfe91;}
+        #slide3, #d-slide3 {background-color: #d9f8eb;}
+        #slide4, #d-slide4 {background-color: #535459;}
+        #slide5, #d-slide5 {background-color: #ffdf99;}
 
        </style>
-    <script>
+  <script>
       $(document).ready(function() {
 
        setInterval(function(){ 
