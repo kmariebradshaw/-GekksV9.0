@@ -1,7 +1,7 @@
 <div class="index-sections">
   <div>
     <div id="index-page"> 
-      <section class="fw flex-container-no" id="atf1" style="display: none;">
+      <section class="fw flex-container-no" id="atf1">
         <div>
           <h1 class="nmb">Meet Your <br> Solemate.</h1>
           <div id="custom-gekks"> 
@@ -11,11 +11,11 @@
           </div>
         </div> 
       </section>
-      <section class="fw d-slideshow do" id="d-atf2" style="">
+      {% comment %}<section class="fw d-slideshow do" id="d-atf2" style="">
         <div id="d-slide1" class="fw flex-container-no" >
           <div class="half accent-padding">
-            <h1 class="nm">Find Your<br>Solemates</h1>
-             <p class="">The Ultimate <span class="text-orange">No-Show Socks</span> that will mate for life with your shoes.</p>
+            <h1 class="nm tac">Find Your<br>Solemates</h1>
+             <p class="tac">The Ultimate <span class="text-orange">No-Show Socks</span> that will mate for life with your shoes.</p>
           </div>
           <div class="half no-pad">
             <img src="{{'ATF_desktop1.jpg' | asset_url}}" class="fw"/>
@@ -23,7 +23,7 @@
         </div>
         <div id="d-slide2" class="fw flex-container-no" style="display: none;" >
           <div class="half accent-padding">
-            <h1 class="nm">Find Your<br>Solemates</h1>
+            <h1 class="nm tac">Find Your<br>Solemates</h1>
           </div>
           <div class="half no-pad">
             <img src="{{'ATF_desktop2.jpg' | asset_url}}" class="fw"/>
@@ -31,7 +31,7 @@
         </div>
         <div id="d-slide3" class="fw flex-container-no" style="display: none;" >
           <div class="half accent-padding">
-            <h1 class="nm">Find Your<br>Solemates</h1>
+            <h1 class="nm tac">Find Your<br>Solemates</h1>
           </div>
           <div class="half no-pad">
             <img src="{{'ATF_desktop3.jpg' | asset_url}}" class="fw"/>
@@ -39,7 +39,7 @@
         </div>
         <div id="d-slide4" class="fw flex-container-no" style="display: none;" >
           <div class="half accent-padding">
-            <h1 class="nm text-white">Find Your<br>Solemates</h1>
+            <h1 class="nm text-white tac">Find Your<br>Solemates</h1>
           </div>
           <div class="half no-pad">
             <img src="{{'ATF_desktop4.jpg' | asset_url}}" class="fw"/>
@@ -47,7 +47,7 @@
         </div>
         <div id="d-slide5" class="fw flex-container-no" style="display: none;" >
           <div class="half accent-padding">
-            <h1 class="nm">Find Your<br>Solemates</h1>
+            <h1 class="nm tac">Find Your<br>Solemates</h1>
           </div>
           <div class="half no-pad">
             <img src="{{'ATF_desktop5.jpg' | asset_url}}" class="fw"/>
@@ -124,7 +124,7 @@
         <div class="d-circle background-darkgray" data-slide="d-slide3"></div> 
         <div class="d-circle background-darkgray" data-slide="d-slide4"></div>
         <div class="d-circle background-darkgray" data-slide="d-slide5"></div>
-      </div>
+      </div>{% endcomment %}
       <style>
         #slide1, #slide2, #slide3, #slide4, #slide5 { 
           height: 100vw; 
@@ -263,15 +263,15 @@
     <div class="title-border"></div><h2 class="nmb">Check it out<br class="mo"> for yourself</h2>
     <div class="flex-container-no check-it">
       <div class="half-no">
-        <img src="{{'3.jpg' | asset_url}}" class="fw">
+        <img src="{{'mens-sneaker-website.jpg' | asset_url}}" class="fw">
       </div>
       <div class="half-no">
         <img src="{{'Toms_Pink.jpg' | asset_url}}" class="fw">
       </div>
-      <div class="half-no do">
-        <img src="{{'Gekks_nude_flat.png' | asset_url}}" class="fw">
+      <div class="half-no checkit-do">
+        <img src="{{'FlatWebsite.jpg' | asset_url}}" class="fw">
       </div>
-      <div class="half-no do">
+      <div class="half-no checkit-do">
         <img src="{{'heel.jpg' | asset_url}}" class="fw">
       </div>
     </div>
@@ -284,8 +284,11 @@
       </div>
     </div>
   </div>
-
-
+  <style>
+  @media only screen and (max-width: 588px) {
+    .checkit-do { display: none; }
+  }
+</style>
   </section> 
 
     <section class="fw tac" id="mission"><div><h2 class="text-green nm">Our Mission</h2><p>Gekks use innovative technology and premium ingredients, so our customers and <br class="ndo-plus"> their soles can enjoy the day-to-day in comfort and style.</p> </div></section> 
