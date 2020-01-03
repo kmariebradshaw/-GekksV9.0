@@ -2,7 +2,7 @@
 <div class="index-sections">
   <div>
     <div id="index-page"> 
-      <section class="fw flex-container-no" id="atf1">
+{% comment %}      <section class="fw flex-container-no" id="atf1">
         <div>
           <h1 class="nmb">Meet Your <br> Solemate.</h1>
           <div id="custom-gekks"> 
@@ -11,7 +11,75 @@
             </a> 
           </div>
         </div> 
+      </section>{% endcomment %}
+      <section id="ab-prev">
+        <div class="flex-container-no">
+          <div class="half accent-padding tar">
+
+            <img src="{{'New_ATF_Flat.jpg' | asset_url}}" id="flat-atf-prev">
+            <img src="{{'New_ATF_Heel.jpg' | asset_url}}" id="heel-atf-prev" style="display: none;">
+            <img src="{{'New_ATF_Sneaker.jpg' | asset_url}}" id="sneaker-atf-prev"   style="display: none;">
+            <img src="{{'New_ATF_Loafer.jpg' | asset_url}}" id="loafer-atf-prev"  style="display: none;">
+
+          </div>
+          <div class="half accent-padding">
+                    <h1 class="ttu">No More<br> Hassle with<br> Slip & Slide<br> Socks</h1>
+
+            <div id="custom-gekks" class="fw"> 
+              <a href="/collections/all">
+                <div class="button border-green text-green tac fw"  onclick="ga('send', 'event', 'Above the Fold CTA', 'Click', 'Shop Your Gekks');">shop now</div>
+              </a> 
+          </div>
+          </div>
+        </div>
       </section>
+      <style>
+        @media only screen and (max-width: 399px) {
+          #ab-prev h1 { font-size: 16pt; }
+
+
+        }
+        @media only screen and (min-width: 400px) and (max-width: 588px) {
+          #ab-prev h1 { font-size: 21pt; }
+
+        }
+        @media only screen and (min-width: 589px) and (max-width: 799px) {
+          #ab-prev h1 { font-size: 30pt; }
+
+        }
+        @media only screen and (min-width: 800px) and (max-width: 1099px) {
+          #ab-prev h1 { font-size: 36pt; }
+
+        }
+        @media only screen and (min-width: 1100px) and (max-width: 1399px) {
+          #ab-prev h1 { font-size: 50pt; }
+
+        }
+        @media only screen and (min-width: 1400px) {
+          #ab-prev h1 { font-size: 50pt; }
+
+        }
+  
+        @media only screen and (min-width: 800px) {
+          #ab-prev .accent-padding { padding: 50px !important; }
+        }
+        #ab-prev img { max-width: 100%; }
+        #ab-prev a { font-weight: lighter !important; }
+      </style>
+      <script>
+        $(document).ready(function() {
+          setInterval(function() {
+            var currentImage = $('#ab-prev .half img:visible')
+            if (currentImage.attr("id") != "loafer-atf-prev") {
+              currentImage.hide().next().fadeIn(2000) 
+            }
+            else {
+              currentImage.hide()
+              $('#flat-atf-prev').fadeIn(2000)
+            }
+          }, 3000)
+        })
+      </script>
      
 <section class="fw endorsements-features" id="featured"><ul class="background-beige"><li><h3>featured in</h3></li><li><img src="{{'BuzzFeed.png' | asset_url}}" alt="BuzzFeed"/></li><li><img src="{{'simple.png' | asset_url}}" alt="Real Simple" /></li><li><img src="{{'vogue.png' | asset_url}}" alt="Vogue"/></li><li><img src="{{'maxim.png' | asset_url}}" alt="Maxim"/></li><li><img src="{{'who-what-wear-press.png' | asset_url}}" alt="Teen Vogue"/></li></ul> </section> 
 
