@@ -1,15 +1,18 @@
     <main id="bundle-page">	
       <section id="bundle-page-wrapper">
-        <section class="page-title flex-container-no jcc">
-          <h1>Bundle and Save!</h1>
+        <section class="page-title flex-container-no jcc" id="bundle-and-save-atf">
+          <h1 class="text-green">Bundle <br class="mo-plus">& Save!</h1>
         </section> 
+          <section id="pricing-list" class="index-padding">
+            <h2 class="tac nmt"><span>Bundle any style, color, size, and save!<br></span></h2>
+            <p class=" pricing-font tac">2 pairs: <span class="strikethrough">$36.00</span> $32.00</p>
+            <p class="tac pricing-font">3 pairs: <span class="strikethrough">$54.00</span> $42.00</p>
+            <p class="tac pricing-font">4 pairs: <span class="strikethrough">$64.00</span> $48.00</p>
+            <p class="tac pricing-font">5+ pairs: <span class="strikethrough">$80.00+</span> $60.00+ & Free Shipping!</p>
+          </section>
         <section class="index-padding">
-          <h3 class="tac nmt"><span>Bundle any style, color, size, and save!<br></span></h3>
-              <p class=" pricing-font tac nm">2 pairs: <span class="strikethrough">$36.00</span> $32.00</p>
-              <p class="tac pricing-font nm">3 pairs: <span class="strikethrough">$54.00</span> $42.00</p>
-    
-          <p class="tac pricing-font nm">4 pairs: <span class="strikethrough">$64.00</span> $48.00</p>
-          <p class="tac pricing-font nm">5+ pairs: <span class="strikethrough">$80.00+</span> $60.00+ & Free Shipping!</p>
+
+
           <h1 class="text-green tac">Build <img src="{{'your.png' | asset_url}}" id="your"> Bundle</h1>
           <button class="fw background-green accent-padding" style="margin-bottom: 20px" id="womens-bundle-choice" onClick="ga('send', 'event', 'Bundles', 'Gender Selection', 'Women');"><img src="{{'Icon-woman.svg' | asset_url}}" class="icon" />
 <h2 class="tac text-white nm button-label">Women</h2></button>
@@ -418,6 +421,12 @@ $('.add-to-bundle-button').click(function() {
 
         	
 <style>
+  #pricing-list { background-color: #EDF1F4; }
+  #bundle-and-save-atf h1 {
+    text-shadow: 1px 1px darkgray;
+    text-align: center;
+
+  }
   #your {
     width: 27%;
     vertical-align: middle;
@@ -425,11 +434,11 @@ $('.add-to-bundle-button').click(function() {
 }
 .cart-update { background: lightgray !important; }
 #bundle-page .page-title {
-  background-image: url("{{'SockCircle_Cut.jpg' | asset_url}}");
+  background-image: url("{{'BYB_ATF_mobile.jpg' | asset_url}}") ;
   background-repeat: no-repeat;
-/*  background-size: cover;
-*/  background-position: center;
-  height: 300px;
+  background-size: cover;
+  background-position: center;
+  height: 68vw;
 }
 .button-label {
     line-height: 35px;
@@ -548,16 +557,18 @@ vertical-align: middle;
 }
 
 .modal { background-color: white; max-width: 400px;}
-#bundle-page .page-header {
-  background-image: url("{{'SockCircle.png' | asset_url}}") ;
-  background-position: center;
-  background-repeat: no-repeat;
-    background-size: 60%;
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+@media only screen and (min-width: 400px) and (max-width: 588px) {
+  #bundle-and-save-atf h1 {
+    font-size: 54pt;
+    line-height: 85pt;
+  }
 }
-.highlight {border: 2px solid darkgray;}
+@media only screen and (max-width: 399px) {
+    #bundle-and-save-atf h1 {
+    font-size: 42pt;
+    line-height: 62pt;
+  }
+}
 
 </style>
