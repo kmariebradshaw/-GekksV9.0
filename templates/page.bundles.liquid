@@ -370,20 +370,7 @@
         		})
         	</script>
 <script>
-  Shopify.queue = [];
-
-  Shopify.moveAlong = function() {
-    if (Shopify.queue.length) {
-      var request = Shopify.queue.shift();
-      Shopify.addItem(request.variantId, request.quantity, Shopify.moveAlong);
-    }
-    else {
-      $('.modal').hide(); 
-      $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
-
-      $('#bundle-refresh').load(document.URL + ' #bundle-refresh')
-    }
-  };
+ 
 
   Shopify.addItem = function(id, qty, properties, callback) {
     var params = {
@@ -399,12 +386,17 @@
       dataType: 'json',
       data: params,
       success: function(){
+
+      $('.modal').hide(); 
+      $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
+
+      $('#bundle-refresh').load(document.URL + ' #bundle-refresh')
         if(typeof callback === 'function'){
           callback();
 
         }
+
       },
-      error: function(){}
     });
   }
   
@@ -414,22 +406,13 @@
     $(element).parent().parent().hide(); 
   } 
 
-  function push_to_queue(variantID, quantity) {
-    Shopify.queue.push({
-      variantId: variantID,
-      quantity: quantity
-    });
-  }
-
 $('.add-to-bundle-button').click(function() {
     var size = $('.build-bundle-size:visible option:selected').val()
     var quantity = $('.build-bundle-quantity:visible option:selected').val(); 
+    var variantSelected =  $( ".bundle-color-selection.highlight:visible" ).data('variant-id-' + size); 
+     Shopify.addItem(variantSelected, quantity)
 
-    $( ".bundle-color-selection.highlight:visible" ).each(function() {
-        var variantSelected = $(this).data('variant-id-' + size); 
-        push_to_queue(variantSelected, quantity)
-    });
-  Shopify.moveAlong()
+    
 }); 
 </script>
 
