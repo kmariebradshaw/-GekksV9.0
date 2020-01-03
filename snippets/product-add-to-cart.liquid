@@ -13,7 +13,7 @@
     {% if product.available %} 
         {% if product.type != "Pre-Built Bundle" and product.title != "Gift Cards" %}
             <div class="flex-container-no jcc">
-              <h3 class="" style=" margin-right: 10px">$18 <span class="subscript" style="font-weight: 300; margin: 0 5px;">or</span> $12 </h3><span class="subscript" style="font-weight: 300;">when you buy 3 <br>or more pairs</span>
+              <h3 class="" style=" margin-right: 10px">$18 <span class="subscript" style="font-weight: 300; margin: 0 5px;">or</span> $12 </h3><span class="subscript" style="font-weight: 300;">when you buy 4 <br>or more pairs</span>
             </div>
         {% else %}
           <div class="price{% if product.price < product.compare_at_price_max %} sale{% endif %}" itemprop="price" content="{{ product.compare_at_price | money_without_currency }}">
