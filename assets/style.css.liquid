@@ -1208,21 +1208,62 @@ width: 80%;     display: block;     margin: 0 auto;     max-width:
   background-position: inherit;
 }
 #int-wrapper > div { display: inline-block; width: fit-content; position: relative; }
-#moisture {
-    left: -160px;
-    top: -20px;
+
+@media only screen and (min-width: 800px) {
+  #moisture {
+      left: -160px;
+      top: -20px;
+  }
+  #patented {
+      top: -77px;
+      left: 105px;
+  }
+  #odor {
+      top: 155px;
+      left: -90px;
+  }
+  #no-show-really {
+      top: 93px;
+      left: 160px;
+  }
 }
-#patented {
-    top: -77px;
-    left: 105px;
+@media only screen and (min-width: 589px) and (max-width: 799px) {
+  #moisture {
+    left: -70px;
+    top: 20px;
+  }
+  #patented {
+    top: -85px;
+    left: 65px;
+  }
+  #odor {
+    top: 120px;
+    left: -70px;
+  }
+  #no-show-really {
+    top: 130px;
+    left: 75px;
+  }
 }
-#odor {
-    top: 155px;
-    left: -90px;
+@media only screen and (max-width: 588px) {
+  #moisture {
+    left: -70px;
+    top: 20px;
+  }
+  #patented {
+    top: -85px;
+    left: 65px;
+  }
+  #odor {
+    top: 120px;
+    left: -70px;
+  }
+  #no-show-really {
+    top: 130px;
+    left: 75px;
 }
-#no-show-really {
-    top: 93px;
-    left: 160px;
+  #int-wrapper h4 { font-size: 10pt; }
+  #int-wrapper .subscript { font-size: 8pt; }
 }
 #repreve { 
   background-image: url("{{'techpagebubble.png' | asset_url}}"); 
@@ -1301,28 +1342,6 @@ table .lg { background-color: #F9F7F7; }
     top: 70px;
 }
 
-#no-show {
-  margin-top: 55px;
-}
-
-#tongue-fasten {
-  left: -64px;
-    top: 79px;
-   }
-
-   #moisture-wick {
-    right: -30px;
-    top: 79px;
-   }
-
-   #odor-killing {
-   left: -85px; 
-bottom: 115px;}
-  #heel-fasten {
-    left: 10px;
-    bottom: 115px;
-}
-
 .slb:before { margin-top: 20px; }
 
 .info-label {width: 300px;}
@@ -1353,7 +1372,7 @@ body .up-label-vis:after {
 #int-wrapper {
     width: 320px;
     height: 285px;
-    margin: 50px auto;
+    margin: 70px auto 50px auto;
 }
 
   #int-wrapper .plus-more p {
@@ -1475,14 +1494,7 @@ transform: translateY(180deg);
 
 
 @media only screen and (min-width: 589px) and (max-width: 799px) {
-#tongue-fasten {
-    left: -80px;
-    top: 139px;
-}
-#no-show {
-    top: 139px;
-    left: 55px;
-}
+
 .collections-grid { height: 400px; }
 #moisture-wick {
     right: -30px;
@@ -1493,15 +1505,6 @@ transform: translateY(180deg);
 #interactive-gekks li {  margin: 0 20px; }
 
 
-#odor-killing {
-    left: -165px;
-    bottom: 157px;
-}
-
-#heel-fasten {
-    left: 10px;
-    bottom: 156px;
-}
 
 .slb:before { margin-top: 45px; }
 
@@ -1513,6 +1516,7 @@ transform: translateY(180deg);
   #int-wrapper {
     width: 590px;
     height: 450px;
+    margin: 70px auto 50px auto;
 }
 
 .text-solution {
