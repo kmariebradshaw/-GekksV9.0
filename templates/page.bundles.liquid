@@ -99,10 +99,11 @@
           {% comment %} end visible page, begin modals{% endcomment %}
           <div class="modal create-loafers border-gray" style="display: none;">
             <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
-            <img src="{{'BlackLoafer.jpg' | asset_url}}" class="fw black-color-choice modal-featured"/>
-            <img src="{{'PinkLoafer.jpg' | asset_url}}" class="fw rose-color-choice modal-featured" style="display: none;"/>
-            <img src="{{'GreenLoafer.jpg' | asset_url}}" class="fw green-color-choice modal-featured" style="display: none;"/>
-            <img src="{{'BlueLoafer.jpg' | asset_url}}" class="fw blue-color-choice modal-featured" style="display: none;"/>
+            <img src="{{'BlackLoafer.jpg' | asset_url}}" class="fw modal-featured"/>
+            <img src="{{'BlackLoafer.jpg' | asset_url}}" class="fw black-color-choice modal-not-featured" style="display: none;"/>
+            <img src="{{'PinkLoafer.jpg' | asset_url}}" class="fw rose-color-choice modal-not-featured" style="display: none;"/>
+            <img src="{{'GreenLoafer.jpg' | asset_url}}" class="fw green-color-choice modal-not-featured" style="display: none;"/>
+            <img src="{{'BlueLoafer.jpg' | asset_url}}" class="fw blue-color-choice modal-not-featured" style="display: none;"/>
             <div class="flex-container-no jcc">
               <div class="bundle-color-selection black highlight" data-variant-id-small="18250901828" data-variant-id-medium="18250902084" data-variant-id-large="18250902276"></div>
               <div class="bundle-color-selection rose" data-variant-id-small="31001775046733" data-variant-id-medium="31001775079501" data-variant-id-large="31001775112269"></div>
@@ -138,10 +139,11 @@
 
           <div class="modal create-sneakers border-gray" style="display: none;">
             <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
-            <img src="{{'BlackSneaker.jpg' | asset_url}}" class="fw black-color-choice modal-featured"/>
-            <img src="{{'PinkSneaker.jpg' | asset_url}}" class="fw rose-color-choice modal-featured" style="display: none;"/>
-            <img src="{{'GreenSneaker.jpg' | asset_url}}" class="fw green-color-choice modal-featured" style="display: none;"/>
-            <img src="{{'BlueSneaker.jpg' | asset_url}}" class="fw blue-color-choice modal-featured" style="display: none;" />     
+            <img src="{{'BlackSneaker.jpg' | asset_url}}" class="fw modal-featured"/>
+            <img src="{{'BlackSneaker.jpg' | asset_url}}" class="fw black-color-choice modal-not-featured" style="display: none;"/>
+            <img src="{{'PinkSneaker.jpg' | asset_url}}" class="fw rose-color-choice modal-not-featured" style="display: none;"/>
+            <img src="{{'GreenSneaker.jpg' | asset_url}}" class="fw green-color-choice modal-not-featured" style="display: none;"/>
+            <img src="{{'BlueSneaker.jpg' | asset_url}}" class="fw blue-color-choice modal-not-featured" style="display: none;" />     
             <div class="flex-container-no jcc">
               <div class="bundle-color-selection black highlight" data-variant-id-small="18250940100" data-variant-id-medium="18250940804" data-variant-id-large="18250941956"></div>
               <div class="bundle-color-selection rose" data-variant-id-small="31001784582221" data-variant-id-medium="31001784614989" data-variant-id-large="31001784647757"></div>
@@ -177,8 +179,9 @@
           
           <div class="modal create-flats border-gray" style="display: none;">
             <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
-            <img src="{{'flatblack.jpg' | asset_url}}" class="fw black-color-choice modal-featured" />
-            <img src="{{'flatbeige.jpg' | asset_url}}" class="fw beige-color-choice modal-featured" style="display: none;" />            
+            <img src="{{'flatblack.jpg' | asset_url}}" class="fw modal-featured" />
+            <img src="{{'flatblack.jpg' | asset_url}}" class="fw black-color-choice modal-not-featured" style="display: none;" />
+            <img src="{{'flatbeige.jpg' | asset_url}}" class="fw beige-color-choice modal-not-featured" style="display: none;" />            
             <div class="flex-container-no jcc">
               <div class="bundle-color-selection black highlight" data-variant-id-medium="18247857860" data-variant-id-large="18247857988" data-variant-id-small="18247857668"></div>
               <div class="bundle-color-selection beige" data-variant-id-medium="18247857924" data-variant-id-large="18247858052" data-variant-id-small="19347385476"></div>
@@ -212,7 +215,8 @@
 
           <div class="modal create-heels border-gray" style="display: none;">
             <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
-            <img src="{{'heelblack.jpg' | asset_url}}" class="fw black-color-choice modal-featured" />
+            <img src="{{'heelblack.jpg' | asset_url}}" class="fw modal-featured" />
+             <img src="{{'heelblack.jpg' | asset_url}}" class="fw black-color-choice modal-not-featured" style="display: none;" />
             <img src="{{'heelbeige.jpg' | asset_url}}" class="fw beige-color-choice modal-featured" style="display: none;" />
             <div class="flex-container-no jcc">
               <div class="bundle-color-selection black highlight" data-variant-id-medium="702715527185" data-variant-id-large="702715592721" data-variant-id-small="702715461649"></div>
@@ -328,7 +332,8 @@
             })
             $('.modal-not-featured').click(function() {
               newSrc = $(this).attr("src")
-              $('.modal-featured:visible').attr("src", newSrc); 
+            
+              $(this).parent().parent().siblings('.modal-featured').attr("src", newSrc).show().siblings('img').hide(); 
             })
             $('.bundle-modal-close').click(function() {
               $(this).parent().parent().hide(); 
@@ -338,19 +343,19 @@
             $('.bundle-color-selection').click(function() {
               $(this).addClass('highlight').siblings('.bundle-color-selection').removeClass('highlight'); 
               if ($(this).hasClass('black')) {
-                $(this).parent().siblings('.black-color-choice').show().siblings('.modal-featured').hide(); 
+                $(this).parent().siblings('.black-color-choice').show().siblings('img').hide(); 
               }
               else if ($(this).hasClass('blue')) {
-                $(this).parent().siblings('.blue-color-choice').show().siblings('.modal-featured').hide(); 
+                $(this).parent().siblings('.blue-color-choice').show().siblings('img').hide(); 
               }
               else if ($(this).hasClass('rose')) {
-                $(this).parent().siblings('.rose-color-choice').show().siblings('.modal-featured').hide(); 
+                $(this).parent().siblings('.rose-color-choice').show().siblings('img').hide(); 
               }
               else if ($(this).hasClass('green')) {
-                $(this).parent().siblings('.green-color-choice').show().siblings('.modal-featured').hide(); 
+                $(this).parent().siblings('.green-color-choice').show().siblings('img').hide(); 
               }
               else if ($(this).hasClass('beige')) {
-                $(this).parent().siblings('.beige-color-choice').show().siblings('.modal-featured').hide(); 
+                $(this).parent().siblings('.beige-color-choice').show().siblings('img').hide(); 
               }
             }); 
 
