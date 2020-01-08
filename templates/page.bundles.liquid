@@ -34,31 +34,31 @@
           <h2>select styles to add to your bundle</h2>
             <div id="style-select-custom">
               <div class="flex-container womens-bundle tac">
-                <div class="half bundle-style clickable" id="create-loafers" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'WLoafers');">
+                <div class="half bundle-style clickable" id="create-loafers">
                   <img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_2000x2000.jpg?v=1573054961" class="fw">
                   <h4 class="tac">Loafers</h4>
                 </div>
-                <div class="half clickable bundle-style" id="create-sneakers" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'WSneakers');">
+                <div class="half clickable bundle-style" id="create-sneakers" >
                   <img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_eb0a0759-4910-43dd-9bb8-daa0c386d7b6_2000x2000.jpg?v=1573055042" class="fw">
                   <h4 class="tac">Sneakers</h4>
-                </div>
+                </div> 
               </div>
               <div class="flex-container womens-bundle">
-                <div class="half clickable bundle-style" id="create-flats" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'Flats');">
+                <div class="half clickable bundle-style" id="create-flats" >
                   <img src="{{'Nude_Flat_4.jpg' | asset_url}}" class="fw">
                   <h4 class="tac">Flats</h4>
                 </div>
-                <div class="half clickable bundle-style" id="create-heels" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'Heels');">
-                  <img src="{{'heelshot.jpg' | asset_url}}" class="fw">
+                <div class="half clickable bundle-style" id="create-heels" >
+                  <img src="{{'heelshot-new.jpg' | asset_url}}" class="fw">
                   <h4 class="tac">Heels</h4>
                 </div>
               </div>
               <div class="flex-container mens-bundle" style="display: none;">
-                <div class="half clickable bundle-style" id="create-mloafers" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'MLoafers');">
+                <div class="half clickable bundle-style" id="create-mloafers">
                   <img src="//cdn.shopify.com/s/files/1/0424/0893/products/2_dfefd4ff-bd53-4e9e-9895-c73c1935ff9b_2000x2000.jpg?v=1573252367" class="fw">
                   <h4 class="tac">Loafers</h4>
                 </div>
-                <div class="half clickable  bundle-style" id="create-msneakers" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'MSneakers');">
+                <div class="half clickable  bundle-style" id="create-msneakers" >
                   <img src="//cdn.shopify.com/s/files/1/0424/0893/products/SneakerFull_2000x2000.jpg?v=1573252161" class="fw">
                   <h4 class="tac">Sneakers</h4>
                 </div>
@@ -70,7 +70,7 @@
               <section class="border-lightgray accent-padding" id="your-bundle">
                 <h2 class="text-green nm">Your Bundle</h2>
                 {% if cart.item_count > 0 %}
-                  <a href="/cart"><div class="background-green accent-padding fw" style="margin-top: 20px;" onClick="ga('send', 'event', 'Bundles', 'Your Bundle', 'Add To Cart');"><h3 class="text-white tac nm">add to cart</h3></div></a>
+                  <a href="/cart"><div class="background-green accent-padding fw" style="margin-top: 20px;"><h3 class="text-white tac nm">add to cart</h3></div></a>
                   {% for item in cart.items %}
                     <div class="flex-container-no line-item-wrapper">
                       <div class="three-five accent-padding">
@@ -378,6 +378,7 @@
                 quantity: qty,
                 id: id
               };
+              console.log(params)
               if(properties != false){
                 params.properties = properties;
               }
@@ -387,7 +388,7 @@
                 dataType: 'json',
                 data: params,
                 success: function(){ 
-
+                $('#bundle-page .modal:visible').hide(); 
                 $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
                 $('#bundle-refresh').load(document.URL + ' #bundle-refresh')
                 },
@@ -412,6 +413,16 @@ $('.add-to-bundle-button').click(function() {
 
         	
 <style>
+  @media only screen and (min-width: 589px) and (max-width: 799px) {
+    #bundle-page h2 { font-size: 16pt; }
+    #bundle-page h1 { font-size: 27pt; }
+    #bundle-and-save-atf h1 { font-size: 60pt; }
+  }
+  @media only screen and (max-width: 588px) {
+    #bundle-page h2 { font-size: 12pt; }
+    #bundle-page h1 { font-size: 18pt; }
+    #bundle-page h3 { font-size: 12pt; }
+  }
   #pricing-list, #step-two-what { background-color: #EDF1F4; }
   #bundle-and-save-atf h1 {
     text-shadow: 1px 1px darkgray;
