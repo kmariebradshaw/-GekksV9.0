@@ -1,4 +1,5 @@
     <main id="bundle-page">	
+      <div id="copied" class="tac" style="position: fixed; display: none;"><p class="subscript"><span>added to bundle</span></p></div>
         <section class="page-title flex-container-no jcc" id="bundle-and-save-atf">
           <h1 class="text-green">Bundle <br class="mo-plus">& Save!</h1>
         </section> 
@@ -314,7 +315,7 @@
         
         <script>
             $('#click-to-start').click(function() {
-              $('#step-one-who, #step-two-what').show()
+              $('#step-one-who').show()
               $('html, body').animate({
                   scrollTop: $("#step-one-who").offset().top - 105
                 }, 500);
@@ -322,6 +323,7 @@
             $('#womens-bundle-choice, #mens-bundle-choice').click(function() {
               $('.icon').removeClass('highlight')
               $(this).find('.icon').addClass('highlight'); 
+              $('#step-two-what').show()
               $('#bundle-refresh-wrapper').show()
             })
             $('.modal-not-featured').click(function() {
@@ -373,7 +375,6 @@
         	</script>
           <script>
            function addItem(id, qty, properties, callback) {
-              console.log('in add')
               var params = {
                 quantity: qty,
                 id: id
@@ -391,6 +392,8 @@
                 $('#bundle-page .modal:visible').hide(); 
                 $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
                 $('#bundle-refresh').load(document.URL + ' #bundle-refresh')
+                $('#copied').slideUp().slideDown().delay(1000).slideUp(); 
+
                 },
 
               });
