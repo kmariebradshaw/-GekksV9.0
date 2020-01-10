@@ -48,6 +48,7 @@ form input[type=submit], .modal .klaviyo_submit_button, form button { border: no
 .nmt { margin-top: 0; }
 .nm { margin: 0; } 
 .tar { text-align: right; }
+.tal { text-align: left; }
 .fr { float: right; }
 .ttu { text-transform: uppercase; }
 .jcs { justify-content: flex-start; }
@@ -1206,6 +1207,65 @@ width: 80%;     display: block;     margin: 0 auto;     max-width:
   background-size: cover;
   background-position: inherit;
 }
+#int-wrapper > div { display: inline-block; width: fit-content; position: relative; }
+
+@media only screen and (min-width: 800px) {
+  #moisture {
+      left: -5px;
+      top: 130px;
+  }
+  #patented {
+    top: -30px;
+    left: 250px;
+}
+#no-show-really {
+    top: 700px;
+    left: 145px;
+}
+  #odor {
+    top: 585px;
+    left: -460px;
+}
+
+}
+@media only screen and (min-width: 589px) and (max-width: 799px) {
+  #moisture {
+    left: -20px;
+    top: 50px;
+  }
+  #patented {
+    top: -40px;
+    left: 55px;
+  }
+  #odor {
+    top: 278px;
+    left: -30px;
+}
+  #no-show-really  {
+    top: 385px;
+    left: 0px;
+  }
+}
+@media only screen and (max-width: 588px) {
+  #moisture {
+    left: -70px;
+    top: 20px;
+  }
+  #patented {
+    top: -85px;
+    left: 65px;
+  }
+  #odor {
+    top: 120px;
+    left: -70px;
+  }
+  #no-show-really {
+    top: 130px;
+    left: 75px;
+}
+  #int-wrapper h4 { font-size: 10pt; }
+  #int-wrapper .subscript { font-size: 8pt; }
+}
 #repreve { 
   background-image: url("{{'techpagebubble.png' | asset_url}}"); 
   background-position: center !important;
@@ -1236,10 +1296,15 @@ table .lg { background-color: #F9F7F7; }
 #tongue-fasten, #moisture-wick, #no-show { box-shadow: 5px 5px 5px lightgrey; }
 
 #heel-fasten, #odor-killing {    box-shadow: 5px 0px 5px lightgrey; }
-#int-wrapper, #int-wrapper-do {
+@media only screen and (max-width: 799px) {
+  #int-wrapper {   background: url("{{'HowItWorks_Mobile_NoText.jpg' | asset_url}}"); }
+}
+@media only screen and (min-width: 800px) {
+  #int-wrapper {   background: url("{{'HowItWorks_NoText.jpg' | asset_url}}"); }
+}
+#int-wrapper  {
   margin: 0 auto;
   text-align: center;
-  background: url("{{'sneaker-neon.png' | asset_url}}");
       background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -1277,29 +1342,6 @@ table .lg { background-color: #F9F7F7; }
     left: calc(50% - 10px);
     top: 70px;
 }
-#int-wrapper-do { display: none; }
-
-#no-show {
-  margin-top: 55px;
-}
-
-#tongue-fasten {
-  left: -64px;
-    top: 79px;
-   }
-
-   #moisture-wick {
-    right: -30px;
-    top: 79px;
-   }
-
-   #odor-killing {
-   left: -85px; 
-bottom: 115px;}
-  #heel-fasten {
-    left: 10px;
-    bottom: 115px;
-}
 
 .slb:before { margin-top: 20px; }
 
@@ -1331,7 +1373,7 @@ body .up-label-vis:after {
 #int-wrapper {
     width: 320px;
     height: 285px;
-    margin: 50px auto;
+    margin: 70px auto 50px auto;
 }
 
   #int-wrapper .plus-more p {
@@ -1453,14 +1495,7 @@ transform: translateY(180deg);
 
 
 @media only screen and (min-width: 589px) and (max-width: 799px) {
-#tongue-fasten {
-    left: -80px;
-    top: 139px;
-}
-#no-show {
-    top: 139px;
-    left: 55px;
-}
+
 .collections-grid { height: 400px; }
 #moisture-wick {
     right: -30px;
@@ -1471,15 +1506,6 @@ transform: translateY(180deg);
 #interactive-gekks li {  margin: 0 20px; }
 
 
-#odor-killing {
-    left: -165px;
-    bottom: 157px;
-}
-
-#heel-fasten {
-    left: 10px;
-    bottom: 156px;
-}
 
 .slb:before { margin-top: 45px; }
 
@@ -1491,6 +1517,7 @@ transform: translateY(180deg);
   #int-wrapper {
     width: 590px;
     height: 450px;
+    margin: 70px auto 50px auto;
 }
 
 .text-solution {
@@ -1550,21 +1577,13 @@ body .up-label-vis:after {
   top: -85px;
 }
 
-#int-wrapper-do { display: none; }
 
 }
   #CartContainer { top: 0px; height:  100vh; }
 
 @media only screen and (min-width: 800px) {
-  #int-wrapper { display: none; }
-  #int-wrapper-do .do-text{ 
-    display: inline-block;
-    border-left: 2px solid #6DCDB8;
-      max-width: 25%;
-      text-align: left;
-      padding-left: 15px;
-      position: relative;
-  }
+
+
   #review-details {
     float: right;
 }
@@ -1650,12 +1669,9 @@ body .up-label-vis:after {
    vertical-align: middle;
  } 
 
-  body #int-wrapper-do .do-text-below { border-left: none; }
-
-  body #int-wrapper-do .do-text-below .b-title, body #int-wrapper-do .do-text-below .do-explain { border-left: 2px solid #6DCDB8; padding-left: 10px; }
 
   body .do-text-below .do-benefit { padding-left: 10px;     margin-top: 0;}
-  #int-wrapper-do { height: 800px; width: 800px; margin-top: 7%; margin-bottom: 7%;}
+  #int-wrapper { height: 800px; width: 800px; margin-top: 7%; margin-bottom: 7%;}
 
   .do-explain, .do-benefit { 
     font-weight: lighter;
@@ -1667,30 +1683,7 @@ body .up-label-vis:after {
   .do-benefit b { font-weight: normal; }
 
   .border-left { border-left: 2px solid #6DCDB8;}
-  #do-no-show {
-    left: -5px;
-    top: 56px;
-    height: 275px;
-}
 
-  #do-tongue-fasten {
-    left: 30px;
-    height: 250px;
-    top: 41px;
-}
-
-  #do-moisture-wick {
-    right: -75px;
-    height: 250px;
-    top: 117px;
-}
-
-
-
-  #do-odor-killing {
-    top: 175px;
-    right: 55px;
-}
 
 body .do-text-below .do-benefit-hide  {
     padding-left: 10px;
