@@ -1,106 +1,111 @@
     <main id="bundle-page">	
-      <section id="bundle-page-wrapper">
-        <section class="page-title flex-container-no jcc">
-          <h1>Bundle and Save!</h1>
+      <div id="copied" class="tac" style="position: fixed; display: none;"><p class="subscript"><span>added to bundle - keep bundling!</span></p></div>
+        <section class="page-title flex-container-no jcc" id="bundle-and-save-atf">
+          <h1 class="text-green">Bundle <br class="mo-plus">& Save!</h1>
         </section> 
-        <section class="index-padding">
-          <h3 class="tac nmt"><span>Bundle any style, color, size, and save!<br></span></h3>
-              <p class=" pricing-font tac nm">2 pairs: <span class="strikethrough">$36.00</span> $32.00</p>
-              <p class="tac pricing-font nm">3 pairs: <span class="strikethrough">$54.00</span> $42.00</p>
-    
-          <p class="tac pricing-font nm">4 pairs: <span class="strikethrough">$64.00</span> $48.00</p>
-          <p class="tac pricing-font nm">5+ pairs: <span class="strikethrough">$80.00+</span> $60.00+ & Free Shipping!</p>
-          <h1 class="text-green tac">Build <img src="{{'your.png' | asset_url}}" id="your"> Bundle</h1>
-          <button class="fw background-green accent-padding" style="margin-bottom: 20px" id="womens-bundle-choice" onClick="ga('send', 'event', 'Bundles', 'Gender Selection', 'Women');"><img src="{{'Icon-woman.svg' | asset_url}}" class="icon" />
-<h2 class="tac text-white nm button-label">Women</h2></button>
-          <button class="fw background-green accent-padding" id="mens-bundle-choice" onClick="ga('send', 'event', 'Bundles', 'Gender Selection', 'Men');">
-            <img src="{{'Icon-man.svg' | asset_url}}" class="icon"/>
-            <h2 class="tac text-white button-label nm">Men</h2></button>
- 
-
-
-
-        <div id="style-select-custom">
-          <div style="height: 87px;"></div>
-
-          <h2 class="text-green">Select Style</h2>
-          {% comment %}<div class="flex-container-no do womens-bundle">
-            <div class="quarter"><img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_2000x2000.jpg?v=1573054961" class="fw"></div>
-            <div class="quarter"> <img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_eb0a0759-4910-43dd-9bb8-daa0c386d7b6_2000x2000.jpg?v=1573055042" class="fw"></div>
-            <div class="quarter"><img src="{{'Nude_Flat_4.jpg' | asset_url}}" class="fw"></div>
-            <div class="quarter"><img src="{{'heelshot.jpg' | asset_url}}" class="fw"></div>
-          </div>
-          <div class="flex-container-no do mens-bundle jcc" style="display: none;">
-            <div class="quarter"><img src="//cdn.shopify.com/s/files/1/0424/0893/products/2_dfefd4ff-bd53-4e9e-9895-c73c1935ff9b_2000x2000.jpg?v=1573252367" class="fw"></div>
-            <div class="quarter"> <img src="//cdn.shopify.com/s/files/1/0424/0893/products/SneakerFull_2000x2000.jpg?v=1573252161" class="fw"></div>
-          </div>{% endcomment %}
-          <div class="flex-container-no womens-bundle">
-            <div class="half bundle-style clickable" id="create-loafers" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'WLoafers');">
-              <img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_2000x2000.jpg?v=1573054961" class="fw">
-              <h4 class="tac">Loafers</h4>
-            </div>
-            <div class="half clickable bundle-style" id="create-sneakers" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'WSneakers');">
-              <img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_eb0a0759-4910-43dd-9bb8-daa0c386d7b6_2000x2000.jpg?v=1573055042" class="fw">
-              <h4 class="tac">Sneakers</h4>
-            </div>
-          </div>
-          <div class="flex-container-no womens-bundle">
-            <div class="half clickable bundle-style" id="create-flats" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'Flats');">
-              <img src="{{'Nude_Flat_4.jpg' | asset_url}}" class="fw">
-              <h4 class="tac">Flats</h4>
-            </div>
-            <div class="half clickable bundle-style" id="create-heels" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'Heels');">
-              <img src="{{'heelshot.jpg' | asset_url}}" class="fw">
-              <h4 class="tac">Heels</h4>
-            </div>
-          </div>
-          <div class="flex-container-no mens-bundle" style="display: none;">
-            <div class="half clickable bundle-style" id="create-mloafers" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'MLoafers');">
-              <img src="//cdn.shopify.com/s/files/1/0424/0893/products/2_dfefd4ff-bd53-4e9e-9895-c73c1935ff9b_2000x2000.jpg?v=1573252367" class="fw">
-              <h4 class="tac">Loafers</h4>
-            </div>
-            <div class="half clickable  bundle-style" id="create-msneakers" onClick="ga('send', 'event', 'Bundles', 'Shoe Selection', 'MSneakers');">
-              <img src="//cdn.shopify.com/s/files/1/0424/0893/products/SneakerFull_2000x2000.jpg?v=1573252161" class="fw">
-              <h4 class="tac">Sneakers</h4>
-            </div>
-          </div>
-          <h2></h2>
-        </div>
-          <div id="bundle-refresh">
-          <section class="border-lightgray accent-padding" id="your-bundle">
-            <h2 class="text-green nm">Your Bundle</h2>
-            {% if cart.item_count > 0 %}
-              <a href="/cart"><div class="background-green accent-padding fw" style="margin-top: 20px;" onClick="ga('send', 'event', 'Bundles', 'Your Bundle', 'Add To Cart');"><h3 class="text-white tac nm">add to cart</h3></div></a>
-              {% for item in cart.items %}
-                <div class="flex-container-no line-item-wrapper">
-                  <div class="three-five accent-padding">
-                    <a href="{{ item.url}}">
-                      <img src="{{ item.variant.image.src | product_img_url: 'large' }}"  alt="{{ item.product.title }}" class="fw">
-                    </a>
-                  </div>
-                  <div class="line-item-details">
-                    <h3 class="nmb">{{item.product.title}}</h3>
-                    <p>
-                      <span>Style:</span> {{ item.variant.title | capitalize }}<br>
-                      <span>Qty:</span> <span style="font-weight: lighter" id="line-item-quantity-number">{{ item.quantity }}</span></p>
-                      <a onclick="removeItem({{ item.id }}, $(this))" class="cart-update">remove</a>
-                    </p>
-                  </div>
-                </div>
-              {% endfor %}
-            {% else %}
-              <p class="subscript">Your Bundle is Currently Empty. Select a Style Above to Get Started.</p>
-            {% endif %}
+          <section id="pricing-list" class="accent-padding">
+            <h2 class="tac nmt"><span>Bundle any style, color, size, and save!<br></span></h2>
+            <p class=" pricing-font tac">2 pairs: <span class="strikethrough">$36.00</span> $32.00</p>
+            <p class="tac pricing-font">3 pairs: <span class="strikethrough">$54.00</span> $42.00</p>
+            <p class="tac pricing-font">4 pairs: <span class="strikethrough">$64.00</span> $48.00</p>
+            <p class="tac pricing-font">5+ pairs: <span class="strikethrough">$80.00+</span> $60.00+ & Free Shipping!</p>
           </section>
+          <div class="border-green accent-padding tac" id="start-wrapper">
+            <div class="text-white background-green fw" id="click-to-start">
+              <h1 class="accent-padding nm">Click to Start Bundling!</h1>
+            </div>
           </div>
+        <section class="tac" id="step-one-who" style="display: none;">
+          <h1>Step <span class="step-circle background-green text-white">1</span> : Who?</h1> 
+          <h2>choose who you are shopping for</h2>
+          <div class="flex-container-no jcc">
+            <div id="womens-bundle-choice" class="half">
+              <img src="{{'Icon-woman.svg' | asset_url}}" class="icon" />
+              <h2>women</h2>
+            </div>
+            <div id="mens-bundle-choice" class="half">
+              <img src="{{'Icon-man.svg' | asset_url}}" class="icon" />
+              <h2>men</h2>
+            </div>
+          </div>
+        </section>
+        <section id="step-two-what" class="tac" style="display: none;">
+          <h1 style="padding-top: 1px"></h1>
+          <h1>Step <span class="step-circle background-green text-white">2</span> : What?</h1>
+          <h2>select styles to add to your bundle</h2>
+            <div id="style-select-custom">
+              <div class="flex-container womens-bundle tac">
+                <div class="half bundle-style clickable" id="create-loafers">
+                  <img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_2000x2000.jpg?v=1573054961" class="fw">
+                  <h4 class="tac">Loafers</h4>
+                </div>
+                <div class="half clickable bundle-style" id="create-sneakers" >
+                  <img src="//cdn.shopify.com/s/files/1/0424/0893/products/3_eb0a0759-4910-43dd-9bb8-daa0c386d7b6_2000x2000.jpg?v=1573055042" class="fw">
+                  <h4 class="tac">Sneakers</h4>
+                </div> 
+              </div>
+              <div class="flex-container womens-bundle">
+                <div class="half clickable bundle-style" id="create-flats" >
+                  <img src="{{'Nude_Flat_4.jpg' | asset_url}}" class="fw">
+                  <h4 class="tac">Flats</h4>
+                </div>
+                <div class="half clickable bundle-style" id="create-heels" >
+                  <img src="{{'heelshot-new.jpg' | asset_url}}" class="fw">
+                  <h4 class="tac">Heels</h4>
+                </div>
+              </div>
+              <div class="flex-container mens-bundle" style="display: none;">
+                <div class="half clickable bundle-style" id="create-mloafers">
+                  <img src="//cdn.shopify.com/s/files/1/0424/0893/products/2_dfefd4ff-bd53-4e9e-9895-c73c1935ff9b_2000x2000.jpg?v=1573252367" class="fw">
+                  <h4 class="tac">Loafers</h4>
+                </div>
+                <div class="half clickable  bundle-style" id="create-msneakers" >
+                  <img src="//cdn.shopify.com/s/files/1/0424/0893/products/SneakerFull_2000x2000.jpg?v=1573252161" class="fw">
+                  <h4 class="tac">Sneakers</h4>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div id="bundle-scroll" class="fw background-green clickable accent-padding" style="display: none;"><h1 class="text-white">Your Bundle <span id="scroll-flip">↓</span></h1></div>
 
+          <div id="bundle-refresh-wrapper" class="index-padding" style="display: none;">
+            <div id="bundle-refresh">
+              <section class="border-lightgray accent-padding" id="your-bundle">
+                <h2 class="text-green nm">Your Bundle</h2>
+                {% if cart.item_count > 0 %}
+                  {% for item in cart.items %}
+                    <div class="flex-container-no line-item-wrapper">
+                      <div class="three-five accent-padding">
+                        <a href="{{ item.url}}">
+                          <img src="{{ item.variant.image.src | product_img_url: 'large' }}"  alt="{{ item.product.title }}" class="fw">
+                        </a>
+                      </div>
+                      <div class="line-item-details">
+                        <h3 class="nmb">{{item.product.title}}</h3>
+                        <p>
+                          <span>Style:</span> {{ item.variant.title | capitalize }}<br>
+                          <span>Qty:</span> <span style="font-weight: lighter" id="line-item-quantity-number">{{ item.quantity }}</span></p>
+                          <a onclick="removeItem({{ item.id }}, $(this))" class="cart-update">remove</a>
+                        </p>
+                      </div>
+                    </div>
+                  {% endfor %}
+                  <a href="/cart"><div class="background-green accent-padding fw" style="margin-top: 20px;"><h3 class="text-white tac nm">add to cart</h3></div></a>
+                {% else %}
+                  <p class="subscript">Your Bundle is Currently Empty. Select a Style Above to Get Started.</p>
+                {% endif %}
+              </section>
+            </div>
+          </div>  
 
+          {% comment %} end visible page, begin modals{% endcomment %}
           <div class="modal create-loafers border-gray" style="display: none;">
             <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
-            <img src="{{'BlackLoafer.jpg' | asset_url}}" class="fw black-color-choice modal-featured"/>
-            <img src="{{'PinkLoafer.jpg' | asset_url}}" class="fw rose-color-choice modal-featured" style="display: none;"/>
-            <img src="{{'GreenLoafer.jpg' | asset_url}}" class="fw green-color-choice modal-featured" style="display: none;"/>
-            <img src="{{'BlueLoafer.jpg' | asset_url}}" class="fw blue-color-choice modal-featured" style="display: none;"/>
+            <img src="{{'BlackLoafer.jpg' | asset_url}}" class="fw modal-featured"/>
+            <img src="{{'BlackLoafer.jpg' | asset_url}}" class="fw black-color-choice modal-not-featured" style="display: none;"/>
+            <img src="{{'PinkLoafer.jpg' | asset_url}}" class="fw rose-color-choice modal-not-featured" style="display: none;"/>
+            <img src="{{'GreenLoafer.jpg' | asset_url}}" class="fw green-color-choice modal-not-featured" style="display: none;"/>
+            <img src="{{'BlueLoafer.jpg' | asset_url}}" class="fw blue-color-choice modal-not-featured" style="display: none;"/>
             <div class="flex-container-no jcc">
               <div class="bundle-color-selection black highlight" data-variant-id-small="18250901828" data-variant-id-medium="18250902084" data-variant-id-large="18250902276"></div>
               <div class="bundle-color-selection rose" data-variant-id-small="31001775046733" data-variant-id-medium="31001775079501" data-variant-id-large="31001775112269"></div>
@@ -118,18 +123,17 @@
                <option value="medium" selected>medium (us:7-8.5)</option>
                <option value="large">large (us:9-11.5)</option>
               </select> 
-                         <select class="build-bundle-quantity">
+              <select class="build-bundle-quantity">
                 <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-          
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
               </select>
               <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
             </div>
@@ -137,10 +141,11 @@
 
           <div class="modal create-sneakers border-gray" style="display: none;">
             <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
-            <img src="{{'BlackSneaker.jpg' | asset_url}}" class="fw black-color-choice modal-featured"/>
-            <img src="{{'PinkSneaker.jpg' | asset_url}}" class="fw rose-color-choice modal-featured" style="display: none;"/>
-            <img src="{{'GreenSneaker.jpg' | asset_url}}" class="fw green-color-choice modal-featured" style="display: none;"/>
-            <img src="{{'BlueSneaker.jpg' | asset_url}}" class="fw blue-color-choice modal-featured" style="display: none;" />     
+            <img src="{{'BlackSneaker.jpg' | asset_url}}" class="fw modal-featured"/>
+            <img src="{{'BlackSneaker.jpg' | asset_url}}" class="fw black-color-choice modal-not-featured" style="display: none;"/>
+            <img src="{{'PinkSneaker.jpg' | asset_url}}" class="fw rose-color-choice modal-not-featured" style="display: none;"/>
+            <img src="{{'GreenSneaker.jpg' | asset_url}}" class="fw green-color-choice modal-not-featured" style="display: none;"/>
+            <img src="{{'BlueSneaker.jpg' | asset_url}}" class="fw blue-color-choice modal-not-featured" style="display: none;" />     
             <div class="flex-container-no jcc">
               <div class="bundle-color-selection black highlight" data-variant-id-small="18250940100" data-variant-id-medium="18250940804" data-variant-id-large="18250941956"></div>
               <div class="bundle-color-selection rose" data-variant-id-small="31001784582221" data-variant-id-medium="31001784614989" data-variant-id-large="31001784647757"></div>
@@ -148,9 +153,9 @@
               <div class="bundle-color-selection blue" data-variant-id-small="31001784877133" data-variant-id-medium="31001784909901" data-variant-id-large="31001784942669"></div>
             </div>
             <div class="flex-container-no jcc">
-              <div class="quarter"><img src="{{'sneaker-b2.jpg' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'sneaker-b3.jpg' | asset_url}}" class="fw"></div>
-              <div class="quarter"><img src="{{'sneaker-b4.jpg' | asset_url}}" class="fw"></div>
+              <div class="quarter"><img src="{{'sneaker-b2.jpg' | asset_url}}" class="fw modal-not-featured"></div>
+              <div class="quarter"><img src="{{'sneaker-b3.jpg' | asset_url}}" class="fw modal-not-featured"></div>
+              <div class="quarter"><img src="{{'sneaker-b4.jpg' | asset_url}}" class="fw modal-not-featured"></div>
             </div>
             <div class="flex-container-no accent-padding">
               <select class="build-bundle-size">
@@ -158,18 +163,17 @@
                <option value="medium" selected>medium (us:7-8.5)</option>
                <option value="large">large (us:9-11.5)</option>
               </select> 
-                     <select class="build-bundle-quantity">
+              <select class="build-bundle-quantity">
                 <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
-                <option value="5">5</option>
-          
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
+                <option value="5">5</option>        
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
               </select>
               <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
             </div>
@@ -177,8 +181,9 @@
           
           <div class="modal create-flats border-gray" style="display: none;">
             <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
-            <img src="{{'flatblack.jpg' | asset_url}}" class="fw black-color-choice modal-featured" />
-            <img src="{{'flatbeige.jpg' | asset_url}}" class="fw beige-color-choice modal-featured" style="display: none;" />            
+            <img src="{{'flatblack.jpg' | asset_url}}" class="fw modal-featured" />
+            <img src="{{'flatblack.jpg' | asset_url}}" class="fw black-color-choice modal-not-featured" style="display: none;" />
+            <img src="{{'flatbeige.jpg' | asset_url}}" class="fw beige-color-choice modal-not-featured" style="display: none;" />            
             <div class="flex-container-no jcc">
               <div class="bundle-color-selection black highlight" data-variant-id-medium="18247857860" data-variant-id-large="18247857988" data-variant-id-small="18247857668"></div>
               <div class="bundle-color-selection beige" data-variant-id-medium="18247857924" data-variant-id-large="18247858052" data-variant-id-small="19347385476"></div>
@@ -194,18 +199,17 @@
                <option value="medium" selected>medium (us:7-8.5)</option>
                <option value="large">large (us:9-11.5)</option>
               </select> 
-                    <select class="build-bundle-quantity">
+              <select class="build-bundle-quantity">
                 <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-          
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
               </select>
               <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
             </div>
@@ -213,8 +217,9 @@
 
           <div class="modal create-heels border-gray" style="display: none;">
             <h5 class="text-green">Select color, size, and quantity of pairs <span class="fr bundle-modal-close">✕</span></h5>
-            <img src="{{'heelblack.jpg' | asset_url}}" class="fw black-color-choice modal-featured" />
-            <img src="{{'heelbeige.jpg' | asset_url}}" class="fw beige-color-choice modal-featured" style="display: none;" />
+            <img src="{{'heelblack.jpg' | asset_url}}" class="fw modal-featured" />
+             <img src="{{'heelblack.jpg' | asset_url}}" class="fw black-color-choice modal-not-featured" style="display: none;" />
+            <img src="{{'heelbeige.jpg' | asset_url}}" class="fw beige-color-choice modal-not-featured" style="display: none;" />
             <div class="flex-container-no jcc">
               <div class="bundle-color-selection black highlight" data-variant-id-medium="702715527185" data-variant-id-large="702715592721" data-variant-id-small="702715461649"></div>
               <div class="bundle-color-selection beige" data-variant-id-medium="702715559953" data-variant-id-large="702715625489" data-variant-id-small="702715494417"></div>
@@ -230,18 +235,17 @@
                <option value="medium" selected>medium (us:7-8.5)</option>
                <option value="large">large (us:9-11.5)</option>
               </select> 
-                    <select class="build-bundle-quantity">
+              <select class="build-bundle-quantity">
                 <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-          
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
               </select>
               <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
             </div>
@@ -271,12 +275,11 @@
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-          
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
               </select>
               <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
             </div>
@@ -287,7 +290,6 @@
             <img src="//cdn.shopify.com/s/files/1/0424/0893/t/359/assets/MensLoafer_ProductShot.jpg?12875" class="modal-featured fw">
             <div class="flex-container-no jcc">
               <div class="bundle-color-selection black highlight" data-variant-id-small="18249609860" data-variant-id-medium="18249610628" data-variant-id-large="18249611396"></div>
-
             </div>
             <div class="flex-container-no jcc">
               <div class="quarter"><img src="//cdn.shopify.com/s/files/1/0424/0893/products/Toe_2000x2000.jpg?v=1573252367" class="fw modal-not-featured"></div>
@@ -300,31 +302,60 @@
                <option value="medium" selected>medium (us: 8.5-11)</option>
                <option value="large">large (us: 11.5-14)</option>
               </select> 
-                       <select class="build-bundle-quantity">
+              <select class="build-bundle-quantity">
                 <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-          
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
               </select>
               <div class="add-to-bundle-button background-green clickable"><h3 class="tac nm text-white">add to bundle</h3></div>
             </div>
           </div>
-        </section>
         </main>
+        <script>
 
-  
+            $(window).scroll(function() {
+              let stopPoint = $('#step-two-what').offset().top + $('#step-two-what').height() - $(window).height() + $('#bundle-scroll').height() - 1; 
+              if (stopPoint <= $(window).scrollTop()) {
+                $('#bundle-scroll').css("position", "static")
+                console.log($('#bundle-scroll').height())
+              }
+              else {
+                $('#bundle-scroll').css("position", "fixed")
+              }
 
-        	<script>
+}); 
+        </script>
+        <script>
+            $('#click-to-start').click(function() {
+              $('#step-one-who').show()
+              $('html, body').animate({
+                  scrollTop: $("#step-one-who").offset().top - 105
+                }, 500);
+            })
+          
+
+            $('#bundle-scroll').click(function() {
+              $('html, body').animate({
+                scrollTop: $("#bundle-refresh-wrapper").offset().top - 85
+              }, 500);
+            })
+            $('#womens-bundle-choice, #mens-bundle-choice').click(function() {
+              $('.icon').removeClass('highlight')
+              $(this).find('.icon').addClass('highlight'); 
+              $('#step-two-what').show()
+              $('#bundle-refresh-wrapper').show()
+            })
             $('.modal-not-featured').click(function() {
               newSrc = $(this).attr("src")
-              $('.modal-featured:visible').attr("src", newSrc); 
+
+              $(this).parent().parent().siblings('.modal-featured').attr("src", newSrc).show().siblings('img').hide(); 
             })
             $('.bundle-modal-close').click(function() {
               $(this).parent().parent().hide(); 
@@ -334,19 +365,19 @@
             $('.bundle-color-selection').click(function() {
               $(this).addClass('highlight').siblings('.bundle-color-selection').removeClass('highlight'); 
               if ($(this).hasClass('black')) {
-                $(this).parent().siblings('.black-color-choice').show().siblings('.modal-featured').hide(); 
+                $(this).parent().siblings('.black-color-choice').show().siblings('img').hide(); 
               }
               else if ($(this).hasClass('blue')) {
-                $(this).parent().siblings('.blue-color-choice').show().siblings('.modal-featured').hide(); 
+                $(this).parent().siblings('.blue-color-choice').show().siblings('img').hide(); 
               }
               else if ($(this).hasClass('rose')) {
-                $(this).parent().siblings('.rose-color-choice').show().siblings('.modal-featured').hide(); 
+                $(this).parent().siblings('.rose-color-choice').show().siblings('img').hide(); 
               }
               else if ($(this).hasClass('green')) {
-                $(this).parent().siblings('.green-color-choice').show().siblings('.modal-featured').hide(); 
+                $(this).parent().siblings('.green-color-choice').show().siblings('img').hide(); 
               }
               else if ($(this).hasClass('beige')) {
-                $(this).parent().siblings('.beige-color-choice').show().siblings('.modal-featured').hide(); 
+                $(this).parent().siblings('.beige-color-choice').show().siblings('img').hide(); 
               }
             }); 
 
@@ -365,48 +396,35 @@
         				$('.mens-bundle').show(); 
         			}
                $('html, body').animate({
-                  scrollTop: $("#style-select-custom").offset().top
-                }, 1000);
+                  scrollTop: $("#step-two-what").offset().top - 86
+                }, 500);
         		})
         	</script>
-<script>
-  Shopify.queue = [];
+          <script>
+           function addItem(id, qty, properties, callback) {
+              var params = {
+                quantity: qty,
+                id: id
+              };
+              if(properties != false){
+                params.properties = properties;
+              }
+              $.ajax({
+                type: 'POST',
+                url: '/cart/add.js',
+                dataType: 'json',
+                data: params,
+                success: function(){ 
+                $('#bundle-page .modal:visible').hide(); 
+                $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
+                $('#bundle-refresh').load(document.URL + ' #bundle-refresh')
+                $('#bundle-scroll').show()
+                $('#copied').slideUp().slideDown().delay(1000).slideUp(); 
 
-  Shopify.moveAlong = function() {
-    if (Shopify.queue.length) {
-      var request = Shopify.queue.shift();
-      Shopify.addItem(request.variantId, request.quantity, Shopify.moveAlong);
-    }
-    else {
-      $('.modal').hide(); 
-      $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
+                },
 
-      $('#bundle-refresh').load(document.URL + ' #bundle-refresh')
-    }
-  };
-
-  Shopify.addItem = function(id, qty, properties, callback) {
-    var params = {
-      quantity: qty,
-      id: id
-    };
-    if(properties != false){
-      params.properties = properties;
-    }
-    $.ajax({
-      type: 'POST',
-      url: '/cart/add.js',
-      dataType: 'json',
-      data: params,
-      success: function(){
-        if(typeof callback === 'function'){
-          callback();
-
-        }
-      },
-      error: function(){}
-    });
-  }
+              });
+            }
   
 
   function removeItem(variantId, element) {
@@ -414,40 +432,52 @@
     $(element).parent().parent().hide(); 
   } 
 
-  function push_to_queue(variantID, quantity) {
-    Shopify.queue.push({
-      variantId: variantID,
-      quantity: quantity
-    });
-  }
-
 $('.add-to-bundle-button').click(function() {
     var size = $('.build-bundle-size:visible option:selected').val()
     var quantity = $('.build-bundle-quantity:visible option:selected').val(); 
-
-    $( ".bundle-color-selection.highlight:visible" ).each(function() {
-        var variantSelected = $(this).data('variant-id-' + size); 
-        push_to_queue(variantSelected, quantity)
-    });
-  Shopify.moveAlong()
+    var variantSelected =  $( ".bundle-color-selection.highlight:visible" ).data('variant-id-' + size); 
+     addItem(variantSelected, quantity)
+    
 }); 
 </script>
 
         	
 <style>
+  #bundle-page #copied {
+    position: absolute;
+    width: 300px;
+    left: calc(50% - 150px);
+}
+#bundle-scroll { 
+  position: fixed; 
+  bottom: 0; 
+  z-index: 999;
+  padding: 1px 20px;
+}
+#scroll-flip {float: right; }
+  @media only screen and (min-width: 589px) and (max-width: 799px) {
+    #bundle-page h2 { font-size: 16pt; }
+    #bundle-page h1 { font-size: 27pt; }
+    #bundle-and-save-atf h1 { font-size: 60pt; }
+  }
+  @media only screen and (max-width: 588px) {
+    #bundle-page h2 { font-size: 12pt; }
+    #bundle-page h1 { font-size: 18pt; }
+    #bundle-page h3 { font-size: 12pt; }
+  }
+  #pricing-list, #step-two-what { background-color: #EDF1F4; }
+  #bundle-and-save-atf h1 {
+    text-shadow: 1px 1px darkgray;
+    text-align: center;
+
+  }
   #your {
     width: 27%;
     vertical-align: middle;
     margin: 13px -5px 0;
 }
 .cart-update { background: lightgray !important; }
-#bundle-page .page-title {
-  background-image: url("{{'SockCircle_Cut.jpg' | asset_url}}");
-  background-repeat: no-repeat;
-/*  background-size: cover;
-*/  background-position: center;
-  height: 300px;
-}
+
 .button-label {
     line-height: 35px;
     margin-left: -35px;
@@ -457,12 +487,7 @@ $('.add-to-bundle-button').click(function() {
 #your-bundle {
     border: 3px solid darkgray;
 }
-#bundle-page .icon { 
-  width: 35px;  
-  float: left;
-  background-color: white;
-  border-radius: 100%;
-}
+.strikethrough { color: #545359 !important; }
 @media only screen and (max-width: 799px) {
 .half {
     width: 100%;
@@ -493,7 +518,7 @@ $('.add-to-bundle-button').click(function() {
   cursor: pointer;
   margin-top: -10px;
 }
-  .modal h5 { margin-left: 20px; }
+.modal h5 { margin-left: 20px; }
 .womens-bundle h4, .mens-bundle h4 {
     background: #6DCDB8;
     padding: 10px;
@@ -509,8 +534,7 @@ $('.add-to-bundle-button').click(function() {
 }
 .add-to-bundle-button  {
     display: inline-block;
-    width: 50%;
-    padding: 10px;
+    width: 100%;
 }
 .rose { background-color: #efc3be; }
 .green { background-color: #0ad4c4; }
@@ -532,11 +556,48 @@ $('.add-to-bundle-button').click(function() {
 @media only screen and (max-width: 588px) {
   .pricing-font { font-size: 12pt; }
   .pricing-font span { font-size: 10pt; }
-  #bundle-page .icon { width: 35px;  }
-
 }
 @media only screen and (max-width: 799px) {
   .do { display: none !important; }
+  #bundle-page .page-title {
+    background-image: url("{{'BYB_ATF_mobile.jpg' | asset_url}}") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 68vw;
+  }
+  .add-to-bundle-button  {padding: 10px;}
+  .step-circle { 
+    width: 35px;
+    line-height: 35px;
+  }
+  #bundle-page .bundle-style { margin: 10px auto;}
+  #womens-bundle-choice img, #mens-bundle-choice img { width: 100px; }
+}
+@media only screen and (min-width: 800px) {
+  #bundle-page .page-title {
+    background-image: url("{{'BYB_ATF_desktop_notext.jpg' | asset_url}}") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 21vw;
+  }
+  #step-one-who, #style-select-custom, #bundle-refresh{ max-width: 1200px; margin: 0 auto; }
+  .add-to-bundle-button  {padding: 7px;}
+  #bundle-page .bundle-style { margin: 20px;}
+  #womens-bundle-choice img, #mens-bundle-choice img { width: 150px; }
+  .step-circle { 
+    width: 36pt;
+    line-height: 36pt;
+  }
+  #bundle-and-save-atf h1 { font-size: 56pt; }
+  #start-wrapper { 
+    border: none;
+    width: 700px; 
+    margin: 0 auto;
+  }
+  h1 { font-size: 36pt; }
+  h2 { font-size: 16pt; }
 }
 .cart-update { width: 100% !important; }
 .womens-bundle .half, .mens-bundle .half { margin: 10px; padding-top: 0;}
@@ -555,7 +616,6 @@ vertical-align: middle;
 }
 @media only screen and (max-width: 400px) {
   .build-bundle-size { width: 49%; }
-  .add-to-bundle-button { width: 100%; }
   .bundle-modal-close {
     margin-right: 20px;
     font-size: 10pt;
@@ -563,18 +623,33 @@ vertical-align: middle;
     margin-top: 0;
   }
 }
-
-.modal { background-color: white; max-width: 400px;}
-#bundle-page .page-header {
-  background-image: url("{{'SockCircle.png' | asset_url}}") ;
-  background-position: center;
-  background-repeat: no-repeat;
-    background-size: 60%;
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#bundle-page .modal { background-color: white; max-width: 500px;}
+@media only screen and (min-width: 400px) and (max-width: 588px) {
+  #bundle-and-save-atf h1 {
+    font-size: 54pt;
+    line-height: 85pt;
+  }
 }
-.highlight {border: 2px solid darkgray;}
-
+@media only screen and (max-width: 399px) {
+    #bundle-and-save-atf h1 {
+    font-size: 42pt;
+    line-height: 62pt;
+  }
+}
+.step-circle {
+    border-radius: 100%;
+    display: inline-block;
+    padding: 5px;
+}
+ #womens-bundle-choice img, #mens-bundle-choice img {
+  border-radius: 100%; 
+}
+#bundle-page .bundle-style {
+  border: 3px solid #545359;
+  max-width: 80%;
+  background-color: white;
+  padding: 20px;
+}
+#step-two-what { margin: 0 20px; }
+.womens-bundle img, .mens-bundle img { max-height: 100%; }
 </style>

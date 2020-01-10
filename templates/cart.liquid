@@ -40,9 +40,13 @@
                 {% elsif bundles == 0 and cart.item_count == 2 %}
                   {% assign new_price = item.quantity | times: 16 %}
                   <h3 class="tar"><span id="updated-price"></span><span id="original-price">$ {{ new_price}}.00 </span><span class="strikethrough"> {{ item.line_price | money}}</span></h3>
-                 {% elsif bundles == 0 and cart.item_count >= 3  %}
+                 {% elsif bundles == 0 and cart.item_count == 3  %}
                   {% assign new_price = item.quantity | times: 14 %}
                   <h3 class="tar"><span id="updated-price"></span><span id="original-price">$ {{ new_price}}.00 </span><span class="strikethrough"> {{ item.line_price | money}}</span></h3>
+                  {% elsif bundles == 0 and cart.item_count >= 4  %}
+                  {% assign new_price = item.quantity | times: 12 %}
+                  <h3 class="tar"><span id="updated-price"></span><span id="original-price">$ {{ new_price}}.00 </span><span class="strikethrough"> {{ item.line_price | money}}</span></h3>
+                  
                   {% elsif  bundles >= 1 and item.product.type != "Pre-Built Bundle" %}
                     {% assign new_price = item.quantity | times: 12 %}
                     <h3 class="tar"><span id="updated-price"></span><span id="original-price">$ {{ new_price}}.00 </span><span class="strikethrough"> {{ item.line_price | money}}</span></h3>
