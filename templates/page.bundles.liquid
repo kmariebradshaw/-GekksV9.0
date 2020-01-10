@@ -1,5 +1,5 @@
     <main id="bundle-page">	
-      <div id="copied" class="tac" style="position: fixed; display: none;"><p class="subscript"><span>added to bundle</span></p></div>
+      <div id="copied" class="tac" style="position: fixed; display: none;"><p class="subscript"><span>added to bundle - keep bundling!</span></p></div>
         <section class="page-title flex-container-no jcc" id="bundle-and-save-atf">
           <h1 class="text-green">Bundle <br class="mo-plus">& Save!</h1>
         </section> 
@@ -66,6 +66,8 @@
               </div>
             </div>
           </section>
+          <div id="bundle-scroll" class="fw background-green clickable accent-padding" style="display: none;"><h1 class="text-white">Your Bundle <span id="scroll-flip">↓</span></h1></div>
+
           <div id="bundle-refresh-wrapper" class="index-padding" style="display: none;">
             <div id="bundle-refresh">
               <section class="border-lightgray accent-padding" id="your-bundle">
@@ -316,13 +318,37 @@
             </div>
           </div>
         </main>
-        
+        <script>
+
+            $(window).scroll(function() {
+              let stopPoint = $('#step-two-what').offset().top + $('#step-two-what').height() - $(window).height() + $('#bundle-scroll').height() - 1; 
+              if (stopPoint <= $(window).scrollTop()) {
+                $('#bundle-scroll').css("position", "static")
+                console.log('less than')
+                console.log($('#bundle-scroll').height())
+              }
+              else {
+                                $('#bundle-scroll').css("position", "fixed")
+
+              }
+              // console.log(stopPoint)
+              // console.log($(window).scrollTop())
+
+}); 
+        </script>
         <script>
             $('#click-to-start').click(function() {
               $('#step-one-who').show()
               $('html, body').animate({
                   scrollTop: $("#step-one-who").offset().top - 105
                 }, 500);
+            })
+          
+
+            $('#bundle-scroll').click(function() {
+              $('html, body').animate({
+                scrollTop: $("#bundle-refresh-wrapper").offset().top - 85
+              }, 500);
             })
             $('#womens-bundle-choice, #mens-bundle-choice').click(function() {
               $('.icon').removeClass('highlight')
@@ -396,6 +422,7 @@
                 $('#bundle-page .modal:visible').hide(); 
                 $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
                 $('#bundle-refresh').load(document.URL + ' #bundle-refresh')
+                $('#bundle-scroll').show()
                 $('#copied').slideUp().slideDown().delay(1000).slideUp(); 
 
                 },
@@ -420,6 +447,18 @@ $('.add-to-bundle-button').click(function() {
 
         	
 <style>
+  #bundle-page #copied {
+    position: absolute;
+    width: 300px;
+    left: calc(50% - 150px);
+}
+#bundle-scroll { 
+  position: fixed; 
+  bottom: 0; 
+  z-index: 999;
+  padding: 1px 20px;
+}
+#scroll-flip {float: right; }
   @media only screen and (min-width: 589px) and (max-width: 799px) {
     #bundle-page h2 { font-size: 16pt; }
     #bundle-page h1 { font-size: 27pt; }
