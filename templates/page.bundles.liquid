@@ -73,7 +73,6 @@
               <section class="border-lightgray accent-padding" id="your-bundle">
                 <h2 class="text-green nm">Your Bundle</h2>
                 {% if cart.item_count > 0 %}
-                  <a href="/cart"><div class="background-green accent-padding fw" style="margin-top: 20px;"><h3 class="text-white tac nm">add to cart</h3></div></a>
                   {% for item in cart.items %}
                     <div class="flex-container-no line-item-wrapper">
                       <div class="three-five accent-padding">
@@ -91,6 +90,7 @@
                       </div>
                     </div>
                   {% endfor %}
+                  <a href="/cart"><div class="background-green accent-padding fw" style="margin-top: 20px;"><h3 class="text-white tac nm">add to cart</h3></div></a>
                 {% else %}
                   <p class="subscript">Your Bundle is Currently Empty. Select a Style Above to Get Started.</p>
                 {% endif %}
@@ -324,15 +324,11 @@
               let stopPoint = $('#step-two-what').offset().top + $('#step-two-what').height() - $(window).height() + $('#bundle-scroll').height() - 1; 
               if (stopPoint <= $(window).scrollTop()) {
                 $('#bundle-scroll').css("position", "static")
-                console.log('less than')
                 console.log($('#bundle-scroll').height())
               }
               else {
-                                $('#bundle-scroll').css("position", "fixed")
-
+                $('#bundle-scroll').css("position", "fixed")
               }
-              // console.log(stopPoint)
-              // console.log($(window).scrollTop())
 
 }); 
         </script>
@@ -491,6 +487,7 @@ $('.add-to-bundle-button').click(function() {
 #your-bundle {
     border: 3px solid darkgray;
 }
+.strikethrough { color: #545359 !important; }
 @media only screen and (max-width: 799px) {
 .half {
     width: 100%;
