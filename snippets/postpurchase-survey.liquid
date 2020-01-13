@@ -1,8 +1,24 @@
 
 <div class="postpurchase" style="display: none;">
   <div class="close" style="cursor:pointer;" onclick=" ga('send', 'event', 'Referral Source', 'Closed', clickCount)">✕</div>
-  <div class="flex-container-no tac">
-    <div class="half-no">
+  <div class="tac">
+    <div>
+      <h3><span class="text-green">Help Us Get Gekks Closer to You:</span><br> Which Stores Have You Shopped At Most Recently?</h3>
+      <ul id="post-purchase-stores">
+        <li id="Target" onclick="ga('send', 'event', 'Referral Shop', 'Target', clickCount);"><p>Target</p></li>
+        <li id="Walmart" onclick="ga('send', 'event', 'Referral Shop', 'Walmart', clickCount);"><p>Walmart</p></li>
+        <li id="Nordstrom" onclick="ga('send', 'event', 'Referral Shop', 'Nordstrom / Bloomingdales / Neimans /Barneys', clickCount);"><p>Nordstrom / Bloomingdales / Neimans / Barneys</p></li>
+        <li id="Costco" onclick="ga('send', 'event', 'Referral Shop', 'Costco', clickCount);"><p>Costco</p></li>
+        <li id="Ulta" onclick="ga('send', 'event', 'Referral Shop', 'Ulta Beauty', clickCount);"><p>Ulta Beauty</p></li>
+        <li id="Kohls" onclick="ga('send', 'event', 'Referral Shop', 'Kohls', clickCount);"><p>Kohls</p></li>
+        <li id="DSW" onclick="ga('send', 'event', 'Referral Shop', 'DSW', clickCount);"><p>DSW</p></li>
+        <li id="None" onclick="ga('send', 'event', 'Referral Shop', 'None of the Above', clickCount);"><p>None of the Above</p></li>
+      </ul>
+    </div>
+    <style>
+      .text-green {color: #6DCDB8;}
+    </style>
+    {% comment %}<div class="half-no">
       <h2>How Did You <br> Hear About Us?</h2>
       <ul id="post-purchase-list">
         <li id="Podcast" class="with-sub"><p onclick="ga('send', 'event', 'Referral Source', 'Podcast', clickCount);">Podcast</p>
@@ -61,7 +77,7 @@
         <li id="more-month"onclick="ga('send', 'event', 'Referral Time', '3 to 6');"><p>3 to 6 Months Ago</p></li>
         <li id="more-month"onclick="ga('send', 'event', 'Referral Time', '6+');"><p>6+ Months Ago</p></li>
       </ul>
-    </div>
+    </div>{% endcomment %}
   </div>
 </div>
 <style>
@@ -93,8 +109,12 @@
   })
 </script>
 <script>
-var ul = document.querySelector('#post-purchase-list');
-for (var i = ul.children.length; i >= 0; i--) {
+// var ul = document.querySelector('#post-purchase-list');
+// for (var i = ul.children.length; i >= 0; i--) {
+//     ul.appendChild(ul.children[Math.random() * i | 0]);
+// }
+var ul = document.querySelector('#post-purchase-stores');
+for (var i = ul.children.length - 1; i >= 0; i--) {
     ul.appendChild(ul.children[Math.random() * i | 0]);
 }
 </script>
