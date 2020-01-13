@@ -11,15 +11,9 @@
       <input type="email" id="newsletter_popup_$email" class="newsletter_email hide_on_submit" name="email" placeholder="enter email">
       <div class="klaviyo_form_actions hide_on_submit">
         
-       <div class="do">
+       <div>
           <button type="submit" class="klaviyo_submit_button border-white"><span>let's go!</span></button> 
        </div> 
-         <div class="mo">
-          <button type="submit" class="klaviyo_submit_button border-white"><span>sign up</span></button> 
-          <div class="voxie-text-us" style="display: none;">
-            <a href="https://inboundtxt.com/t/RxwJEWO"><div class="voxie-text-button border-white"><span>Or Sign Up with Phone</span></div></a>
-          </div>       
-        </div>
       </div>
       <p class="text-white hide_on_submit do">Stay in the know with <br><b>exclusive deals</b></p>
       <p class="nmt klaviyo_header_close tac text-white clickable hide_on_submit" style="font-size: 10pt; margin-top: 10px; text-decoration: underline;"><span>decline 30% off</span></p>
@@ -76,19 +70,11 @@ $(document).ready(function(){
       </div> 
      <div class="">
       <div class="klaviyo_form_actions hide_on_submit">
-        <div class="do">
+        <div class="">
           <button type="submit" class="klaviyo_submit_button"><span>Get My Discount!</span></button>
         </div>
 
       </div>
-      </div>
-        <div class="mo">
-        <div class="klaviyo_form_actions hide_on_submit">
-          <button type="submit" class="klaviyo_submit_button"><span>Sign Up with Email</span></button>
-        </div>
-        <div class="voxie-text-us">
-          <a href="https://inboundtxt.com/t/ax6q3W3"><div class="voxie-text-button"><span>Or Sign Up with Phone</span></div></a>
-        </div>
       </div>
     </div>
    <p class="error_message subscript tac" style="display: none;"></p>
@@ -96,12 +82,7 @@ $(document).ready(function(){
    <div class="success_message" ></div>
   </div>
 </div>
-<script>
-  $('.voxie-text-button').click(function() {
-    $(this).closest('.modal').hide(); 
-    ga('send', 'event', 'Acquisition', 'Voxie', 'Website');
-  })
-</script>
+
 <script>
 $(document).ready(function(){
   var executed = false 
