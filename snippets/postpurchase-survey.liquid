@@ -1,9 +1,9 @@
 
 <div class="postpurchase" style="display: none;">
   <div class="close" style="cursor:pointer;" onclick=" ga('send', 'event', 'Referral Source', 'Closed', clickCount)">✕</div>
-  <div class="flex-container-no tac">
+  <div class="tac">
     <div>
-      <h2>Help Us Get Gekks Closer to You:<br> Which Stores Have You Shopped At Most Recently?</h2>
+      <h3><span class="text-green">Help Us Get Gekks Closer to You:</span><br> Which Stores Have You Shopped At Most Recently?</h3>
       <ul id="post-purchase-stores">
         <li id="Target" onclick="ga('send', 'event', 'Referral Shop', 'Target', clickCount);"><p>Target</p></li>
         <li id="Walmart" onclick="ga('send', 'event', 'Referral Shop', 'Walmart', clickCount);"><p>Walmart</p></li>
@@ -15,6 +15,9 @@
         <li id="None" onclick="ga('send', 'event', 'Referral Shop', 'None of the Above', clickCount);"><p>None of the Above</p></li>
       </ul>
     </div>
+    <style>
+      .text-green {color: #6DCDB8;}
+    </style>
     {% comment %}<div class="half-no">
       <h2>How Did You <br> Hear About Us?</h2>
       <ul id="post-purchase-list">
@@ -111,7 +114,7 @@
 //     ul.appendChild(ul.children[Math.random() * i | 0]);
 // }
 var ul = document.querySelector('#post-purchase-stores');
-for (var i = ul.children.length; i >= 0; i--) {
+for (var i = ul.children.length - 1; i >= 0; i--) {
     ul.appendChild(ul.children[Math.random() * i | 0]);
 }
 </script>
