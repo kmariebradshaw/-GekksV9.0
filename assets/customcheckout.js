@@ -1,5 +1,7 @@
 $(document).ready(function() {
-  var surveyShown = readCookie('postpurchase');
+  // var surveyShown = readCookie('postpurchase');
+    var surveyShown = false;
+
   if ($(".thank-you__additional-content").length && !surveyShown) {
     $('.postpurchase').show().insertAfter('.thank-you__additional-content'); 
     createCookie('postpurchase', 'true'); 
