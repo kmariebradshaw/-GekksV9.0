@@ -67,10 +67,67 @@
   </section>
   {% unless product.type == "Pre-Built Bundle" %}
   <section class="index-padding-bo tac" id="product-masonry">
-	{% capture photo_source %}grid-{{product.id}}.png{% endcapture %}
+  {% capture photo_source %}grid-{{product.id}}.png{% endcapture %}
     <img class="fw lazyload" data-src="{{ photo_source | asset_url }}" alt="{{product.title}} lifestyle collage"/>
   </section>
   {% endunless %}
+  
+
+  {% if product.collections.first.title == "Women" %}
+    {% case product.title %}
+      {% when "Ballet Flats" %}
+        {% assign review_id = 2 %}
+      {% when "Heels & Wedges" %}
+        {% assign review_id = 5 %}
+      {% when "Sneakers & Lace-Ups" %}
+        {% assign review_id = 4 %}
+      {% when "Loafers & Slip-Ons" %}
+         {% assign review_id = 3 %}
+    {% endcase %}
+    {% else %}
+      {% case product.title %}
+        {% when "Sneakers & Lace-Ups" %}
+          {% assign review_id = 7 %}
+        {% when "Loafers & Slip-Ons" %}
+           {% assign review_id = 6 %}
+      {% endcase %}
+    {% endif %}
+    {% case product.title %}
+      {% when "The Casual Pack" %}
+        {% assign review_id = 17 %}
+      {% when "The Casual Pack Lite" %}
+        {% assign review_id = 18 %}
+      {% when "The Office Pack" %}
+        {% assign review_id = 21 %}
+      {% when "The Shoe Lover" %}
+        {% assign review_id = 23 %}
+      {% when "The Trial Pack" %}
+        {% assign review_id = 24 %}
+      {% when "The Women's Closet Pack" %}
+        {% assign review_id = 25 %}
+    {% endcase %}
+  {% if review_id %}
+    <iframe src="https://gekksworks.herokuapp.com/products/{{review_id}}" id="iFrame1"/> </iframe>
+<style>
+#iFrame1 {
+    width: 1px;
+    min-width: 100%;
+    border: none;
+  }
+</style> 
+<script>
+
+ $("#iFrame1").on("load", function () {
+  $('#iFrame1').iFrameResize( [{
+    checkOrigin:false,
+    log:true,
+    minHeight:15000,
+    heightCalculationMethod:'lowestElement'
+  }] );
+});
+</script>
+{% endif %}
+  
 </main>
 <script>
   $('.color').change(function() {
