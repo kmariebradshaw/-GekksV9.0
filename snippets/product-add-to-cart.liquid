@@ -103,22 +103,22 @@
     <meta itemprop="priceCurrency" content="{{ shop.currency }}">
     <link itemprop="availability" href="http://schema.org/InStock">
     
+
+
+    {% assign default_index = product.options_by_name['Color'].values.size | plus: 1 %}
+{% comment %} can refactor {% endcomment %}
+
    <select name="id" id="productSelect-{{ product.id }}" class="product-single__variants" style="display: none;">
       {% for variant in product.variants %}
-     	{% if product.collection.first.title == "Men" %}
-           {% if product.title != "Men's Closet Pack" %}
-           	<option {% if forloop.index == 4 %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
-           {% else %}
-           	<option {% if forloop.index == 2 %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
-           {% endif %}
+     	  {% if product.collection.first.title == "Men" %}
+           	<option {% if forloop.index == default_index %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
         {% else %} 
            {% if product.type == "Pre-Built Bundle" %}
-              <option {% if forloop.index == 0 %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+              <option {% if forloop.index == default_index %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
            {% elsif product.title != "Ballet Flats" %}
-           	<option {% if forloop.index == 5 %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
-
+           	  <option {% if forloop.index == default_index %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
            {% else %}
-           	<option {% if forloop.index == 3 %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+           	  <option {% if forloop.index == default_index %}selected="selected"{% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
            {% endif %}
         <option data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
         {% else %}
