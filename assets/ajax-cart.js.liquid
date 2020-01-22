@@ -66,10 +66,13 @@ $.each(cart.items, function(index, cartItem) {
   else if (single_pack_total >= 5) {
     jQuery.get('/discount/bundles4')
     new_price = 12.00
-    free_shipping = true 
-
   }
+
     var new_subtotal = (original_bundles_price / 100)+ (single_pack_total * new_price)
+    if (new_subtotal >= 60) {
+      free_shipping = true
+    }
+
 
     if (single_pack_total >=1 ) {
       $('#ajax-cart-price-subtotal #original-sub').addClass('strikethrough'); 
