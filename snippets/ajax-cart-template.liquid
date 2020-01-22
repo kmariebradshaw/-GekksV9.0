@@ -1,6 +1,7 @@
  
 
  <script id="CartTemplate" type="text/template">
+
 {% raw %}
 <section class="accent-padding">
   <a href="/cart"><h3 class="ib">Your Cart</h3></a>
@@ -17,9 +18,13 @@
         <div class="accent-padding">
           <p class="nmb"><a href="{{url}}"class="ajaxcart__product-name" style="text-transform: none;">{{name}}</a></p>
           {{#if variation}}
-          <p class="nm" id="ajax-cart-price"><span>{{{linePrice}}}</span></p>
+            {{#ifEquals price "$ 18.00"}}
+              <div data-quantity="{{{itemQty}}}" class="single-pack-ajax-cart">
+            {{/ifEquals}}
+          <p class="nm" id="ajax-cart-price"><span id="original-price-line">{{{linePrice}}}</span><span id="new-price-line"></span></p>
           <p class="ajaxcart__product-meta nm subscript nm" style="text-transform: lowercase">{{variation}}</p>
           <p class="nmt subscript">Quantity: {{itemQty}}</p>
+        </div>
         </div>
       </div>
             {{/if}}
@@ -36,6 +41,7 @@
    
       <div class="ajaxcart__footer index-padding-to">
         <p class="tac" id="ajax-cart-price-subtotal"><span>Subtotal:</span><span id="original-sub"> {{{totalPrice}}}</span><span id="add-new"></span></p>
+        <p class="tac text-green" id="ajax-ship-free" style="display: none;">You've Qualified for Free Shipping!</p>
         <p id="cart-add-ons" class="subscript tac">
          </p>
         {%endraw%}

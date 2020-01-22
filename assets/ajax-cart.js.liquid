@@ -35,18 +35,24 @@ $('#CartContainer').show().removeClass('slide-out').addClass('slide-in');
 
 var bundles = 0 
 var original_bundles_price = 0 
-
+var men = false 
 $.each(cart.items, function(index, cartItem) {
     if ( cartItem.original_price >= 4200) {
       bundles += cartItem.quantity
       original_bundles_price += cartItem.original_price * cartItem.quantity
+      if (cartItem.product_id == "4374567616589" ) {
+        men = true
+      }
+    }
+    if (cartItem.product_id == "4832899012" || cartItem.product_id == "4832930500") {
+      men = true
     }
 });
 
   var single_pack_total =  cart.item_count - bundles
 
   var new_price = ""
-
+  var free_shipping = false
   if (bundles >= 1 && single_pack_total >= 1)  {
     new_price = 12.00
     jQuery.get('/discount/bundles4')
@@ -66,17 +72,36 @@ $.each(cart.items, function(index, cartItem) {
   else if (single_pack_total >= 5) {
     jQuery.get('/discount/bundles4')
     new_price = 12.00
-
   }
+
     var new_subtotal = (original_bundles_price / 100)+ (single_pack_total * new_price)
+    if (new_subtotal >= 60) {
+      free_shipping = true
+    }
+
 
     if (single_pack_total >=1 ) {
       $('#ajax-cart-price-subtotal #original-sub').addClass('strikethrough'); 
       $('#ajax-cart-price-subtotal #add-new').text("$" + new_subtotal + ".00"); 
+      $('.single-pack-ajax-cart').each(function() {
+      var new_line_price = $(this).data("quantity") * new_price
+
+        $(this).find('#original-price-line').addClass('strikethrough').siblings("#new-price-line").text("$ " + new_line_price + ".00")
+      })
     }
+    if (free_shipping) {
+    $('#ajax-ship-free').show(); 
+  }
 
+var success_cart_feedback = ""
+if (men == true) {
+  success_cart_feedback = ' added to cart! <a href="/cart" class="text-green">View Cart.</a>'
+}
+else if (men == false) {
+  success_cart_feedback = ' shop for the men in your life <a href="/products/loafer-version" class="text-green">here.</a>'
 
-_showFeed back('success',' added to cart! <a href="/cart" class="text-green">View Cart.</a>',$formContainer);if(window.Shopify&&Shopify.StorefrontExpressButtons){Shopify.StorefrontExpressButtons.initialize();}};adjustCart=function(){$body.on('click','.ajaxcart__qty-adjust',function(){if(isUpdating){return;}
+}
+_showFeedback('success', success_cart_feedback,$formContainer);if(window.Shopify&&Shopify.StorefrontExpressButtons){Shopify.StorefrontExpressButtons.initialize();}};adjustCart=function(){$body.on('click','.ajaxcart__qty-adjust',function(){if(isUpdating){return;}
 var $el=$(this),line=$el.data('line'),$qtySelector=$el.siblings('.ajaxcart__qty-num'),qty=parseInt($qtySelector.val().replace(/\D/g,''));var qty=validateQty(qty);if($el.hasClass('ajaxcart__qty--plus')){qty+=1;}else{qty-=1;if(qty<=0)qty=0;}
 if(line){updateQuantity(line,qty);}else{$qtySelector.val(qty);}});$body.on('change','.ajaxcart__qty-num',function(){if(isUpdating){return;}
 var $el=$(this),line=$el.data('line'),qty=parseInt($el.val().replace(/\D/g,''));var qty=validateQty(qty);if(line){updateQuantity(line,qty);}});$body.on('submit','form.ajaxcart',function(evt){if(isUpdating){evt.preventDefault();}});$body.on('focus','.ajaxcart__qty-adjust',function(){var $el=$(this);setTimeout(function(){$el.select();},50);});function updateQuantity(line,qty){isUpdating=true;var $row=$('.ajaxcart__row[data-line="'+line+'"]').addClass('is-loading');if(qty===0){$row.parent().addClass('is-removed');}
