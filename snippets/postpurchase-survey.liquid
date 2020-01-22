@@ -23,7 +23,7 @@
         stores.push(storeToBeAdded)
       })
       $('#post-purchase-submit').click(function() {
-        let organizedStores = stores.sort().toString()
+        let organizedStores = stores.sort().filter((a, b) => stores.indexOf(a) === b).toString()
         ga('send', 'event', 'Referral Shop', organizedStores);
         $('.postpurchase').slideUp(); 
       })
