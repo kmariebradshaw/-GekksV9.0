@@ -98,7 +98,9 @@ if (men == true) {
   success_cart_feedback = ' added to cart! <a href="/cart" class="text-green">View Cart.</a>'
 }
 else if (men == false) {
-  success_cart_feedback = ' shop for the men in your life <a href="/products/loafer-version" class="text-green">here.</a>'
+  success_cart_feedback = ' know a man that needs Gekks? <img src="{{'Arrow.png' | asset_url}}" id="suggestion-arrow"/><a href="/products/loafer-version?fw=true"><div id="shop-men-life"><span class="ttu text-white">Shop Now</span></div></a>'
+  ga('send', 'event', 'Upsell', 'Mens', 'Shown');
+
 
 }
 _showFeedback('success', success_cart_feedback,$formContainer);if(window.Shopify&&Shopify.StorefrontExpressButtons){Shopify.StorefrontExpressButtons.initialize();}};adjustCart=function(){$body.on('click','.ajaxcart__qty-adjust',function(){if(isUpdating){return;}
