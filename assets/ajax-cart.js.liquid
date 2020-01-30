@@ -21,7 +21,7 @@ $cartContainer.append(template(data));cartCallback(cart);};var _showFeedback=fun
                                                                                                                   
 
 
-var feedback='<p class="ajaxified-cart-feedback '+success+'">'+html+'</p>';$('.is-added').after(feedback);$('.ajaxified-cart-feedback').slideDown();};cartCallback=function(cart){$body.removeClass('drawer--is-loading');$body.trigger('afterCartLoad.ajaxCart',cart);
+var feedback='<div class="ajaxified-cart-feedback '+success+'">'+html+'</div>';$('.is-added').after(feedback);$('.ajaxified-cart-feedback').slideDown();};cartCallback=function(cart){$body.removeClass('drawer--is-loading');$body.trigger('afterCartLoad.ajaxCart',cart);
 
 $('header, main, footer, #banner-cta').addClass('darken');
 $('#CartContainer').show().removeClass('slide-out').addClass('slide-in'); 
@@ -99,7 +99,7 @@ if (men == true) {
 }
 else if (men == false) {
   $('#shop-men-life').hide()
-  success_cart_feedback = ' know a man that needs Gekks? <img src="{{'Arrow.png' | asset_url}}" id="suggestion-arrow"/><a href="/products/loafer-version?fw=true"><div id="shop-men-life"><span class="ttu text-white">Shop Now</span></div></a>'
+  success_cart_feedback = '<p> know a man that needs Gekks? <img src="{{'Arrow.png' | asset_url}}" id="suggestion-arrow"/></p> <a href="/products/loafer-version?fw=true"><div id="shop-men-life" class="clickable"><span class="ttu text-white">Shop Now</span></div></a>'
   ga('send', 'event', 'Upsell', 'Mens', 'Shown');
 
 
