@@ -298,8 +298,7 @@ $(document).ready(function(event) {
             <div id="footer-aside">
               <div id="referafriend" class="background-darkgray" onclick="ga('send', 'event', 'Refer', 'Footer', 'Click');"><h3 class="text-white">refer a friend</h3></div>
 
-{% comment %}              <div id="getadiscount" class="background-darkgray"><h3 class="text-white">get a discount</h3></div>
-{% endcomment %}
+ <div id="getadiscount" class="background-darkgray" onclick="attentiveTest()"><h3 class="text-white">get a discount</h3></div>
 
 
 
@@ -323,7 +322,7 @@ $(document).ready(function(event) {
           </div>
     </footer>
     <!-- footer klaviyo newsletter -->
-    <script>
+   {% comment %} <script>
       $('#getadiscount').click(function() {
         $('.modal-newsletter').show(); 
         $('.index-sections, main, header, footer, #banner-cta, .mobile-nav1').addClass('darken')
@@ -341,7 +340,7 @@ $(document).ready(function(event) {
             },
          });  
       })
-</script>
+</script>{% endcomment %}
 
     <!-- Google Code for Remarketing Tag -->
     <script type="text/javascript">
