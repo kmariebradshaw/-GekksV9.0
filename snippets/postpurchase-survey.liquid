@@ -46,11 +46,11 @@
       $('#post-purchase-submit-reason').click(function() {
         let primeReason = $(this).parent().find('.chosen').attr("id")
         if (primeReason != "Other") {
-          ga('send', 'event', 'KBReason', primeReason);
+          ga('send', 'event', 'Reason', primeReason);
         }
         else {
           let otherInput = $(this).parent().find('.chosen').find('input').val()
-          ga('send', 'event', 'KBReason', otherInput);
+          ga('send', 'event', 'Reason', otherInput);
         }
         $(this).parent().hide(); 
       })
