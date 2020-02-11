@@ -1,135 +1,69 @@
 
 <div class="postpurchase" style="display: none;">
   <div class="close" style="cursor:pointer;" onclick=" ga('send', 'event', 'Referral Source', 'Closed', clickCount)">✕</div>
-  <div class="tac">
-    <div>
-      <h3><span class="text-green">Help Us Get Gekks Closer to You:</span><br> Which Stores Have You Shopped At Most Recently?</h3>
+  <div class="tac flex-container-no">
+    <div class="half-no">
+      <h3><span class="text-green">Help Us Get Gekks Closer to You:</span><br>Where did you last purchase shoes? </h3>
       <ul id="post-purchase-stores">
-        <li id="Target"><p>Target</p></li>
-        <li id="Walmart"><p>Walmart</p></li>
-        <li id="Nordstrom"><p>Nordstrom / Bloomingdales / Neimans / Barneys</p></li>
-        <li id="Costco"><p>Costco</p></li>
-        <li id="Ulta"><p>Ulta Beauty</p></li>
-        <li id="Kohls"><p>Kohls</p></li>
+        <li id="Zappos"><p>Zappos</p></li>
         <li id="DSW"><p>DSW</p></li>
-        <li id="None"><p>None of the Above</p></li>
+        <li id="Nordstrom"><p>Nordstrom / Bloomingdales / Neimans / Barneys</p></li>
+        <li id="Online"><p>Online Shoe Brand Website (allbirds.com, tieks.com, etc) </p></li>
+        <li id="Amazon"><p>Amazon</p></li>
+        <li id="Other"><input type="text" placeholder="Other"></li>
       </ul>
       <button class="fw background-green" id="post-purchase-submit"><h3 >Submit</h3></button>
     </div>
-    <script>
-      var stores = []
-      $('#post-purchase-stores li').click(function() {
-        let storeToBeAdded = $(this).attr("id")
-        stores.push(storeToBeAdded)
-      })
-      $('#post-purchase-submit').click(function() {
-        let organizedStores = stores.sort().filter((a, b) => stores.indexOf(a) === b).toString()
-        ga('send', 'event', 'Referral Shop', organizedStores);
-        $('.postpurchase').slideUp(); 
-      })
-    </script>
-    <style>
-      .text-green {color: #6DCDB8;}
-      .background-green { background-color: #6DCDB8; }
-      .text-white { color: white; }
-      .fw { width: 100%; }
-      #post-purchase-submit h3 { margin: 0px; padding: 10px; }
-    </style>
-    {% comment %}<div class="half-no">
-      <h2>How Did You <br> Hear About Us?</h2>
-      <ul id="post-purchase-list">
-        <li id="Podcast" class="with-sub"><p onclick="ga('send', 'event', 'Referral Source', 'Podcast', clickCount);">Podcast</p>
-          <ul class="sub-referral">
-            <li id="OJ" onclick="ga('send', 'event', 'Referral Source', 'Podcast - Shows', 'Confronting OJ' );"><p>Confronting OJ</p></li>
-            <li id="Window" onclick="ga('send', 'event', 'Referral Source', 'Podcast - Shows', 'Man In The Window');"><p>Man In The Window</p></li>
-            <li id="Long" onclick="ga('send', 'event', 'Referral Source', 'Podcast - Shows', 'Justin Long' );"><p>Justin Long</p></li>
-            <li id="Anna" onclick="ga('send', 'event', 'Referral Source', 'Podcast - Shows', 'Anna');"><p>Anna Faris</p></li>
-            <li id="Dax" onclick="ga('send', 'event', 'Referral Source', 'Podcast - Shows', 'Dax');"><p>Dax Shepard</p></li>
-         </ul> 
-        </li>
-        <li id="Facebook" onclick="ga('send', 'event', 'Referral Source', 'Facebook', clickCount);
-    "><p>Facebook</p></li>
-        <li id="Instagram" onclick="ga('send', 'event', 'Referral Source', 'Instagram', clickCount);
-    "><p>Instagram Feed</p></li>
-        <li id="InstagramStory" onclick="ga('send', 'event', 'Referral Source', 'Instagram Story', clickCount);
-    "><p>Instagram Story</p></li>
-        <li id="Friend"onclick="ga('send', 'event', 'Referral Source', 'Friend', clickCount);"><p>Friend</p></li>
-                 <li id="Google" onclick="ga('send', 'event', 'Referral Source', 'Google Search', clickCount);
-    "><p>Google Search</p></li>
-         <li id="LiveIntent" onclick="ga('send', 'event', 'Referral Source', 'LiveIntent', clickCount);
-    "><p>In Email Advertisement</p></li>
-    <li id="Mailer" onclick="ga('send', 'event', 'Referral Source', 'Mailer', clickCount);
-    "><p>Mailer</p></li>
-      <li id="SiriusXM" class="with-sub"><p onclick="ga('send', 'event', 'Referral Source', 'SiriusXM', clickCount);" >SiriusXM</p>
-        <ul class="sub-referral">
-           <li id="Fox News" onclick="ga('send', 'event', 'Referral Source', 'SiriusXM - Shows', 'Fox News' );"><p>Fox News</p></li>
-          <li id="Stars" onclick="ga('send', 'event', 'Referral Source', 'SiriusXM - Shows', 'Stars Female Talk' );"><p>Stars</p></li>
-          <li id="HTZ" onclick="ga('send', 'event', 'Referral Source', 'SiriusXM - Shows', 'HTZ');"><p>HTZ</p></li>
-          <li id="Andy" onclick="ga('send', 'event', 'Referral Source', 'SiriusXM - Shows', 'Radio Andy' );"><p>Andy Cohen</p></li>
-          <li id="MSNBC" onclick="ga('send', 'event', 'Referral Source', 'SiriusXM - Shows', 'MSNBC');"><p>MSNBC</p></li>
-          <li id="Urban View" onclick="ga('send', 'event', 'Referral Source', 'SiriusXM - Shows', 'Urban View');"><p>Urban View</p></li>
-          <li id="Kiss" onclick="ga('send', 'event', 'Referral Source', 'SiriusXM - Shows', 'Kiss');"><p>Kiss</p></li>
-         </ul>
-      </li>
-    <li id="Radio" class="with-sub"><p onclick="ga('send', 'event', 'Referral Source', 'Radio', clickCount);" >Radio</p>
-        <ul class="sub-referral">
-           <li id="Kiss" onclick="ga('send', 'event', 'Referral Source', 'Radio - Shows', 'Kiss' );"><p>Kiss</p></li>
-          <li id="HTZ" onclick="ga('send', 'event', 'Referral Source', 'Radio - Shows', 'HTZ' );"><p>HTZ</p></li>
-          <li id="Other" onclick="ga('send', 'event', 'Referral Source', 'Radio - Shows', 'Other');"><p>Other</p></li>
-         </ul>
-      </li>
-        <li id="Other" onclick="ga('send', 'event', 'Referral Source', 'Other', clickCount);
-    "><p>Other</p></li>
-      </ul>
-    </div>
     <div class="half-no">
-      <h2>When Did You <br> Hear About Us?</h2>
-      <ul id="post-purchase-time-list">
-        <li id="day"onclick="ga('send', 'event', 'Referral Time', 'Today');"><p>Today</p></li>
-        <li id="week" onclick="ga('send', 'event', 'Referral Time', 'This Week');
-    "><p>This Week</p></li>
-        <li id="month" onclick="ga('send', 'event', 'Referral Time', 'This Month');
-    "><p>This Month</p></li>
-        <li id="more-month"onclick="ga('send', 'event', 'Referral Time', '1 to 3');"><p>1 to 3 Months Ago</p></li>
-        <li id="more-month"onclick="ga('send', 'event', 'Referral Time', '3 to 6');"><p>3 to 6 Months Ago</p></li>
-        <li id="more-month"onclick="ga('send', 'event', 'Referral Time', '6+');"><p>6+ Months Ago</p></li>
+      <h3>What is the number one reason you purchased your Gekks?</h3>
+      <ul id="post-purchase-stores">
+        <li id="Blister"><p>Blister Prevention</p></li>
+        <li id="Odor"><p>Odor Prevention</p></li>
+        <li id="Comfort"><p>Comfort</p></li>
+        <li id="Slippage"><p>Sock Slippage</p></li>
+        <li id="Other"><input type="text" placeholder="Other"></li>
       </ul>
-    </div>{% endcomment %}
+      <button class="fw background-green" id="post-purchase-submit-reason" style="padding:10px;"><h3>Submit</h3></button>
+    </div>
   </div>
 </div>
-<style>
-  .sub-selected { border: 5px solid gray !important; }
-  .sub-referral { display: none; }
-</style>
+
+<script>
+      $('#post-purchase-stores li').click(function() {
+        $(this).toggleClass('chosen').siblings().removeClass('chosen')
+      })
+      $('#post-purchase-submit').click(function() {
+        let organizedStores = $(this).parent().find('.chosen').attr("id")
+        if (organizedStores != "Other") {
+          ga('send', 'event', 'Shoe Shop', organizedStores);
+        }
+        else {
+          let otherInput = $(this).parent().find('.chosen').find('input').val()
+          ga('send', 'event', 'Shoe Shop', otherInput);
+        }
+        $(this).parent().hide(); 
+      })
+      $('#post-purchase-submit-reason').click(function() {
+        let primeReason = $(this).parent().find('.chosen').attr("id")
+        if (primeReason != "Other") {
+          ga('send', 'event', 'Reason', primeReason);
+        }
+        else {
+          let otherInput = $(this).parent().find('.chosen').find('input').val()
+          ga('send', 'event', 'Reason', otherInput);
+        }
+        $(this).parent().hide(); 
+      })
+    </script>
  <script>
-   var clickCount = 0 
-  $('.postpurchase li').click(function() {
-    clickCount += 1 
-    if (clickCount == 1 && $(this).hasClass('with-sub')) {
-        $(this).addClass('sub-selected')
-        $(this).children('.sub-referral').slideDown();
-    }
-    else {
-	   $(this).addClass('referral-selected');
-    }  
-  }); 
+
   $('.close').click(function(){
     $('.postpurchase').hide(); 
   }); 
 
-  $('#post-purchase-time-list li').click(function() {
-     $(this).siblings().css("pointer-events", "none")
-  })
-  $('.sub-referral li').click(function() {
-     $(this).siblings().css("pointer-events", "none")
-     $(this).parent('ul').slideUp().parent().addClass('referral-selected').removeClass('sub-selected')
-  })
 </script>
 <script>
-// var ul = document.querySelector('#post-purchase-list');
-// for (var i = ul.children.length; i >= 0; i--) {
-//     ul.appendChild(ul.children[Math.random() * i | 0]);
-// }
+
 var ul = document.querySelector('#post-purchase-stores');
 for (var i = ul.children.length - 1; i >= 0; i--) {
     ul.appendChild(ul.children[Math.random() * i | 0]);
@@ -138,8 +72,21 @@ for (var i = ul.children.length - 1; i >= 0; i--) {
 <style>
   .flex-container-no { 
     display: flex;
-    align-items: flex-start;
+    align-items: center;
    }
+   .postpurchase ::placeholder { font-weight: lighter; text-align: center; line-height: 1.5em; }
+   .postpurchase input { font-weight: lighter !important; text-align: center; line-height: 1.5em; }
+   .chosen {background: #6DCDB8;}
+
+
+     .sub-selected { border: 5px solid gray !important; }
+   
+  .sub-referral { display: none; }
 
    .half-no { width: 50%; }
+         .text-green {color: #6DCDB8;}
+      .background-green { background-color: #6DCDB8; }
+      .text-white { color: white; }
+      .fw { width: 100%; }
+      #post-purchase-submit h3 { margin: 0px; padding: 10px; }
 </style>
