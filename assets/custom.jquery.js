@@ -269,6 +269,25 @@ function readCookie(name) {
 function deleteCookie(name) {
   document.cookie = name +'=; Path=/; Expires=Tues, 14 July 1992 00:00:01 GMT;';
 }
+    function reload_js(src) {
+        $('script[src="' + src + '"]').remove();
+        $('<script>').attr('src', src).appendTo('head');
+    }
+
+function attentiveTest() {
+  console.log('here')
+  console.log(readCookie("__attentive_id"))
+  deleteCookie("__attentive_id")
+      console.log(readCookie("__attentive_id"))
+        $('script[src="https://cdn.attn.tv/mygekks/dtag.js"]').remove();
+        $('script[src="https://cdn.attn.tv/attentive.js?v=1.0.421"]').remove(); 
+        $('script[src="https://cdn.attn.tv/loader.js"]').remove(); 
+        $('<script src="https://cdn.attn.tv/mygekks/dtag.js"></script>').appendTo('body');
+        $('<script src="https://cdn.attn.tv/attentive.js?v=1.0.421"></script>').appendTo('body');
+        $('<script src="https://cdn.attn.tv/loader.js"></script>').appendTo('body');
+
+}
+
 
 if(window.location.href.indexOf("countdown") > -1) {
   localStorage.setItem("timer", true);
