@@ -4,14 +4,14 @@
 {% if product.title != "Select" %}
  
  <section id="product-details">
-    {% if product.type == "Closet Pack" or product.type == "Gift Card" or product.type == "Pre-Built Bundle" %}
+    {% if product.type == "Closet Pack" or product.type == "Gift Card" or product.type == "Pre-Built Bundle"  or product.type == "Glove"%}
       <h3>{{product.title}}</h3>
     {% else %}
       <h3>{{ product.collections.first.title }}'s {{product.title}}</h3>
     {% endif %}
     <p class="subscript">{{ product.description}}</p>
     {% if product.available %} 
-        {% if product.type != "Pre-Built Bundle" and product.title != "Gift Cards" %}
+        {% if product.type != "Pre-Built Bundle" and product.type !="Glove" and product.title != "Gift Cards" %}
             <div class="flex-container-no jcc">
               <h3 class="" style=" margin-right: 10px">$18 <span class="subscript" style="font-weight: 300; margin: 0 5px;">or</span> $12 </h3><span class="subscript" style="font-weight: 300;">when you buy 4 <br>or more pairs</span>
             </div>
@@ -25,7 +25,7 @@
    
       
 
-      {% unless product.title == "Select" or product.title == "Gift Cards" %} 
+      {% unless product.title == "Select" or product.title == "Gift Cards" or product.type == "Glove" %} 
       {% if product.type == "Pre-Built Bundle" %}
         <div id="review-details" class="ib">
       {% else %}
@@ -65,6 +65,7 @@
             62
           {% when "The Casual Pack Lite" %}
             12
+
           {% when "The Metropolitan Pack" %}
             42
           {% when "The Men's Closet Pack" %}
@@ -139,7 +140,7 @@
      {% endfor %}         
   </select>  
   {% endif %}
-  {% if product.title == "Gift Cards" %}
+  {% if product.title == "Gift Cards" or product.type == "Glove"%}
     <div class="spacer"></div>
   {% else %}
     <p class="subscript clickable" id="size-chart"><img src="{{'ruler.png' | asset_url}}" alt="sizing-chart" class="ruler-icon"/>sizing chart</p>
@@ -148,11 +149,21 @@
   <button type="submit" name="add" id="add-cart" class="background-green text-white clickable" onclick="pintrk('track', 'addtocart');"><span>add to cart</span></button>
   <h4 class="text-green clickable" id="prod-description">+ Product Description</h4>
   <ul style="list-style: disc; text-align: left;" id="desc-dets" class="dn">
+    {% if product.type != "Glove" %}
     <li> Patented fastening system semi-permanently adheres Gekks to your shoes - you put Gekks in your shoe, not on your feet;</li>
     <li>Slip in and out barefoot, but get all day comfort and stench control;</li>
     <li>Ultra soft terry footbed;</li>
     <li>Thin toe section will not alter the way your shoes fit;</li>
     <li>39% polyester, 38% nylon, 6% spandex, 13% pima cotton, 4% silver coated nylon</li>
+    {% else %}
+        <li>Protect your hands from pathogens like bacteria, fungus, viruses and parasites when outside the home</li>
+    <li>Reduces surface to surface & surface to skin transfer of pathogens</li>
+    <li>Ultimate in hand protection when outside the home</li>
+    <li>Helps resist urge to touch your face prior to washing hands</li>
+<li>Silver yarn is currently being tested for efficacy against specific SARS COV-2</li>
+<li>Base polyester yarn has wicking and cooling properties made by REPREVE XS technology</li> 
+<li>100% tech compatible, thin and user friendly</li>
+    {% endif %}
   </ul>
   <script>
     $('#prod-description').click(function() {
@@ -166,7 +177,7 @@
   {% if product.type == "Pre-Built Bundle" %}
     <p style="margin-top: 20px;" class="subscript">Add any combinations of Gekks colors and sizes by building your own bundle. <a href="/pages/bundles" class="text-green">click here.</a></p>
   {% endif %}
-  {% unless product.title == "Select" or product.title == "Gift Cards" or product.type == "Pre-Built Bundle" %}
+  {% unless product.title == "Select" or product.title == "Gift Cards" or product.type == "Pre-Built Bundle" or product.type == "Glove" %}
     {% assign select = collections.all.products[6]%}
     <div class="example-shoes border-beige">
       <p class="tac nm">Examples Of Shoes These Work In</p>

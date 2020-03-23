@@ -33,6 +33,9 @@
     </section>
     {% include 'product-add-to-cart' %}
 
+
+
+{% if product.type != "Glove" %}
   <section class="fw endorsements-features" id="featured">
     <ul class="background-beige">
       <li><p>endorsed by</p></li>
@@ -127,7 +130,12 @@
 });
 </script>
 {% endif %}
-  
+{% else %}
+<section class="accent-padding background-beige tac">
+  <img src="{{'comparison.png' | asset_url}}" style="max-width: 100%;"/>
+</section>
+  {% endif %}
+}
 </main>
 <script>
   $('.color').change(function() {
