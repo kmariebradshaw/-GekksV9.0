@@ -97,7 +97,7 @@
       {% endif %}
   </section>
   
-  {% if product.available and product.variants.size > 1 and product.type != "Gift Card"%}
+  {% if product.available and product.variants.size > 1 and product.type != "Gift Card" and product.type != "Glove" %}
     {% include 'swatch' with 'Color' %}
   {% endif %} 
   {% if product.available %}
@@ -147,8 +147,8 @@
   {% endif %}
   <p class="priceu subscript" id="discount-at-checkout" style="display: none;"><span>*discount applied at checkout</span></p>
   <button type="submit" name="add" id="add-cart" class="background-green text-white clickable" onclick="pintrk('track', 'addtocart');"><span>add to cart</span></button>
-  <h4 class="text-green clickable" id="prod-description">+ Product Description</h4>
-  <ul style="list-style: disc; text-align: left;" id="desc-dets" class="dn">
+  <h4 class="text-green clickable" id="prod-description">- Product Description</h4>
+  <ul style="list-style: disc; text-align: left;" id="desc-dets" class="">
     {% if product.type != "Glove" %}
     <li> Patented fastening system semi-permanently adheres Gekks to your shoes - you put Gekks in your shoe, not on your feet;</li>
     <li>Slip in and out barefoot, but get all day comfort and stench control;</li>
