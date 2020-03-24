@@ -6,6 +6,9 @@
  <section id="product-details">
     {% if product.type == "Closet Pack" or product.type == "Gift Card" or product.type == "Pre-Built Bundle"  or product.type == "Glove"%}
       <h3>{{product.title}}</h3>
+      {% if product.type == "Glove" %}
+      <p class="subscript"><em>One Pair Purchased = One Pair Donated</em></p>
+      {% endif %}
     {% else %}
       <h3>{{ product.collections.first.title }}'s {{product.title}}</h3>
     {% endif %}
