@@ -5,7 +5,7 @@
 $('#hamburger').click(function(){
   // $(this).toggleClass('open');
   $('.mobile-nav1').show().removeClass('slide-out').addClass('slide-in');
-  $('.index-sections, main, header, footer, #banner-cta, .modal').addClass('darken')
+  $('.index-sections, main, header, footer, #banner-cta, .modal, #covid-banner').addClass('darken')
   $('body').addClass('freeze-frame')
 });
 $('#hamburger-close span').click(function() {
