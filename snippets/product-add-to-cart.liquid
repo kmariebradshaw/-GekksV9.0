@@ -7,7 +7,7 @@
     {% if product.type == "Closet Pack" or product.type == "Gift Card" or product.type == "Pre-Built Bundle"  or product.type == "Glove"%}
       <h3>{{product.title}}</h3>
       {% if product.type == "Glove" %}
-      <p class="subscript"><em>One Pair Purchased = One Pair Donated</em></p>
+      <p class="subscript"><em>1,000 pairs donated to Meals on Wheels!</em></p>
       {% endif %}
     {% else %}
       <h3>{{ product.collections.first.title }}'s {{product.title}}</h3>
@@ -162,10 +162,9 @@
     {% else %}
     <h4 class="text-green clickable" id="prod-description">- Product Description</h4>
   <ul style="list-style: disc; text-align: left;" id="desc-dets" class="">
-    <li>Clinical quality antimicrobial protection</li>
+    <li>Contains X-STATIC® Technology, which provides the gloves clinically-tested antimicrobial protection</li>
     <li>Prevents the growth of bacteria on the surface of glove</li>
     <li>Helps resist the urge to touch face and mouth</li>
-    <li>Glove yarn is currently being tested for exact efficacy against SARS-COV2, the virus causing COVID-19</li>
     <li>Base polyester yarn made from recycled bottles and has wicking and cooling technology provided Repreve XS Technology</li>
     <li>100% phone use compatible; thin and user friendly</li>
   </ul>
