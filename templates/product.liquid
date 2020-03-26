@@ -16,7 +16,7 @@
               {% endfor %} 
             </ul>
           </div>
-        {% endunless %} 
+        {% endunless %}
         <img src="{{ product.featured_image.src | product_img_url: '2000x2000' }}" alt="{{ product.title }}" id="featured-image" class="main-image"/>
         {% unless product.type == "Gift Card" %}
           <div id="thumbnails" class="mo-plus" style="display: none;">
@@ -154,12 +154,12 @@
 
 
 
-
+{% comment %}
 <section class="accent-padding">
  
     <img src="{{'Glove_Lines-sized.png' | asset_url}}" style="max-width: 100%;display: block;" class="ma"/>
 
-  </section>
+  </section>{% endcomment %}
   <section class="accent-padding">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/rcIyldBHsmk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="ma" style="display: block; max-width: 100%;"></iframe>
   </section>
