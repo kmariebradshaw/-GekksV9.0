@@ -23,7 +23,7 @@ $cartContainer.append(template(data));cartCallback(cart);};var _showFeedback=fun
 
 var feedback='<div class="ajaxified-cart-feedback '+success+'">'+html+'</div>';$('.is-added').after(feedback);$('.ajaxified-cart-feedback').slideDown();};cartCallback=function(cart){$body.removeClass('drawer--is-loading');$body.trigger('afterCartLoad.ajaxCart',cart);
 
-$('header, main, footer, #banner-cta').addClass('darken');
+$('header, main, footer, #banner-cta, #covid-banner').addClass('darken');
 $('#CartContainer').show().removeClass('slide-out').addClass('slide-in'); 
 
   gtag('event', 'conversion', {
@@ -35,6 +35,8 @@ $('#CartContainer').show().removeClass('slide-out').addClass('slide-in');
 
 var bundles = 0 
 var original_bundles_price = 0 
+var gloves = 0
+var original_gloves_price = 0
 var men = false 
 $.each(cart.items, function(index, cartItem) {
     if ( cartItem.original_price >= 4200) {
@@ -44,12 +46,17 @@ $.each(cart.items, function(index, cartItem) {
         men = true
       }
     }
-    if (cartItem.product_id == "4832899012" || cartItem.product_id == "4832930500") {
+    if ( cartItem.original_price == 2000) {
+      gloves += cartItem.quantity
+      original_gloves_price += cartItem.original_price * cartItem.quantity
+
+    }
+    if (cartItem.product_id == "4832899012" || cartItem.product_id == "4832930500" || cartItem.product_id == "4557708230733") {
       men = true
     }
 });
 
-  var single_pack_total =  cart.item_count - bundles
+  var single_pack_total =  cart.item_count - bundles - gloves
 
   var new_price = ""
   var free_shipping = false
@@ -74,7 +81,7 @@ $.each(cart.items, function(index, cartItem) {
     new_price = 12.00
   }
 
-    var new_subtotal = (original_bundles_price / 100)+ (single_pack_total * new_price)
+    var new_subtotal = (original_bundles_price / 100)+ (single_pack_total * new_price) + (original_gloves_price / 100)
     if (new_subtotal >= 60) {
       free_shipping = true
     }

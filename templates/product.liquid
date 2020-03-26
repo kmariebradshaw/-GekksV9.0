@@ -16,7 +16,7 @@
               {% endfor %} 
             </ul>
           </div>
-        {% endunless %} 
+        {% endunless %}
         <img src="{{ product.featured_image.src | product_img_url: '2000x2000' }}" alt="{{ product.title }}" id="featured-image" class="main-image"/>
         {% unless product.type == "Gift Card" %}
           <div id="thumbnails" class="mo-plus" style="display: none;">
@@ -33,6 +33,9 @@
     </section>
     {% include 'product-add-to-cart' %}
 
+
+
+{% if product.type != "Glove" %}
   <section class="fw endorsements-features" id="featured">
     <ul class="background-beige">
       <li><p>endorsed by</p></li>
@@ -43,8 +46,6 @@
       {% endif %} 
     </ul>
   </section>
-
-
 
 
   <section id="key-features" class="index-padding">
@@ -127,7 +128,43 @@
 });
 </script>
 {% endif %}
-  
+{% else %}
+<section class="accent-padding background-beige tac">
+  <img src="{{'comparison.png' | asset_url}}" style="max-width: 100%;"/>
+</section>
+
+
+<section id="key-features" class="index-padding">
+    <div class="title-border"></div>
+    <h2>About SLVR Gloves</h2>
+    <ul class="icon-display">
+      <li data-aos="slide-up"><img data-src="{{'SLVRIcons_Ideation-02.png' | asset_url}}" alt="Sweat Reducing" class="lazyload"/><br><span class="text-green">Antimicrobial</span></li> 
+      <li class="" data-aos="slide-up"><img data-src="{{'SLVRIcons_Ideation-03.png' | asset_url}}" alt="Comfortable" class="lazyload" /><br><span class="text-green">Moisture Wicking</span></li> 
+      <li data-aos="slide-up"><img data-src="{{'SLVRIcons_Ideation-04.png' | asset_url}}" alt="Long Lasting" class="lazyload"/><br><span class="text-green">Comfortable</span></li> 
+    </ul>
+    <ul class="icon-display">
+      <li data-aos="slide-up"><img data-src="{{'SLVRIcons_Ideation-05.png' | asset_url}}" alt="Convenient" class="lazyload"/><br><span class="text-green">Technology Friendly</span></li> 
+      <li class="" data-aos="slide-up"><img data-src="{{'SLVRIcons_Ideation-06.png' | asset_url}}" alt="Eco-Friendly" class="lazyload"/><br><span class="text-green">Sustainable</span></li> 
+     </ul>
+  </section>
+
+
+
+
+
+
+
+{% comment %}
+<section class="accent-padding">
+ 
+    <img src="{{'Glove_Lines-sized.png' | asset_url}}" style="max-width: 100%;display: block;" class="ma"/>
+
+  </section>{% endcomment %}
+  <section class="accent-padding">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/rcIyldBHsmk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="ma" style="display: block; max-width: 100%;"></iframe>
+  </section>
+  {% endif %}
+
 </main>
 <script>
   $('.color').change(function() {

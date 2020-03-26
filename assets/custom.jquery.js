@@ -5,7 +5,7 @@
 $('#hamburger').click(function(){
   // $(this).toggleClass('open');
   $('.mobile-nav1').show().removeClass('slide-out').addClass('slide-in');
-  $('.index-sections, main, header, footer, #banner-cta, .modal').addClass('darken')
+  $('.index-sections, main, header, footer, #banner-cta, .modal, #covid-banner').addClass('darken')
   $('body').addClass('freeze-frame')
 });
 $('#hamburger-close span').click(function() {
@@ -72,13 +72,13 @@ $('body').on('click touchend', function(e) {
 // popup close
 $('.klaviyo_header_close').on('click', function() {
   $(this).closest('.modal').hide();
-  $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
+  $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1, #covid-banner').removeClass('darken');
 
 });
 
 function closeWelcomePop() {
   $('#newsletter_popup3').hide(); 
-  $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
+  $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1, #covid-banner').removeClass('darken');
 
 }
 
@@ -86,7 +86,7 @@ $(document).click(function (event) {
    if(!$(event.target).closest('.modal').length && !$(event.target).is('.modal') && !$(event.target).is('#referafriend h3') && !$(event.target).is('#getadiscount h3') && !
     $(event.target).is('#size-chart') && !$(event.target).is(".ruler-icon")  && !$(event.target).closest(".bundle-style").length && !$(event.target).closest('#CartContainer').length && !$(event.target).is('button') && !$(event.target).is('button span') && !$(event.target).is('#hamburger span') && !$(event.target).closest('.mobile-nav1').length ) {
      $(".modal").hide(); 
-      $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
+      $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1, #covid-banner').removeClass('darken');
             $('body').removeClass('freeze-frame')
 
      if ($('#CartContainer').is(":visible ")) {
@@ -105,7 +105,7 @@ function cartClose() {
   if ($('#CartContainer').hasClass('slide-in')) {
     $("#CartContainer").removeClass('slide-in').addClass('slide-out');
   }
- $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
+ $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1, #covid-banner').removeClass('darken');
 }
 // ajax cart countdown timer 
 //      <div>

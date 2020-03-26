@@ -1,7 +1,7 @@
   
   {% assign bundles = 0 %}
   {% for item in cart.items %}
-    {% if item.product.type == "Pre-Built Bundle"  %}
+    {% if item.product.type == "Pre-Built Bundle" or item.product.type == "Glove" %}
       {% assign bundles = bundles | plus: item.quantity %}
       {% assign original_bundles_price = item.original_price | times: item.quantity | plus: original_bundles_price %}
     {% endif %}
@@ -47,7 +47,7 @@
                   {% assign new_price = item.quantity | times: 12 %}
                   <h3 class="tar"><span id="updated-price"></span><span id="original-price">$ {{ new_price}}.00 </span><span class="strikethrough"> {{ item.line_price | money}}</span></h3>
                   
-                  {% elsif  bundles >= 1 and item.product.type != "Pre-Built Bundle" %}
+                  {% elsif  bundles >= 1 and item.product.type != "Pre-Built Bundle" and item.product.type != "Glove" %}
                     {% assign new_price = item.quantity | times: 12 %}
                     <h3 class="tar"><span id="updated-price"></span><span id="original-price">$ {{ new_price}}.00 </span><span class="strikethrough"> {{ item.line_price | money}}</span></h3>
                 {% else %}

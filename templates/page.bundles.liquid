@@ -360,7 +360,7 @@
             })
             $('.bundle-modal-close').click(function() {
               $(this).parent().parent().hide(); 
-              $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
+              $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1, #covid-banner').removeClass('darken');
             })
 
             $('.bundle-color-selection').click(function() {
@@ -385,7 +385,7 @@
         		$('.bundle-style').click(function() {
         			var sku =  "." + $(this).attr("id")
         			$(sku).show(); 
-      				$('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').addClass('darken');
+      				$('header, main, footer, #banner-cta, .index-sections, .mobile-nav1, #covid-banner').addClass('darken');
         		})
         		$('#womens-bundle-choice, #mens-bundle-choice').click(function() {
         			if ($(this).attr("id") == "womens-bundle-choice") {
@@ -417,7 +417,7 @@
                 data: params,
                 success: function(){ 
                 $('#bundle-page .modal:visible').hide(); 
-                $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1').removeClass('darken');
+                $('header, main, footer, #banner-cta, .index-sections, .mobile-nav1, #covid-banner').removeClass('darken');
                 $('#bundle-refresh').load(document.URL + ' #bundle-refresh')
                 $('#bundle-scroll').show()
                 $('#copied').slideUp().slideDown().delay(1000).slideUp(); 

@@ -4,14 +4,17 @@
 {% if product.title != "Select" %}
  
  <section id="product-details">
-    {% if product.type == "Closet Pack" or product.type == "Gift Card" or product.type == "Pre-Built Bundle" %}
+    {% if product.type == "Closet Pack" or product.type == "Gift Card" or product.type == "Pre-Built Bundle"  or product.type == "Glove"%}
       <h3>{{product.title}}</h3>
+      {% if product.type == "Glove" %}
+      <p class="subscript"><em>1,000 pairs donated to Meals on Wheels!</em></p>
+      {% endif %}
     {% else %}
       <h3>{{ product.collections.first.title }}'s {{product.title}}</h3>
     {% endif %}
     <p class="subscript">{{ product.description}}</p>
     {% if product.available %} 
-        {% if product.type != "Pre-Built Bundle" and product.title != "Gift Cards" %}
+        {% if product.type != "Pre-Built Bundle" and product.type !="Glove" and product.title != "Gift Cards" %}
             <div class="flex-container-no jcc">
               <h3 class="" style=" margin-right: 10px">$18 <span class="subscript" style="font-weight: 300; margin: 0 5px;">or</span> $12 </h3><span class="subscript" style="font-weight: 300;">when you buy 4 <br>or more pairs</span>
             </div>
@@ -25,7 +28,7 @@
    
       
 
-      {% unless product.title == "Select" or product.title == "Gift Cards" %} 
+      {% unless product.title == "Select" or product.title == "Gift Cards" or product.type == "Glove" %} 
       {% if product.type == "Pre-Built Bundle" %}
         <div id="review-details" class="ib">
       {% else %}
@@ -65,6 +68,7 @@
             62
           {% when "The Casual Pack Lite" %}
             12
+
           {% when "The Metropolitan Pack" %}
             42
           {% when "The Men's Closet Pack" %}
@@ -96,7 +100,7 @@
       {% endif %}
   </section>
   
-  {% if product.available and product.variants.size > 1 and product.type != "Gift Card"%}
+  {% if product.available and product.variants.size > 1 and product.type != "Gift Card" and product.type != "Glove" %}
     {% include 'swatch' with 'Color' %}
   {% endif %} 
   {% if product.available %}
@@ -139,13 +143,14 @@
      {% endfor %}         
   </select>  
   {% endif %}
-  {% if product.title == "Gift Cards" %}
+  {% if product.title == "Gift Cards" or product.type == "Glove"%}
     <div class="spacer"></div>
   {% else %}
     <p class="subscript clickable" id="size-chart"><img src="{{'ruler.png' | asset_url}}" alt="sizing-chart" class="ruler-icon"/>sizing chart</p>
   {% endif %}
   <p class="priceu subscript" id="discount-at-checkout" style="display: none;"><span>*discount applied at checkout</span></p>
   <button type="submit" name="add" id="add-cart" class="background-green text-white clickable" onclick="pintrk('track', 'addtocart');"><span>add to cart</span></button>
+  {% if product.type != "Glove" %}
   <h4 class="text-green clickable" id="prod-description">+ Product Description</h4>
   <ul style="list-style: disc; text-align: left;" id="desc-dets" class="dn">
     <li> Patented fastening system semi-permanently adheres Gekks to your shoes - you put Gekks in your shoe, not on your feet;</li>
@@ -154,6 +159,16 @@
     <li>Thin toe section will not alter the way your shoes fit;</li>
     <li>39% polyester, 38% nylon, 6% spandex, 13% pima cotton, 4% silver coated nylon</li>
   </ul>
+    {% else %}
+    <h4 class="text-green clickable" id="prod-description">- Product Description</h4>
+  <ul style="list-style: disc; text-align: left;" id="desc-dets" class="">
+    <li>Contains X-STATIC® Technology, which provides the gloves clinically-tested antimicrobial protection</li>
+    <li>Prevents the growth of bacteria on the surface of glove</li>
+    <li>Helps resist the urge to touch face and mouth</li>
+    <li>Base polyester yarn made from recycled bottles and has wicking and cooling technology provided Repreve XS Technology</li>
+    <li>100% phone use compatible; thin and user friendly</li>
+  </ul>
+    {% endif %}
   <script>
     $('#prod-description').click(function() {
       $('#desc-dets').toggleClass('dn'); 
@@ -166,7 +181,7 @@
   {% if product.type == "Pre-Built Bundle" %}
     <p style="margin-top: 20px;" class="subscript">Add any combinations of Gekks colors and sizes by building your own bundle. <a href="/pages/bundles" class="text-green">click here.</a></p>
   {% endif %}
-  {% unless product.title == "Select" or product.title == "Gift Cards" or product.type == "Pre-Built Bundle" %}
+  {% unless product.title == "Select" or product.title == "Gift Cards" or product.type == "Pre-Built Bundle" or product.type == "Glove" %}
     {% assign select = collections.all.products[6]%}
     <div class="example-shoes border-beige">
       <p class="tac nm">Examples Of Shoes These Work In</p>
