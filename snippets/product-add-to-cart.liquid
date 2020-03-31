@@ -5,14 +5,17 @@
  
  <section id="product-details">
     {% if product.type == "Closet Pack" or product.type == "Gift Card" or product.type == "Pre-Built Bundle"  or product.type == "Glove"%}
-      <h3>{{product.title}}</h3>
       {% if product.type == "Glove" %}
-      <p class="subscript"><em>1,000 pairs donated to Meals on Wheels!</em></p>
+        <h3 class="glove-title">SL<span style="font-weight: 300;">VR</span> Antimicrobial Gloves by Gekks</h3>
+            <p class="">{{ product.description}}</p>
+      {% else %}
+        <h3>{{product.title}}</h3>
+          <p class="subscript">{{ product.description}}</p>
       {% endif %}
     {% else %}
       <h3>{{ product.collections.first.title }}'s {{product.title}}</h3>
-    {% endif %}
     <p class="subscript">{{ product.description}}</p>
+    {% endif %}
     {% if product.available %} 
         {% if product.type != "Pre-Built Bundle" and product.type !="Glove" and product.title != "Gift Cards" %}
             <div class="flex-container-no jcc">
@@ -44,7 +47,7 @@
         </div>
 
 
-
+ 
 
 
 
@@ -100,7 +103,7 @@
       {% endif %}
   </section>
   
-  {% if product.available and product.variants.size > 1 and product.type != "Gift Card" and product.type != "Glove" %}
+  {% if product.available and product.variants.size > 1 and product.type != "Gift Card"  %}
     {% include 'swatch' with 'Color' %}
   {% endif %} 
   {% if product.available %}
@@ -150,7 +153,9 @@
   {% endif %}
   <p class="priceu subscript" id="discount-at-checkout" style="display: none;"><span>*discount applied at checkout</span></p>
   <button type="submit" name="add" id="add-cart" class="background-green text-white clickable" onclick="pintrk('track', 'addtocart');"><span>add to cart</span></button>
+
   {% if product.type != "Glove" %}
+
   <h4 class="text-green clickable" id="prod-description">+ Product Description</h4>
   <ul style="list-style: disc; text-align: left;" id="desc-dets" class="dn">
     <li> Patented fastening system semi-permanently adheres Gekks to your shoes - you put Gekks in your shoe, not on your feet;</li>
@@ -160,16 +165,22 @@
     <li>39% polyester, 38% nylon, 6% spandex, 13% pima cotton, 4% silver coated nylon</li>
   </ul>
     {% else %}
+    <p class="">*Shipping to customers begins April 3rd; we are donating the first 2,000 pairs off our production line to Meals on Wheels. <b>Your purchase will help us continue to donate gloves to other organizations in need.</b> <a href="https://www.mygekks.com/pages/slvr-announcement" target="_blank" title="https://www.mygekks.com/pages/slvr-announcement" rel="noopener noreferrer"> <span style="text-decoration: underline; font-weight: 300;"><em>Read More.</em></span></a></p>
+      <p>If you are a charity or organization in need of these gloves please contact us at gosockless@mygekks.com</p>
+
     <h4 class="text-green clickable" id="prod-description">- Product Description</h4>
-  <ul style="list-style: disc; text-align: left;" id="desc-dets" class="">
-    <li>Contains X-STATIC® Technology, which provides the gloves clinically-tested antimicrobial protection</li>
-    <li>Prevents the growth of bacteria on the surface of glove</li>
+  <ul style="list-style: disc; text-align: left; padding-left: 20px" id="desc-dets" class="">
+    <li>Everyday gloves infused throughout with silver coated nylon, which has been clinically tested to provide 99.9% antimicrobial protection and resists microorganism growth</li>
+    <li>Silver antimicrobial yarn is currently being tested for exact efficacy against human coronavirus</li>
     <li>Helps resist the urge to touch face and mouth</li>
-    <li>Base polyester yarn made from recycled bottles and has wicking and cooling technology provided Repreve XS Technology</li>
-    <li>100% phone use compatible; thin and user friendly</li>
+    <li>Includes Repreve XS Polyester, made from recycled bottles with wicking and cooling technology</li>
+    <li>Smartphone compatible; thin and user friendly</li>
+    <li>Machine wash and dry</li>
+    <li>57% polyester, 30% nylon, 8% silver coated nylon, 5% lycra</li>
   </ul>
     {% endif %}
   <script>
+ 
     $('#prod-description').click(function() {
       $('#desc-dets').toggleClass('dn'); 
        var text = $(this).text();

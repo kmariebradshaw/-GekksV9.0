@@ -1,7 +1,10 @@
     <main id="page">	     
+	    	{%unless page.title == "SLVR Announcement" %}
 	    <section class="background-green tac text-white page-header">
           <h1>{{ page.title }}</h1>
+	    	
       	</section>
+      	{% endunless %}
         <section class="index-padding">
           {{ page.content }}
 	    </section>
