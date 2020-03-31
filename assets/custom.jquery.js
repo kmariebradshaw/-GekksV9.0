@@ -12,7 +12,7 @@ $('#hamburger-close span').click(function() {
     $('.mobile-nav1').removeClass('slide-in').addClass('slide-out');
     $('body').removeClass('freeze-frame')
 
-  $('.index-sections, main, header, footer, #banner-cta, .modal').removeClass('darken')
+  $('.index-sections, main, header, footer, #banner-cta, .modal, #covid-banner').removeClass('darken')
 })
 // $('#nav-more').click(function() {
 //   $(this).hide(); 

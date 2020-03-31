@@ -5,6 +5,14 @@
   </section>
   
     <section id="product-images">
+      {% if product.type == "Glove" %}
+              <h3 class="mobile-title-glove tac" style="">SL<span style="font-weight: 300;">VR</span> Gloves by Gekks</h3>
+              <style>
+                @media only screen and (min-width: 800px) {
+                  .mobile-title-glove { display: none; }
+                }
+              </style>
+        {% endif %}
        {% unless product.type == "Gift Card" %}
           <div id="thumbnails" class="ndo-plus">
             <ul>
@@ -129,25 +137,40 @@
 </script>
 {% endif %}
 {% else %}
-<section class="accent-padding background-beige tac">
-  <img src="{{'comparison.png' | asset_url}}" style="max-width: 100%;"/>
-</section>
+<style>
+  #product-images { vertical-align: top }
+@media only screen and (max-width: 799px) {
+#product form {
+    display: inherit;
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
 
+}
+.glove-title { display: none; }
+}
 
-<section id="key-features" class="index-padding">
+</style>
+{% comment %}<section class="accent-padding background-beige tac">
+  <img src="{{'comparison.png' | asset_url}}" style="max-width: 100%;display: block; margin: 0 auto;"/>
+</section>{% endcomment %}
+
+ 
+{% comment %}<section id="key-features" class="index-padding">
     <div class="title-border"></div>
     <h2>About SLVR Gloves</h2>
     <ul class="icon-display">
-            <li data-aos="slide-up"><img data-src="{{'SLVRIcons_Ideation-01.png' | asset_url}}" alt="Convenient" class="lazyload"/><br><span class="text-green">Antimicrobial</span></li> 
+            <li data-aos="slide-up"><img data-src="{{'SLVRIcons_Ideation-01.png' | asset_url}}" alt="Convenient" class="lazyload"/><br><span class="text-green">Silver</span></li> 
 
+            <li data-aos="slide-up"><img data-src="{{'SLVRIcons_Ideation-02.png' | asset_url}}" alt="Sweat Reducing" class="lazyload"/><br><span class="text-green">Antimicrobial</span></li> 
       <li class="" data-aos="slide-up"><img data-src="{{'SLVRIcons_Ideation-03.png' | asset_url}}" alt="Comfortable" class="lazyload" /><br><span class="text-green">Moisture Wicking</span></li> 
-      <li data-aos="slide-up"><img data-src="{{'SLVRIcons_Ideation-04.png' | asset_url}}" alt="Long Lasting" class="lazyload"/><br><span class="text-green">Comfortable</span></li> 
+
     </ul>
     <ul class="icon-display">
-      <li data-aos="slide-up"><img data-src="{{'SLVRIcons_Ideation-02.png' | asset_url}}" alt="Sweat Reducing" class="lazyload"/><br><span class="text-green">Cooling</span></li> 
+      <li data-aos="slide-up"><img data-src="{{'SLVRIcons_Ideation-04.png' | asset_url}}" alt="Long Lasting" class="lazyload"/><br><span class="text-green">Comfortable</span></li> 
       <li class="" data-aos="slide-up"><img data-src="{{'SLVRIcons_Ideation-06.png' | asset_url}}" alt="Eco-Friendly" class="lazyload"/><br><span class="text-green">Sustainable</span></li> 
      </ul>
-  </section>
+  </section>{% endcomment %}
 
 
 
@@ -155,15 +178,16 @@
 
 
 
-{% comment %}
+
 <section class="accent-padding">
  
-    <img src="{{'Glove_Lines-sized.png' | asset_url}}" style="max-width: 100%;display: block;" class="ma"/>
+    <img src="{{'SLVR_Howitworks.png' | asset_url}}" style="max-width: 100%;display: block;" class="ma"/>
 
-  </section>{% endcomment %}
-  <section class="accent-padding">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/rcIyldBHsmk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="ma" style="display: block; max-width: 100%;"></iframe>
   </section>
+
+{% comment %}  <section class="accent-padding">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/rcIyldBHsmk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="ma" style="display: block; max-width: 100%;"></iframe>
+  </section>{% endcomment %}
   {% endif %}
 
 </main>

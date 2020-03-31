@@ -46,7 +46,7 @@ $.each(cart.items, function(index, cartItem) {
         men = true
       }
     }
-    if ( cartItem.original_price == 2000) {
+    if ( cartItem.original_price == 3000) {
       gloves += cartItem.quantity
       original_gloves_price += cartItem.original_price * cartItem.quantity
 
@@ -60,7 +60,7 @@ $.each(cart.items, function(index, cartItem) {
 
   var new_price = ""
   var free_shipping = false
-  if (bundles >= 1 && single_pack_total >= 1)  {
+  if (bundles + gloves  >= 1 && single_pack_total >= 1)  {
     new_price = 12.00
     jQuery.get('/discount/bundles4')
   }

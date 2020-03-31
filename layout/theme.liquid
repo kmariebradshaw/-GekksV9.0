@@ -152,7 +152,7 @@ src="https://ct.pinterest.com/v3/?tid=YOUR_TAG_ID&noscript=1" />
   </head>
   <body class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '/', '-' | split: '.' }} {% if template == 'index' or page.handle == 'store' %}zoom-aware{% endif %}">
 
-      <div id="covid-banner" class="background-green"><a href="/products/slvr"><h4 class="tac ttu text-white">Fight COVID-19 with SLVR Gloves. <br class="mo-plus">Donations to Meals on Wheels. <span class="text-underline">Shop Now.</span></h4></a></div>
+      <div id="covid-banner" class="background-green flex-container-no jcc"><a href="/products/slvr"><h4 class="tac ttu text-white">SLVR Antimicrobial Gloves Available Now. <br class="mo-plus">Help donate thousands of gloves to Meals<br class="mo-plus"> on Wheels! <span class="text-underline">Shop Now.</span></h4></a></div>
     <header>
       <div class="wrap cbb-ignored-image" style="text-align: center;">
         <a href="/?sh=d">
@@ -198,7 +198,7 @@ $(document).ready(function(event) {
             <ul class="mobile-nav1 accent-padding" style="display: none;">
                       <p class="nmt tar clickable" id="hamburger-close" style="font-size: 15pt;margin-right:5px;"><span>✕</span></p>
 
-              {% for link in linklists.mobile-nav-bundles.links limit:3 %}
+              {% for link in linklists.mobile-nav-bundles.links limit:4 %}
                 {% assign child_list_handle = link.title | handleize %}
                 {% if linklists[child_list_handle].links != blank %}
                   {% if link.title == "Women's" %} 
@@ -223,7 +223,7 @@ $(document).ready(function(event) {
               {% endfor %}
               <li><a href="#" id="nav-more" class="collection-prod">more<span>◯</span></a>
               <ul class="childlink accent-padding" style="display: none;">
-              {% for link in linklists.mobile-nav-bundles.links offset: 3 %}
+              {% for link in linklists.mobile-nav-bundles.links offset: 4 %}
                 {% if link.title == "Login" %}
                   {% if customer %}
                     <li class="nav-more"><a href="/account">View Account</a></li>
