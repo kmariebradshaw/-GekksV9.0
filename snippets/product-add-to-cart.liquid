@@ -8,11 +8,9 @@
       {% if product.type == "Glove" %}
         <h3 class="glove-title">SL<span style="font-weight: 300;">VR</span> Antimicrobial Gloves by Gekks</h3>
             <p class="">{{ product.description}}</p>
-
       {% else %}
         <h3>{{product.title}}</h3>
           <p class="subscript">{{ product.description}}</p>
-
       {% endif %}
     {% else %}
       <h3>{{ product.collections.first.title }}'s {{product.title}}</h3>
