@@ -146,7 +146,7 @@
      {% endfor %}         
   </select>  
   {% endif %}
-  {% if product.title == "Gift Cards" or product.type == "Glove"%}
+  {% if product.title == "Gift Cards" %}
     <div class="spacer"></div>
   {% else %}
     <p class="subscript clickable" id="size-chart"><img src="{{'ruler.png' | asset_url}}" alt="sizing-chart" class="ruler-icon"/>sizing chart</p>
@@ -241,10 +241,26 @@
     </div>
   {% endunless %}
 </form>
-
+{% comment %} SIZING CHART MODAL {% endcomment %}
+<style>
+  #glove-size-wrapper { width: 100%; max-width: 500px; }
+</style>
 <div style="display: none;" id="display-size" class="sizing-chart border-lightgray modal">
   <div class="accent-padding">
    <p class="nm klaviyo_header_close tar clickable">✕</p>
+{% if product.type == "Glove" %}
+    <div class="flex-container-no" id="glove-size-wrapper">
+      <div class="half">
+        <p class="ttu"><b>SMALL: 6.0 - 6.5in</b></p>
+        <p class="ttu nmb"><b>MEDIUM: 6.5 - 7.25in</b></p>
+        <p class="subscript nmt">(average female hand)</p>
+        <p class="ttu nmb"><b>LARGE: 7.25 - 8.0in</b></p>
+        <p class="subscript nmt">(average male hand)</p>
+        <p class="ttu"><b>EXTRA LARGE: 8.0in +</b></p>
+      </div>
+      <div class="half"><img src="{{'glovesize.jpg' | asset_url}}" class="fw" /></div>
+    </div>
+{% else %}
   <table>
     <tr>
       <th colspan="2" class="blank-row"></th>
@@ -279,6 +295,7 @@
       <td>40-42</td>
     </tr>
   </table>
+  {% endif %}
 </div>
 </div>
 
