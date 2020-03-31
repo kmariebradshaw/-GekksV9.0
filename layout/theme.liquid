@@ -296,8 +296,10 @@ $(document).ready(function(event) {
             <div id="footer-aside">
               <div id="referafriend" class="background-darkgray" onclick="ga('send', 'event', 'Refer', 'Footer', 'Click');"><h3 class="text-white">refer a friend</h3></div>
               
+{% unless product.type == "Glove" %} 
  <div id="getadiscount" class="background-darkgray" onclick="attentiveTest()"><h3 class="text-white">get a discount</h3></div>
 
+{% endunless %}
 
 
 
