@@ -70,7 +70,7 @@
   </head>
   <body class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '/', '-' | split: '.' }} {% if template == 'index' or page.handle == 'store' %}zoom-aware{% endif %}">
     
-    <header>
+    <header style="top: 0 !important;">
       <div class="wrap cbb-ignored-image" style="text-align: center;">
         <a href="/?sh=d">
             <img data-src="{{'jlogo.png' | asset_url}}" alt="Gekks" class="logo lazyload" />
