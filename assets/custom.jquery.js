@@ -308,21 +308,21 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 // redirect v. no redirect 
-$(document).ready(function(){
-  var flowFinish = readCookie('flowFinish')
-  var gekksVisit = readCookie('gekksVisit')
-  var customGekks = readCookie('customGekks')
-  if ((!flowFinish) && (!gekksVisit)){
-    createCookie("gekksVisit", "remarketing", 7)
-    createCookie("flowFinish", "learnMore", 14)
-    if (!(window.location.href.indexOf("?sh=d") > -1) && ( typeof on_index != "undefined" )) {
-      window.location.href="/pages/customize"
-    };
-  }
-  if (customGekks) {
-    $('#custom-gekks a').attr("href", customGekks) 
-  } 
-})
+// $(document).ready(function(){
+//   var flowFinish = readCookie('flowFinish')
+//   var gekksVisit = readCookie('gekksVisit')
+//   var customGekks = readCookie('customGekks')
+//   if ((!flowFinish) && (!gekksVisit)){
+//     createCookie("gekksVisit", "remarketing", 7)
+//     createCookie("flowFinish", "learnMore", 14)
+//     if (!(window.location.href.indexOf("?sh=d") > -1) && ( typeof on_index != "undefined" )) {
+//       window.location.href="/pages/customize"
+//     };
+//   }
+//   if (customGekks) {
+//     $('#custom-gekks a').attr("href", customGekks) 
+//   } 
+// })
  function getParameterByName(name, url) {
   if (!url) {
     url = window.location.href;
