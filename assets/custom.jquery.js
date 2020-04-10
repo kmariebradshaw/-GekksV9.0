@@ -208,6 +208,8 @@ $('body').click(function (event) {
 // thumbnail selection on product pages
 $('#thumbnails ul li img').click(function() {
   var src = $(this).attr("src").replace("compact", "2000x2000"); 
+    $('.featured-wrapper').zoom(({url: src}));
+
   $(this).addClass('border-lightgray').parent().siblings().children().removeClass('border-lightgray'); 
   $('.main-image:visible').attr("src", src); 
 }); 
