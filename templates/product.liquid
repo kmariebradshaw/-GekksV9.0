@@ -25,7 +25,9 @@
             </ul>
           </div>
         {% endunless %}
+        <div class="featured-wrapper">
         <img src="{{ product.featured_image.src | product_img_url: '2000x2000' }}" alt="{{ product.title }}" id="featured-image" class="main-image"/>
+        </div>
         {% unless product.type == "Gift Card" %}
           <div id="thumbnails" class="mo-plus" style="display: none;">
             <ul>
@@ -252,6 +254,10 @@
     }
     $('.product-image').each(function() {
       if ($(this).attr("src").replace("compact", "1000x1000") == $('#featured-image').attr("src")) {
+
+  let url = $('#featured-image').attr("src")
+  $('.featured-wrapper').zoom(({url: url}));
+
   $(this).addClass('border-lightgray').parent().siblings().children().removeClass('border-lightgray'); 
       }
     }); 
@@ -260,6 +266,11 @@
 </script>
 {% unless product.title == "Select" %}
 <script text="text/javascript">
+$(document).ready(function(){
+  let url = $('#featured-image').attr("src")
+  $('.featured-wrapper').zoom(({url: url}));
+});
+
   var _learnq = _learnq || [];
 
   var item = {
@@ -310,6 +321,9 @@
       $('.color').change(function() {
         var imageIndex = $(this).data("index")
         $('#featured-image').attr("src", variantImages[imageIndex])
+          let url = $('#featured-image').attr("src")
+  $('.featured-wrapper').zoom(({url: url}));
+
         $('.product-image').removeClass('border-lightgray')
         $('.first-thumb:visible').attr("src", variantImages[imageIndex]).addClass('border-lightgray')
       })
