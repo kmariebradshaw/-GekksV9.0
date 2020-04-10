@@ -254,7 +254,7 @@
     }
     $('.product-image').each(function() {
       if ($(this).attr("src").replace("compact", "1000x1000") == $('#featured-image').attr("src")) {
-        
+
   let url = $('#featured-image').attr("src")
   $('.featured-wrapper').zoom(({url: url}));
 
@@ -321,6 +321,9 @@ $(document).ready(function(){
       $('.color').change(function() {
         var imageIndex = $(this).data("index")
         $('#featured-image').attr("src", variantImages[imageIndex])
+          let url = $('#featured-image').attr("src")
+  $('.featured-wrapper').zoom(({url: url}));
+
         $('.product-image').removeClass('border-lightgray')
         $('.first-thumb:visible').attr("src", variantImages[imageIndex]).addClass('border-lightgray')
       })
