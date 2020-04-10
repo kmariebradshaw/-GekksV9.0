@@ -1,94 +1,48 @@
 
+
 <div class="postpurchase" style="display: none;">
   <div class="close" style="cursor:pointer;" onclick=" ga('send', 'event', 'Referral Source', 'Closed', clickCount)">✕</div>
-  <div class="tac flex-container-no">
-    <div class="half-no">
-      <h3><span class="text-green">Help Us Get Gekks Closer to You:</span><br>Where did you last purchase shoes? </h3>
+  <div class="flex-container-no tac">
+    <div>
+      <h2>We're working on more antimicrobial & antiodor products! What would you be most excited about us making?</h2>
+      <p class="nmt subscript">Select as many as you'd like in order of what you'd prefer!</p>
       <ul id="post-purchase-stores">
-        <li id="Zappos"><p>Zappos</p></li>
-        <li id="DSW"><p>DSW</p></li>
-        <li id="Nordstrom"><p>Nordstrom / Bloomingdales / Neimans / Barneys</p></li>
-        <li id="Online"><p>Online Shoe Brand Website (allbirds.com, tieks.com, etc) </p></li>
-        <li id="Amazon"><p>Amazon</p></li>
-        <li id="Other"><input type="text" placeholder="Other"></li>
+        <li id="phone" onclick="ga('send', 'event', 'Silver', 'Phone Case', clickCount);"><p>Phone Case</p></li>
+        <li id="pillow" onclick="ga('send', 'event', 'Silver', 'Pillowcase', clickCount);"><p>Pillowcase</p></li>
+        <li id="bedding" onclick="ga('send', 'event', 'Silver', 'Bedding', clickCount);"><p>Bedding</p></li>
+        <li id="bathroom-towel" onclick="ga('send', 'event', 'Silver', 'Bathroom Towels', clickCount);"><p>Bathroom Towels</p></li>
+        <li id="dish-towel" onclick="ga('send', 'event', 'Silver', 'Dish Towel', clickCount);"><p>Dish Towel</p></li>
+        <li id="underwear" onclick="ga('send', 'event', 'Silver', 'Underwear', clickCount);"><p>Underwear</p></li>
+        <li id="hat" onclick="ga('send', 'event', 'Silver', 'Hat', clickCount);"><p>Hat</p></li>
       </ul>
-      <button class="fw background-green" id="post-purchase-submit"><h3 >Submit</h3></button>
     </div>
-    <div class="half-no">
-      <h3>What is the number one reason you purchased your Gekks?</h3>
-      <ul id="post-purchase-stores">
-        <li id="Blister"><p>Blister Prevention</p></li>
-        <li id="Odor"><p>Odor Prevention</p></li>
-        <li id="Comfort"><p>Comfort</p></li>
-        <li id="No-Show"><p>Guaranteed No-Show</p></li>
-        <li id="Slippage"><p>Sock Slippage</p></li>
-        <li id="Moisture-Wicking"><p>Moisture Wicking</p></li>
-        <li id="Other"><input type="text" placeholder="Other"></li>
-      </ul>
-      <button class="fw background-green" id="post-purchase-submit-reason" style="padding:10px;"><h3>Submit</h3></button>
-    </div>
+   
   </div>
 </div>
 
-<script>
-      $('#post-purchase-stores li').click(function() {
-        $(this).toggleClass('chosen').siblings().removeClass('chosen')
-      })
-      $('#post-purchase-submit').click(function() {
-        let organizedStores = $(this).parent().find('.chosen').attr("id")
-        if (organizedStores != "Other") {
-          ga('send', 'event', 'Shoe Shop', organizedStores);
-        }
-        else {
-          let otherInput = $(this).parent().find('.chosen').find('input').val()
-          ga('send', 'event', 'Shoe Shop', otherInput);
-        }
-        $(this).parent().hide(); 
-      })
-      $('#post-purchase-submit-reason').click(function() {
-        let primeReason = $(this).parent().find('.chosen').attr("id")
-        if (primeReason != "Other") {
-          ga('send', 'event', 'Reason', primeReason);
-        }
-        else {
-          let otherInput = $(this).parent().find('.chosen').find('input').val()
-          ga('send', 'event', 'Reason', otherInput);
-        }
-        $(this).parent().hide(); 
-      })
-    </script>
  <script>
-
+   var clickCount = 0 
+  $('.postpurchase #post-purchase-stores li').click(function() {
+    clickCount += 1 
+   $(this).addClass('referral-selected');
+    }  ); 
   $('.close').click(function(){
     $('.postpurchase').hide(); 
   }); 
 
 </script>
 <script>
-
+// var ul = document.querySelector('#post-purchase-list');
+// for (var i = ul.children.length; i >= 0; i--) {
+//     ul.appendChild(ul.children[Math.random() * i | 0]);
+// }
 var ul = document.querySelector('#post-purchase-stores');
-for (var i = ul.children.length - 1; i >= 0; i--) {
+for (var i = ul.children.length; i >= 0; i--) {
     ul.appendChild(ul.children[Math.random() * i | 0]);
 }
 </script>
+
 <style>
-  .flex-container-no { 
-    display: flex;
-    align-items: center;
-   }
-   .postpurchase ::placeholder { font-weight: lighter; text-align: center; line-height: 1.5em; }
-   .postpurchase input { font-weight: lighter !important; text-align: center; line-height: 1.5em; }
-   .chosen {background: #6DCDB8;}
+     .referral-selected {background: #6DCDB8;}
 
-
-     .sub-selected { border: 5px solid gray !important; }
-   
-  .sub-referral { display: none; }
-
-   .half-no { width: 50%; }
-         .text-green {color: #6DCDB8;}
-      .background-green { background-color: #6DCDB8; }
-      .text-white { color: white; }
-      .fw { width: 100%; }
-      #post-purchase-submit h3 { margin: 0px; padding: 10px; }
 </style>
