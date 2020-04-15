@@ -317,7 +317,7 @@ $(document).ready(function(){
           
        }
     {% endfor %}
-    {% if product.type == "Pre-Built Bundle" %}
+    {% if product.type == "Pre-Built Bundle" or product.type == "Glove" %}
       $('.color').change(function() {
         var imageIndex = $(this).data("index")
         $('#featured-image').attr("src", variantImages[imageIndex])
