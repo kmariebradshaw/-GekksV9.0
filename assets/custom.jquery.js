@@ -208,6 +208,8 @@ $('body').click(function (event) {
 // thumbnail selection on product pages
 $('#thumbnails ul li img').click(function() {
   var src = $(this).attr("src").replace("compact", "2000x2000"); 
+    $('.featured-wrapper').zoom(({url: src}));
+
   $(this).addClass('border-lightgray').parent().siblings().children().removeClass('border-lightgray'); 
   $('.main-image:visible').attr("src", src); 
 }); 
@@ -308,21 +310,21 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 // redirect v. no redirect 
-$(document).ready(function(){
-  var flowFinish = readCookie('flowFinish')
-  var gekksVisit = readCookie('gekksVisit')
-  var customGekks = readCookie('customGekks')
-  if ((!flowFinish) && (!gekksVisit)){
-    createCookie("gekksVisit", "remarketing", 7)
-    createCookie("flowFinish", "learnMore", 14)
-    if (!(window.location.href.indexOf("?sh=d") > -1) && ( typeof on_index != "undefined" )) {
-      window.location.href="/pages/customize"
-    };
-  }
-  if (customGekks) {
-    $('#custom-gekks a').attr("href", customGekks) 
-  } 
-})
+// $(document).ready(function(){
+//   var flowFinish = readCookie('flowFinish')
+//   var gekksVisit = readCookie('gekksVisit')
+//   var customGekks = readCookie('customGekks')
+//   if ((!flowFinish) && (!gekksVisit)){
+//     createCookie("gekksVisit", "remarketing", 7)
+//     createCookie("flowFinish", "learnMore", 14)
+//     if (!(window.location.href.indexOf("?sh=d") > -1) && ( typeof on_index != "undefined" )) {
+//       window.location.href="/pages/customize"
+//     };
+//   }
+//   if (customGekks) {
+//     $('#custom-gekks a').attr("href", customGekks) 
+//   } 
+// })
  function getParameterByName(name, url) {
   if (!url) {
     url = window.location.href;

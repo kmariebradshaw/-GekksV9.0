@@ -25,7 +25,9 @@
             </ul>
           </div>
         {% endunless %}
+        <div class="featured-wrapper">
         <img src="{{ product.featured_image.src | product_img_url: '2000x2000' }}" alt="{{ product.title }}" id="featured-image" class="main-image"/>
+        </div>
         {% unless product.type == "Gift Card" %}
           <div id="thumbnails" class="mo-plus" style="display: none;">
             <ul>
@@ -318,7 +320,7 @@
 <section class="accent-padding" style="max-width: 1100px; margin: 0 auto;">
   <h3 class="tac ttu text-green"><span style="font-weight: 300;">Your Purchase will help us continue to</span> Donate Gloves <span style="font-weight: 300">to other organizations in need</span></h3>
     <img src="{{'donation-map.jpeg' | asset_url}}" style="max-width: 100%;display: block;" class="ma"/>
-
+    <img src="{{'donationlogos.jpg' | asset_url}}" style="max-width: 100%;display: block;" class="ma" />
   </section>
 {% comment %}  <section class="accent-padding">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/rcIyldBHsmk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="ma" style="display: block; max-width: 100%;"></iframe>
@@ -383,6 +385,10 @@
     }
     $('.product-image').each(function() {
       if ($(this).attr("src").replace("compact", "1000x1000") == $('#featured-image').attr("src")) {
+
+  let url = $('#featured-image').attr("src")
+  $('.featured-wrapper').zoom(({url: url}));
+
   $(this).addClass('border-lightgray').parent().siblings().children().removeClass('border-lightgray'); 
       }
     }); 
@@ -391,6 +397,11 @@
 </script>
 {% unless product.title == "Select" %}
 <script text="text/javascript">
+$(document).ready(function(){
+  let url = $('#featured-image').attr("src")
+  $('.featured-wrapper').zoom(({url: url}));
+});
+
   var _learnq = _learnq || [];
 
   var item = {
@@ -437,10 +448,13 @@
           
        }
     {% endfor %}
-    {% if product.type == "Pre-Built Bundle" %}
+    {% if product.type == "Pre-Built Bundle" or product.type == "Glove" %}
       $('.color').change(function() {
         var imageIndex = $(this).data("index")
         $('#featured-image').attr("src", variantImages[imageIndex])
+          let url = $('#featured-image').attr("src")
+  $('.featured-wrapper').zoom(({url: url}));
+
         $('.product-image').removeClass('border-lightgray')
         $('.first-thumb:visible').attr("src", variantImages[imageIndex]).addClass('border-lightgray')
       })
