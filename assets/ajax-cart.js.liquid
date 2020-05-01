@@ -32,7 +32,7 @@ $('#CartContainer').show().removeClass('slide-out').addClass('slide-in');
       'currency': 'USD',
       'aw_remarketing_only': true
   });
-
+{% comment %}
 var bundles = 0 
 var original_bundles_price = 0 
 var gloves = 0
@@ -98,7 +98,7 @@ $.each(cart.items, function(index, cartItem) {
     }
     if (free_shipping) {
     $('#ajax-ship-free').show(); 
-  }
+  }{% endcomment %}
 
 var success_cart_feedback = ""
 if (men == true) {
